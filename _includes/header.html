@@ -1,0 +1,33 @@
+<header class="c-page__header">
+  <h1><code>{{ site.title }}</code></h1>
+
+  {% if page.title == nil %}
+  <h2 class="c-page__subtitle">{{ site.description }}</h2>
+  {% endif %}
+
+  <nav role="navigation">
+    <a href="{{ "/" | prepend: site.baseurl }}" role="menuitem">
+      Blog
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="{{ "/talks/" | prepend: site.baseurl }}" role="menuitem">
+      Talks
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="{{ "/activities/" | prepend: site.baseurl }}" role="menuitem">
+      Activities
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="{{ "/about/" | prepend: site.baseurl }}" role="menuitem">
+      About
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="{{ "/subscribe/" | prepend: site.baseurl }}" role="menuitem">
+      Subscribe
+    </a>
+  </nav>
+</header>

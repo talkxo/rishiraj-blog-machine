@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/assets/images/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
+<link rel="manifest" href="/assets/images/favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/assets/images/favicons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+
+  <!-- Meta information -->
+  <title>Typechecking Django and DRF</title>
+  <meta name="description"
+        content="">
+  <link rel="canonical"
+        href="http://localhost:4000/2019/08/typechecking-django-and-drf" />
+
+  <!-- Open search scheme -->
+  <link rel="search"
+        type="application/opensearchdescription+xml"
+        title="sobolevn.me"
+        href="/opensearch.xml" />
+
+  <!-- Feed -->
+  <link rel="alternate" type="application/rss+xml" title="sobolevn's personal blog"
+        href="/feed.xml" />
+
+  <!-- Custom fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,900|Roboto+Mono:400,400i|Montserrat:400,800" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+  <!-- Custom style -->
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Global site tag (gtag.js) - Google Ads: 839642990 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-839642990"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-839642990');
+  </script>
+</head>
+
+
+  <body>
+    <main class="u-container">
+      <div class="c-page">
+  <header class="c-page__header">
+  <h1><code>sobolevn's personal blog</code></h1>
+
+  
+
+  <nav role="navigation">
+    <a href="/" role="menuitem">
+      Blog
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/talks/" role="menuitem">
+      Talks
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/activities/" role="menuitem">
+      Activities
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/about/" role="menuitem">
+      About
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/subscribe/" role="menuitem">
+      Subscribe
+    </a>
+  </nav>
+</header>
+
+  <div class="c-page__main">
+    <article class="c-article" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header class="c-article__header">
+    <h1 class="c-article__title" itemprop="name">Typechecking Django and DRF</h1>
+    <p class="c-article__time">
+      <small>
+        <time datetime="2019-08-25T00:00:00+05:30" itemprop="datePublished">
+          August 25, 2019
+        </time>
+      </small>
+      <small><span class="reading-time" title="Estimated read time">
+  
+  
+    9 mins
+   read
+</span>
+</small>
+      <small><a href="#discussion">Start a discussion</a></small>
+      <small><a href="https://github.com/sobolevn/sobolevn.github.io/blob/master/_posts/2019-08-25-typechecking-django-and-drf.md">Edit this page</a></small>
+    </p>
+  </header>
+
+  <!-- Post Tags -->
+  <!-- <ul class="c-tags">
+    
+    <li class="c-tag">python</li>
+    
+  </ul> -->
+
+  <!-- Content -->
+  <div class="c-article__main">
+
+    
+
+    <div class="c-article__body" itemprop="articleBody">
+      <p><img src="https://i.imgur.com/X2EZBa3.png" alt="Post logo"></p>
+
+<p>As you have <a href="https://sobolevn.me/2019/02/python-exceptions-considered-an-antipattern">already</a>
+<a href="https://sobolevn.me/2018/07/real-python-contants">know</a>
+I <a href="https://sobolevn.me/2019/01/simple-dependent-types-in-python">love</a>
+optional static typing.
+The thing is that sometimes it is not optional, but impossible.
+Because we have plenty of big untyped projects in Python’s ecosystem.</p>
+
+<p>Django and Django-Rest-Framework were two of them. Were.
+Because now they can be typed!
+Let me introduce <a href="https://github.com/typeddjango">TypedDjango</a> organisation
+and stubs for <a href="https://github.com/typeddjango/django-stubs"><code class="language-plaintext highlighter-rouge">django</code></a>
+and <a href="https://github.com/typeddjango/djangorestframework-stubs"><code class="language-plaintext highlighter-rouge">drf</code></a>.</p>
+
+<p>This is going to be a concise tutorial and getting started guide.</p>
+
+
+      <h2 id="kudos">
+        
+        <a class="anchor" href="#kudos">Kudos</a>
+        
+      </h2>
+
+<p>I want to say a big “thank you” to <a href="https://github.com/mkurnikov">@mkurnikov</a>
+for leading the project and to all contributors who made this possible.
+You are all awesome!</p>
+
+
+    
+      <h2 id="tldr">
+        
+        <a class="anchor" href="#tldr">TLDR</a>
+        
+      </h2>
+
+<p>In this article, I am showing how types work with <code class="language-plaintext highlighter-rouge">django</code> and <code class="language-plaintext highlighter-rouge">drf</code>.
+You can have a look at the <a href="https://github.com/sobolevn/django_stubs_example">result here</a>.</p>
+
+<p>And you can also use <a href="https://github.com/wemake-services/wemake-django-template"><code class="language-plaintext highlighter-rouge">wemake-django-template</code></a> to start your new projects with everything already configured.
+It will look exactly like the example project.</p>
+
+
+    
+      <h2 id="getting-started">
+        
+        <a class="anchor" href="#getting-started">Getting started</a>
+        
+      </h2>
+
+<p>In this little tutorial, I will show you several
+features of <code class="language-plaintext highlighter-rouge">django-stubs</code> and <code class="language-plaintext highlighter-rouge">djangorestframework-stubs</code> in action.
+I hope this will convince you that having someone to doublecheck
+things after you is a good thing.</p>
+
+<p>You can always refer to the original documentation.
+All the steps are also covered there.</p>
+
+<p>To start we will need <a href="https://docs.djangoproject.com/en/2.2/intro/tutorial01/#creating-a-project">a new project</a> and <a href="https://docs.python.org/3/library/venv.html">a clean virtual environment</a>, so we can install our dependencies:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>django django-stubs mypy
+</code></pre></div></div>
+
+<p>Then we will need to configure <code class="language-plaintext highlighter-rouge">mypy</code> correctly.
+It can be split into two steps.
+First, we configure the <code class="language-plaintext highlighter-rouge">mypy</code> itself:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># setup.cfg
+</span><span class="nn">[mypy]</span>
+<span class="c"># The mypy configurations: https://mypy.readthedocs.io/en/latest/config_file.html
+</span><span class="py">python_version</span> <span class="p">=</span> <span class="s">3.7</span>
+
+<span class="py">check_untyped_defs</span> <span class="p">=</span> <span class="s">True</span>
+<span class="py">disallow_any_generics</span> <span class="p">=</span> <span class="s">True</span>
+<span class="py">disallow_untyped_calls</span> <span class="p">=</span> <span class="s">True</span>
+<span class="py">disallow_untyped_decorators</span> <span class="p">=</span> <span class="s">True</span>
+<span class="py">ignore_errors</span> <span class="p">=</span> <span class="s">False</span>
+<span class="py">ignore_missing_imports</span> <span class="p">=</span> <span class="s">True</span>
+<span class="py">implicit_reexport</span> <span class="p">=</span> <span class="s">False</span>
+<span class="py">strict_optional</span> <span class="p">=</span> <span class="s">True</span>
+<span class="py">strict_equality</span> <span class="p">=</span> <span class="s">True</span>
+<span class="py">no_implicit_optional</span> <span class="p">=</span> <span class="s">True</span>
+<span class="py">warn_unused_ignores</span> <span class="p">=</span> <span class="s">True</span>
+<span class="py">warn_redundant_casts</span> <span class="p">=</span> <span class="s">True</span>
+<span class="py">warn_unused_configs</span> <span class="p">=</span> <span class="s">True</span>
+<span class="py">warn_unreachable</span> <span class="p">=</span> <span class="s">True</span>
+<span class="py">warn_no_return</span> <span class="p">=</span> <span class="s">True</span>
+</code></pre></div></div>
+
+<p>Then we configure <code class="language-plaintext highlighter-rouge">django-stubs</code> plugin:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># setup.cfg
+</span><span class="nn">[mypy]</span>
+<span class="c"># Appending to `mypy` section:
+</span><span class="py">plugins</span> <span class="p">=</span>
+  <span class="err">mypy_django_plugin.main</span>
+
+<span class="nn">[mypy.plugins.django-stubs]</span>
+<span class="py">django_settings_module</span> <span class="p">=</span> <span class="s">server.settings</span>
+</code></pre></div></div>
+
+<p>What do we do here?</p>
+<ol>
+  <li>We add a custom <code class="language-plaintext highlighter-rouge">mypy</code> <a href="https://mypy.readthedocs.io/en/latest/extending_mypy.html">plugin</a>
+to help the type checker guess types
+in some complicated Django-specific situations
+(like models, queryset, settings, etc)</li>
+  <li>We also add custom configuration for <code class="language-plaintext highlighter-rouge">django-stubs</code> to point it
+to the settings, we use for Django. It will need to import it.</li>
+</ol>
+
+<p>The final result can be found <a href="https://github.com/sobolevn/django_stubs_example/blob/master/setup.cfg#L78">here</a>.</p>
+
+<p>We now have everything installed and configured. Let’s type check things!</p>
+
+
+    
+      <h2 id="typechecking-views">
+        
+        <a class="anchor" href="#typechecking-views">Typechecking views</a>
+        
+      </h2>
+
+<p>Let’s start with typing views
+as it is the easiest thing to do with this plugin.</p>
+
+<p>Here’s our simple function-based view:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># server/apps/main/views.py
+</span><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpRequest</span><span class="p">,</span> <span class="n">HttpResponse</span>
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+
+
+<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">HttpRequest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HttpResponse</span><span class="p">:</span>
+    <span class="n">reveal_type</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">is_ajax</span><span class="p">)</span>
+    <span class="n">reveal_type</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">user</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s">'main/index.html'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Let’s run and see what types it is aware of.
+Note that we might need to modify <code class="language-plaintext highlighter-rouge">PYTHONPATH</code>,
+so <code class="language-plaintext highlighter-rouge">mypy</code> would be able to import our project:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>» PYTHONPATH="$PYTHONPATH:$PWD" mypy server
+server/apps/main/views.py:14: note: Revealed type is 'def () -&gt; builtins.bool'
+server/apps/main/views.py:15: note: Revealed type is 'django.contrib.auth.models.User'
+</code></pre></div></div>
+
+<p>Let’s try to break something:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># server/apps/main/views.py
+</span><span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">HttpRequest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HttpResponse</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">META</span><span class="p">,</span> <span class="s">'main/index.html'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Nope, there’s a typo and <code class="language-plaintext highlighter-rouge">mypy</code> will catch it:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>» PYTHONPATH="$PYTHONPATH:$PWD" mypy server
+server/apps/main/views.py:18: error: Argument 1 to "render" has incompatible type "Dict[str, Any]"; expected "HttpRequest"
+</code></pre></div></div>
+
+<p>It works! Ok, but that is pretty straight-forward.
+Let’s complicate our example a little bit and create a custom model
+to show how can we type models and querysets.</p>
+
+
+    
+      <h2 id="typechecking-models-and-queryset">
+        
+        <a class="anchor" href="#typechecking-models-and-queryset">Typechecking models and queryset</a>
+        
+      </h2>
+
+<p>Django’s ORM is a killer-feature. It is very flexible and dynamic.
+It also means that it is hard to type.
+Let’s see some features that are already covered by <code class="language-plaintext highlighter-rouge">django-stubs</code>.</p>
+
+<p>Our model definition:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># server/apps/main/models.py
+</span><span class="kn">from</span> <span class="nn">django.contrib.auth</span> <span class="kn">import</span> <span class="n">get_user_model</span>
+<span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="n">User</span> <span class="o">=</span> <span class="n">get_user_model</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="nc">BlogPost</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">author</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">User</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="p">.</span><span class="n">CASCADE</span><span class="p">)</span>
+
+    <span class="n">text</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">TextField</span><span class="p">()</span>
+
+    <span class="n">is_published</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">created_at</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">reveal_type</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="nb">id</span><span class="p">)</span>  <span class="c1"># example reveal of all fields in a model
+</span>        <span class="n">reveal_type</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">author</span><span class="p">)</span>
+        <span class="n">reveal_type</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">reveal_type</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">is_published</span><span class="p">)</span>
+        <span class="n">reveal_type</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">created_at</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s">'&lt;BlogPost {0}&gt;'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="nb">id</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>And every field of this model is covered by <code class="language-plaintext highlighter-rouge">django-stubs</code>.
+Let’s see what types are revealed:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>» PYTHONPATH="$PYTHONPATH:$PWD" mypy server
+server/apps/main/models.py:21: note: Revealed type is 'builtins.int*'
+server/apps/main/models.py:22: note: Revealed type is 'django.contrib.auth.models.User*'
+server/apps/main/models.py:23: note: Revealed type is 'builtins.str*'
+server/apps/main/models.py:24: note: Revealed type is 'builtins.bool*'
+server/apps/main/models.py:25: note: Revealed type is 'datetime.datetime*'
+</code></pre></div></div>
+
+<p>Everything looks good! <code class="language-plaintext highlighter-rouge">django-stubs</code> provides a custom <code class="language-plaintext highlighter-rouge">mypy</code> plugin
+to convert model fields into correct instance types.
+That’s why all types are correctly revealed.</p>
+
+<p>The second big feature of <code class="language-plaintext highlighter-rouge">django-stubs</code> plugin is that we can type <code class="language-plaintext highlighter-rouge">QuerySet</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># server/apps/main/logic/repo.py
+</span><span class="kn">from</span> <span class="nn">django.db.models.query</span> <span class="kn">import</span> <span class="n">QuerySet</span>
+
+<span class="kn">from</span> <span class="nn">server.apps.main.models</span> <span class="kn">import</span> <span class="n">BlogPost</span>
+
+<span class="k">def</span> <span class="nf">published_posts</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="s">'QuerySet[BlogPost]'</span><span class="p">:</span>  <span class="c1"># works fine!
+</span>    <span class="k">return</span> <span class="n">BlogPost</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="nb">filter</span><span class="p">(</span>
+        <span class="n">is_published</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="p">)</span>
+</code></pre></div></div>
+
+<p>And here’s how it can be checked:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">reveal_type</span><span class="p">(</span><span class="n">published_posts</span><span class="p">().</span><span class="n">first</span><span class="p">())</span>
+<span class="c1"># =&gt; Union[server.apps.main.models.BlogPost*, None]
+</span></code></pre></div></div>
+
+<p>We can even annotate querysets with <code class="language-plaintext highlighter-rouge">.values()</code> and <code class="language-plaintext highlighter-rouge">.values_list()</code> calls.
+This plugin is smart!</p>
+
+<p>I have struggled with annotating methods returning <code class="language-plaintext highlighter-rouge">QuerySet</code>s
+for several years. This feature solves a big problem for me:
+no more <code class="language-plaintext highlighter-rouge">Iterable[BlogPost]</code> or <code class="language-plaintext highlighter-rouge">List[User]</code>.
+I can now use real types.</p>
+
+
+    
+      <h2 id="typechecking-apis">
+        
+        <a class="anchor" href="#typechecking-apis">Typechecking APIs</a>
+        
+      </h2>
+
+<p>But, typing views, models, forms, commands, urls, and admin is not all we have.
+TypedDjango also has typings for <code class="language-plaintext highlighter-rouge">djangorestframework</code>.
+Let’s install and configure it:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>djangorestframework djangorestframework-stubs
+</code></pre></div></div>
+
+<p>Let’s also add a new <code class="language-plaintext highlighter-rouge">mypy</code> plugin:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[mypy]</span>
+<span class="py">plugins</span> <span class="p">=</span>
+  <span class="err">mypy_django_plugin.main,</span>
+  <span class="err">mypy_drf_plugin.main</span>  <span class="c"># new!
+</span></code></pre></div></div>
+
+<p>Then we can start to create serializers:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># server/apps/main/serializers.py
+</span><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">serializers</span>
+
+<span class="kn">from</span> <span class="nn">server.apps.main.models</span> <span class="kn">import</span> <span class="n">BlogPost</span><span class="p">,</span> <span class="n">User</span>
+
+<span class="k">class</span> <span class="nc">UserSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="p">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">User</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s">'username'</span><span class="p">,</span> <span class="s">'email'</span><span class="p">]</span>
+
+<span class="k">class</span> <span class="nc">BlogPostSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="p">.</span><span class="n">HyperlinkedModelSerializer</span><span class="p">):</span>
+    <span class="n">author</span> <span class="o">=</span> <span class="n">UserSerializer</span><span class="p">()</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">BlogPost</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s">'author'</span><span class="p">,</span> <span class="s">'text'</span><span class="p">,</span> <span class="s">'is_published'</span><span class="p">,</span> <span class="s">'created_at'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>Views:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># server/apps/main/views.py
+</span><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">viewsets</span>
+
+<span class="kn">from</span> <span class="nn">server.apps.main.serializers</span> <span class="kn">import</span> <span class="n">BlogPostSerializer</span>
+<span class="kn">from</span> <span class="nn">server.apps.main.models</span> <span class="kn">import</span> <span class="n">BlogPost</span>
+
+<span class="k">class</span> <span class="nc">BlogPostViewset</span><span class="p">(</span><span class="n">viewsets</span><span class="p">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
+    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">BlogPostSerializer</span>
+    <span class="n">queryset</span> <span class="o">=</span> <span class="n">BlogPost</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="nb">all</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>And routers:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># server/apps/main/urls.py
+</span><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span><span class="p">,</span> <span class="n">include</span>
+<span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">routers</span>
+
+<span class="kn">from</span> <span class="nn">server.apps.main.views</span> <span class="kn">import</span> <span class="n">BlogPostViewset</span><span class="p">,</span> <span class="n">index</span>
+
+<span class="n">router</span> <span class="o">=</span> <span class="n">routers</span><span class="p">.</span><span class="n">DefaultRouter</span><span class="p">()</span>
+<span class="n">router</span><span class="p">.</span><span class="n">register</span><span class="p">(</span><span class="sa">r</span><span class="s">'posts'</span><span class="p">,</span> <span class="n">BlogPostViewset</span><span class="p">)</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">''</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="n">router</span><span class="p">.</span><span class="n">urls</span><span class="p">)),</span>
+    <span class="c1"># ...
+</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>It does not even look like something has changed, but
+everything inside is typed: settings, serializers, viewsets, and routers.
+It will allow you to incrementally add typings where you need them the most.</p>
+
+<p>Let’s try to change <code class="language-plaintext highlighter-rouge">queryset = BlogPost.objects.all()</code>
+to <code class="language-plaintext highlighter-rouge">queryset = [1, 2, 3]</code> in our views:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>» PYTHONPATH="$PYTHONPATH:$PWD" mypy server
+server/apps/main/views.py:25: error: Incompatible types in assignment (expression has type "List[int]", base class "GenericAPIView" defined the type as "Optional[QuerySet[Any]]")
+</code></pre></div></div>
+
+<p>No, it won’t work! Fix your code!</p>
+
+
+    
+      <h2 id="conclusion">
+        
+        <a class="anchor" href="#conclusion">Conclusion</a>
+        
+      </h2>
+
+<p>Typing the framework interfaces is an awesome thing to have.
+When combined with tools like <a href="https://github.com/dry-python/returns"><code class="language-plaintext highlighter-rouge">returns</code></a>
+and <a href="https://github.com/dry-python/mappers"><code class="language-plaintext highlighter-rouge">mappers</code></a>
+it will allow writing type-safe and declarative business logic wrapped
+into typed framework interfaces.
+And to decrease the number of errors in the layer between these two.</p>
+
+<p>Optional gradual static typing also allows you to start fast
+and add types only when your API is stabilized
+or go with types-driven development from the very start.</p>
+
+<p>However, <code class="language-plaintext highlighter-rouge">django-stubs</code> and <code class="language-plaintext highlighter-rouge">djangorestframework-stubs</code> are new projects.
+There are still a lot of bugs, planned features, missing type specs.
+We welcome every contribution from the community
+to make the developer tooling in Python truly awesome.</p>
+
+    </div>
+
+    <hr>
+
+    <div class="post-subscribe">
+      <h2>
+        <a href="https://sobolevn.me/subscribe">
+          Subscribe to my blog if you want more
+        </a>
+      </h2>
+    </div>
+
+    
+    
+    <div class="post-republish">
+      <h4>Republished as:</h4>
+      <ul>
+      
+        <li>
+          <a class="c-article__repost" href="https://dev.to/wemake-services/typechecking-django-internals-and-querysets-1m47" target="_blank">
+            
+            dev.to <img class="emoji" title=":us:" alt=":us:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f1fa-1f1f8.png" height="20" width="20">
+          </a>
+        </li>
+      
+      </ul>
+    </div>
+    
+  </div>
+
+  <!-- Disqus comments view -->
+  
+  <div class="post-disqus" id="discussion">
+    <div id="disqus_thread"></div>
+
+<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+this.page.url = "http://localhost:4000/2019/08/typechecking-django-and-drf";
+this.page.identifier = "/2019/08/typechecking-django-and-drf";
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://sobolevn-me.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+
+  </div>
+  
+</article>
+
+  </div>
+  <footer class="c-page__footer">
+  <p>
+    <i class="far fa-copyright"></i>
+    <a href="https://sobolevn.me/about/">sobolevn</a>
+    2023,
+    content licensed
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">
+      CC BY-NC
+    </a>,
+    <a href="https://github.com/sobolevn/sobolevn.github.io" target="_blank">
+      source code
+    </a>
+  </p>
+
+  <p>
+    <a href="mailto:mail@sobolevn.me" alt="email">
+      <i class="far fa-2x fa-envelope"></i>
+    </a>
+    <a href="https://github.com/sobolevn" alt="github">
+      <i class="fab fa-2x fa-github"></i>
+    </a>
+    <a href="https://dev.to/sobolevn" alt="practicaldev">
+      <i class="fab fa-2x fa-dev"></i>
+    </a>
+    <a href="https://medium.com/@sobolevn" alt="medium">
+      <i class="fab fa-2x fa-medium"></i>
+    </a>
+    <a href="https://stackoverflow.com/users/4842742/sobolevn" alt="stackoverflow">
+      <i class="fab fa-2x fa-stack-overflow"></i>
+    </a>
+  </p>
+</footer>
+
+</div>
+
+    </main>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66588818-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66588818-1');
+</script>
+
+  </body>
+</html>

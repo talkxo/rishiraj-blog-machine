@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/assets/images/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
+<link rel="manifest" href="/assets/images/favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/assets/images/favicons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+
+  <!-- Meta information -->
+  <title>Using better CLIs</title>
+  <meta name="description"
+        content="For people who spend half of their lives in a terminal user experience and functionality is highly important. Making you a happier person.">
+  <link rel="canonical"
+        href="http://localhost:4000/2017/10/using-better-clis" />
+
+  <!-- Open search scheme -->
+  <link rel="search"
+        type="application/opensearchdescription+xml"
+        title="sobolevn.me"
+        href="/opensearch.xml" />
+
+  <!-- Feed -->
+  <link rel="alternate" type="application/rss+xml" title="sobolevn's personal blog"
+        href="/feed.xml" />
+
+  <!-- Custom fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,900|Roboto+Mono:400,400i|Montserrat:400,800" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+  <!-- Custom style -->
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Global site tag (gtag.js) - Google Ads: 839642990 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-839642990"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-839642990');
+  </script>
+</head>
+
+
+  <body>
+    <main class="u-container">
+      <div class="c-page">
+  <header class="c-page__header">
+  <h1><code>sobolevn's personal blog</code></h1>
+
+  
+
+  <nav role="navigation">
+    <a href="/" role="menuitem">
+      Blog
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/talks/" role="menuitem">
+      Talks
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/activities/" role="menuitem">
+      Activities
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/about/" role="menuitem">
+      About
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/subscribe/" role="menuitem">
+      Subscribe
+    </a>
+  </nav>
+</header>
+
+  <div class="c-page__main">
+    <article class="c-article" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header class="c-article__header">
+    <h1 class="c-article__title" itemprop="name">Using better CLIs</h1>
+    <p class="c-article__time">
+      <small>
+        <time datetime="2017-10-09T00:00:00+05:30" itemprop="datePublished">
+          October 9, 2017
+        </time>
+      </small>
+      <small><span class="reading-time" title="Estimated read time">
+  
+  
+    4 mins
+   read
+</span>
+</small>
+      <small><a href="#discussion">Start a discussion</a></small>
+      <small><a href="https://github.com/sobolevn/sobolevn.github.io/blob/master/_posts/2017-10-09-using-better-clis.md">Edit this page</a></small>
+    </p>
+  </header>
+
+  <!-- Post Tags -->
+  <!-- <ul class="c-tags">
+    
+    <li class="c-tag">bash</li>
+    
+    <li class="c-tag">python</li>
+    
+  </ul> -->
+
+  <!-- Content -->
+  <div class="c-article__main">
+
+    
+
+    <div class="c-article__body" itemprop="articleBody">
+      <p>For people who spend half of their lives in a terminal user experience and functionality is highly important. Making you a happier person.</p>
+
+<p>Here are some very good alternatives to some default command line applications.</p>
+
+
+      <h2 id="tldr">
+        
+        <a class="anchor" href="#tldr">TLDR</a>
+        
+      </h2>
+
+<p>My full setup includes all the stuff discussed in this article and even more.
+Check it out: <a href="https://github.com/sobolevn/dotfiles">https://github.com/sobolevn/dotfiles</a></p>
+
+
+    
+      <h2 id="git">
+        
+        <a class="anchor" href="#git">Git</a>
+        
+      </h2>
+
+
+    
+      <h3 id="hub">
+        
+        <a class="anchor" href="#hub">hub</a>
+        
+      </h3>
+
+<p>When working with open-source (and Github) projects frequently sometimes <code class="language-plaintext highlighter-rouge">git</code> is not enough. So, Github created a tool called <a href="https://hub.github.com/"><code class="language-plaintext highlighter-rouge">hub</code></a>.</p>
+
+<p>It allows to fetch from remote forks, browse issues, and create pull requests with ease!</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Open the current project's issues page
+$ git browse -- issues
+  → open https://github.com/github/hub/issues
+
+# Fetch from multiple forks, even if they don't yet exist as remotes:
+$ git fetch user1,fork2
+
+# Browse issues:
+$ git browse -- issues
+  → open https://github.com/github/hub/issues
+
+# Create a pull request:
+$ git pull-request -F message-template.md
+</code></pre></div></div>
+
+
+    
+      <h3 id="tig">
+        
+        <a class="anchor" href="#tig">tig</a>
+        
+      </h3>
+
+<p>Let’s face it. <code class="language-plaintext highlighter-rouge">git log</code> sucks. It allows browsing commits history, but when you want to look inside a specific commit for its changesets or tree structure, well … You will have to memorize all these commands or use a lot of external plugins.</p>
+
+<p><code class="language-plaintext highlighter-rouge">tig</code> solves it all. Firstly, it allows to browse commits history. Then you can dive inside! Browse changesets, file trees, blames, and even blobs!</p>
+
+<p><img src="https://i.imgur.com/0EVZxQb.png" alt="tig"></p>
+
+
+    
+      <h2 id="utils">
+        
+        <a class="anchor" href="#utils">Utils</a>
+        
+      </h2>
+
+
+    
+      <h3 id="postgres-and-mysql-too">
+        
+        <a class="anchor" href="#postgres-and-mysql-too">postgres (and mysql too!)</a>
+        
+      </h3>
+
+<p>When working with <code class="language-plaintext highlighter-rouge">postgres</code> we have to use <code class="language-plaintext highlighter-rouge">psql</code>. And it is quite good. It has history, some basic autocomplete and commands that are easy to remember. But, there is a better tool called <a href="https://github.com/dbcli/pgcli"><code class="language-plaintext highlighter-rouge">pgcli</code></a>.</p>
+
+<p><img src="https://raw.githubusercontent.com/dbcli/pgcli/7c720a07652d705376af6bf4fcfe6a65e0df3ddc/screenshots/pgcli.gif" alt="pgcli"></p>
+
+<p>Features:</p>
+<ul>
+  <li>smart autocomplete</li>
+  <li>syntax highlighting</li>
+  <li>pretty prints of tabular data</li>
+</ul>
+
+<p>It also has a version for <code class="language-plaintext highlighter-rouge">mysql</code> called <a href="https://github.com/dbcli/mycli"><code class="language-plaintext highlighter-rouge">mycli</code></a>.</p>
+
+<p>By the way, yesterday a new <a href="https://www.postgresql.org/about/news/1786/">10th version</a> of <code class="language-plaintext highlighter-rouge">postgres</code> was released.</p>
+
+
+    
+      <h3 id="glances">
+        
+        <a class="anchor" href="#glances">glances</a>
+        
+      </h3>
+
+<p>System monitoring is a common task for every developer. Standard tools like <code class="language-plaintext highlighter-rouge">top</code> and <code class="language-plaintext highlighter-rouge">htop</code> are fine and trusted software. But look at this beauty, <a href="https://github.com/nicolargo/glances"><code class="language-plaintext highlighter-rouge">glances</code></a>:</p>
+
+<p><img src="https://raw.githubusercontent.com/nicolargo/glances/develop/docs/_static/glances-summary.png" alt="glances"></p>
+
+<p><code class="language-plaintext highlighter-rouge">glances</code> has a lot of plugins to monitor almost everything: https://github.com/nicolargo/glances#requirements</p>
+
+<p>It also has a web interface and a pre-build <code class="language-plaintext highlighter-rouge">docker</code>-container to integrate it easily. My top list of plugins:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">docker</code></li>
+  <li>
+<code class="language-plaintext highlighter-rouge">gpu</code> (very useful for miners and coins-folks!)</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">bottle</code> (web-interface)</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">netifaces</code> (IPs)</li>
+</ul>
+
+<p>Create <a href="https://github.com/nicolargo/glances/wiki/How-to-create-a-new-Glances-plugin-%3F">your own</a> if you want to!</p>
+
+
+    
+      <h2 id="httpie">
+        
+        <a class="anchor" href="#httpie">httpie</a>
+        
+      </h2>
+
+<p><code class="language-plaintext highlighter-rouge">curl</code> and <code class="language-plaintext highlighter-rouge">wget</code> are well-known and widely used. But are they user-friendly? I don’t think so. <code class="language-plaintext highlighter-rouge">httpie</code> <strong>is</strong> user-friendly and can do everything these tools can:</p>
+
+<p><img src="https://httpie.org/static/img/httpie2.png?v=72661be530fde9d07e03be9df60312da" alt="httpie"></p>
+
+<p>And even <a href="https://httpie.org/doc#main-features">more</a>. I don’t regret a single minute using it instead of <code class="language-plaintext highlighter-rouge">curl</code>.</p>
+
+
+    
+      <h3 id="jq">
+        
+        <a class="anchor" href="#jq">jq</a>
+        
+      </h3>
+
+<p><a href="https://stedolan.github.io/jq/manual/"><code class="language-plaintext highlighter-rouge">jq</code></a> is like <code class="language-plaintext highlighter-rouge">sed</code> for <code class="language-plaintext highlighter-rouge">json</code>. It is useful in automation, configuration reading, and making requests.</p>
+
+<p>You can try it <a href="https://jqplay.org/">online</a>.</p>
+
+
+    
+      <h3 id="doitlive">
+        
+        <a class="anchor" href="#doitlive">doitlive</a>
+        
+      </h3>
+
+<p>Sometimes you have to do something live: a screencast, a gif, a talk. But everything can go wrong. You can make a typo, or misspell a word. That’s where <a href="https://github.com/sloria/doitlive"><code class="language-plaintext highlighter-rouge">doitlive</code></a> comes to the rescue.</p>
+
+<p>Just create a file called <code class="language-plaintext highlighter-rouge">session.sh</code> with command that needs to be executed and then run:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>doitlive play session.sh
+</code></pre></div></div>
+
+<p>Now you are a command line magician.</p>
+
+
+    
+      <h2 id="python">
+        
+        <a class="anchor" href="#python">Python</a>
+        
+      </h2>
+
+<p>I do a lot of <code class="language-plaintext highlighter-rouge">python</code> development. So, here are my tools to make it better.</p>
+
+
+    
+      <h3 id="pipsi">
+        
+        <a class="anchor" href="#pipsi">pipsi</a>
+        
+      </h3>
+
+<p><a href="https://github.com/mitsuhiko/pipsi"><code class="language-plaintext highlighter-rouge">pipsi</code></a> = <code class="language-plaintext highlighter-rouge">pip</code> Script Installer. It creates a <code class="language-plaintext highlighter-rouge">virtualenv</code> for every script and symlinks it into your <code class="language-plaintext highlighter-rouge">/usr/local/bin</code>. So it won’t pollute your global environment.</p>
+
+
+    
+      <h3 id="pipenv">
+        
+        <a class="anchor" href="#pipenv">pipenv</a>
+        
+      </h3>
+
+<p><a href="http://pipenv.org"><code class="language-plaintext highlighter-rouge">pipenv</code></a> is a tool that aims to bring the best of all packaging worlds (bundler, composer, npm, cargo, yarn, etc.) to the Python world.</p>
+
+<p><img src="https://camo.githubusercontent.com/2287c881cb3a045f4f70f20f0326ec4ef1474ccd/687474703a2f2f6d656469612e6b656e6e657468726569747a2e636f6d2e73332e616d617a6f6e6177732e636f6d2f706970656e762e676966" alt="pipenv"></p>
+
+<p>The problems that Pipenv seeks to solve are multi-faceted:</p>
+
+<ul>
+  <li>You no longer need to use pip and virtualenv separately. They work together.</li>
+  <li>Managing a requirements.txt file can be problematic, so Pipenv uses the upcoming Pipfile and Pipfile.lock instead, which is superior for basic use cases.</li>
+  <li>Hashes are used everywhere, always. Security. Automatically expose security vulnerabilities.</li>
+  <li>Give you insight into your dependency graph (e.g. <code class="language-plaintext highlighter-rouge">$ pipenv graph</code>).</li>
+  <li>Streamline development workflow by loading <code class="language-plaintext highlighter-rouge">.env</code> files.</li>
+</ul>
+
+
+    
+      <h3 id="ipython">
+        
+        <a class="anchor" href="#ipython">ipython</a>
+        
+      </h3>
+
+<p><a href="https://ipython.org/"><code class="language-plaintext highlighter-rouge">ipython</code></a> = Interactive <code class="language-plaintext highlighter-rouge">python</code>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">ipython</code> brings autocomplete, nice history, and multiline editing to the <code class="language-plaintext highlighter-rouge">python</code> shell. It integrates into <code class="language-plaintext highlighter-rouge">django</code> and <code class="language-plaintext highlighter-rouge">flask</code> nicely without any configuration.
+It is a must for all of my projects. If you like it, also check out <a href="https://jupyter.org/"><code class="language-plaintext highlighter-rouge">jupyter</code></a>.</p>
+
+
+    
+      <h2 id="previous-series">
+        
+        <a class="anchor" href="#previous-series">Previous series</a>
+        
+      </h2>
+
+<ul>
+  <li><a href="https://sobolevn.me/2017/08/instant-command-line-productivity">Instant 100% command line productivity boost</a></li>
+</ul>
+
+    </div>
+
+    <hr>
+
+    <div class="post-subscribe">
+      <h2>
+        <a href="https://sobolevn.me/subscribe">
+          Subscribe to my blog if you want more
+        </a>
+      </h2>
+    </div>
+
+    
+    
+    <div class="post-republish">
+      <h4>Republished as:</h4>
+      <ul>
+      
+        <li>
+          <a class="c-article__repost" href="https://dev.to/sobolevn/using-better-clis-6o8" target="_blank">
+            
+            dev.to <img class="emoji" title=":us:" alt=":us:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f1fa-1f1f8.png" height="20" width="20">
+          </a>
+        </li>
+      
+      </ul>
+    </div>
+    
+  </div>
+
+  <!-- Disqus comments view -->
+  
+  <div class="post-disqus" id="discussion">
+    <div id="disqus_thread"></div>
+
+<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+this.page.url = "http://localhost:4000/2017/10/using-better-clis";
+this.page.identifier = "/2017/10/using-better-clis";
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://sobolevn-me.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+
+  </div>
+  
+</article>
+
+  </div>
+  <footer class="c-page__footer">
+  <p>
+    <i class="far fa-copyright"></i>
+    <a href="https://sobolevn.me/about/">sobolevn</a>
+    2023,
+    content licensed
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">
+      CC BY-NC
+    </a>,
+    <a href="https://github.com/sobolevn/sobolevn.github.io" target="_blank">
+      source code
+    </a>
+  </p>
+
+  <p>
+    <a href="mailto:mail@sobolevn.me" alt="email">
+      <i class="far fa-2x fa-envelope"></i>
+    </a>
+    <a href="https://github.com/sobolevn" alt="github">
+      <i class="fab fa-2x fa-github"></i>
+    </a>
+    <a href="https://dev.to/sobolevn" alt="practicaldev">
+      <i class="fab fa-2x fa-dev"></i>
+    </a>
+    <a href="https://medium.com/@sobolevn" alt="medium">
+      <i class="fab fa-2x fa-medium"></i>
+    </a>
+    <a href="https://stackoverflow.com/users/4842742/sobolevn" alt="stackoverflow">
+      <i class="fab fa-2x fa-stack-overflow"></i>
+    </a>
+  </p>
+</footer>
+
+</div>
+
+    </main>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66588818-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66588818-1');
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/assets/images/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
+<link rel="manifest" href="/assets/images/favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/assets/images/favicons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+
+  <!-- Meta information -->
+  <title>Higher Kinded Types in Python</title>
+  <meta name="description"
+        content="">
+  <link rel="canonical"
+        href="http://localhost:4000/2020/10/higher-kinded-types-in-python" />
+
+  <!-- Open search scheme -->
+  <link rel="search"
+        type="application/opensearchdescription+xml"
+        title="sobolevn.me"
+        href="/opensearch.xml" />
+
+  <!-- Feed -->
+  <link rel="alternate" type="application/rss+xml" title="sobolevn's personal blog"
+        href="/feed.xml" />
+
+  <!-- Custom fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,900|Roboto+Mono:400,400i|Montserrat:400,800" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+  <!-- Custom style -->
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Global site tag (gtag.js) - Google Ads: 839642990 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-839642990"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-839642990');
+  </script>
+</head>
+
+
+  <body>
+    <main class="u-container">
+      <div class="c-page">
+  <header class="c-page__header">
+  <h1><code>sobolevn's personal blog</code></h1>
+
+  
+
+  <nav role="navigation">
+    <a href="/" role="menuitem">
+      Blog
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/talks/" role="menuitem">
+      Talks
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/activities/" role="menuitem">
+      Activities
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/about/" role="menuitem">
+      About
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/subscribe/" role="menuitem">
+      Subscribe
+    </a>
+  </nav>
+</header>
+
+  <div class="c-page__main">
+    <article class="c-article" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header class="c-article__header">
+    <h1 class="c-article__title" itemprop="name">Higher Kinded Types in Python</h1>
+    <p class="c-article__time">
+      <small>
+        <time datetime="2020-10-24T00:00:00+05:30" itemprop="datePublished">
+          October 24, 2020
+        </time>
+      </small>
+      <small><span class="reading-time" title="Estimated read time">
+  
+  
+    27 mins
+   read
+</span>
+</small>
+      <small><a href="#discussion">Start a discussion</a></small>
+      <small><a href="https://github.com/sobolevn/sobolevn.github.io/blob/master/_posts/2020-10-24-higher-kinded-types-in-python.md">Edit this page</a></small>
+    </p>
+  </header>
+
+  <!-- Post Tags -->
+  <!-- <ul class="c-tags">
+    
+    <li class="c-tag">python</li>
+    
+  </ul> -->
+
+  <!-- Content -->
+  <div class="c-article__main">
+
+    
+      
+      
+    
+
+    <div class="c-article__body" itemprop="articleBody">
+      <p><img src="https://dev-to-uploads.s3.amazonaws.com/i/73uvh47fvxfveqpz2xgi.png" alt="Cover image"></p>
+
+<p><code class="language-plaintext highlighter-rouge">dry-python/returns@0.15</code> is <a href="https://github.com/dry-python/returns/releases/tag/0.15.0">released</a>! And it means that now anyone can use our Higher Kinded Types emulation in their projects.</p>
+
+<p>In this post I will explain:</p>
+<ul>
+  <li>What Higher Kinded Types (HKTs) are and why they are useful</li>
+  <li>How they are implemented and what limitations there are</li>
+  <li>How can you use them in your own projects</li>
+</ul>
+
+<p>Without further ado, let’s talk about typing!</p>
+
+
+      <h2 id="simple-types">
+        
+        <a class="anchor" href="#simple-types">Simple types</a>
+        
+      </h2>
+
+<p>Typing is layered. Like a good cake. There are at least three layers that we are going to cover.</p>
+
+<p>Simple (or flat) typing, like <code class="language-plaintext highlighter-rouge">x: int = 1</code>. This allows us to express simple types and their transformations. Like <code class="language-plaintext highlighter-rouge">int -&gt; str</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">stringify</span><span class="p">(</span><span class="n">arg</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>A lot of languages like <code class="language-plaintext highlighter-rouge">go</code> and <code class="language-plaintext highlighter-rouge">php</code> do not go beyond this line. And they still work pretty well! These types are also sometimes called <code class="language-plaintext highlighter-rouge">*</code>-kinded. It can be understood as “a place for just a single type argument”.</p>
+
+
+    
+      <h2 id="generic">
+        
+        <a class="anchor" href="#generic">Generic</a>
+        
+      </h2>
+
+<p>Generic level is required to express “nested” types. For example, you have a list of integers. In Python we annotate it as <code class="language-plaintext highlighter-rouge">List[int]</code> or <a href="https://www.python.org/dev/peps/pep-0585/"><code class="language-plaintext highlighter-rouge">list[int]</code></a> in Python <code class="language-plaintext highlighter-rouge">3.9</code>. This allows us to have types with other types as arguments. <code class="language-plaintext highlighter-rouge">List</code> can receive <code class="language-plaintext highlighter-rouge">int</code> or <code class="language-plaintext highlighter-rouge">str</code> or even another <code class="language-plaintext highlighter-rouge">List</code> as the type argument. This way we can nest type and types start to have their own structure.</p>
+
+<p>Generics are much more interesting than simple types. And they can have multiple type arguments:</p>
+<ul>
+  <li>List has one: for values, so it has a kind of <code class="language-plaintext highlighter-rouge">* -&gt; *</code>. It can be understood as a type transformation <code class="language-plaintext highlighter-rouge">List -&gt; T = List[T]</code>
+</li>
+  <li>Dict has two: for keys and values, so it has a kind of <code class="language-plaintext highlighter-rouge">* -&gt; * -&gt; *</code>. It can be understood as a type transformation <code class="language-plaintext highlighter-rouge">Dict -&gt; K -&gt; V = Dict[K, V]</code>
+</li>
+  <li>And so on!</li>
+</ul>
+
+<p>This would be very helpful for us in the future, I promise.</p>
+
+<p>We can also write transformations for generic types:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">stringify_list_items</span><span class="p">(</span><span class="n">arg</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">arg</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>But, that is where things begin to be quite complicated.</p>
+
+<p>How can this function work with other iterables like <code class="language-plaintext highlighter-rouge">set</code>, <code class="language-plaintext highlighter-rouge">frozenset</code>, <code class="language-plaintext highlighter-rouge">tuple</code>?
+We can express this in Python as easy as:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">stringify_iterable_items</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="n">arg</span><span class="p">)(</span><span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">arg</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>But the typing part would be quite challenging. Let’s try several things.</p>
+
+
+    
+      <h3 id="common-interface">
+        
+        <a class="anchor" href="#common-interface">Common interface</a>
+        
+      </h3>
+
+<p>The first obvious thing to try is <code class="language-plaintext highlighter-rouge">Iterable</code> protocol. It is builtin into Python and does what we need.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterable</span>
+
+<span class="k">def</span> <span class="nf">stringify_iterable_items</span><span class="p">(</span><span class="n">arg</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="n">arg</span><span class="p">)(</span><span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">arg</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Let’s try it out:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">reveal_type</span><span class="p">(</span><span class="n">stringify_iterable_items</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
+<span class="c1"># Revealed type is 'typing.Iterable[builtins.str]'
+</span>
+<span class="n">reveal_type</span><span class="p">(</span><span class="n">stringify_iterable_items</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}))</span>
+<span class="c1">#  Revealed type is 'typing.Iterable[builtins.str]'
+</span>
+<span class="n">reveal_type</span><span class="p">(</span><span class="n">stringify_iterable_items</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
+<span class="c1">#  Revealed type is 'typing.Iterable[builtins.str]'
+</span></code></pre></div></div>
+
+<p>You can see that a part of our typing information is lost. We pass <code class="language-plaintext highlighter-rouge">List</code> or <code class="language-plaintext highlighter-rouge">Set</code> or <code class="language-plaintext highlighter-rouge">Tuple</code> and always get the <code class="language-plaintext highlighter-rouge">Iterable</code> back.</p>
+
+<p>Sometimes - this is ok. But, in some cases, this is not enough. Let’s try some other technique!</p>
+
+
+    
+      <h3 id="methods">
+        
+        <a class="anchor" href="#methods">Methods</a>
+        
+      </h3>
+
+<p>One can say: we are all using Object-Oriented Programming! Why cannot we just create a new method for each type we need? And specify the exact return type there!</p>
+
+<p>Well, it is a possible solution. But, there are some reasonable problems:</p>
+
+<ul>
+  <li>You cannot add methods to existing types and extend them with this approach. Only create new ones, probably via subtyping, and add new methods there. In our example you would have to create your own versions of <code class="language-plaintext highlighter-rouge">List</code>, <code class="language-plaintext highlighter-rouge">Set</code>, and <code class="language-plaintext highlighter-rouge">Tuple</code>. Which is not desirable in most situations</li>
+  <li>It really starts to be messy if you have a lot of methods to add. A type with more than <code class="language-plaintext highlighter-rouge">X</code> (choose the number yourself) methods starts to be really complex to read, understand, and use. Instead, using separate functions is much easier, because we don’t have to put everything into a single namespace</li>
+</ul>
+
+<p>Let’s try something else.</p>
+
+
+    
+      <h3 id="overloads">
+        
+        <a class="anchor" href="#overloads">overloads</a>
+        
+      </h3>
+
+<p>Another solution that might solve our problem is using the <code class="language-plaintext highlighter-rouge">@overload</code> decorator with proper types for each required case.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Set</span><span class="p">,</span> <span class="n">overload</span>
+
+<span class="o">@</span><span class="n">overload</span>
+<span class="k">def</span> <span class="nf">stringify_iterable_items</span><span class="p">(</span><span class="n">arg</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="p">...</span>
+
+<span class="o">@</span><span class="n">overload</span>
+<span class="k">def</span> <span class="nf">stringify_iterable_items</span><span class="p">(</span><span class="n">arg</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="p">...</span>
+
+<span class="k">def</span> <span class="nf">stringify_iterable_items</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="n">arg</span><span class="p">)(</span><span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">arg</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Let’s test it:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">reveal_type</span><span class="p">(</span><span class="n">stringify_iterable_items</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>
+<span class="c1"># Revealed type is 'builtins.list[builtins.str]'
+</span>
+<span class="n">reveal_type</span><span class="p">(</span><span class="n">stringify_iterable_items</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}))</span>
+<span class="c1"># Revealed type is 'builtins.set[builtins.str]'
+</span></code></pre></div></div>
+
+<p>Awesome! Looks like we’ve achieved our goal, haven’t we? But, there’s a new problem. We have to manually list all possible cases in a function’s signature. This works for cases when all possible arguments and outcomes are known in advance. But, not in this case. In Python <code class="language-plaintext highlighter-rouge">Iterable</code> is a protocol. We can use this function with any type with <code class="language-plaintext highlighter-rouge">__iter__</code> method defined: with both builtin and custom types. So, the number of possible arguments and outcomes is endless.</p>
+
+<p>To illusrate the problem, let’s see what happens for <code class="language-plaintext highlighter-rouge">Tuple</code> which is not listed in the function’s overloads:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">reveal_type</span><span class="p">(</span><span class="n">stringify_iterable_items</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
+<span class="c1"># error: No overload variant of "stringify_iterable_items" matches argument type "Tuple[int, int, int]"
+</span></code></pre></div></div>
+
+<p>We, in <code class="language-plaintext highlighter-rouge">dry-python</code> <a href="https://github.com/dry-python/returns/blob/0.14.0/returns/_generated/converters/flatten.pyi">used this technique</a> with <code class="language-plaintext highlighter-rouge">@overload</code> decorator for our previous versions. This allowed us to write correct definitions of functions working with generic types. But, they were limited to the pre-defined set of our own types. And we wanted to allow our users to create their custom types based on our interfaces. With the full existing code reuse.</p>
+
+
+    
+      <h2 id="higher-kinded-types">
+        
+        <a class="anchor" href="#higher-kinded-types">Higher Kinded Types</a>
+        
+      </h2>
+
+<p>That’s where the idea of Higher Kinded Types becomes useful. We need HKTs when we want to change the inner structure of generics with full type information preserving and openness to the extension. In theory, you can write something like:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterable</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s">'T'</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="n">Iterable</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">stringify_iterable_items</span><span class="p">(</span><span class="n">arg</span><span class="p">:</span> <span class="n">T</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="n">arg</span><span class="p">)(</span><span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">arg</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>And this would solve our problem! What happens here is that we abstract away the <code class="language-plaintext highlighter-rouge">Iterable</code> type itself. And then ask <code class="language-plaintext highlighter-rouge">mypy</code> to figure this out for us.</p>
+
+<p>This way we can potentially have <code class="language-plaintext highlighter-rouge">stringify_iterable_items</code> working for any <code class="language-plaintext highlighter-rouge">Iterable</code> type, but with the exact same type returned back without any information lost. And it would work for all types.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">reveal_type</span><span class="p">(</span><span class="n">stringify_iterable_items</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>
+<span class="c1"># Revealed type is 'builtins.list[builtins.str]'
+</span>
+<span class="n">reveal_type</span><span class="p">(</span><span class="n">stringify_iterable_items</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}))</span>
+<span class="c1"># Revealed type is 'builtins.set[builtins.str]'
+</span>
+<span class="n">reveal_type</span><span class="p">(</span><span class="n">stringify_iterable_items</span><span class="p">(</span><span class="n">MyCustomIterable</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+<span class="c1"># Revealed type is 'my_module.MyCustomIterable[builtins.str]'
+</span></code></pre></div></div>
+
+<p>Unfortunately, <a href="https://github.com/python/typing/issues/548">it is not supported</a> at the moment.</p>
+
+
+    
+      <h3 id="emulation">
+        
+        <a class="anchor" href="#emulation">Emulation</a>
+        
+      </h3>
+
+<p>Turns out we are not alone in this situation. There are multiple languages where Higher Kinded Types are not natively supported yet. But, they can be emulated:</p>
+
+<ul>
+  <li><a href="https://github.com/gcanti/fp-ts/blob/master/docs/guides/HKT.md">TypeScript</a></li>
+  <li><a href="https://bow-swift.io/docs/fp-concepts/higher-kinded-types/">Swift</a></li>
+  <li><a href="https://arrow-kt.io/docs/0.10/patterns/glossary/#higher-kinds">Kotlin</a></li>
+</ul>
+
+<p>And now with <a href="https://returns.readthedocs.io/en/latest/pages/hkt.html">Python</a> too!</p>
+
+<p>There’s also <a href="https://www.cl.cam.ac.uk/~jdy22/papers/lightweight-higher-kinded-polymorphism.pdf">an original whitepaper</a> for ones who are interested.</p>
+
+<p>The core idea of HKT emulation is that we can write types the other way around: not like <code class="language-plaintext highlighter-rouge">T[int]</code>, but rather like <code class="language-plaintext highlighter-rouge">Kind[T, int]</code> (which is absolutely the same thing).</p>
+
+<p>This way we can transform the inner structure of generics, but maintain the simple context without reinventing <code class="language-plaintext highlighter-rouge">TypeVar</code> with type arguments. And our function’s type signature will look like: <code class="language-plaintext highlighter-rouge">Kind[T, int] -&gt; Kind[T, str]</code>.</p>
+
+<p>Let’s see the implementation.</p>
+
+
+    
+      <h2 id="implementation">
+        
+        <a class="anchor" href="#implementation">Implementation</a>
+        
+      </h2>
+
+<p><strong>TLDR</strong>: here’s <a href="https://gist.github.com/sobolevn/7f8ffd885aec70e55dd47928a1fb3e61">the final working code</a> with all the logic, all the hacks, and everything. In this article, we going to write and explain it step by step.</p>
+
+<p>We would need a better example to test our implementation. Let’s build two types: a <code class="language-plaintext highlighter-rouge">Box</code> and a <code class="language-plaintext highlighter-rouge">Bag</code>. <code class="language-plaintext highlighter-rouge">Box</code> is defined by its size, while a <code class="language-plaintext highlighter-rouge">Bag</code> is an item of fashion: it has a brand name and a model name (I have a wife, I know this stuff!).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Generic</span><span class="p">,</span> <span class="n">TypeVar</span>
+
+<span class="n">_ValueType</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s">'_ValueType'</span><span class="p">)</span>
+<span class="n">_NewValueType</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s">'_NewValueType'</span><span class="p">)</span>
+
+<span class="o">@</span><span class="n">dataclass</span>
+<span class="k">class</span> <span class="nc">Box</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">_ValueType</span><span class="p">]):</span>
+    <span class="n">value</span><span class="p">:</span> <span class="n">_ValueType</span>
+    <span class="n">length</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">width</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">height</span><span class="p">:</span> <span class="nb">int</span>
+
+<span class="o">@</span><span class="n">dataclass</span>
+<span class="k">class</span> <span class="nc">Bag</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">_ValueType</span><span class="p">]):</span>
+    <span class="n">value</span><span class="p">:</span> <span class="n">_ValueType</span>
+    <span class="n">brand</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">model</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div></div>
+
+<p>And we can create <code class="language-plaintext highlighter-rouge">Box</code>es and <code class="language-plaintext highlighter-rouge">Bag</code>s of different types, because we can put different things inside them:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">box</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># Box[int]
+</span><span class="n">bag</span> <span class="o">=</span> <span class="n">Bag</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">brand</span><span class="o">=</span><span class="s">'Fancy'</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s">'Baggy'</span><span class="p">)</span>  <span class="c1"># Bag[int]
+</span></code></pre></div></div>
+
+<p>Now, we need a function with a type transformation. Let’s say we want to apply a function to the value inside boxes and bags. Let’s use fake <code class="language-plaintext highlighter-rouge">BoxOrBag</code> type for now to illustrate our intent:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span>
+
+<span class="n">_NewValueType</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s">'_NewValueType'</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">apply_function</span><span class="p">(</span>
+    <span class="n">instance</span><span class="p">:</span> <span class="n">BoxOrBag</span><span class="p">[</span><span class="n">_ValueType</span><span class="p">],</span>  <span class="c1"># fake type for now
+</span>    <span class="n">callback</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">_ValueType</span><span class="p">],</span> <span class="n">_NewValueType</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BoxOrBag</span><span class="p">[</span><span class="n">_NewValueType</span><span class="p">]:</span>  <span class="c1"># fake type for now
+</span>    <span class="p">...</span>
+</code></pre></div></div>
+
+<p>It is going to work like so:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">assert</span> <span class="n">apply_function</span><span class="p">(</span><span class="n">box</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="o">==</span> <span class="n">Box</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s">'10'</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">apply_function</span><span class="p">(</span><span class="n">bag</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">==</span> <span class="n">Bag</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">brand</span><span class="o">=</span><span class="s">'Fancy'</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s">'Baggy'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>We only need to change current fake <code class="language-plaintext highlighter-rouge">BoxOrBag</code> type to a real HKT. We would need to define a new <code class="language-plaintext highlighter-rouge">Kind</code> type to make the emulation:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">_InstanceType</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s">'_InstanceType'</span><span class="p">,</span> <span class="n">covariant</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">_FirstTypeArgType</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s">'_FirstTypeArgType'</span><span class="p">,</span> <span class="n">covariant</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Kind</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">_InstanceType</span><span class="p">,</span> <span class="n">_FirstTypeArgType</span><span class="p">]):</span>
+    <span class="s">"""Used for HKT emulation."""</span>
+</code></pre></div></div>
+
+<p>One pro-tip about <code class="language-plaintext highlighter-rouge">Kind</code>: it won’t not exist during runtime. Only during type-checking.</p>
+
+<p>Now, let’s change <code class="language-plaintext highlighter-rouge">apply_function</code> to use <code class="language-plaintext highlighter-rouge">Kind</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">_InstanceKind</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s">'_InstanceKind'</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">apply_function</span><span class="p">(</span>
+    <span class="n">instance</span><span class="p">:</span> <span class="n">Kind</span><span class="p">[</span><span class="n">_InstanceKind</span><span class="p">,</span> <span class="n">_ValueType</span><span class="p">],</span>
+    <span class="n">callback</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">_ValueType</span><span class="p">],</span> <span class="n">_NewValueType</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Kind</span><span class="p">[</span><span class="n">_InstanceKind</span><span class="p">,</span> <span class="n">_NewValueType</span><span class="p">]:</span>
+    <span class="p">...</span>
+</code></pre></div></div>
+
+<p>And last, but not least: we need an implementation for <code class="language-plaintext highlighter-rouge">apply_function</code>!</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">apply_function</span><span class="p">(</span>
+    <span class="n">instance</span><span class="p">:</span> <span class="n">Kind</span><span class="p">[</span><span class="n">_InstanceKind</span><span class="p">,</span> <span class="n">_ValueType</span><span class="p">],</span>
+    <span class="n">callback</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">_ValueType</span><span class="p">],</span> <span class="n">_NewValueType</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Kind</span><span class="p">[</span><span class="n">_InstanceKind</span><span class="p">,</span> <span class="n">_NewValueType</span><span class="p">]:</span>
+    <span class="n">new_value</span> <span class="o">=</span> <span class="n">callback</span><span class="p">(</span><span class="n">instance</span><span class="p">.</span><span class="n">value</span><span class="p">)</span>  <span class="c1"># creating new value
+</span>    <span class="k">return</span> <span class="n">instance</span><span class="p">.</span><span class="n">with_value</span><span class="p">(</span><span class="n">new_value</span><span class="p">)</span>  <span class="c1"># creating a new instance from it
+</span></code></pre></div></div>
+
+<p>If we try to run this code, we would see something like:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>error: "_InstanceKind" has no attribute "value"
+error: "_InstanceKind" has no attribute "with_value"
+</code></pre></div></div>
+
+<p>This happens because <code class="language-plaintext highlighter-rouge">_InstanceKind</code> does not know anything about an interface we are working with right now. We need to bind it to something. And we also need an interface to work with:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">abc</span>
+
+<span class="n">_InstanceKind</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s">'_InstanceKind'</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="s">'HasValue'</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">HasValue</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">_ValueType</span><span class="p">]):</span>
+    <span class="o">@</span><span class="n">abc</span><span class="p">.</span><span class="n">abstractmethod</span>
+    <span class="o">@</span><span class="nb">property</span>
+    <span class="k">def</span> <span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_ValueType</span><span class="p">:</span>
+        <span class="s">"""Returns a value property."""</span>
+
+    <span class="o">@</span><span class="n">abc</span><span class="p">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">with_value</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">:</span> <span class="n">_InstanceKind</span><span class="p">,</span>
+        <span class="n">new_value</span><span class="p">:</span> <span class="n">_NewValueType</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Kind1</span><span class="p">[</span><span class="n">_InstanceKind</span><span class="p">,</span> <span class="n">_NewValueType</span><span class="p">]:</span>
+        <span class="s">"""Creates a new instance with a changed value."""</span>
+</code></pre></div></div>
+
+<p>Take an extra look at the abstract <code class="language-plaintext highlighter-rouge">with_value</code> definition: it is also Higher Kinded Typed. Because the interface knows that we are dealing with the internal structure change of a generic type. We would also need to subclass <code class="language-plaintext highlighter-rouge">HasValue</code> and implement the <code class="language-plaintext highlighter-rouge">with_value</code> method for both <code class="language-plaintext highlighter-rouge">Bag</code> and <code class="language-plaintext highlighter-rouge">Box</code> types. The good thing about subclassing <code class="language-plaintext highlighter-rouge">HasValue</code> is that HKTs as well as regular types will protect us from defining incompatible methods and properties.</p>
+
+<p>Let’s review what we have done so far:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">abc</span>
+<span class="kn">import</span> <span class="nn">dataclasses</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Generic</span><span class="p">,</span> <span class="n">TypeVar</span>
+
+<span class="n">_InstanceType</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s">'_InstanceType'</span><span class="p">,</span> <span class="n">covariant</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">_FirstTypeArgType</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s">'_FirstTypeArgType'</span><span class="p">,</span> <span class="n">covariant</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Kind</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">_InstanceType</span><span class="p">,</span> <span class="n">_FirstTypeArgType</span><span class="p">]):</span>
+    <span class="s">"""Used for HKT emulation."""</span>
+
+<span class="n">_ValueType</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s">'_ValueType'</span><span class="p">)</span>
+<span class="n">_NewValueType</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s">'_NewValueType'</span><span class="p">)</span>
+<span class="n">_InstanceKind</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s">'_InstanceKind'</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="s">'HasValue'</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">HasValue</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">_ValueType</span><span class="p">]):</span>
+    <span class="o">@</span><span class="n">abc</span><span class="p">.</span><span class="n">abstractmethod</span>
+    <span class="o">@</span><span class="nb">property</span>
+    <span class="k">def</span> <span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_ValueType</span><span class="p">:</span>
+        <span class="s">"""Returns a value property."""</span>
+
+    <span class="o">@</span><span class="n">abc</span><span class="p">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">with_value</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">:</span> <span class="n">_InstanceKind</span><span class="p">,</span>
+        <span class="n">new_value</span><span class="p">:</span> <span class="n">_NewValueType</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Kind</span><span class="p">[</span><span class="n">_InstanceKind</span><span class="p">,</span> <span class="n">_NewValueType</span><span class="p">]:</span>
+        <span class="s">"""Creates a new instance with a changed value."""</span>
+
+<span class="o">@</span><span class="n">dataclasses</span><span class="p">.</span><span class="n">dataclass</span>
+<span class="k">class</span> <span class="nc">Box</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">_ValueType</span><span class="p">],</span> <span class="n">HasValue</span><span class="p">[</span><span class="n">_ValueType</span><span class="p">]):</span>
+    <span class="n">value</span><span class="p">:</span> <span class="n">_ValueType</span>
+    <span class="n">length</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">width</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">height</span><span class="p">:</span> <span class="nb">int</span>
+
+    <span class="k">def</span> <span class="nf">with_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_value</span><span class="p">:</span> <span class="n">_NewValueType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s">'Box[_NewValueType]'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Box</span><span class="p">(</span><span class="n">new_value</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">length</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">height</span><span class="p">)</span>
+
+<span class="o">@</span><span class="n">dataclasses</span><span class="p">.</span><span class="n">dataclass</span>
+<span class="k">class</span> <span class="nc">Bag</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">_ValueType</span><span class="p">],</span> <span class="n">HasValue</span><span class="p">[</span><span class="n">_ValueType</span><span class="p">]):</span>
+    <span class="n">value</span><span class="p">:</span> <span class="n">_ValueType</span>
+    <span class="n">brand</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">model</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="k">def</span> <span class="nf">with_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_value</span><span class="p">:</span> <span class="n">_NewValueType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s">'Bag[_NewValueType]'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Bag</span><span class="p">(</span><span class="n">new_value</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">brand</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">model</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">apply_function</span><span class="p">(</span>
+    <span class="n">instance</span><span class="p">:</span> <span class="n">Kind</span><span class="p">[</span><span class="n">_InstanceKind</span><span class="p">,</span> <span class="n">_ValueType</span><span class="p">],</span>
+    <span class="n">callback</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">_ValueType</span><span class="p">],</span> <span class="n">_NewValueType</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Kind</span><span class="p">[</span><span class="n">_InstanceKind</span><span class="p">,</span> <span class="n">_NewValueType</span><span class="p">]:</span>
+    <span class="n">new_value</span> <span class="o">=</span> <span class="n">callback</span><span class="p">(</span><span class="n">instance</span><span class="p">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">instance</span><span class="p">.</span><span class="n">with_value</span><span class="p">(</span><span class="n">new_value</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>That’s pretty much it! I can proudly call this “unhacked” version. In an ideal world, our HKT emulation would <em>just work</em>. But, in our real-life world - we still need some hacks to make this possible.</p>
+
+
+    
+      <h2 id="hacks">
+        
+        <a class="anchor" href="#hacks">Hacks</a>
+        
+      </h2>
+
+<p>First of all, let’s try to type-check our code to see what will happen:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>» mypy ex.py
+ex.py:57: error: <span class="s2">"Kind[_InstanceKind, _ValueType]"</span> has no attribute <span class="s2">"value"</span>
+ex.py:58: error: Returning Any from <span class="k">function </span>declared to <span class="k">return</span> <span class="s2">"Kind[_InstanceKind, _NewValueType]"</span>
+ex.py:58: error: <span class="s2">"Kind[_InstanceKind, _ValueType]"</span> has no attribute <span class="s2">"with_value"</span>
+Found 3 errors <span class="k">in </span>1 file <span class="o">(</span>checked 1 <span class="nb">source </span>file<span class="o">)</span>
+</code></pre></div></div>
+
+<p>Let’s think about it for a moment. Why <code class="language-plaintext highlighter-rouge">"Kind[_InstanceKind, _ValueType]"</code> does not have attribute <code class="language-plaintext highlighter-rouge">"value"</code>?</p>
+
+
+    
+      <h3 id="getattr-hook">
+        
+        <a class="anchor" href="#getattr-hook">getattr hook</a>
+        
+      </h3>
+
+<p>This happens because we wrote exactly that in <code class="language-plaintext highlighter-rouge">apply_function</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">instance</span><span class="p">:</span> <span class="n">Kind</span><span class="p">[</span><span class="n">_InstanceKind</span><span class="p">,</span> <span class="n">_ValueType</span><span class="p">]</span>  <span class="c1"># Kind has 0 methods and props
+</span>
+<span class="n">instance</span><span class="p">.</span><span class="n">value</span>  <span class="c1"># this errors, because, again, Kind has 0 methods and values
+</span><span class="n">instance</span><span class="p">.</span><span class="n">with_value</span>  <span class="c1"># the same
+</span></code></pre></div></div>
+
+<p>We need to build something that understands our intention: when we use dot access on <code class="language-plaintext highlighter-rouge">Kind</code> - in reality, we want to dot access its <code class="language-plaintext highlighter-rouge">_InstanceKind</code> type.</p>
+
+<p>Since it can take quite a lot of time, I am going to skip re-implementing this part and give links to the original source code here:</p>
+<ol>
+  <li>Add <a href="https://github.com/dry-python/returns/blob/0.15.0/returns/primitives/hkt.py#L92-L99"><code class="language-plaintext highlighter-rouge">__getattr__</code> method</a> to <code class="language-plaintext highlighter-rouge">Kind</code>
+</li>
+  <li>Write <a href="https://github.com/dry-python/returns/blob/0.15.0/returns/contrib/mypy/_features/kind.py#L22-L67">a custom <code class="language-plaintext highlighter-rouge">mypy</code> plugin</a> to catch and modify attribute access on <code class="language-plaintext highlighter-rouge">Kind</code>
+</li>
+</ol>
+
+<p>In the result we would have a working type inference:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">apply_function</span><span class="p">(</span>
+    <span class="n">instance</span><span class="p">:</span> <span class="n">Kind</span><span class="p">[</span><span class="n">_InstanceKind</span><span class="p">,</span> <span class="n">_ValueType</span><span class="p">],</span>
+    <span class="n">callback</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">_ValueType</span><span class="p">],</span> <span class="n">_NewValueType</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Kind</span><span class="p">[</span><span class="n">_InstanceKind</span><span class="p">,</span> <span class="n">_NewValueType</span><span class="p">]:</span>
+    <span class="n">reveal_type</span><span class="p">(</span><span class="n">instance</span><span class="p">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="c1"># Revealed type is '_ValueType`-2'
+</span>    <span class="n">reveal_type</span><span class="p">(</span><span class="n">instance</span><span class="p">.</span><span class="n">with_value</span><span class="p">)</span>
+    <span class="c1"># Revealed type is 'def [_NewValueType] (new_value: _NewValueType`6) -&gt; Kind[_InstanceKind`-1, _NewValueType`6]'
+</span>    <span class="n">new_value</span> <span class="o">=</span> <span class="n">callback</span><span class="p">(</span><span class="n">instance</span><span class="p">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">instance</span><span class="p">.</span><span class="n">with_value</span><span class="p">(</span><span class="n">new_value</span><span class="p">)</span>
+</code></pre></div></div>
+
+
+    
+      <h3 id="supportskind">
+        
+        <a class="anchor" href="#supportskind">SupportsKind</a>
+        
+      </h3>
+
+<p>There are two more things to solve.</p>
+
+<p>First, since <code class="language-plaintext highlighter-rouge">Kind</code> is a type and <code class="language-plaintext highlighter-rouge">mypy</code> uses nominal inheritance to check subtyping (I have tried to make <code class="language-plaintext highlighter-rouge">Kind</code> a <code class="language-plaintext highlighter-rouge">Protocol</code> several times, but it does not work this way for now) it won’t be happy that we declare <code class="language-plaintext highlighter-rouge">Kind</code> as a return type, but return <code class="language-plaintext highlighter-rouge">Bag</code> or <code class="language-plaintext highlighter-rouge">Box</code> instead. Since these two types are unrelated in <code class="language-plaintext highlighter-rouge">mypy</code>’s opinion - we would need to fix that with a direct inheritance from <code class="language-plaintext highlighter-rouge">Kind</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">dataclasses</span><span class="p">.</span><span class="n">dataclass</span>
+<span class="k">class</span> <span class="nc">Bag</span><span class="p">(</span><span class="n">Kind</span><span class="p">[</span><span class="s">'Bag'</span><span class="p">,</span> <span class="n">_ValueType</span><span class="p">],</span> <span class="n">HasValue</span><span class="p">[</span><span class="n">_ValueType</span><span class="p">]):</span>
+    <span class="p">...</span>
+
+<span class="o">@</span><span class="n">dataclasses</span><span class="p">.</span><span class="n">dataclass</span>
+<span class="k">class</span> <span class="nc">Box</span><span class="p">(</span><span class="n">Kind</span><span class="p">[</span><span class="s">'Box'</span><span class="p">,</span> <span class="n">_ValueType</span><span class="p">],</span> <span class="n">HasValue</span><span class="p">[</span><span class="n">_ValueType</span><span class="p">]):</span>
+    <span class="p">...</span>
+</code></pre></div></div>
+
+<p>Now <code class="language-plaintext highlighter-rouge">Box</code> and <code class="language-plaintext highlighter-rouge">Bag</code> are both nominal subtypes of <code class="language-plaintext highlighter-rouge">Kind</code> and <code class="language-plaintext highlighter-rouge">mypy</code> will be happy with that.</p>
+
+<p>Also, notice this notation <code class="language-plaintext highlighter-rouge">Kind['Box', _ValueType]</code>: what it means is that we inherit from <code class="language-plaintext highlighter-rouge">Kind</code> and pass not-yet-defined <code class="language-plaintext highlighter-rouge">Box</code> type inside as type argument. Sometimes it is also called the <code class="language-plaintext highlighter-rouge">URI</code> parameter.</p>
+
+<p>Second, since <code class="language-plaintext highlighter-rouge">Kind</code> defines <code class="language-plaintext highlighter-rouge">__getattr__</code> we would end up with catching all dot access behaviour during type-checking. For example, <code class="language-plaintext highlighter-rouge">box.missing_attr</code> won’t raise a type error anymore. But, would still fail during execution. We need to fix that! We can create a intermediate layer called <code class="language-plaintext highlighter-rouge">SupportsKind</code> with removed <code class="language-plaintext highlighter-rouge">__getattr__</code> method:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SupportsKind</span><span class="p">(</span><span class="n">KindN</span><span class="p">[</span><span class="n">_InstanceType</span><span class="p">,</span> <span class="n">_FirstTypeArgType</span><span class="p">]):</span>
+    <span class="n">__getattr__</span><span class="p">:</span> <span class="bp">None</span>  <span class="c1"># type: ignore
+</span></code></pre></div></div>
+
+<p>Yes, this is a bit ugly, but we have to only define it once and then just use it:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">dataclasses</span><span class="p">.</span><span class="n">dataclass</span>
+<span class="k">class</span> <span class="nc">Bag</span><span class="p">(</span><span class="n">SupportsKind</span><span class="p">[</span><span class="s">'Bag'</span><span class="p">,</span> <span class="n">_ValueType</span><span class="p">],</span> <span class="n">HasValue</span><span class="p">[</span><span class="n">_ValueType</span><span class="p">]):</span>
+    <span class="p">...</span>
+
+<span class="o">@</span><span class="n">dataclasses</span><span class="p">.</span><span class="n">dataclass</span>
+<span class="k">class</span> <span class="nc">Box</span><span class="p">(</span><span class="n">SupportsKind</span><span class="p">[</span><span class="s">'Box'</span><span class="p">,</span> <span class="n">_ValueType</span><span class="p">],</span> <span class="n">HasValue</span><span class="p">[</span><span class="n">_ValueType</span><span class="p">]):</span>
+    <span class="p">...</span>
+</code></pre></div></div>
+
+<p>Now, we have <code class="language-plaintext highlighter-rouge">box.missing_attr</code> fixed!</p>
+
+
+    
+      <h3 id="kinded">
+        
+        <a class="anchor" href="#kinded">kinded</a>
+        
+      </h3>
+
+<p>And the last hack we need is to translate <code class="language-plaintext highlighter-rouge">Kind[_InstanceKind, _NewValueType]</code> to <code class="language-plaintext highlighter-rouge">_InstanceKind[_NewValueType]</code> in the function’s return type. Let’s see how it works right now without this transformation:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">box</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">bag</span> <span class="o">=</span> <span class="n">Bag</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">brand</span><span class="o">=</span><span class="s">'Fancy'</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s">'Baggy'</span><span class="p">)</span>
+
+<span class="n">reveal_type</span><span class="p">(</span><span class="n">apply_function</span><span class="p">(</span><span class="n">box</span><span class="p">,</span> <span class="nb">str</span><span class="p">))</span>
+<span class="c1"># Revealed type is 'ex.Kind[ex.Box[Any], builtins.str*]'
+</span><span class="n">reveal_type</span><span class="p">(</span><span class="n">apply_function</span><span class="p">(</span><span class="n">bag</span><span class="p">,</span> <span class="nb">str</span><span class="p">))</span>
+<span class="c1"># Revealed type is 'ex.Kind[ex.Bag[Any], builtins.str*]'
+</span></code></pre></div></div>
+
+<p>Almost what we need!</p>
+
+<p>We can use <a href="https://github.com/dry-python/returns/blob/0.15.0/returns/primitives/hkt.py#L208">a <code class="language-plaintext highlighter-rouge">@kinded</code> decorator</a> for that together with <a href="https://github.com/dry-python/returns/blob/0.15.0/returns/contrib/mypy/_features/kind.py#L116-L130">one more custom <code class="language-plaintext highlighter-rouge">mypy</code> plugin</a>. The idea of this hack is that we catch all calls of functions decorated with <code class="language-plaintext highlighter-rouge">@kinded</code> and transform their return type from <code class="language-plaintext highlighter-rouge">Kind[I, T]</code> into <code class="language-plaintext highlighter-rouge">I[T]</code>.</p>
+
+<p>The final iteration of <code class="language-plaintext highlighter-rouge">apply_function</code> will look like this:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">kinded</span>
+<span class="k">def</span> <span class="nf">apply_function</span><span class="p">(</span>
+    <span class="n">instance</span><span class="p">:</span> <span class="n">Kind</span><span class="p">[</span><span class="n">_InstanceKind</span><span class="p">,</span> <span class="n">_ValueType</span><span class="p">],</span>
+    <span class="n">callback</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">_ValueType</span><span class="p">],</span> <span class="n">_NewValueType</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Kind</span><span class="p">[</span><span class="n">_InstanceKind</span><span class="p">,</span> <span class="n">_NewValueType</span><span class="p">]:</span>
+    <span class="n">new_value</span> <span class="o">=</span> <span class="n">callback</span><span class="p">(</span><span class="n">instance</span><span class="p">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">instance</span><span class="p">.</span><span class="n">with_value</span><span class="p">(</span><span class="n">new_value</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>And would work as we want:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">reveal_type</span><span class="p">(</span><span class="n">apply_function</span><span class="p">(</span><span class="n">box</span><span class="p">,</span> <span class="nb">str</span><span class="p">))</span>
+<span class="c1"># Revealed type is 'ex.Box[builtins.str*]'
+</span><span class="n">reveal_type</span><span class="p">(</span><span class="n">apply_function</span><span class="p">(</span><span class="n">bag</span><span class="p">,</span> <span class="nb">str</span><span class="p">))</span>
+<span class="c1"># Revealed type is 'ex.Bag[builtins.str*]'
+</span></code></pre></div></div>
+
+<p>Let’s discuss the future of this hacks. Because, we don’t want them to stay!</p>
+
+
+    
+      <h2 id="limitations">
+        
+        <a class="anchor" href="#limitations">Limitations</a>
+        
+      </h2>
+
+<p>The main limitation, for now, is that <code class="language-plaintext highlighter-rouge">Kind</code> uses nominal inheritance and is a custom type. So, for now, it is impossible to work with 1st or 3rd party generics like <code class="language-plaintext highlighter-rouge">List</code>, <code class="language-plaintext highlighter-rouge">Set</code>, etc. We can only work with types who directly inherit from <code class="language-plaintext highlighter-rouge">Kind</code> for now.</p>
+
+<p>The second limitation comes from the fact we can have generics with a different number of type arguments, as I have shown you before:</p>
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">List</code> has a kind of <code class="language-plaintext highlighter-rouge">* -&gt; *</code>
+</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">Dict</code> has a kind of <code class="language-plaintext highlighter-rouge">* -&gt; * -&gt; *</code>
+</li>
+</ul>
+
+<p>So, we would need several <a href="https://github.com/dry-python/returns/blob/master/returns/primitives/hkt.py#L26"><code class="language-plaintext highlighter-rouge">Kind</code> alises</a> to work with different amount of type arguments. It would also have a reasonable limit of three type arguments:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">KindN</span><span class="p">(</span>
+    <span class="n">Generic</span><span class="p">[</span><span class="n">_InstanceType</span><span class="p">,</span> <span class="n">_TypeArgType1</span><span class="p">,</span> <span class="n">_TypeArgType2</span><span class="p">,</span> <span class="n">_TypeArgType3</span><span class="p">],</span>
+<span class="p">):</span>
+    <span class="p">...</span>
+
+<span class="c1">#: Type alias for kinds with one type argument.
+</span><span class="n">Kind1</span> <span class="o">=</span> <span class="n">KindN</span><span class="p">[</span><span class="n">_InstanceType</span><span class="p">,</span> <span class="n">_TypeArgType1</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+
+<span class="c1">#: Type alias for kinds with two type arguments.
+</span><span class="n">Kind2</span> <span class="o">=</span> <span class="n">KindN</span><span class="p">[</span><span class="n">_InstanceType</span><span class="p">,</span> <span class="n">_TypeArgType1</span><span class="p">,</span> <span class="n">_TypeArgType2</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+
+<span class="c1">#: Type alias for kinds with three type arguments.
+</span><span class="n">Kind3</span> <span class="o">=</span> <span class="n">KindN</span><span class="p">[</span><span class="n">_InstanceType</span><span class="p">,</span> <span class="n">_TypeArgType1</span><span class="p">,</span> <span class="n">_TypeArgType2</span><span class="p">,</span> <span class="n">_TypeArgType3</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>A lot of readers might be shocked by the number of hacks we have to apply to make this work. I guess it is time for me to explain what hacks are temporary and which are going to stay with us.</p>
+
+<p>The good news, <strong>all</strong> hacks can be solved in the future.</p>
+
+<p>Most of the hacks come from the fact that <code class="language-plaintext highlighter-rouge">mypy</code> does not know what <code class="language-plaintext highlighter-rouge">Kind</code> is. Possibly, in the future, it can be built into <code class="language-plaintext highlighter-rouge">mypy</code>. And <code class="language-plaintext highlighter-rouge">@kinded</code>, <code class="language-plaintext highlighter-rouge">__getattr__</code>, and <code class="language-plaintext highlighter-rouge">SupportsKind</code> hacks would go away. Together with the fact that <code class="language-plaintext highlighter-rouge">Kind</code> needs to be a direct supertype of types we want to represent as HKTs.</p>
+
+<p>Variadic generics are also in-the-work right now. You can have a look at the <a href="https://mail.python.org/archives/list/typing-sig@python.org/thread/SQVTQYWIOI4TIO7NNBTFFWFMSMS2TA4J/">PEP draft</a>. So, in the future <code class="language-plaintext highlighter-rouge">KindN</code>, <code class="language-plaintext highlighter-rouge">Kind1</code>, and <code class="language-plaintext highlighter-rouge">Kind2</code> would hopefully go away.</p>
+
+
+    
+      <h2 id="real-life-use-case">
+        
+        <a class="anchor" href="#real-life-use-case">Real life use-case</a>
+        
+      </h2>
+
+<p>I am going to finish this article with an example <a href="https://sobolevn.me/2020/06/how-async-should-have-been">I have promised you in my previous article</a> (it took almost half a year of hard work to fulfill!).</p>
+
+<p>Last time we talked about making a fully typed function that can work with sync and async HTTP clients with the same API.</p>
+
+<p>And here it is:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">TypeVar</span>
+
+<span class="kn">import</span> <span class="nn">anyio</span>
+<span class="kn">import</span> <span class="nn">httpx</span>
+
+<span class="kn">from</span> <span class="nn">returns.future</span> <span class="kn">import</span> <span class="n">future_safe</span>
+<span class="kn">from</span> <span class="nn">returns.interfaces.specific.ioresult</span> <span class="kn">import</span> <span class="n">IOResultLike2</span>
+<span class="kn">from</span> <span class="nn">returns.io</span> <span class="kn">import</span> <span class="n">impure_safe</span>
+<span class="kn">from</span> <span class="nn">returns.primitives.hkt</span> <span class="kn">import</span> <span class="n">Kind2</span><span class="p">,</span> <span class="n">kinded</span>
+
+<span class="n">_IOKind</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s">'_IOKind'</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="n">IOResultLike2</span><span class="p">)</span>
+
+<span class="o">@</span><span class="n">kinded</span>
+<span class="k">def</span> <span class="nf">fetch_resource_size</span><span class="p">(</span>
+    <span class="n">client_get</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">str</span><span class="p">],</span> <span class="n">Kind2</span><span class="p">[</span><span class="n">_IOKind</span><span class="p">,</span> <span class="n">httpx</span><span class="p">.</span><span class="n">Response</span><span class="p">,</span> <span class="nb">Exception</span><span class="p">]],</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Kind2</span><span class="p">[</span><span class="n">_IOKind</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">Exception</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="n">client_get</span><span class="p">(</span><span class="n">url</span><span class="p">).</span><span class="nb">map</span><span class="p">(</span>
+        <span class="k">lambda</span> <span class="n">response</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">content</span><span class="p">),</span>
+    <span class="p">)</span>
+</code></pre></div></div>
+
+<p>When used with sync <a href="https://returns.readthedocs.io/en/latest/pages/io.html"><code class="language-plaintext highlighter-rouge">IO</code></a> type, it would work as a regular function.
+But, it can also work with async <a href="https://returns.readthedocs.io/en/latest/pages/future.html"><code class="language-plaintext highlighter-rouge">Future</code></a> type.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Sync:
+</span><span class="k">print</span><span class="p">(</span><span class="n">fetch_resource_size</span><span class="p">(</span>
+    <span class="n">impure_safe</span><span class="p">(</span><span class="n">httpx</span><span class="p">.</span><span class="n">get</span><span class="p">),</span>
+    <span class="s">'https://sobolevn.me'</span><span class="p">,</span>
+<span class="p">))</span>
+<span class="c1"># =&gt; &lt;IOResult: &lt;Success: 27972&gt;&gt;
+</span>
+<span class="c1"># Async:
+</span><span class="n">page_size</span> <span class="o">=</span> <span class="n">fetch_resource_size</span><span class="p">(</span>
+    <span class="n">future_safe</span><span class="p">(</span><span class="n">httpx</span><span class="p">.</span><span class="n">AsyncClient</span><span class="p">().</span><span class="n">get</span><span class="p">),</span>
+    <span class="s">'https://sobolevn.me'</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">page_size</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">anyio</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">page_size</span><span class="p">.</span><span class="n">awaitable</span><span class="p">))</span>
+<span class="c1"># =&gt; &lt;FutureResult: &lt;coroutine object async_map at 0x10b17c320&gt;&gt;
+# =&gt; &lt;IOResult: &lt;Success: 27972&gt;&gt;
+</span></code></pre></div></div>
+
+<p>The possibilities with Higher Kinded Types are endless! It shines with:</p>
+<ul>
+  <li>Functional programming, like we do in <code class="language-plaintext highlighter-rouge">dry-python</code>
+</li>
+  <li>Computational libraries, when people type things like <code class="language-plaintext highlighter-rouge">Tensor</code> or <code class="language-plaintext highlighter-rouge">Matrix</code> or <code class="language-plaintext highlighter-rouge">Array</code>
+</li>
+</ul>
+
+
+    
+      <h2 id="conclusion">
+        
+        <a class="anchor" href="#conclusion">Conclusion</a>
+        
+      </h2>
+
+<p>Wow, it was a cool ride! I hope you have enjoyed it as much as I did! Working on Higher Kinded Types was super fun and I am excited for you to try it.</p>
+
+<ul>
+  <li>Docs: <a href="https://returns.readthedocs.io/en/latest/index.html">https://returns.readthedocs.io/en/latest/index.html</a>
+</li>
+  <li>Repository: <a href="https://github.com/dry-python/returns">https://github.com/dry-python/returns</a> Don’t forget to star it!</li>
+</ul>
+
+<p>P.S. Does your company want corporate training on using types in Python with <code class="language-plaintext highlighter-rouge">mypy</code>? We, in <a href="https://drylabs.io/">DryLabs</a> can help! Drop us a line.</p>
+
+
+    
+      <h3 id="special-thanks">
+        
+        <a class="anchor" href="#special-thanks">Special thanks</a>
+        
+      </h3>
+
+<p>To <a href="https://github.com/thepabloaguilar">Pablo Aguilar</a> for working on this release and reviewing this post!</p>
+
+    </div>
+
+    <hr>
+
+    <div class="post-subscribe">
+      <h2>
+        <a href="https://sobolevn.me/subscribe">
+          Subscribe to my blog if you want more
+        </a>
+      </h2>
+    </div>
+
+    
+    
+    <div class="post-republish">
+      <h4>Republished as:</h4>
+      <ul>
+      
+        <li>
+          <a class="c-article__repost" href="https://dev.to/wemake-services/higher-kinded-types-in-python-51n8" target="_blank">
+            
+            dev.to <img class="emoji" title=":us:" alt=":us:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f1fa-1f1f8.png" height="20" width="20">
+          </a>
+        </li>
+      
+      </ul>
+    </div>
+    
+  </div>
+
+  <!-- Disqus comments view -->
+  
+  <div class="post-disqus" id="discussion">
+    <div id="disqus_thread"></div>
+
+<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+this.page.url = "http://localhost:4000/2020/10/higher-kinded-types-in-python";
+this.page.identifier = "/2020/10/higher-kinded-types-in-python";
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://sobolevn-me.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+
+  </div>
+  
+</article>
+
+  </div>
+  <footer class="c-page__footer">
+  <p>
+    <i class="far fa-copyright"></i>
+    <a href="https://sobolevn.me/about/">sobolevn</a>
+    2023,
+    content licensed
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">
+      CC BY-NC
+    </a>,
+    <a href="https://github.com/sobolevn/sobolevn.github.io" target="_blank">
+      source code
+    </a>
+  </p>
+
+  <p>
+    <a href="mailto:mail@sobolevn.me" alt="email">
+      <i class="far fa-2x fa-envelope"></i>
+    </a>
+    <a href="https://github.com/sobolevn" alt="github">
+      <i class="fab fa-2x fa-github"></i>
+    </a>
+    <a href="https://dev.to/sobolevn" alt="practicaldev">
+      <i class="fab fa-2x fa-dev"></i>
+    </a>
+    <a href="https://medium.com/@sobolevn" alt="medium">
+      <i class="fab fa-2x fa-medium"></i>
+    </a>
+    <a href="https://stackoverflow.com/users/4842742/sobolevn" alt="stackoverflow">
+      <i class="fab fa-2x fa-stack-overflow"></i>
+    </a>
+  </p>
+</footer>
+
+</div>
+
+    </main>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66588818-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66588818-1');
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/assets/images/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
+<link rel="manifest" href="/assets/images/favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/assets/images/favicons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+
+  <!-- Meta information -->
+  <title>Testing Bash applications</title>
+  <meta name="description"
+        content="">
+  <link rel="canonical"
+        href="http://localhost:4000/2017/07/testing-bash-applications" />
+
+  <!-- Open search scheme -->
+  <link rel="search"
+        type="application/opensearchdescription+xml"
+        title="sobolevn.me"
+        href="/opensearch.xml" />
+
+  <!-- Feed -->
+  <link rel="alternate" type="application/rss+xml" title="sobolevn's personal blog"
+        href="/feed.xml" />
+
+  <!-- Custom fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,900|Roboto+Mono:400,400i|Montserrat:400,800" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+  <!-- Custom style -->
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Global site tag (gtag.js) - Google Ads: 839642990 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-839642990"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-839642990');
+  </script>
+</head>
+
+
+  <body>
+    <main class="u-container">
+      <div class="c-page">
+  <header class="c-page__header">
+  <h1><code>sobolevn's personal blog</code></h1>
+
+  
+
+  <nav role="navigation">
+    <a href="/" role="menuitem">
+      Blog
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/talks/" role="menuitem">
+      Talks
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/activities/" role="menuitem">
+      Activities
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/about/" role="menuitem">
+      About
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/subscribe/" role="menuitem">
+      Subscribe
+    </a>
+  </nav>
+</header>
+
+  <div class="c-page__main">
+    <article class="c-article" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header class="c-article__header">
+    <h1 class="c-article__title" itemprop="name">Testing Bash applications</h1>
+    <p class="c-article__time">
+      <small>
+        <time datetime="2017-07-08T00:00:00+05:30" itemprop="datePublished">
+          July 8, 2017
+        </time>
+      </small>
+      <small><span class="reading-time" title="Estimated read time">
+  
+  
+    9 mins
+   read
+</span>
+</small>
+      <small><a href="#discussion">Start a discussion</a></small>
+      <small><a href="https://github.com/sobolevn/sobolevn.github.io/blob/master/_posts/2017-07-08-testing-bash-applications.md">Edit this page</a></small>
+    </p>
+  </header>
+
+  <!-- Post Tags -->
+  <!-- <ul class="c-tags">
+    
+    <li class="c-tag">bash</li>
+    
+  </ul> -->
+
+  <!-- Content -->
+  <div class="c-article__main">
+
+    
+      
+      
+      <div class="post-translate">
+        <h4>Translated to:</h4>
+        <ul>
+        
+          <li>
+            <a class="c-article__repost" href="https://habr.com/post/278937/" target="_blank">
+              Russian <img class="emoji" title=":ru:" alt=":ru:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f1f7-1f1fa.png" height="20" width="20">
+            </a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      
+    
+
+    <div class="c-article__body" itemprop="articleBody">
+      <p><img src="https://cdn-images-1.medium.com/max/1200/1*FEE98iWinlZBYkxBAG8MvA.png" width="33%"></p>
+
+<p>Some time ago I was faced with a task of testing a bash script. At first I decided to use Python unit-tests, however, I was reluctant to bring external technologies to the project. Therefore I had to go with the testing framework written in the notorious bash.</p>
+
+
+      <h2 id="overview-of-the-existing-solutions">
+        
+        <a class="anchor" href="#overview-of-the-existing-solutions">Overview of the existing solutions</a>
+        
+      </h2>
+
+<p>After googling available solutions, I was presented with very scarce options. We are going have a closer look at some of them.</p>
+
+<p>Which criteria are going to be important?</p>
+
+<ol>
+  <li>
+    <p>Dependencies: when taking a bash testing framework you wouldn’t want it to drag python, lua, and a few more systems packages along with it</p>
+  </li>
+  <li>
+    <p>Installation difficulties: since one of the tasks was implementing continuous-development and continuous-integration in Travis, it was important to me that the installation took a reasonable amount of time and number of steps. Ideal options — package managers, acceptable options — git clone, wget</p>
+  </li>
+  <li>
+    <p>Documentation and support: the application should run on different Unix-distributions, thus, the tests should work everywhere including various platforms, shells, and their combinations along with the speed of updates; plus staying outside communities and experience of other users was undesirable</p>
+  </li>
+  <li>
+    <p>Availability of fixtures in some form and/or (at least!) <code class="language-plaintext highlighter-rouge">setup()</code> and <code class="language-plaintext highlighter-rouge">teardown()</code> functions</p>
+  </li>
+  <li>
+    <p>The reasonable syntax for writing new tests, which is a crucial requirement in the world of bash</p>
+  </li>
+  <li>
+    <p>Habitual results: how many tests were carried out, what succeeded and what did not, and what happened (preferably)</p>
+  </li>
+</ol>
+
+
+    
+      <h3 id="assertsh">
+        
+        <a class="anchor" href="#assertsh"></a><a href="https://github.com/lehmannro/assert.sh">assert.sh</a>
+        
+      </h3>
+
+<p>One of the first options that I noticed was a small framework assert.sh. It is a pretty good solution — easy to install and use. In order to write the first test, you need to create a file tests.sh (example taken from the documentation):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>. assert.sh
+
+# `echo test` is expected to write "test" on stdout
+assert "echo test" "test"
+# `seq 3` is expected to print "1", "2" and "3" on different lines
+assert "seq 3" "1\n2\n3"
+# exit code of `true` is expected to be 0
+assert_raises "true"
+# exit code of `false` is expected to be 1
+assert_raises "false" 1
+# end of test suite
+assert_end examples
+</code></pre></div></div>
+
+<p>Then you can run this file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./tests.sh
+all 4 examples tests passed **in** 0.014s.
+</code></pre></div></div>
+
+<p>Other advantages include:</p>
+
+<ul>
+  <li>
+    <p>Simple syntax and use</p>
+  </li>
+  <li>
+    <p>Good documentation and examples of use</p>
+  </li>
+  <li>
+    <p>Ability to make conditional or unconditional test skip</p>
+  </li>
+  <li>
+    <p>Ability to fail-fast or run-all</p>
+  </li>
+  <li>
+    <p>You can display the errors in detail (if you use flag <code class="language-plaintext highlighter-rouge">–v</code>), initially, it does not tell you which tests are failing</p>
+  </li>
+</ul>
+
+<p>However, there is a number of serious drawbacks:</p>
+
+<ul>
+  <li>
+    <p>At the time of writing the article, there was a red icon on, saying “build failing” on Github, this looks scary</p>
+  </li>
+  <li>
+    <p>Even thought the framework positions itself as an easy one, for me it lacks <code class="language-plaintext highlighter-rouge">setup()</code> and <code class="language-plaintext highlighter-rouge">teardown()</code> methods to prepare the data for each test and delete it upon its completion</p>
+  </li>
+  <li>
+    <p>You can’t run all the tests from a certain folder</p>
+  </li>
+</ul>
+
+<p><strong>Conclusion</strong>: it is a good tool, which I would recommend using if you need to write a simple tests for a basic shell script. It isn’t suitable for more complex tasks.</p>
+
+
+    
+      <h3 id="shunit2">
+        
+        <a class="anchor" href="#shunit2"></a><a href="https://github.com/kward/shunit2">shunit2</a>
+        
+      </h3>
+
+<p>Installing shunit2 is not as easy as the previous tool. I was unable to find an adequate repository — there is some project on Google Code, there are a few on Github, left at various stages 3 and 5 years ago, and there are even some svn repositories. Consequently, it is impossible to make sense which release is the latest and how to download it. But those are small inconveniences.</p>
+
+<p>How do the tests themselves look? Here is a simplified example from the documentation:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>testAdding<span class="o">()</span>
+<span class="o">{</span>
+  <span class="nv">result</span><span class="o">=</span><span class="sb">`</span><span class="nb">expr </span>1 + 2<span class="sb">`</span>
+  assertEquals <span class="se">\</span>
+      <span class="s2">"the result of '</span><span class="k">${</span><span class="nv">result</span><span class="k">}</span><span class="s2">' was wrong"</span> <span class="se">\</span>
+      3 <span class="s2">"</span><span class="k">${</span><span class="nv">result</span><span class="k">}</span><span class="s2">"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>And then running it:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/bin/bash math_test.sh testAdding
+
+Ran 1 test.
+
+OK
+</code></pre></div></div>
+
+<p>This framework boasts of some unique features for its class:</p>
+
+<ul>
+  <li>
+    <p>Ability to create test suites inside the code. This feature can be handy when you have tests for certain platforms or shells. In this case, you can use your own namespaces, such as <code class="language-plaintext highlighter-rouge">zsh_</code>, <code class="language-plaintext highlighter-rouge">debian_</code>, etc</p>
+  </li>
+  <li>
+    <p>There <code class="language-plaintext highlighter-rouge">setUp</code> and <code class="language-plaintext highlighter-rouge">teardown</code> functions, which are run for each test; as well as <code class="language-plaintext highlighter-rouge">oneTimeSetUp</code> and <code class="language-plaintext highlighter-rouge">oneTimeTearDown</code>, which are run in the beginning and at the end of the testing session</p>
+  </li>
+  <li>
+    <p>Wide selection of various asserts, with the possibility of inputting numbers of the lines where the test fails, using <code class="language-plaintext highlighter-rouge">${_ASSERT_EQUALS_}</code>, however, this works only for the shells which support line numbering: <code class="language-plaintext highlighter-rouge">bash</code> (&gt;=3.0), <code class="language-plaintext highlighter-rouge">ksh</code>, <code class="language-plaintext highlighter-rouge">pdksh</code>, and <code class="language-plaintext highlighter-rouge">zsh</code></p>
+  </li>
+  <li>
+    <p>You can skip tests</p>
+  </li>
+</ul>
+
+<p>Still, there are a few considerable disadvantages, which have pushed me away in the end:</p>
+
+<ul>
+  <li>
+    <p>The project is almost inactive</p>
+  </li>
+  <li>
+    <p>Following the previous comment, it is hard to understand what to install, it seems that the last release was in 2011</p>
+  </li>
+  <li>
+    <p>The number of features is a bit excessive. For example, there are two ways of checking the equation: assertEquals and assertSame. It is quite surprising</p>
+  </li>
+  <li>
+    <p>You cannot run all the files from the folder</p>
+  </li>
+</ul>
+
+<p><strong>Conclusion</strong>: it is a serious tool, which should be setup in a flexible enough way and make an indispensable part of your project. However, lack of structure in the <code class="language-plaintext highlighter-rouge">shunit2</code> project itself is scary, so I decided to continue my search.</p>
+
+
+    
+      <h3 id="roundup">
+        
+        <a class="anchor" href="#roundup"></a><a href="https://github.com/bmizerany/roundup">roundup</a>
+        
+      </h3>
+
+<p>Initially, I was intrigued by this framework because it was written by the author of Sinatra for ruby. I also liked test syntax, which resembles the well-known mocha. All functions starting with it_ inside the file are considered as tests and run by default. Interestingly, all tests run in their own sandbox, which allows avoiding extra errors. Here is how an example from the documentation looks:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>describe <span class="s2">"roundup(5)"</span>
+
+before<span class="o">()</span> <span class="o">{</span>
+    <span class="nv">foo</span><span class="o">=</span><span class="s2">"bar"</span>
+<span class="o">}</span>
+
+after<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">rm</span> <span class="nt">-f</span> foo.txt
+<span class="o">}</span>
+
+it_runs_before<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">test</span> <span class="s2">"</span><span class="nv">$foo</span><span class="s2">"</span> <span class="s2">"="</span> <span class="s2">"bar"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>There are no examples of the output. You need to install it and check by yourself, which is not that good, actually. On the plus side, though:</p>
+
+<ul>
+  <li>
+    <p>Each test runs in its own sandbox, which is very convenient</p>
+  </li>
+  <li>
+    <p>It is easy to use</p>
+  </li>
+  <li>
+    <p>You can install it through <code class="language-plaintext highlighter-rouge">git clone</code> and <code class="language-plaintext highlighter-rouge">./configure &amp;&amp; make</code>, plus installation can be done into the local directory, you just need to modify <code class="language-plaintext highlighter-rouge">$PATH</code></p>
+  </li>
+</ul>
+
+<p>Still, there are quite a few drawbacks:</p>
+
+<ul>
+  <li>
+    <p>You cannot create a source of common functions for all the tests (To be completely honest you can if you use a hack)</p>
+  </li>
+  <li>
+    <p>You cannot run all the test files from the folder.</p>
+  </li>
+  <li>
+    <p>Documentation is full of <code class="language-plaintext highlighter-rouge">TODO</code> marks, while the works haven’t been in progress for a couple of years now</p>
+  </li>
+  <li>
+    <p>You can not skip a test</p>
+  </li>
+</ul>
+
+<p><strong>Conclusion</strong>: it is a perfectly mediocre tool, you can not say it’s a good one, and yet it isn’t that bad. In its functions, while being wider, are similar to <code class="language-plaintext highlighter-rouge">assert.sh</code>. When should you use it? If you were going for assert.sh, and the only things lacking are functions <code class="language-plaintext highlighter-rouge">before()</code> or <code class="language-plaintext highlighter-rouge">after()</code>.</p>
+
+
+    
+      <h3 id="bats">
+        
+        <a class="anchor" href="#bats"></a><a href="https://github.com/sstephenson/bats">bats</a>
+        
+      </h3>
+
+<p>I say it straight away — I chose this framework in the end. There is a lot to like. First of all, great documentation: examples of use, semantic versioning; and I would like to specifically point out the list of projects using bats.</p>
+
+<p>bats uses the following approach: the test is considered complete if all the commands inside return code <code class="language-plaintext highlighter-rouge">0</code> (like <code class="language-plaintext highlighter-rouge">set –e</code> does). Here is how test written on bats look like:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env bats</span>
+
+@test <span class="s2">"addition using bc"</span> <span class="o">{</span>
+  <span class="nv">result</span><span class="o">=</span><span class="s2">"</span><span class="si">$(</span><span class="nb">echo </span>2+2 | bc<span class="si">)</span><span class="s2">"</span>
+  <span class="o">[</span> <span class="s2">"</span><span class="nv">$result</span><span class="s2">"</span> <span class="nt">-eq</span> 4 <span class="o">]</span>
+<span class="o">}</span>
+
+@test <span class="s2">"addition using dc"</span> <span class="o">{</span>
+  <span class="nv">result</span><span class="o">=</span><span class="s2">"</span><span class="si">$(</span><span class="nb">echo </span>2 2+p | dc<span class="si">)</span><span class="s2">"</span>
+  <span class="o">[</span> <span class="s2">"</span><span class="nv">$result</span><span class="s2">"</span> <span class="nt">-eq</span> 4 <span class="o">]</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>And the output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bats addition.bats
+✓ addition using bc
+✓ addition using dc
+
+2 tests, 0 failures
+</code></pre></div></div>
+
+<p>You can get test information in text compatible with Test Anything Protocol with the help of a flag <code class="language-plaintext highlighter-rouge">--tap</code>. You can find the plugins for a wide number of programs there: Jenkins, Redmine, SublimeText and others.</p>
+
+<p>Apart from peculiar test syntax, there are other interesting things about bats:</p>
+
+<ul>
+  <li>
+    <p>Command run allows you to run the command first and then test its outgoing code and text output; which you can do with the help of special variables: $status and $output</p>
+  </li>
+  <li>
+    <p>Command load allows you to load a common code base</p>
+  </li>
+  <li>
+    <p>Command skip allows you to skip a test if needed</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">setup()</code> and <code class="language-plaintext highlighter-rouge">teardown()</code> functions allow you to adjust the environment and clean up after yourself</p>
+  </li>
+  <li>
+    <p>There is a whole set of specific variables</p>
+  </li>
+  <li>
+    <p>You can run all the tests inside the folder</p>
+  </li>
+  <li>
+    <p>Active community</p>
+  </li>
+</ul>
+
+<p>I have already listed quite a large number of positive bats’ features. As for the negative sides, I was able to find only one:</p>
+
+<ul>
+  <li>bats steps away from valid bash. Tests should be written in files with .bats extension, using a different shebang</li>
+</ul>
+
+<p><strong>Conclusion</strong>: it is a quality tool with close to no weaknesses. I highly recommend it.</p>
+
+
+    
+      <h2 id="results">
+        
+        <a class="anchor" href="#results">Results</a>
+        
+      </h2>
+
+<p>This research was made in attempt to write some quality tests for my personal project called <code class="language-plaintext highlighter-rouge">git-secret</code>. Which primary goal is to store encrypted files in the git repository.
+<a href="https://github.com/sobolevn/git-secret">Check it out!</a></p>
+
+    </div>
+
+    <hr>
+
+    <div class="post-subscribe">
+      <h2>
+        <a href="https://sobolevn.me/subscribe">
+          Subscribe to my blog if you want more
+        </a>
+      </h2>
+    </div>
+
+    
+    
+    <div class="post-republish">
+      <h4>Republished as:</h4>
+      <ul>
+      
+        <li>
+          <a class="c-article__repost" href="https://dev.to/sobolevn/testing-bash-scripts" target="_blank">
+            
+            dev.to <img class="emoji" title=":us:" alt=":us:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f1fa-1f1f8.png" height="20" width="20">
+          </a>
+        </li>
+      
+        <li>
+          <a class="c-article__repost" href="https://medium.com/wemake-services/testing-bash-applications-85512e7fe2de" target="_blank">
+            
+            medium.com <img class="emoji" title=":us:" alt=":us:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f1fa-1f1f8.png" height="20" width="20">
+          </a>
+        </li>
+      
+      </ul>
+    </div>
+    
+  </div>
+
+  <!-- Disqus comments view -->
+  
+  <div class="post-disqus" id="discussion">
+    <div id="disqus_thread"></div>
+
+<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+this.page.url = "http://localhost:4000/2017/07/testing-bash-applications";
+this.page.identifier = "/2017/07/testing-bash-applications";
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://sobolevn-me.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+
+  </div>
+  
+</article>
+
+  </div>
+  <footer class="c-page__footer">
+  <p>
+    <i class="far fa-copyright"></i>
+    <a href="https://sobolevn.me/about/">sobolevn</a>
+    2023,
+    content licensed
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">
+      CC BY-NC
+    </a>,
+    <a href="https://github.com/sobolevn/sobolevn.github.io" target="_blank">
+      source code
+    </a>
+  </p>
+
+  <p>
+    <a href="mailto:mail@sobolevn.me" alt="email">
+      <i class="far fa-2x fa-envelope"></i>
+    </a>
+    <a href="https://github.com/sobolevn" alt="github">
+      <i class="fab fa-2x fa-github"></i>
+    </a>
+    <a href="https://dev.to/sobolevn" alt="practicaldev">
+      <i class="fab fa-2x fa-dev"></i>
+    </a>
+    <a href="https://medium.com/@sobolevn" alt="medium">
+      <i class="fab fa-2x fa-medium"></i>
+    </a>
+    <a href="https://stackoverflow.com/users/4842742/sobolevn" alt="stackoverflow">
+      <i class="fab fa-2x fa-stack-overflow"></i>
+    </a>
+  </p>
+</footer>
+
+</div>
+
+    </main>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66588818-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66588818-1');
+</script>
+
+  </body>
+</html>

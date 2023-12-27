@@ -1,0 +1,56 @@
+---
+layout: page
+title: Activities
+permalink: /activities/
+---
+
+<div class="c-summary">
+  <p>
+    This is an incomplete list of different activities that I participate in.
+  </p>
+  <p>
+    These are mostly interviews, webinars, and podcasts with me.
+  </p>
+  <p>
+    Do you want to invite me to make a podcast together?
+    No problem, <a href="mailto:mail@sobolevn.me">drop me a line!</a>
+  </p>
+</div>
+
+<section class="c-archives">
+  <link rel="shortcut icon" href="">
+  {% assign sorted_activities = site.activities | reverse %}
+  {% for activity in sorted_activities  %}
+    {% capture this_year %}{{ activity.date | date: "%Y" }}{% endcapture %}
+    {% capture next_year %}{{ activity.previous.date | date: "%Y" }}{% endcapture %}
+
+    {% if forloop.first %}
+      <h2 class="c-archives__year" id="{{ this_year }}-ref">{{ this_year }}</h2>
+      <ul class="c-archives__list">
+    {% endif %}
+    <li class="c-archives__item">
+      <h3>
+        :link: <a href="{{ activity.link }}" target="_blank">{{ activity.title }}</a>
+      </h3>
+      <p>
+        <small>{{ activity.date | date: "%b %-d, %Y" }}</small>
+        <small>
+          {% assign domain = activity.link | replace_first: 'www.', '' | split: '/' %}
+          {{ domain[2] }}, {{ activity.type | downcase }} :{{ activity.language }}:
+        </small>
+      </p>
+    </li>
+    {% if forloop.last %}
+      </ul>
+    {% else %}
+      {% if this_year != next_year %}
+        </ul>
+
+        <h2 class="c-archives__year" id="{{ next_year }}-ref">
+          {{ next_year }}
+        </h2>
+        <ul class="c-archives__list">
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+</section>

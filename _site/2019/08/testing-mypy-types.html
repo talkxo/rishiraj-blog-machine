@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/assets/images/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
+<link rel="manifest" href="/assets/images/favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/assets/images/favicons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+
+  <!-- Meta information -->
+  <title>Testing mypy stubs, plugins, and types</title>
+  <meta name="description"
+        content="">
+  <link rel="canonical"
+        href="http://localhost:4000/2019/08/testing-mypy-types" />
+
+  <!-- Open search scheme -->
+  <link rel="search"
+        type="application/opensearchdescription+xml"
+        title="sobolevn.me"
+        href="/opensearch.xml" />
+
+  <!-- Feed -->
+  <link rel="alternate" type="application/rss+xml" title="sobolevn's personal blog"
+        href="/feed.xml" />
+
+  <!-- Custom fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,900|Roboto+Mono:400,400i|Montserrat:400,800" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+  <!-- Custom style -->
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Global site tag (gtag.js) - Google Ads: 839642990 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-839642990"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-839642990');
+  </script>
+</head>
+
+
+  <body>
+    <main class="u-container">
+      <div class="c-page">
+  <header class="c-page__header">
+  <h1><code>sobolevn's personal blog</code></h1>
+
+  
+
+  <nav role="navigation">
+    <a href="/" role="menuitem">
+      Blog
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/talks/" role="menuitem">
+      Talks
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/activities/" role="menuitem">
+      Activities
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/about/" role="menuitem">
+      About
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/subscribe/" role="menuitem">
+      Subscribe
+    </a>
+  </nav>
+</header>
+
+  <div class="c-page__main">
+    <article class="c-article" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header class="c-article__header">
+    <h1 class="c-article__title" itemprop="name">Testing mypy stubs, plugins, and types</h1>
+    <p class="c-article__time">
+      <small>
+        <time datetime="2019-08-31T00:00:00+05:30" itemprop="datePublished">
+          August 31, 2019
+        </time>
+      </small>
+      <small><span class="reading-time" title="Estimated read time">
+  
+  
+    9 mins
+   read
+</span>
+</small>
+      <small><a href="#discussion">Start a discussion</a></small>
+      <small><a href="https://github.com/sobolevn/sobolevn.github.io/blob/master/_posts/2019-08-31-testing-mypy-types.md">Edit this page</a></small>
+    </p>
+  </header>
+
+  <!-- Post Tags -->
+  <!-- <ul class="c-tags">
+    
+    <li class="c-tag">python</li>
+    
+  </ul> -->
+
+  <!-- Content -->
+  <div class="c-article__main">
+
+    
+
+    <div class="c-article__body" itemprop="articleBody">
+      <p><img src="https://i.imgur.com/xcEfEGA.png" alt="Post logo"></p>
+
+<p>Have you ever tried to:</p>
+
+<ul>
+  <li>Create complex generic types in your own project?</li>
+  <li>Write <a href="https://www.python.org/dev/peps/pep-0561/">distributable stubs</a> for your library?</li>
+  <li>Create <a href="https://mypy.readthedocs.io/en/latest/extending_mypy.html">custom <code class="language-plaintext highlighter-rouge">mypy</code> plugin</a>?</li>
+</ul>
+
+<p>In case you try to do any of these, you will soon find out that you need to test your types. Wait, what? Let me explain this paradox in detail.</p>
+
+
+      <h2 id="the-first-tests-for-types-in-python">
+        
+        <a class="anchor" href="#the-first-tests-for-types-in-python">The first tests for types in Python</a>
+        
+      </h2>
+
+<p>Let’s start with a history lesson.
+The first time I got interested in <code class="language-plaintext highlighter-rouge">mypy</code>, I found their testing technique unique and interesting. That’s how it <a href="https://github.com/python/mypy/blob/master/test-data/unit/check-lists.test">looks</a> like:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[case testNestedListAssignmentToTuple]
+from typing import List
+a, b, c = None, None, None # type: (A, B, C)
+
+a, b = [a, b]
+a, b = [a]  # E: Need more than 1 value to unpack (2 expected)
+a, b = [a, b, c]  # E: Too many values to unpack (2 expected, 3 provided)
+</code></pre></div></div>
+
+<p>This looks familiar:</p>
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">[case]</code> defines a new test, like <code class="language-plaintext highlighter-rouge">def test_</code> does</li>
+  <li>The contents inside are raw <code class="language-plaintext highlighter-rouge">python</code> source code lines that are processed with <code class="language-plaintext highlighter-rouge">mypy</code>
+</li>
+  <li>
+<code class="language-plaintext highlighter-rouge"># E:</code> comments are <code class="language-plaintext highlighter-rouge">assert</code> statements that tell what <code class="language-plaintext highlighter-rouge">mypy</code> output is expected at each line</li>
+</ul>
+
+<p>So, we can write this kind of tests for our libraries as well, right? That was the question when I started writing <a href="https://github.com/dry-python/returns"><code class="language-plaintext highlighter-rouge">returns</code></a> library (which is a typed monad implementation in Python). So, I needed to test what is going on inside and what types are revealed by <code class="language-plaintext highlighter-rouge">mypy</code>. Then I tried to reuse this test cases from <code class="language-plaintext highlighter-rouge">mypy</code>.</p>
+
+<p>Long story short, it is impossible. This little helper is builtin inside <code class="language-plaintext highlighter-rouge">mypy</code> source code and cannot be reused. So, I started to look for other solutions.</p>
+
+
+    
+      <h2 id="modern-approach">
+        
+        <a class="anchor" href="#modern-approach">Modern approach</a>
+        
+      </h2>
+
+<p>I stumbled on <a href="https://github.com/typeddjango/pytest-mypy-plugins"><code class="language-plaintext highlighter-rouge">pytest-mypy-plugins</code></a> package. It was originally created to make sure that types for <code class="language-plaintext highlighter-rouge">django</code> works fine in <a href="https://github.com/typeddjango"><code class="language-plaintext highlighter-rouge">TypedDjango</code></a> project. Check out <a href="https://sobolevn.me/2019/08/typechecking-django-and-drf">my previous post</a> about it.</p>
+
+<p>To install <code class="language-plaintext highlighter-rouge">pytest-mypy-plugins</code> in your project run:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>pytest-mypy-plugins
+</code></pre></div></div>
+
+<p>It works similar to <code class="language-plaintext highlighter-rouge">mypy</code>’s own test cases, but with a slightly different design. Let’s create a <code class="language-plaintext highlighter-rouge">yaml</code> file and place it as <code class="language-plaintext highlighter-rouge">./typesafety/test_compose.yml</code>:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># ./typesafety/test_compose.yml</span>
+<span class="pi">-</span> <span class="na">case</span><span class="pi">:</span> <span class="s">compose_two_functions</span>
+  <span class="na">main</span><span class="pi">:</span> <span class="pi">|</span>
+    <span class="s">from myapp import first, second</span>
+
+    <span class="s">reveal_type(second(first(1)))  # N: Revealed type is 'builtins.str*'</span>
+  <span class="na">files</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">path</span><span class="pi">:</span> <span class="s">myapp.py</span>
+      <span class="na">content</span><span class="pi">:</span> <span class="pi">|</span>
+        <span class="s">def first(num: int) -&gt; float:</span>
+            <span class="s">return float(num)</span>
+
+        <span class="s">def second(num: float) -&gt; str:</span>
+            <span class="s">return str(num)</span>
+</code></pre></div></div>
+
+<p>What do we have here?</p>
+
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">case</code> definition, this is basically a test’s name</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">main</code> section that contains <code class="language-plaintext highlighter-rouge">python</code> source code that is required for the test</li>
+  <li>
+<code class="language-plaintext highlighter-rouge"># N:</code> comment that indicates a note from <code class="language-plaintext highlighter-rouge">mypy</code>
+</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">files</code> section where you can create temporary helper files to be used in this test</li>
+</ul>
+
+<p>Nice! How can we run it? Since <code class="language-plaintext highlighter-rouge">pytest-mypy-plugins</code> is a <code class="language-plaintext highlighter-rouge">pytest</code> plugin, we only need to run <code class="language-plaintext highlighter-rouge">pytest</code> as usual and to specify our <code class="language-plaintext highlighter-rouge">mypy</code> configuration file (defaults to <code class="language-plaintext highlighter-rouge">mypy.ini</code>):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pytest <span class="nt">--mypy-ini-file</span><span class="o">=</span>setup.cfg
+</code></pre></div></div>
+
+<p>You can have two <code class="language-plaintext highlighter-rouge">mypy</code> configurations: one for your project, one for tests. Just saying. Let’s have a look at our <code class="language-plaintext highlighter-rouge">setup.cfg</code> contents:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[mypy]</span>
+<span class="py">check_untyped_defs</span> <span class="p">=</span> <span class="s">True</span>
+<span class="py">ignore_errors</span> <span class="p">=</span> <span class="s">False</span>
+<span class="py">ignore_missing_imports</span> <span class="p">=</span> <span class="s">True</span>
+<span class="py">strict_optional</span> <span class="p">=</span> <span class="s">True</span>
+</code></pre></div></div>
+
+<p>That’s the invocation result:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>» pytest --mypy-ini-file=setup.cfg
+================================ test session starts =================================
+platform darwin -- Python 3.7.4, pytest-5.1.1, py-1.8.0, pluggy-0.12.0
+rootdir: /code/, inifile: setup.cfg
+plugins: mypy-plugins-1.0.3
+collected 1 item
+
+typesafety/test_compose.yml .                                                  [100%]
+
+================================= 1 passed in 2.00s ==================================
+</code></pre></div></div>
+
+<p>It works! Let’s complicate our example a little bit.</p>
+
+
+    
+      <h2 id="checking-for-errors">
+        
+        <a class="anchor" href="#checking-for-errors">Checking for errors</a>
+        
+      </h2>
+
+<p>We can also use <code class="language-plaintext highlighter-rouge">pytest-mypy-plugins</code> to enforce and check constraints on our complex type specs. Let’s imagine you have a type definition with complex generics and you want to make sure that it works correctly.</p>
+
+<p>That’s actually very helpful, because you can check for success cases with raw <code class="language-plaintext highlighter-rouge">mypy</code> checks, while you cannot tell <code class="language-plaintext highlighter-rouge">mypy</code> to expect an error for a specific expression or call.</p>
+
+<p>Let’s begin with our complex type definition:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># returns/functions.py
+</span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">TypeVar</span>
+
+<span class="c1"># Aliases:
+</span><span class="n">_FirstType</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s">'_FirstType'</span><span class="p">)</span>
+<span class="n">_SecondType</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s">'_SecondType'</span><span class="p">)</span>
+<span class="n">_ThirdType</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s">'_ThirdType'</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">compose</span><span class="p">(</span>
+    <span class="n">first</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">_FirstType</span><span class="p">],</span> <span class="n">_SecondType</span><span class="p">],</span>
+    <span class="n">second</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">_SecondType</span><span class="p">],</span> <span class="n">_ThirdType</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">_FirstType</span><span class="p">],</span> <span class="n">_ThirdType</span><span class="p">]:</span>
+    <span class="s">"""Allows typed function composition."""</span>
+    <span class="k">return</span> <span class="k">lambda</span> <span class="n">argument</span><span class="p">:</span> <span class="n">second</span><span class="p">(</span><span class="n">first</span><span class="p">(</span><span class="n">argument</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>This code takes two function and checks that their types match, so they can be composed. Let’s test it:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># ./typesafety/test_compose.yml</span>
+<span class="pi">-</span> <span class="na">case</span><span class="pi">:</span> <span class="s">compose_two_wrong_functions</span>
+  <span class="na">main</span><span class="pi">:</span> <span class="pi">|</span>
+    <span class="s">from returns.functions import compose</span>
+
+    <span class="s">def first(num: int) -&gt; float:</span>
+        <span class="s">return float(num)</span>
+
+    <span class="s">def second(num: str) -&gt; str:</span>
+        <span class="s">return str(num)</span>
+
+    <span class="s">reveal_type(compose(first, second))</span>
+  <span class="na">out</span><span class="pi">:</span> <span class="pi">|</span>
+    <span class="s">main:9: error: Cannot infer type argument 2 of "compose"</span>
+    <span class="s">main:9: note: Revealed type is 'def (Any) -&gt; Any'</span>
+</code></pre></div></div>
+
+<p>In this example I changed how we make a type assertion: <code class="language-plaintext highlighter-rouge">out</code> is easier for multi-line output than inline comments.</p>
+
+<p>Now we have two passing tests:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>» pytest --mypy-ini-file=setup.cfg
+================================ test session starts =================================
+platform darwin -- Python 3.7.4, pytest-5.1.1, py-1.8.0, pluggy-0.12.0
+rootdir: /code, inifile: setup.cfg
+plugins: mypy-plugins-1.0.3
+collected 2 items
+
+typesafety/test_compose.yml ..                                                 [100%]
+
+================================= 2 passed in 2.65s ==================================
+</code></pre></div></div>
+
+<p>Let’s test one more complex case.</p>
+
+
+    
+      <h2 id="extra-mypy-settings">
+        
+        <a class="anchor" href="#extra-mypy-settings">Extra mypy settings</a>
+        
+      </h2>
+
+<p>We can change <code class="language-plaintext highlighter-rouge">mypy</code> configuration on per-test bases. Let’s add some new values to the existing configuration:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">case</span><span class="pi">:</span> <span class="s">compose_optional_functions</span>
+  <span class="na">mypy_config</span><span class="pi">:</span>  <span class="c1"># appends options for this test</span>
+    <span class="s">no_implicit_optional = True</span>
+  <span class="na">main</span><span class="pi">:</span> <span class="pi">|</span>
+    <span class="s">from returns.functions import compose</span>
+
+    <span class="s">def first(num: int = None) -&gt; float:</span>
+        <span class="s">return float(num)</span>
+
+    <span class="s">def second(num: float) -&gt; str:</span>
+        <span class="s">return str(num)</span>
+
+    <span class="s">reveal_type(compose(first, second))</span>
+  <span class="na">out</span><span class="pi">:</span> <span class="pi">|</span>
+    <span class="s">main:3: error: Incompatible default for argument "num" (default has type "None", argument has type "int")</span>
+    <span class="s">main:9: note: Revealed type is 'def (builtins.int*) -&gt; builtins.str*'</span>
+</code></pre></div></div>
+
+<p>We added <a href="https://mypy.readthedocs.io/en/latest/command_line.html#none-and-optional-handling"><code class="language-plaintext highlighter-rouge">no_implicit_optional</code></a> configuration option that requires to add explicit <code class="language-plaintext highlighter-rouge">Optional[]</code> type to arguments where we set <code class="language-plaintext highlighter-rouge">None</code> as a default value. And our test got it from the <code class="language-plaintext highlighter-rouge">mypy_config</code> section that appends options to the base <code class="language-plaintext highlighter-rouge">mypy</code> settings from <code class="language-plaintext highlighter-rouge">--mypy-ini-file</code> setting.</p>
+
+
+    
+      <h2 id="custom-dsl">
+        
+        <a class="anchor" href="#custom-dsl">Custom DSL</a>
+        
+      </h2>
+
+<p><code class="language-plaintext highlighter-rouge">pytest-mypy-plugins</code> also allows to create custom <code class="language-plaintext highlighter-rouge">yaml</code>-based <code class="language-plaintext highlighter-rouge">DSL</code>s to make your testing process easier and test cases shorter.</p>
+
+<p>Imagine, that we want to have <code class="language-plaintext highlighter-rouge">reveal_type</code> as a top-level key. It will just reveal a type of a source code line that is passed to it. Like so:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span>   <span class="na">case</span><span class="pi">:</span> <span class="s">reveal_type_extension_is_loaded</span>
+    <span class="na">main</span><span class="pi">:</span> <span class="pi">|</span>
+      <span class="s">def my_function(arg: int) -&gt; float:</span>
+          <span class="s">return float(arg)</span>
+    <span class="na">reveal_type</span><span class="pi">:</span> <span class="s">my_function</span>
+    <span class="na">out</span><span class="pi">:</span> <span class="pi">|</span>
+      <span class="s">main:4: note: Revealed type is 'def (arg: builtins.int) -&gt; builtins.float'</span>
+</code></pre></div></div>
+
+<p>Let’s have a look at what it takes to achieve it:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># reveal_type_hook.py
+</span><span class="kn">from</span> <span class="nn">pytest_mypy.item</span> <span class="kn">import</span> <span class="n">YamlTestItem</span>
+
+<span class="k">def</span> <span class="nf">hook</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">YamlTestItem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="n">parsed_test_data</span> <span class="o">=</span> <span class="n">item</span><span class="p">.</span><span class="n">parsed_test_data</span>
+    <span class="n">main_source</span> <span class="o">=</span> <span class="n">parsed_test_data</span><span class="p">[</span><span class="s">'main'</span><span class="p">]</span>
+    <span class="n">obj_to_reveal</span> <span class="o">=</span> <span class="n">parsed_test_data</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'reveal_type'</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">obj_to_reveal</span><span class="p">:</span>
+        <span class="k">for</span> <span class="nb">file</span> <span class="ow">in</span> <span class="n">item</span><span class="p">.</span><span class="n">files</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">file</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">'main.py'</span><span class="p">):</span>
+                <span class="nb">file</span><span class="p">.</span><span class="n">content</span> <span class="o">=</span> <span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="n">main_source</span><span class="si">}</span><span class="se">\n</span><span class="s">reveal_type(</span><span class="si">{</span><span class="n">obj_to_reveal</span><span class="si">}</span><span class="s">)'</span>
+</code></pre></div></div>
+
+<p>What do we do here?</p>
+<ol>
+  <li>We get the source code from the <code class="language-plaintext highlighter-rouge">main:</code> key</li>
+  <li>Then append <code class="language-plaintext highlighter-rouge">reveal_type()</code> call from the <code class="language-plaintext highlighter-rouge">reveal_type:</code> key</li>
+</ol>
+
+<p>As a result, we have a custom <code class="language-plaintext highlighter-rouge">DSL</code> that fulfills our initial idea.</p>
+
+<p>Running:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>» pytest --mypy-ini-file=setup.cfg --mypy-extension-hook=reveal_type_hook.hook
+================================ test session starts =================================
+platform darwin -- Python 3.7.4, pytest-5.1.1, py-1.8.0, pluggy-0.12.0
+rootdir: /code, inifile: setup.cfg
+plugins: mypy-plugins-1.0.3
+collected 1 item
+
+typesafety/test_hook.yml .                                                     [100%]
+
+================================= 1 passed in 0.87s ==================================
+</code></pre></div></div>
+
+<p>We pass a new flag: <code class="language-plaintext highlighter-rouge">--mypy-extension-hook</code> which points to our own <code class="language-plaintext highlighter-rouge">DSL</code> implementation. And it works perfectly! That’s how one can reuse a large amounts of code in <code class="language-plaintext highlighter-rouge">yaml</code>-based tests.</p>
+
+
+    
+      <h2 id="conlusion">
+        
+        <a class="anchor" href="#conlusion">Conlusion</a>
+        
+      </h2>
+
+<p><code class="language-plaintext highlighter-rouge">pytest-mypy-plugins</code> is an absolute must for people who work a lot with types or <code class="language-plaintext highlighter-rouge">mypy</code> plugins in <code class="language-plaintext highlighter-rouge">python</code>. It simplifies the process of refactoring and distributing types.</p>
+
+<p>You can have a look at the real world example usage of these tests in:</p>
+
+<ul>
+  <li><a href="https://github.com/typeddjango/django-stubs/tree/master/test-data">TypedDjango/django-stubs</a></li>
+  <li><a href="https://github.com/dry-python/returns/tree/master/typesafety">dry-python/returns</a></li>
+</ul>
+
+<p>Share what your use-cases are! We are still in a pretty early stage of this project and we would like to find out what our users are thinking.</p>
+
+    </div>
+
+    <hr>
+
+    <div class="post-subscribe">
+      <h2>
+        <a href="https://sobolevn.me/subscribe">
+          Subscribe to my blog if you want more
+        </a>
+      </h2>
+    </div>
+
+    
+    
+    <div class="post-republish">
+      <h4>Republished as:</h4>
+      <ul>
+      
+        <li>
+          <a class="c-article__repost" href="https://dev.to/wemake-services/testing-mypy-stubs-plugins-and-types-1b71" target="_blank">
+            
+            dev.to <img class="emoji" title=":us:" alt=":us:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f1fa-1f1f8.png" height="20" width="20">
+          </a>
+        </li>
+      
+      </ul>
+    </div>
+    
+  </div>
+
+  <!-- Disqus comments view -->
+  
+  <div class="post-disqus" id="discussion">
+    <div id="disqus_thread"></div>
+
+<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+this.page.url = "http://localhost:4000/2019/08/testing-mypy-types";
+this.page.identifier = "/2019/08/testing-mypy-types";
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://sobolevn-me.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+
+  </div>
+  
+</article>
+
+  </div>
+  <footer class="c-page__footer">
+  <p>
+    <i class="far fa-copyright"></i>
+    <a href="https://sobolevn.me/about/">sobolevn</a>
+    2023,
+    content licensed
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">
+      CC BY-NC
+    </a>,
+    <a href="https://github.com/sobolevn/sobolevn.github.io" target="_blank">
+      source code
+    </a>
+  </p>
+
+  <p>
+    <a href="mailto:mail@sobolevn.me" alt="email">
+      <i class="far fa-2x fa-envelope"></i>
+    </a>
+    <a href="https://github.com/sobolevn" alt="github">
+      <i class="fab fa-2x fa-github"></i>
+    </a>
+    <a href="https://dev.to/sobolevn" alt="practicaldev">
+      <i class="fab fa-2x fa-dev"></i>
+    </a>
+    <a href="https://medium.com/@sobolevn" alt="medium">
+      <i class="fab fa-2x fa-medium"></i>
+    </a>
+    <a href="https://stackoverflow.com/users/4842742/sobolevn" alt="stackoverflow">
+      <i class="fab fa-2x fa-stack-overflow"></i>
+    </a>
+  </p>
+</footer>
+
+</div>
+
+    </main>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66588818-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66588818-1');
+</script>
+
+  </body>
+</html>

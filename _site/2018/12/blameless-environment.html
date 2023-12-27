@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/assets/images/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
+<link rel="manifest" href="/assets/images/favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/assets/images/favicons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+
+  <!-- Meta information -->
+  <title>Building blameless working environment</title>
+  <meta name="description"
+        content="">
+  <link rel="canonical"
+        href="http://localhost:4000/2018/12/blameless-environment" />
+
+  <!-- Open search scheme -->
+  <link rel="search"
+        type="application/opensearchdescription+xml"
+        title="sobolevn.me"
+        href="/opensearch.xml" />
+
+  <!-- Feed -->
+  <link rel="alternate" type="application/rss+xml" title="sobolevn's personal blog"
+        href="/feed.xml" />
+
+  <!-- Custom fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,900|Roboto+Mono:400,400i|Montserrat:400,800" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+  <!-- Custom style -->
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Global site tag (gtag.js) - Google Ads: 839642990 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-839642990"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-839642990');
+  </script>
+</head>
+
+
+  <body>
+    <main class="u-container">
+      <div class="c-page">
+  <header class="c-page__header">
+  <h1><code>sobolevn's personal blog</code></h1>
+
+  
+
+  <nav role="navigation">
+    <a href="/" role="menuitem">
+      Blog
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/talks/" role="menuitem">
+      Talks
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/activities/" role="menuitem">
+      Activities
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/about/" role="menuitem">
+      About
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/subscribe/" role="menuitem">
+      Subscribe
+    </a>
+  </nav>
+</header>
+
+  <div class="c-page__main">
+    <article class="c-article" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header class="c-article__header">
+    <h1 class="c-article__title" itemprop="name">Building blameless working environment</h1>
+    <p class="c-article__time">
+      <small>
+        <time datetime="2018-12-13T00:00:00+05:30" itemprop="datePublished">
+          December 13, 2018
+        </time>
+      </small>
+      <small><span class="reading-time" title="Estimated read time">
+  
+  
+    6 mins
+   read
+</span>
+</small>
+      <small><a href="#discussion">Start a discussion</a></small>
+      <small><a href="https://github.com/sobolevn/sobolevn.github.io/blob/master/_posts/2018-12-13-blameless-environment.md">Edit this page</a></small>
+    </p>
+  </header>
+
+  <!-- Post Tags -->
+  <!-- <ul class="c-tags">
+    
+    <li class="c-tag">rsdp</li>
+    
+    <li class="c-tag">management</li>
+    
+  </ul> -->
+
+  <!-- Content -->
+  <div class="c-article__main">
+
+    
+      
+      
+      <div class="post-translate">
+        <h4>Translated to:</h4>
+        <ul>
+        
+          <li>
+            <a class="c-article__repost" href="https://techrocks.ru/2018/12/15/working-environment-without-blaming-anyone/" target="_blank">
+              Russian <img class="emoji" title=":ru:" alt=":ru:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f1f7-1f1fa.png" height="20" width="20">
+            </a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      
+    
+
+    <div class="c-article__body" itemprop="articleBody">
+      <p><img src="https://thepracticaldev.s3.amazonaws.com/i/6fy52tyxgnx0r1nk6h6i.png" alt="Blame"></p>
+
+<p>Once I was working in the software development company. It was a regular company: nothing really bad, but nothing fancy. It had the same problems as other similar companies:</p>
+
+<ul>
+  <li>Low-quality code</li>
+  <li>Unmet deadlines</li>
+  <li>Budget overflows</li>
+</ul>
+
+<p>And disappointed clients as a final result.</p>
+
+<p>Of course, everyone in management was eager to know, what (or “who”) was the reason. During our workday, it was quite normal to hear something like: “the project is failed because you wrote low-quality code, now the client is moving away from us”.</p>
+
+<p>Did it help in any way? No. Was it pleasant to work there? No. So, once I woke up and decided that I do not want to work in this company anymore.</p>
+
+<p>The <strong>ugliest</strong> part is that I was the founder of this company.</p>
+
+
+      <h2 id="can-we-please-all-agree-that-blaming-does-not-work">
+        
+        <a class="anchor" href="#can-we-please-all-agree-that-blaming-does-not-work">Can we please all agree that blaming does not work?</a>
+        
+      </h2>
+
+<p>Before going any further and describing how we did manage to change our environment and how it did affect our results, I would like to point it straight: blaming someone for anything does not work. Why?</p>
+
+<ol>
+  <li>It indicates broken processes exist inside the company’s workflow, but instead of fixing them people just point fingers and completely hide the problem. So, it will never be fixed</li>
+  <li>It demotivates people. You can lose the best engineers because of that. There are companies where people behave differently. And we, engineers, can choose</li>
+</ol>
+
+<p>What can we do instead? We can build <a href="https://wemake-services.github.io/meta/">our processes another way</a>!</p>
+
+
+    
+      <h2 id="improve-your-project-instead-of-blaming-anyone">
+        
+        <a class="anchor" href="#improve-your-project-instead-of-blaming-anyone">Improve your project instead of blaming anyone</a>
+        
+      </h2>
+
+<p>Can you imagine a situation when something goes wrong? When your production stopped working because there was a dependency version mismatch. Or because you made a silly typo in your <code class="language-plaintext highlighter-rouge">string</code> variable.</p>
+
+<p>That happens quite often, that’s not a surprise.</p>
+
+<p><img src="https://thepracticaldev.s3.amazonaws.com/i/6pquqfacysta1rvvafzs.jpg" alt="Bugs everywhere"></p>
+
+<p>So, we must be ready to handle that. We must create a working set of rules and practices to dodge possible errors and <a href="https://sobolevn.me/2019/01/how-to-fix-a-bug">handle the ones</a> that we failed to detect early.</p>
+
+<p>But how?</p>
+
+
+    
+      <h2 id="small-tasks-and-clear-scopes">
+        
+        <a class="anchor" href="#small-tasks-and-clear-scopes">Small tasks and clear scopes</a>
+        
+      </h2>
+
+<p>It usually hard to define big tasks that take days and weeks. This kind of tasks does not have a clear scope and “done” criteria.</p>
+
+<p>So, that’s where things can go wrong. Two people will understand these task differently because of this wider scope. They will prioritize different of the task parts differently. And in the end, it will be easy to say: “You did a bad job, you did not get the task”.</p>
+
+<p>Moreover, it will be hard to review and control the quality of the code. We all know how hard it is to review 1000+ lines of code.</p>
+
+<p><img src="https://thepracticaldev.s3.amazonaws.com/i/cck8gyl3ccz8p5qojdh9.png" alt="1000 lines to review"></p>
+
+<p>I insist that task should be small (not bigger than 4 hours) and should have a clear scope. It is better to have five small and clearly defined tasks than one big task.</p>
+
+<p><img src="https://thepracticaldev.s3.amazonaws.com/i/q1m302fa1liwuewvy4tt.png" alt="100 lines to review"></p>
+
+<p>This decreases the possibility of misinterpretation. And allows both sides to track progress easily, control deadlines, and feel the pulse of the project.</p>
+
+
+    
+      <h2 id="make-your-ci-as-strict-as-possible">
+        
+        <a class="anchor" href="#make-your-ci-as-strict-as-possible">Make your CI as strict as possible</a>
+        
+      </h2>
+
+<p>The sooner you find errors in your code the better it is for the project. This graph illustrates how expensive (in terms of time and money) it is to allow the bug to flow into the production.</p>
+
+<p><img src="https://thepracticaldev.s3.amazonaws.com/i/pe75vd3e5ny0nbe74oqg.jpg" alt="Error cost"></p>
+
+<p>Bad code should not reach <code class="language-plaintext highlighter-rouge">master</code> branch and even a human reviewer. And we can automate that! There’s static analysis, linting, different kind of tests and other metrics that should pass before. If something is broken - your code just won’t make its way to the <code class="language-plaintext highlighter-rouge">master</code> branch and reviewer won’t review it until all checks pass.</p>
+
+<p>This way creates clear and transparent quality rules that should be met. That’s become a law.</p>
+
+
+    
+      <h2 id="welcome-all-bugs">
+        
+        <a class="anchor" href="#welcome-all-bugs">Welcome all bugs</a>
+        
+      </h2>
+
+<p>But errors will still happen! That’s a sad reality. But it is your choice how to treat them. You can get angry and depressed because of them, or you can learn from them.</p>
+
+<p>I prefer to learn from my and others mistakes. How is that possible?</p>
+
+<p>Whenever something bad happens in production you need to track how your quality gates allowed this to happen. What did we miss?</p>
+
+<p>After your team finds the answer - you should automate this check to be sure the next time it won’t happen again. Create a linting rule or write a <a href="https://en.wikipedia.org/wiki/Regression_testing">regression test</a>.</p>
+
+<p>Here are some <strong>real world</strong> examples of how we do that.</p>
+
+<p>Whenever something bad happens for our <code class="language-plaintext highlighter-rouge">python</code>/<code class="language-plaintext highlighter-rouge">django</code> project we add a new rule to <a href="https://github.com/wemake-services/wemake-django-template/blob/master/%7B%7Bcookiecutter.project_name%7D%7D/docker/ci.sh">the CI process</a> or write a new linting rule for <a href="https://github.com/wemake-services/wemake-python-styleguide">our corporate linter</a>. This way we guaranty, that this won’t happen again.</p>
+
+<p>And the same works for <a href="https://github.com/wemake-services/wemake-vue-template/blob/master/template/package.json#L28">our frontend</a> <code class="language-plaintext highlighter-rouge">javascript</code>/<code class="language-plaintext highlighter-rouge">vue</code> projects.</p>
+
+
+    
+      <h2 id="make-your-client-a-part-of-the-process">
+        
+        <a class="anchor" href="#make-your-client-a-part-of-the-process">Make your client a part of the process</a>
+        
+      </h2>
+
+<p>There are cases when you can lose your client not because your code is bad, but because you failed in building a clear communication channel with your client. And then you will be blamed for all of the bad things!</p>
+
+<p>We had a lot of problems with that in the past. Long iterations and long feedback cycles were killing us. We failed to address bugs and new requirements fast enough.</p>
+
+<p>The answer to this problem is simple:</p>
+
+<ol>
+  <li>Make your client a part of your development process</li>
+  <li>Make your iterations as small as possible</li>
+  <li>Demonstrate your progress as frequently as possible</li>
+</ol>
+
+<p>We achieve all these goals by several useful practices:</p>
+
+<ol>
+  <li>We invite our clients to the repository from the first day</li>
+  <li>Microtasking allows us to make several iterations in a single working day</li>
+  <li>
+<a href="https://docs.gitlab.com/ee/topics/autodevops/#auto-review-apps">Gitlab and K8S</a> allow us to make the demo of each individual feature when needed</li>
+</ol>
+
+<p>We collect feedback from the client as soon as we can. The client always understands what is going on in the project: what is done and what is work-in-progress.</p>
+
+<p>This way it is hard and pointless to blame anyone, collaborate and build awesome products together. In the end, that is the goal we pursue, isn’t it?</p>
+
+
+    
+      <h2 id="conclusion">
+        
+        <a class="anchor" href="#conclusion">Conclusion</a>
+        
+      </h2>
+
+<p>“No blaming, but fixing” method drastically changed how we work in a good way.</p>
+
+<p>Since we practice these things we have not failed a single project. And we have not lost a single engineer because of the conflict.</p>
+
+<p>Of course, this article does not cover all features and tricks that we use in our daily life, but you can read more about how we work at the <a href="https://wemake-services.github.io/meta/"><code class="language-plaintext highlighter-rouge">RSDP</code> (Repeatable Software Development Process) home page</a>. And you can <a href="https://github.com/sobolevn">follow me on github</a> to be informed about what tools we build.</p>
+
+    </div>
+
+    <hr>
+
+    <div class="post-subscribe">
+      <h2>
+        <a href="https://sobolevn.me/subscribe">
+          Subscribe to my blog if you want more
+        </a>
+      </h2>
+    </div>
+
+    
+    
+    <div class="post-republish">
+      <h4>Republished as:</h4>
+      <ul>
+      
+        <li>
+          <a class="c-article__repost" href="https://dev.to/sobolevn/building-blameless-working-environment--17hl" target="_blank">
+            
+            dev.to <img class="emoji" title=":us:" alt=":us:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f1fa-1f1f8.png" height="20" width="20">
+          </a>
+        </li>
+      
+      </ul>
+    </div>
+    
+  </div>
+
+  <!-- Disqus comments view -->
+  
+  <div class="post-disqus" id="discussion">
+    <div id="disqus_thread"></div>
+
+<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+this.page.url = "http://localhost:4000/2018/12/blameless-environment";
+this.page.identifier = "/2018/12/blameless-environment";
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://sobolevn-me.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+
+  </div>
+  
+</article>
+
+  </div>
+  <footer class="c-page__footer">
+  <p>
+    <i class="far fa-copyright"></i>
+    <a href="https://sobolevn.me/about/">sobolevn</a>
+    2023,
+    content licensed
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">
+      CC BY-NC
+    </a>,
+    <a href="https://github.com/sobolevn/sobolevn.github.io" target="_blank">
+      source code
+    </a>
+  </p>
+
+  <p>
+    <a href="mailto:mail@sobolevn.me" alt="email">
+      <i class="far fa-2x fa-envelope"></i>
+    </a>
+    <a href="https://github.com/sobolevn" alt="github">
+      <i class="fab fa-2x fa-github"></i>
+    </a>
+    <a href="https://dev.to/sobolevn" alt="practicaldev">
+      <i class="fab fa-2x fa-dev"></i>
+    </a>
+    <a href="https://medium.com/@sobolevn" alt="medium">
+      <i class="fab fa-2x fa-medium"></i>
+    </a>
+    <a href="https://stackoverflow.com/users/4842742/sobolevn" alt="stackoverflow">
+      <i class="fab fa-2x fa-stack-overflow"></i>
+    </a>
+  </p>
+</footer>
+
+</div>
+
+    </main>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66588818-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66588818-1');
+</script>
+
+  </body>
+</html>

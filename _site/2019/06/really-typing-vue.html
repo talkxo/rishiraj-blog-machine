@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/assets/images/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
+<link rel="manifest" href="/assets/images/favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/assets/images/favicons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+
+  <!-- Meta information -->
+  <title>Really typing Vue</title>
+  <meta name="description"
+        content="">
+  <link rel="canonical"
+        href="http://localhost:4000/2019/06/really-typing-vue" />
+
+  <!-- Open search scheme -->
+  <link rel="search"
+        type="application/opensearchdescription+xml"
+        title="sobolevn.me"
+        href="/opensearch.xml" />
+
+  <!-- Feed -->
+  <link rel="alternate" type="application/rss+xml" title="sobolevn's personal blog"
+        href="/feed.xml" />
+
+  <!-- Custom fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,900|Roboto+Mono:400,400i|Montserrat:400,800" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+  <!-- Custom style -->
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Global site tag (gtag.js) - Google Ads: 839642990 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-839642990"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-839642990');
+  </script>
+</head>
+
+
+  <body>
+    <main class="u-container">
+      <div class="c-page">
+  <header class="c-page__header">
+  <h1><code>sobolevn's personal blog</code></h1>
+
+  
+
+  <nav role="navigation">
+    <a href="/" role="menuitem">
+      Blog
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/talks/" role="menuitem">
+      Talks
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/activities/" role="menuitem">
+      Activities
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/about/" role="menuitem">
+      About
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/subscribe/" role="menuitem">
+      Subscribe
+    </a>
+  </nav>
+</header>
+
+  <div class="c-page__main">
+    <article class="c-article" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header class="c-article__header">
+    <h1 class="c-article__title" itemprop="name">Really typing Vue</h1>
+    <p class="c-article__time">
+      <small>
+        <time datetime="2019-06-29T00:00:00+05:30" itemprop="datePublished">
+          June 29, 2019
+        </time>
+      </small>
+      <small><span class="reading-time" title="Estimated read time">
+  
+  
+    13 mins
+   read
+</span>
+</small>
+      <small><a href="#discussion">Start a discussion</a></small>
+      <small><a href="https://github.com/sobolevn/sobolevn.github.io/blob/master/_posts/2019-06-29-really-typing-vue.md">Edit this page</a></small>
+    </p>
+  </header>
+
+  <!-- Post Tags -->
+  <!-- <ul class="c-tags">
+    
+    <li class="c-tag">javascript</li>
+    
+  </ul> -->
+
+  <!-- Content -->
+  <div class="c-article__main">
+
+    
+
+    <div class="c-article__body" itemprop="articleBody">
+      <p><img src="https://thepracticaldev.s3.amazonaws.com/i/paw8ll63hfo6oe5a7pi0.png" alt="Logo"></p>
+
+<p>inb4: This is not another “setting up” a new project with Vue and TypeScript tutorial. Let’s do some deep dive into more complex topics!</p>
+
+<p><code class="language-plaintext highlighter-rouge">typescript</code> is awesome. <code class="language-plaintext highlighter-rouge">Vue</code> is awesome. No doubt, that a lot of people <a href="https://sobolevn.me/2019/03/from-flow-to-typescript">try to bundle them together</a>. But, due to different reasons, it is hard to <strong>really</strong> type your <code class="language-plaintext highlighter-rouge">Vue</code> app. Let’s find out what are the problems and what can be done to solve them (or at least minimize the impact).</p>
+
+
+      <h2 id="tldr">
+        
+        <a class="anchor" href="#tldr">TLDR</a>
+        
+      </h2>
+
+<p>We have <a href="https://github.com/wemake-services/wemake-vue-template">this wonderful template</a> with <code class="language-plaintext highlighter-rouge">Nuxt</code>, <code class="language-plaintext highlighter-rouge">Vue</code>, <code class="language-plaintext highlighter-rouge">Vuex</code>, and <code class="language-plaintext highlighter-rouge">jest</code> fully typed. Just install it and everything will be covered for you. Go <a href="https://wemake-services.gitbook.io/wemake-vue-template/">to the docs</a> to learn more.</p>
+
+<p>And as I said I am not going to guide you through the basic setup for three reasons:</p>
+
+<ol>
+  <li>There are a lot of existing tutorials about it</li>
+  <li>There are a lot of tools to get started with a single click like <code class="language-plaintext highlighter-rouge">Nuxt</code> and <code class="language-plaintext highlighter-rouge">vue-cli</code> with <code class="language-plaintext highlighter-rouge">typescript</code> plugin</li>
+  <li>We already have <a href="https://github.com/wemake-services/wemake-vue-template"><code class="language-plaintext highlighter-rouge">wemake-vue-template</code></a> where every bit of setup that I going to talk about is already covered</li>
+</ol>
+
+
+    
+      <h2 id="component-typings">
+        
+        <a class="anchor" href="#component-typings">Component typings</a>
+        
+      </h2>
+
+<p>The first broken expectation when you start to work with <code class="language-plaintext highlighter-rouge">Vue</code> and <code class="language-plaintext highlighter-rouge">typescript</code> and after you have already typed your class components is that <code class="language-plaintext highlighter-rouge">&lt;template&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;style&gt;</code> tags are still not typed. Let me show you an example:</p>
+
+<div class="language-vue highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;</span><span class="k">template</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h1</span> <span class="na">:class=</span><span class="s">"$style.headr"</span><span class="nt">&gt;</span>
+    Hello, <span class="si">{{</span> <span class="nx">usr</span> <span class="si">}}</span>!
+  <span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;/</span><span class="k">template</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;</span><span class="k">script</span> <span class="na">lang=</span><span class="s">"ts"</span><span class="nt">&gt;</span>
+<span class="k">import</span> <span class="nx">Vue</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vue</span><span class="dl">'</span>
+<span class="k">import</span> <span class="nx">Component</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vue-class-component</span><span class="dl">'</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Prop</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vue-property-decorator</span><span class="dl">'</span>
+
+<span class="p">@</span><span class="nd">Component</span><span class="p">({})</span>
+<span class="k">export</span> <span class="k">default</span> <span class="kd">class</span> <span class="nx">HelloComponent</span> <span class="kd">extends</span> <span class="nx">Vue</span> <span class="p">{</span>
+  <span class="p">@</span><span class="nd">Prop</span><span class="p">()</span>
+  <span class="nx">user</span><span class="o">!</span><span class="p">:</span> <span class="nx">string</span>
+<span class="p">}</span>
+<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;</span><span class="k">style</span> <span class="na">module</span><span class="nt">&gt;</span>
+<span class="nc">.header</span> <span class="p">{</span> <span class="c">/* ... */</span> <span class="p">}</span>
+<span class="nt">&lt;/</span><span class="k">style</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<p>I have made two typos here: <code class="language-plaintext highlighter-rouge">{{ usr }}</code> instead of <code class="language-plaintext highlighter-rouge">{{ user }}</code> and <code class="language-plaintext highlighter-rouge">$style.headr</code> instead of <code class="language-plaintext highlighter-rouge">$style.header</code>. Will <code class="language-plaintext highlighter-rouge">typescript</code> save me from these errors? Nope, it won’t.</p>
+
+<p>What can be done to fix it? Well, there are several hacks.</p>
+
+
+    
+      <h3 id="typing-the-template">
+        
+        <a class="anchor" href="#typing-the-template">Typing the template</a>
+        
+      </h3>
+
+<p>One can use <code class="language-plaintext highlighter-rouge">Vetur</code> with <code class="language-plaintext highlighter-rouge">vetur.experimental.templateInterpolationService</code> option to type-check your templates. Yes, this is only an editor-based check and it cannot be used inside the CI yet. But, <code class="language-plaintext highlighter-rouge">Vetur</code> team is working hard to provide a CLI to allow this. Track <a href="https://github.com/vuejs/rfcs/issues/64#issuecomment-505990139">the original issue</a> in case you are interested.</p>
+
+<p><img src="https://thepracticaldev.s3.amazonaws.com/i/xqhobu1d7td40jxru2gn.png" alt="vetur"></p>
+
+<p>The second option is two write snapshot tests with <code class="language-plaintext highlighter-rouge">jest</code>. It will catch a lot of template-based errors. And it is quite cheap in the maintenance.</p>
+
+<p>So, the combination of these two tools provides you a nice Developer Experience with fast feedback and a reliable way to catch errors inside the CI.</p>
+
+
+    
+      <h3 id="typing-styles">
+        
+        <a class="anchor" href="#typing-styles">Typing styles</a>
+        
+      </h3>
+
+<p>Typing <code class="language-plaintext highlighter-rouge">css-module</code>s is also covered by several external tools:</p>
+<ul>
+  <li><a href="https://github.com/Jimdo/typings-for-css-modules-loader">typings-for-css-modules-loader</a></li>
+  <li><a href="https://github.com/seek-oss/css-modules-typescript-loader">css-modules-typescript-loader</a></li>
+</ul>
+
+<p>The main idea of these tools is to fetch <code class="language-plaintext highlighter-rouge">css-module</code>s and then create <code class="language-plaintext highlighter-rouge">.d.ts</code> declaration files out of them. Then your styles will be fully typed. It is still not implemented for <code class="language-plaintext highlighter-rouge">Nuxt</code> or <code class="language-plaintext highlighter-rouge">Vue</code>, but you can tract <a href="https://github.com/nuxt/nuxt.js/issues/5426">this issue</a> for progress.</p>
+
+<p>However, I don’t personally use any of these tools in my projects. They might be useful for projects with large code bases and a lot of styles, but I am fine with just snapshots.</p>
+
+<p>Styleguides with visual regression tests also help a lot. <a href="https://www.npmjs.com/package/@storybook/addon-storyshots"><code class="language-plaintext highlighter-rouge">@storybook/addon-storyshots</code></a> is a nice example of this technique.</p>
+
+
+    
+      <h2 id="vuex">
+        
+        <a class="anchor" href="#vuex">Vuex</a>
+        
+      </h2>
+
+<p>The next big thing is <code class="language-plaintext highlighter-rouge">Vuex</code>. It has some built-in by-design complexity for typing:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">result</span><span class="p">:</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="kr">number</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span><span class="dl">'</span><span class="s1">action_name</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span> <span class="na">payload</span><span class="p">:</span> <span class="mi">1</span> <span class="p">})</span>
+</code></pre></div></div>
+
+<p>The problem is that <code class="language-plaintext highlighter-rouge">'action_name'</code> might no exist, take other arguments, or return a different type. That’s not something you expect for a fully-typed app.</p>
+
+<p>What are the existing solutions?</p>
+
+
+    
+      <h3 id="vuex-class">
+        
+        <a class="anchor" href="#vuex-class">vuex-class</a>
+        
+      </h3>
+
+<p><a href="https://github.com/ktsn/vuex-class"><code class="language-plaintext highlighter-rouge">vuex-class</code></a> is a set of decorators to allow easy access from your class-based components to the <code class="language-plaintext highlighter-rouge">Vuex</code> internals.</p>
+
+<p>But, it <a href="https://github.com/ktsn/vuex-class/issues/2">is not typed safe</a> since it cannot interfere with the types of state, getters, mutations, and actions.</p>
+
+<p><img src="https://thepracticaldev.s3.amazonaws.com/i/2fd8fpvpta6a7qqar3x5.png" alt="vuex-class"></p>
+
+<p>Of course, you can manually annotate types of properties.</p>
+
+<p><img src="https://thepracticaldev.s3.amazonaws.com/i/3xcb8k642a2e4lhek6ao.png" alt="vuex-class annotated"></p>
+
+<p>But what are you going to do when the real type of your state, getters, mutations, or actions will change? You will have a hidden type mismatch.</p>
+
+
+    
+      <h3 id="vuex-simple">
+        
+        <a class="anchor" href="#vuex-simple">vuex-simple</a>
+        
+      </h3>
+
+<p>That’s where <code class="language-plaintext highlighter-rouge">vuex-simple</code> helps us. It actually offers a completely different way to write your <code class="language-plaintext highlighter-rouge">Vuex</code> code and that’s what makes it type safe. Let’s have a look:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Action</span><span class="p">,</span> <span class="nx">Mutation</span><span class="p">,</span> <span class="nx">State</span><span class="p">,</span> <span class="nx">Getter</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vuex-simple</span><span class="dl">'</span>
+
+<span class="kd">class</span> <span class="nx">MyStore</span> <span class="p">{</span>
+
+  <span class="c1">// State</span>
+
+  <span class="p">@</span><span class="nd">State</span><span class="p">()</span>
+  <span class="k">public</span> <span class="nx">comments</span><span class="p">:</span> <span class="nx">CommentType</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[]</span>
+
+  <span class="c1">// Getters</span>
+
+  <span class="p">@</span><span class="nd">Getter</span><span class="p">()</span>
+  <span class="k">public</span> <span class="kd">get</span> <span class="nx">hasComments</span> <span class="p">():</span> <span class="nx">boolean</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Boolean</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">comments</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="nx">comments</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Mutations</span>
+
+  <span class="p">@</span><span class="nd">Mutation</span><span class="p">()</span>
+  <span class="k">public</span> <span class="nx">setComments</span> <span class="p">(</span><span class="nx">payload</span><span class="p">:</span> <span class="nx">CommentType</span><span class="p">[]):</span> <span class="k">void</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">comments</span> <span class="o">=</span> <span class="nx">updatedComments</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Actions</span>
+
+  <span class="p">@</span><span class="nd">Action</span><span class="p">()</span>
+  <span class="k">public</span> <span class="k">async</span> <span class="nx">fetchComments</span> <span class="p">():</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">CommentType</span><span class="p">[]</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="c1">// Calling some API:</span>
+    <span class="kd">const</span> <span class="nx">commentsList</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">api</span><span class="p">.</span><span class="nx">fetchComments</span><span class="p">()</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setComments</span><span class="p">(</span><span class="nx">commentsList</span><span class="p">)</span> <span class="c1">// typed mutation</span>
+    <span class="k">return</span> <span class="nx">commentsList</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>Later this typed module can be registered inside your <code class="language-plaintext highlighter-rouge">Vuex</code> like so:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Vue</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vue</span><span class="dl">'</span>
+<span class="k">import</span> <span class="nx">Vuex</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vuex</span><span class="dl">'</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">createVuexStore</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vuex-simple</span><span class="dl">'</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MyStore</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./store</span><span class="dl">'</span>
+
+<span class="nx">Vue</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">Vuex</span><span class="p">)</span>
+
+<span class="c1">// Creates our typed module instance:</span>
+<span class="kd">const</span> <span class="nx">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MyStore</span><span class="p">()</span>
+
+<span class="c1">// Returns valid Vuex.Store instance:</span>
+<span class="k">export</span> <span class="k">default</span> <span class="nx">createVuexStore</span><span class="p">(</span><span class="nx">instance</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Now we have a 100% native <code class="language-plaintext highlighter-rouge">Vuex.Store</code> instance and all the type information bundled with it. To use this typed store in the component we can write just one line of code:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Vue</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vue</span><span class="dl">'</span>
+<span class="k">import</span> <span class="nx">Component</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">nuxt-class-component</span><span class="dl">'</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">useStore</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vuex-simple</span><span class="dl">'</span>
+
+<span class="k">import</span> <span class="nx">MyStore</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./store</span><span class="dl">'</span>
+
+<span class="p">@</span><span class="nd">Component</span><span class="p">({})</span>
+<span class="k">export</span> <span class="k">default</span> <span class="kd">class</span> <span class="nx">MyComponent</span> <span class="kd">extends</span> <span class="nx">Vue</span> <span class="p">{</span>
+  <span class="c1">// That's all we need!</span>
+  <span class="nl">typedStore</span><span class="p">:</span> <span class="nx">MyStore</span> <span class="o">=</span> <span class="nx">useStore</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">)</span>
+
+  <span class="c1">// Demo: will be typed as `Comment[]`:</span>
+  <span class="nx">comments</span> <span class="o">=</span> <span class="nx">typedStore</span><span class="p">.</span><span class="nx">comments</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Now we have typed <code class="language-plaintext highlighter-rouge">Vuex</code> that can be safely used inside our project.
+When we change something inside our store definition it is automatically reflected to the components that use this store. If something fails - we know it as soon as possible.</p>
+
+<p>There are also different libraries that do the same but have different API. Choose what suits you best.</p>
+
+
+    
+      <h2 id="api-calls">
+        
+        <a class="anchor" href="#api-calls">API calls</a>
+        
+      </h2>
+
+<p>When we have <code class="language-plaintext highlighter-rouge">Vuex</code> correctly setup, we need to fill it with data.
+Let’s have a look at our action definition again:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">@</span><span class="nd">Action</span><span class="p">()</span>
+<span class="k">public</span> <span class="k">async</span> <span class="nx">fetchComments</span> <span class="p">():</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">CommentType</span><span class="p">[]</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="c1">// Calling some API:</span>
+  <span class="kd">const</span> <span class="nx">commentsList</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">api</span><span class="p">.</span><span class="nx">fetchComments</span><span class="p">()</span>
+  <span class="c1">// ...</span>
+  <span class="k">return</span> <span class="nx">commentsList</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>How can we know that it will really return a list of <code class="language-plaintext highlighter-rouge">CommentType</code> and not a single <code class="language-plaintext highlighter-rouge">number</code> or a bunch of <code class="language-plaintext highlighter-rouge">AuthorType</code> instances?</p>
+
+<p>We cannot control the server. And the server might actually break the contract. Or we can simply pass the wrong <code class="language-plaintext highlighter-rouge">api</code> instance, make a typo in the URL, or whatever.</p>
+
+<p>How can we be safe? We can use runtime typing! Let me introduce <a href="https://github.com/gcanti/io-ts"><code class="language-plaintext highlighter-rouge">io-ts</code></a> to you:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="nx">ts</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">io-ts</span><span class="dl">'</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">Comment</span> <span class="o">=</span> <span class="nx">ts</span><span class="p">.</span><span class="kd">type</span><span class="p">({</span>
+  <span class="dl">'</span><span class="s1">id</span><span class="dl">'</span><span class="p">:</span> <span class="nx">ts</span><span class="p">.</span><span class="kr">number</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">body</span><span class="dl">'</span><span class="p">:</span> <span class="nx">ts</span><span class="p">.</span><span class="kr">string</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">email</span><span class="dl">'</span><span class="p">:</span> <span class="nx">ts</span><span class="p">.</span><span class="kr">string</span><span class="p">,</span>
+<span class="p">})</span>
+
+<span class="c1">// Static TypeScript type, that can be used as a regular `type`:</span>
+<span class="k">export</span> <span class="kd">type</span> <span class="nx">CommentType</span> <span class="o">=</span> <span class="nx">ts</span><span class="p">.</span><span class="nx">TypeOf</span><span class="o">&lt;</span><span class="k">typeof</span> <span class="nx">Comment</span><span class="o">&gt;</span>
+</code></pre></div></div>
+
+<p>What do we do here?</p>
+
+<ol>
+  <li>We define an instance of <code class="language-plaintext highlighter-rouge">ts.type</code> with fields that we need to be checked in runtime when we receive a response from server</li>
+  <li>We define a static type to be used in annotation without any extra boilerplate</li>
+</ol>
+
+<p>And later we can use it our <code class="language-plaintext highlighter-rouge">api</code> calls:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="nx">ts</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">io-ts</span><span class="dl">'</span>
+<span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="nx">tPromise</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">io-ts-promise</span><span class="dl">'</span>
+
+<span class="k">public</span> <span class="k">async</span> <span class="nx">fetchComments</span> <span class="p">():</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">CommentType</span><span class="p">[]</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">axios</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">comments</span><span class="dl">'</span><span class="p">)</span>
+  <span class="k">return</span> <span class="nx">tPromise</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="nx">ts</span><span class="p">.</span><span class="nx">array</span><span class="p">(</span><span class="nx">Comment</span><span class="p">),</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>With the help of <a href="https://github.com/aeirola/io-ts-promise"><code class="language-plaintext highlighter-rouge">io-ts-promise</code></a>, we can return a <code class="language-plaintext highlighter-rouge">Promise</code> in a failed state if the response from server does not match a <code class="language-plaintext highlighter-rouge">ts.array(Comment)</code> type. It really works like a validation.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">fetchComments</span><span class="p">()</span>
+   <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="cm">/* ... */</span>
+   <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="cm">/* Happens with both request failure and incorrect response type */</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Moreover, return type annotation is in sync with the <code class="language-plaintext highlighter-rouge">.decode</code> method. And you cannot put random nonsense there:</p>
+
+<p><img src="https://thepracticaldev.s3.amazonaws.com/i/jcfwd5frskia9b1fccxq.png" alt="io-ts"></p>
+
+<p>With the combination of runtime and static checks, we can be sure that our requests won’t fail because of the type mismatch.
+But, to be 100% sure that everything works, I would recommend using contract-based testing: have a look at <a href="https://github.com/pact-foundation"><code class="language-plaintext highlighter-rouge">pact</code></a> as an example. And monitor your app with <a href="https://docs.sentry.io/platforms/javascript/vue/"><code class="language-plaintext highlighter-rouge">Sentry</code></a>.</p>
+
+
+    
+      <h2 id="vue-router">
+        
+        <a class="anchor" href="#vue-router">Vue Router</a>
+        
+      </h2>
+
+<p>The next problem is that <code class="language-plaintext highlighter-rouge">this.$router.push({ name: 'wrong!' })</code> does not work the way we want to.</p>
+
+<p>I would say that it would be ideal to be warned by the compiler that we are routing to the wrong direction and this route does not exist.
+But, it is not possible. And not much can be done: there are a lot of dynamic routes, regex, fallbacks, permissions, etc that can eventually break. The only option is to test each <code class="language-plaintext highlighter-rouge">this.$router</code> call in your app.</p>
+
+
+    
+      <h2 id="vue-test-utils">
+        
+        <a class="anchor" href="#vue-test-utils">vue-test-utils</a>
+        
+      </h2>
+
+<p>Speaking about tests I do not have any excuses not to mention <code class="language-plaintext highlighter-rouge">@vue/test-utils</code> that also has some problems with typing.</p>
+
+<p>When we will try to test our new shiny component with <code class="language-plaintext highlighter-rouge">typedStore</code> property, we will find out that we actually cannot do that according to the <code class="language-plaintext highlighter-rouge">typescript</code>:</p>
+
+<p><img src="https://thepracticaldev.s3.amazonaws.com/i/stvaddcj8yg8uz8eh9r0.png" alt="vue-test-utils"></p>
+
+<p>Why does this happen? It happens because <code class="language-plaintext highlighter-rouge">mount()</code> call does not know anything about your component’s type, because all components have a  <code class="language-plaintext highlighter-rouge">VueConstructor&lt;Vue&gt;</code> type by default:</p>
+
+<p><img src="https://thepracticaldev.s3.amazonaws.com/i/zfvrvtjfzrc88bmukms2.png" alt="vue-constructor"></p>
+
+<p>That’s where all the problems come from. What can be done?
+You can use <a href="https://github.com/ktsn/vuetype"><code class="language-plaintext highlighter-rouge">vuetype</code></a> to produce <code class="language-plaintext highlighter-rouge">YouComponent.vue.d.ts</code> typings that will tell your tests the exact type of the mounted component.</p>
+
+<p>You can also track <a href="https://github.com/vuejs/vue-test-utils/issues/255#issuecomment-356730130">this issue</a> for the progress.</p>
+
+<p>But, I don’t like this idea. These are tests, they can fail. No big deal.
+That’s why I stick to <code class="language-plaintext highlighter-rouge">(wrapper.vm as any).whatever</code> approach. This saves me quite a lot of time to write tests. But spoils Developer Experience a little bit.</p>
+
+<p>Make your own decision here:</p>
+<ul>
+  <li>Use <code class="language-plaintext highlighter-rouge">vuetype</code> all the way</li>
+  <li>Partially apply it to the most important components with the biggest amount of tests and update it regularly</li>
+  <li>Use <code class="language-plaintext highlighter-rouge">any</code> as a fallback</li>
+</ul>
+
+
+    
+      <h2 id="conclusion">
+        
+        <a class="anchor" href="#conclusion">Conclusion</a>
+        
+      </h2>
+
+<p>The average level of <code class="language-plaintext highlighter-rouge">typescript</code> support in <code class="language-plaintext highlighter-rouge">Vue</code> ecosystem increased over the last couple of years:</p>
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">Nuxt</code> firstly introduced <code class="language-plaintext highlighter-rouge">nuxt-ts</code> and now ships <code class="language-plaintext highlighter-rouge">ts</code> builds by default</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">Vue@3</code> will have improved <code class="language-plaintext highlighter-rouge">typescript</code> support</li>
+  <li>More 3rd-party apps and plugins will provide type definitions</li>
+</ul>
+
+<p>But, it is production ready at the moment. These are just things to improve! Writing type-safe <code class="language-plaintext highlighter-rouge">Vue</code> code really improves your Developer Experience and allows you to focus on the important stuff while leaving the heavy-lifting to the compiler.</p>
+
+<p>What are your favorite hacks and tools to type <code class="language-plaintext highlighter-rouge">Vue</code> apps? Let’s discuss it in the comment section.</p>
+
+    </div>
+
+    <hr>
+
+    <div class="post-subscribe">
+      <h2>
+        <a href="https://sobolevn.me/subscribe">
+          Subscribe to my blog if you want more
+        </a>
+      </h2>
+    </div>
+
+    
+    
+    <div class="post-republish">
+      <h4>Republished as:</h4>
+      <ul>
+      
+        <li>
+          <a class="c-article__repost" href="https://dev.to/wemake-services/really-typing-vue-6j2" target="_blank">
+            
+            dev.to <img class="emoji" title=":us:" alt=":us:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f1fa-1f1f8.png" height="20" width="20">
+          </a>
+        </li>
+      
+        <li>
+          <a class="c-article__repost" href="https://habr.com/ru/post/458632/" target="_blank">
+            
+            habr.com <img class="emoji" title=":us:" alt=":us:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f1fa-1f1f8.png" height="20" width="20">
+          </a>
+        </li>
+      
+      </ul>
+    </div>
+    
+  </div>
+
+  <!-- Disqus comments view -->
+  
+  <div class="post-disqus" id="discussion">
+    <div id="disqus_thread"></div>
+
+<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+this.page.url = "http://localhost:4000/2019/06/really-typing-vue";
+this.page.identifier = "/2019/06/really-typing-vue";
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://sobolevn-me.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+
+  </div>
+  
+</article>
+
+  </div>
+  <footer class="c-page__footer">
+  <p>
+    <i class="far fa-copyright"></i>
+    <a href="https://sobolevn.me/about/">sobolevn</a>
+    2023,
+    content licensed
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">
+      CC BY-NC
+    </a>,
+    <a href="https://github.com/sobolevn/sobolevn.github.io" target="_blank">
+      source code
+    </a>
+  </p>
+
+  <p>
+    <a href="mailto:mail@sobolevn.me" alt="email">
+      <i class="far fa-2x fa-envelope"></i>
+    </a>
+    <a href="https://github.com/sobolevn" alt="github">
+      <i class="fab fa-2x fa-github"></i>
+    </a>
+    <a href="https://dev.to/sobolevn" alt="practicaldev">
+      <i class="fab fa-2x fa-dev"></i>
+    </a>
+    <a href="https://medium.com/@sobolevn" alt="medium">
+      <i class="fab fa-2x fa-medium"></i>
+    </a>
+    <a href="https://stackoverflow.com/users/4842742/sobolevn" alt="stackoverflow">
+      <i class="fab fa-2x fa-stack-overflow"></i>
+    </a>
+  </p>
+</footer>
+
+</div>
+
+    </main>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66588818-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66588818-1');
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/assets/images/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
+<link rel="manifest" href="/assets/images/favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/assets/images/favicons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+
+  <!-- Meta information -->
+  <title>Conditional coverage</title>
+  <meta name="description"
+        content="">
+  <link rel="canonical"
+        href="http://localhost:4000/2020/02/conditional-coverage" />
+
+  <!-- Open search scheme -->
+  <link rel="search"
+        type="application/opensearchdescription+xml"
+        title="sobolevn.me"
+        href="/opensearch.xml" />
+
+  <!-- Feed -->
+  <link rel="alternate" type="application/rss+xml" title="sobolevn's personal blog"
+        href="/feed.xml" />
+
+  <!-- Custom fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,900|Roboto+Mono:400,400i|Montserrat:400,800" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+  <!-- Custom style -->
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Global site tag (gtag.js) - Google Ads: 839642990 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-839642990"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-839642990');
+  </script>
+</head>
+
+
+  <body>
+    <main class="u-container">
+      <div class="c-page">
+  <header class="c-page__header">
+  <h1><code>sobolevn's personal blog</code></h1>
+
+  
+
+  <nav role="navigation">
+    <a href="/" role="menuitem">
+      Blog
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/talks/" role="menuitem">
+      Talks
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/activities/" role="menuitem">
+      Activities
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/about/" role="menuitem">
+      About
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/subscribe/" role="menuitem">
+      Subscribe
+    </a>
+  </nav>
+</header>
+
+  <div class="c-page__main">
+    <article class="c-article" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header class="c-article__header">
+    <h1 class="c-article__title" itemprop="name">Conditional coverage</h1>
+    <p class="c-article__time">
+      <small>
+        <time datetime="2020-02-25T00:00:00+05:30" itemprop="datePublished">
+          February 25, 2020
+        </time>
+      </small>
+      <small><span class="reading-time" title="Estimated read time">
+  
+  
+    7 mins
+   read
+</span>
+</small>
+      <small><a href="#discussion">Start a discussion</a></small>
+      <small><a href="https://github.com/sobolevn/sobolevn.github.io/blob/master/_posts/2020-02-25-conditional-coverage.md">Edit this page</a></small>
+    </p>
+  </header>
+
+  <!-- Post Tags -->
+  <!-- <ul class="c-tags">
+    
+    <li class="c-tag">python</li>
+    
+  </ul> -->
+
+  <!-- Content -->
+  <div class="c-article__main">
+
+    
+
+    <div class="c-article__body" itemprop="articleBody">
+      <p><img src="https://dev-to-uploads.s3.amazonaws.com/i/c8c6rwydi6jnjs54vixi.png" alt="Cover image"></p>
+
+<p>Recently I had to add <code class="language-plaintext highlighter-rouge">python3.8</code> for our Python linter (the strictest one in existence): <a href="https://github.com/wemake-services/wemake-python-styleguide"><code class="language-plaintext highlighter-rouge">wemake-python-styleguide</code></a>. And during this straight-forward (at first look) task, I have found several problems with test coverage that were not solved in Python community at all.</p>
+
+<p>Let’s dig into it.</p>
+
+
+      <h2 id="environment-based-logic">
+        
+        <a class="anchor" href="#environment-based-logic">Environment-based logic</a>
+        
+      </h2>
+
+<p>The thing about this update was that <code class="language-plaintext highlighter-rouge">python3.8</code> introduced a new API.
+Previously we had <code class="language-plaintext highlighter-rouge">visit_Num</code>, <code class="language-plaintext highlighter-rouge">visit_Str</code>, <code class="language-plaintext highlighter-rouge">visit_NameConstant</code> methods (we don’t really care about what they do, only names are important), but now we have to use <code class="language-plaintext highlighter-rouge">visit_Constant</code> method instead.</p>
+
+<p>Well, we will have to write some compatibility layer in our app to support both new <code class="language-plaintext highlighter-rouge">python3.8</code>, previous <code class="language-plaintext highlighter-rouge">python3.6</code>, and <code class="language-plaintext highlighter-rouge">python3.7</code> releases.</p>
+
+<p>My first attempt was to create a <code class="language-plaintext highlighter-rouge">route_visit</code> function to do the correct thing for all releases. To make it work I also had to define <code class="language-plaintext highlighter-rouge">PY38</code> constant like so:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">PY38</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">PY38</span><span class="p">:</span>
+    <span class="n">route_visit</span> <span class="o">=</span> <span class="p">...</span>  <span class="c1"># new logic: 3.8+
+</span><span class="k">else</span><span class="p">:</span>
+    <span class="n">route_visit</span> <span class="o">=</span> <span class="p">...</span>  <span class="c1"># old logic: 3.6, 3.7
+</span></code></pre></div></div>
+
+<p>And it worked pretty well. I was able to run my tests successfully. The only thing broken was coverage. We use <code class="language-plaintext highlighter-rouge">pytest</code> and <code class="language-plaintext highlighter-rouge">pytest-cov</code> to measure coverage in our apps, we also enforce <code class="language-plaintext highlighter-rouge">--cov-branch</code> and <code class="language-plaintext highlighter-rouge">--cov-fail-under=100</code> policies. Which enforce us to cover all our code and all branches inside it.</p>
+
+<p>Here’s the problem with my solution: I was either covering <code class="language-plaintext highlighter-rouge">if PY38:</code> branch on <code class="language-plaintext highlighter-rouge">python3.8</code> build or <code class="language-plaintext highlighter-rouge">else:</code> branch on other releases. I was never covering 100% of my program. Because it is literally impossible.</p>
+
+
+    
+      <h2 id="common-pitfalls">
+        
+        <a class="anchor" href="#common-pitfalls">Common pitfalls</a>
+        
+      </h2>
+
+<p>Open-source libraries usually face this problem. They are required to work with different python versions, 3rd party API changes, backward compatibility, etc. Here are some examples that you probably have already seen somewhere:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">django</span>
+    <span class="n">HAS_DJANGO</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="k">except</span> <span class="nb">ImportError</span><span class="p">:</span>
+    <span class="n">HAS_DJANGO</span> <span class="o">=</span> <span class="bp">False</span>
+</code></pre></div></div>
+
+<p>Or this was a popular hack during <code class="language-plaintext highlighter-rouge">2</code> / <code class="language-plaintext highlighter-rouge">3</code> days:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">range_</span> <span class="o">=</span> <span class="nb">xrange</span>  <span class="c1"># python2
+</span><span class="k">except</span> <span class="nb">NameError</span><span class="p">:</span>
+    <span class="n">range_</span> <span class="o">=</span> <span class="nb">range</span>  <span class="c1"># python3
+</span></code></pre></div></div>
+
+<p>With all these examples in mind, one can be sure that 100% of coverage is not possible.
+The common scenario to still achieve a feeling of 100% coverage for these cases was:</p>
+
+<ol>
+  <li>Using <a href="https://coverage.readthedocs.io/en/stable/excluding.html"><code class="language-plaintext highlighter-rouge"># pragma: no cover</code></a> magic comment to exclude a single line or a whole block from coverage</li>
+  <li>Or writing every compatibility related check in a special <code class="language-plaintext highlighter-rouge">compat.py</code> that were later <a href="https://coverage.readthedocs.io/en/stable/source.html#execution">omitted</a> from coverage</li>
+</ol>
+
+<p>Here’s how the first way looks like:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>  <span class="c1"># pragma: no cover
+</span>    <span class="kn">import</span> <span class="nn">django</span>
+    <span class="n">HAS_DJANGO</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="k">except</span> <span class="nb">ImportError</span><span class="p">:</span>  <span class="c1"># pragma: no cover
+</span>    <span class="n">HAS_DJANGO</span> <span class="o">=</span> <span class="bp">False</span>
+</code></pre></div></div>
+
+<p>Let’s be honest: these solutions are dirty hacks. But, they do work. And I personally used both of them countless times in my life.</p>
+
+<p>Here’s the interesting thing: aren’t we supposed to test these complex integrational parts with the most precision and observability? Because that’s where our application breaks the most: integration parts. And currently, we are just ignoring them from coverage and pretending that this problem does not exist.</p>
+
+<p>And for this reason, this time I felt like I am not going to simply exclude my compatibility logic. I got an idea for a new project.</p>
+
+
+    
+      <h2 id="conditional-coverage">
+        
+        <a class="anchor" href="#conditional-coverage">Conditional coverage</a>
+        
+      </h2>
+
+<p>My idea was that <code class="language-plaintext highlighter-rouge"># pragma</code> comments can have more information inside them. Not just <code class="language-plaintext highlighter-rouge">no cover</code>, but <code class="language-plaintext highlighter-rouge">no cover when?</code>. That’s how <a href="https://github.com/wemake-services/coverage-conditional-plugin"><code class="language-plaintext highlighter-rouge">coverage-conditional-plugin</code></a> was born. Let’s use it and see how it works!</p>
+
+<p>First, we would need to install it:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>coverage-conditional-plugin  <span class="c"># pip works, but I prefer poetry</span>
+</code></pre></div></div>
+
+<p>And then we would have to <a href="https://coverage.readthedocs.io/en/coverage-5.0.3/config.html">configure</a> <code class="language-plaintext highlighter-rouge">coverage</code> and the plugin itself:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">[</span><span class="nv">coverage</span><span class="pi">:</span><span class="nv">run</span><span class="pi">]</span>
+<span class="c1"># Here we specify plugins for coverage to be used:</span>
+<span class="s">plugins =</span>
+  <span class="s">coverage_conditional_plugin</span>
+
+<span class="pi">[</span><span class="nv">coverage</span><span class="pi">:</span><span class="nv">coverage_conditional_plugin</span><span class="pi">]</span>
+<span class="c1"># Here we specify our pragma rules:</span>
+<span class="s">rules =</span> <span class="c1"># we are going to define them later.</span>
+</code></pre></div></div>
+
+<p>Notice this <code class="language-plaintext highlighter-rouge">rules</code> key. It is the most important thing here. The rule (in this context) is some predicate that tells: should we include lines behind this specific <code class="language-plaintext highlighter-rouge">pragma</code> in our coverage or not. Here are some examples:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">[</span><span class="nv">coverage</span><span class="pi">:</span><span class="nv">coverage_conditional_plugin</span><span class="pi">]</span>
+<span class="c1"># Here we specify our pragma rules:</span>
+<span class="s">rules =</span>
+  <span class="s">"sys_version_info &gt;= (3, 8)"</span><span class="pi">:</span> <span class="s">py-gte-38</span>
+  <span class="s">"sys_version_info &lt; (3, 8)"</span><span class="pi">:</span> <span class="s">py-lt-38</span>
+  <span class="s">"is_installed('django')"</span><span class="pi">:</span> <span class="s">has-django</span>
+  <span class="s">"not is_installed('django')"</span><span class="pi">:</span> <span class="s">has-no-django</span>
+</code></pre></div></div>
+
+<p>It is pretty clear what we are doing here: we are defining pairs of predicates to include this code if some condition is true and another code in the opposite case.</p>
+
+<p>Here’s how our previous examples would look like with these magic comments:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">PY38</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">PY38</span><span class="p">:</span>  <span class="c1"># pragma: py-lt-38
+</span>    <span class="n">route_visit</span> <span class="o">=</span> <span class="p">...</span>  <span class="c1"># new logic: 3.8+
+</span><span class="k">else</span><span class="p">:</span>  <span class="c1"># pragma: py-gte-38
+</span>    <span class="n">route_visit</span> <span class="o">=</span> <span class="p">...</span>  <span class="c1"># old logic: 3.6, 3.7
+</span></code></pre></div></div>
+
+<p>What does it say? If we are running on <code class="language-plaintext highlighter-rouge">py-lt-38</code> ignore <code class="language-plaintext highlighter-rouge">if PY38:</code> part. But, cover <code class="language-plaintext highlighter-rouge">else:</code> case. Because it is going to be executed and we know it. And we need to know how good did we cover it. On the other hand, if we are running on <code class="language-plaintext highlighter-rouge">py-gte-38</code> then cover <code class="language-plaintext highlighter-rouge">if PY38:</code> case and leave <code class="language-plaintext highlighter-rouge">else:</code> alone.</p>
+
+<p>And we can test that everything works correctly. Let’s add some nonsense into our <code class="language-plaintext highlighter-rouge">PY38</code> branch to see if it is going to be covered by <code class="language-plaintext highlighter-rouge">python3.8</code> build:</p>
+
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/i/ul5t9zxjc5omzvu16qxn.png" alt="PY38 Covered"></p>
+
+<p>As we can see: green signs show which lines were fully covered, the yellow line indicates that branch coverage was not full, and the red line indicates that the line was not covered at all. And here’s an example of grey or ignored lines under the opposed condition:</p>
+
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/i/ebcok1i4wgmxftez0sjy.png" alt="py-lt-38 ignored"></p>
+
+<p><a href="https://github.com/wemake-services/wemake-python-styleguide/blob/master/wemake_python_styleguide/compat/routing.py">Here</a> you can find the full real-life source code for this sample.</p>
+
+<p>And here’s one more example with <code class="language-plaintext highlighter-rouge">django</code> to show you how external packages can be handled:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>  <span class="c1"># pragma: has-no-django
+</span>    <span class="kn">import</span> <span class="nn">django</span>
+    <span class="n">HAS_DJANGO</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="k">except</span> <span class="nb">ImportError</span><span class="p">:</span>  <span class="c1"># pragma: has-django
+</span>    <span class="n">HAS_DJANGO</span> <span class="o">=</span> <span class="bp">False</span>
+</code></pre></div></div>
+
+<p>We use the same logic here. Do we have <code class="language-plaintext highlighter-rouge">django</code> installed during tests (we have a little helper function <code class="language-plaintext highlighter-rouge">is_installed</code> to tell us)? If so, cover <code class="language-plaintext highlighter-rouge">try:</code>. If not, cover <code class="language-plaintext highlighter-rouge">except ImportError:</code> branch. But always cover <em>something</em>.</p>
+
+
+    
+      <h2 id="conclusion">
+        
+        <a class="anchor" href="#conclusion">Conclusion</a>
+        
+      </h2>
+
+<p>I hope you got the idea. Conditional coverage allows you to add or ignore lines based on predicates and collecting required bits of coverage from every run, not just ignoring complex conditions and keeping our eyes wide shut. Remember, that the code we need to cover the most!</p>
+
+<p>By the way, we have all kinds of helpers to query your environment:</p>
+
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">os_environ</code> for env variables</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">patform_release</code> and <code class="language-plaintext highlighter-rouge">platform_version</code> for OS-based values</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">pkg_version</code> that returns package version information (as its name says)</li>
+  <li>and many others!</li>
+</ul>
+
+<p>This little plugin is going to be really helpful for library authors that have to deal with compatibility and unfixed environments. And <code class="language-plaintext highlighter-rouge">coverage-conditional-plugin</code> will surely <em>cover</em> their backs! <a href="https://github.com/wemake-services/coverage-conditional-plugin">Give it a star</a> on Github if you like this idea. And read the project docs to learn more.</p>
+
+    </div>
+
+    <hr>
+
+    <div class="post-subscribe">
+      <h2>
+        <a href="https://sobolevn.me/subscribe">
+          Subscribe to my blog if you want more
+        </a>
+      </h2>
+    </div>
+
+    
+    
+    <div class="post-republish">
+      <h4>Republished as:</h4>
+      <ul>
+      
+        <li>
+          <a class="c-article__repost" href="https://dev.to/wemake-services/cover-the-tricky-parts-of-your-code-24m6" target="_blank">
+            
+            dev.to <img class="emoji" title=":us:" alt=":us:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f1fa-1f1f8.png" height="20" width="20">
+          </a>
+        </li>
+      
+      </ul>
+    </div>
+    
+  </div>
+
+  <!-- Disqus comments view -->
+  
+  <div class="post-disqus" id="discussion">
+    <div id="disqus_thread"></div>
+
+<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+this.page.url = "http://localhost:4000/2020/02/conditional-coverage";
+this.page.identifier = "/2020/02/conditional-coverage";
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://sobolevn-me.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+
+  </div>
+  
+</article>
+
+  </div>
+  <footer class="c-page__footer">
+  <p>
+    <i class="far fa-copyright"></i>
+    <a href="https://sobolevn.me/about/">sobolevn</a>
+    2023,
+    content licensed
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">
+      CC BY-NC
+    </a>,
+    <a href="https://github.com/sobolevn/sobolevn.github.io" target="_blank">
+      source code
+    </a>
+  </p>
+
+  <p>
+    <a href="mailto:mail@sobolevn.me" alt="email">
+      <i class="far fa-2x fa-envelope"></i>
+    </a>
+    <a href="https://github.com/sobolevn" alt="github">
+      <i class="fab fa-2x fa-github"></i>
+    </a>
+    <a href="https://dev.to/sobolevn" alt="practicaldev">
+      <i class="fab fa-2x fa-dev"></i>
+    </a>
+    <a href="https://medium.com/@sobolevn" alt="medium">
+      <i class="fab fa-2x fa-medium"></i>
+    </a>
+    <a href="https://stackoverflow.com/users/4842742/sobolevn" alt="stackoverflow">
+      <i class="fab fa-2x fa-stack-overflow"></i>
+    </a>
+  </p>
+</footer>
+
+</div>
+
+    </main>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66588818-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66588818-1');
+</script>
+
+  </body>
+</html>

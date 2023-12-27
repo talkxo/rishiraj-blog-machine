@@ -1,0 +1,78 @@
+---
+layout: page
+title: Talks
+permalink: /talks/
+future_talks: []
+---
+
+<div class="c-summary">
+  <p>
+    I love conference and meetups. I generally speak about <code>python</code>,
+    <code>elixir</code>, <code>javascript</code>, and management.
+  </p>
+  <p>
+    You can invite me to speak at your event.
+    Just <a href="mailto:mail@sobolevn.me">drop me a line!</a>
+  </p>
+
+  <p>I gave <b>{{ site.talks.size }}</b> public talks total.</p>
+</div>
+
+<section class="c-archives">
+  <link rel="shortcut icon" href="">
+
+  {% if page.future_talks %}
+  <h2 class="c-archives__year" id="upcoming-ref">Upcoming</h2>
+
+  <ul class="c-archives__list">
+  {% for talk in page.future_talks  %}
+    <li class="c-archives__item c-archives__item--squashed">
+      <h3>
+        <a href="{{ talk.url }}">{{ talk.title }}</a>
+      </h3>
+      <p>
+        <small>{{ talk.date | date: "%b %-d, %Y" }}</small>
+        <small>
+          {{ talk.conference }}, {{ talk.location }} :{{ talk.language }}:
+        </small>
+      </p>
+    </li>
+  {% endfor %}
+  </ul>
+
+  {% endif %}
+
+  {% assign sorted_talks = site.talks | reverse %}
+  {% for talk in sorted_talks  %}
+    {% capture this_year %}{{ talk.date | date: "%Y" }}{% endcapture %}
+    {% capture next_year %}{{ talk.previous.date | date: "%Y" }}{% endcapture %}
+
+    {% if forloop.first %}
+      <h2 class="c-archives__year" id="{{ this_year }}-ref">{{ this_year }}</h2>
+      <ul class="c-archives__list">
+    {% endif %}
+    <li class="c-archives__item c-archives__item--squashed">
+      <h3>
+        <a href="{{ talk.url | prepend: site.baseurl }}">{{ talk.title }}</a>
+      </h3>
+      <p>
+        <small>{{ talk.date | date: "%b %-d, %Y" }}</small>
+        <small>
+          {{ talk.conference }}, {{ talk.location }} :{{ talk.language }}:
+        </small>
+      </p>
+    </li>
+    {% if forloop.last %}
+      </ul>
+    {% else %}
+      {% if this_year != next_year %}
+        </ul>
+
+        <h2 class="c-archives__year" id="{{ next_year }}-ref">
+          {{ next_year }}
+        </h2>
+        <ul class="c-archives__list">
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+</section>

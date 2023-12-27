@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/assets/images/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
+<link rel="manifest" href="/assets/images/favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/assets/images/favicons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+
+  <!-- Meta information -->
+  <title>From Flow to Typescript. Why?</title>
+  <meta name="description"
+        content="">
+  <link rel="canonical"
+        href="http://localhost:4000/2019/03/from-flow-to-typescript" />
+
+  <!-- Open search scheme -->
+  <link rel="search"
+        type="application/opensearchdescription+xml"
+        title="sobolevn.me"
+        href="/opensearch.xml" />
+
+  <!-- Feed -->
+  <link rel="alternate" type="application/rss+xml" title="sobolevn's personal blog"
+        href="/feed.xml" />
+
+  <!-- Custom fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,900|Roboto+Mono:400,400i|Montserrat:400,800" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+  <!-- Custom style -->
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Global site tag (gtag.js) - Google Ads: 839642990 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-839642990"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-839642990');
+  </script>
+</head>
+
+
+  <body>
+    <main class="u-container">
+      <div class="c-page">
+  <header class="c-page__header">
+  <h1><code>sobolevn's personal blog</code></h1>
+
+  
+
+  <nav role="navigation">
+    <a href="/" role="menuitem">
+      Blog
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/talks/" role="menuitem">
+      Talks
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/activities/" role="menuitem">
+      Activities
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/about/" role="menuitem">
+      About
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/subscribe/" role="menuitem">
+      Subscribe
+    </a>
+  </nav>
+</header>
+
+  <div class="c-page__main">
+    <article class="c-article" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header class="c-article__header">
+    <h1 class="c-article__title" itemprop="name">From Flow to Typescript. Why?</h1>
+    <p class="c-article__time">
+      <small>
+        <time datetime="2019-03-30T00:00:00+05:30" itemprop="datePublished">
+          March 30, 2019
+        </time>
+      </small>
+      <small><span class="reading-time" title="Estimated read time">
+  
+  
+    9 mins
+   read
+</span>
+</small>
+      <small><a href="#discussion">Start a discussion</a></small>
+      <small><a href="https://github.com/sobolevn/sobolevn.github.io/blob/master/_posts/2019-03-30-from-flow-to-typescript.md">Edit this page</a></small>
+    </p>
+  </header>
+
+  <!-- Post Tags -->
+  <!-- <ul class="c-tags">
+    
+    <li class="c-tag">javascript</li>
+    
+  </ul> -->
+
+  <!-- Content -->
+  <div class="c-article__main">
+
+    
+
+    <div class="c-article__body" itemprop="articleBody">
+      <p><img src="https://thepracticaldev.s3.amazonaws.com/i/xkai9z2i7pgsu2jktkdf.png" alt="Article logo"></p>
+
+<p>It all started almost two years ago. I was sick with constant silly javascript mistakes like <code class="language-plaintext highlighter-rouge">undefined is not a function</code> in my apps. So, I have decided to add optional static typing.</p>
+
+<p>Two years ago the javascript land was completely different. Both <code class="language-plaintext highlighter-rouge">Flow</code> and <code class="language-plaintext highlighter-rouge">TypeScript</code> had a lot of disadvantages: poor libraries support, from none to almost none IDE support, type issues, and limitations. I have chosen <code class="language-plaintext highlighter-rouge">Flow</code> just because it was easier to start with. Plug it into your <a href="https://github.com/wemake-services/wemake-vue-template/blob/9dc664c36f30c610ee5bdaecfb586968a3ed57bf/template/.babelrc#L8"><code class="language-plaintext highlighter-rouge">.babelrc</code></a> and start working.</p>
+
+<p>Almost 6 months ago I have made a decision to move all our frontend projects from <code class="language-plaintext highlighter-rouge">Flow</code> to <code class="language-plaintext highlighter-rouge">TypeScript</code>. It was a tough battle inside my head. So, I have decided to write it down to help other people to choose the right tool. And not to make my mistakes.</p>
+
+<p>These tools are quite similar, both providing type-safety to plain javascript. And this article is <a href="https://github.com/niieani/typescript-vs-flowtype">not about types</a> or differences between structural and nominal subtyping. It more about the current state of these tools.</p>
+
+<p>You rarely change typing tools because of types.</p>
+
+
+      <h2 id="hype">
+        
+        <a class="anchor" href="#hype">Hype</a>
+        
+      </h2>
+
+<p>I will start with the most important aspect of all technical decisions. Yes, it is about hype-driven-development.</p>
+
+<p><img src="https://thepracticaldev.s3.amazonaws.com/i/8lx11zrlckdw8vltbv8j.jpeg" alt="Hype ORLY"></p>
+
+<p>Please, do not make your face like this. I will explain how it works, and possibly you will change your mind.</p>
+
+<p>I quite often <a href="https://sobolevn.me/talks/">speak</a> about our stack, write articles about it, etc. And every time I said that we were using <code class="language-plaintext highlighter-rouge">Flow</code> other developers asked me: “But why not <code class="language-plaintext highlighter-rouge">TypeScript</code>”? And every time I had to explain my choice. Going deep into details, history, and tooling. Sometimes even explaining the state of current projects and our workflow. This was not a pleasant experience when you are not advocating for something. I was just a user. I do not really prefer one to another. And it felt really strange to had this conversation over and over again.</p>
+
+<p>Moreover, we make services for our clients, and <a href="https://wemake-services.github.io/meta/rsdp/job-application/">we hire</a> other developers. And some of them literally wants to work with <code class="language-plaintext highlighter-rouge">TypeScript</code> and does not want to work with <code class="language-plaintext highlighter-rouge">Flow</code>. Why? Because they heard about <code class="language-plaintext highlighter-rouge">TypeScript</code> and how awesome it is. While the hype train around <code class="language-plaintext highlighter-rouge">Flow</code> is not so massive.</p>
+
+<blockquote>
+  <p>Me: Hi, we use X, Y, Z, and <code class="language-plaintext highlighter-rouge">Flow</code> for this project</p>
+</blockquote>
+
+<blockquote>
+  <p>Dev: <code class="language-plaintext highlighter-rouge">Flow</code>? Why not <code class="language-plaintext highlighter-rouge">TypeScript</code>?</p>
+</blockquote>
+
+<blockquote>
+  <p>Me: Oh, are you kidding me? :facepalm:</p>
+</blockquote>
+
+<p>If you do not want to fight this hype train but make it work for you it is better to step aside and use whatever is hyped. Keeping in mind that there’s no massive change for your current workflow.</p>
+
+
+    
+      <h2 id="infrastructure">
+        
+        <a class="anchor" href="#infrastructure">Infrastructure</a>
+        
+      </h2>
+
+<p><a href="https://medium.com/the-vue-point/plans-for-the-next-iteration-of-vue-js-777ffea6fabf">Vue 3.0 will support</a> <code class="language-plaintext highlighter-rouge">TypeScript</code> out of the box, Nuxt already supports <code class="language-plaintext highlighter-rouge">TypeScript</code>. There are a lot of projects that ship types together with the source code. <code class="language-plaintext highlighter-rouge">axios</code>, <code class="language-plaintext highlighter-rouge">vuex</code>, <code class="language-plaintext highlighter-rouge">vue-router</code>, <code class="language-plaintext highlighter-rouge">lodash</code> to name a few.</p>
+
+<p>What about <code class="language-plaintext highlighter-rouge">Flow</code> support? Vue currently uses <code class="language-plaintext highlighter-rouge">Flow</code> for typing (switching to <code class="language-plaintext highlighter-rouge">TypeScript</code> starting from 3.0), but these types are development only. You cannot take them and use in your own projects.</p>
+
+<p>Maybe there are different types? Yes, <code class="language-plaintext highlighter-rouge">Flow</code> has its own repository for types. The problem is that installing types is a whole new extra step. You have to configure <code class="language-plaintext highlighter-rouge">postinstall</code> hook to make sure that types are also rebased after each <code class="language-plaintext highlighter-rouge">npm install</code> call (yes, they use <code class="language-plaintext highlighter-rouge">git rebase</code>).</p>
+
+<p>When you will dig into <code class="language-plaintext highlighter-rouge">flow-typed</code> packages you will find that it is mostly React oriented. <code class="language-plaintext highlighter-rouge">Flow</code> even has a lot of React primitives in the standard library. Which I find really strange.</p>
+
+<p>But what about Vue specific types (since we use Vue a lot)? Yes, you can find <a href="https://github.com/sobolevn/vue-flow-typed"><code class="language-plaintext highlighter-rouge">@vue-flow-type</code> package</a> maintained by a single person. The sad thing is that I am this single person. I am really tired of maintaining types for several popular projects. And as you can imagine there are bugs, type changes, new releases, etc.</p>
+
+<p><code class="language-plaintext highlighter-rouge">TypeScript</code> wins this one for me. Its distribution system does not force me to do extra work. Just install something and it will work. Because <code class="language-plaintext highlighter-rouge">types/</code> subfolder is shipped together with the source code via <code class="language-plaintext highlighter-rouge">npm</code>. No extra steps are required. Library authors maintain <code class="language-plaintext highlighter-rouge">types/</code> folder together with the rest of codebase. They can be sure that everything works correctly.</p>
+
+
+    
+      <h2 id="ide">
+        
+        <a class="anchor" href="#ide">IDE</a>
+        
+      </h2>
+
+<p>Let’s discuss IDE support for <code class="language-plaintext highlighter-rouge">Flow</code> projects. Or I would say “no IDE support”.</p>
+
+<p>That’s not a big thing, I can write my code using just <code class="language-plaintext highlighter-rouge">nano</code>. But I spend a lot of my life inside <a href="https://github.com/sobolevn/dotfiles">text editors</a> and I want them to be friendly. Sadly, <code class="language-plaintext highlighter-rouge">Flow</code> plugins for all major IDEs (and text editors) are buggy and unreliable. For example, <a href="https://github.com/flowtype/flow-for-vscode">VSCode plugin</a> does not work at all.</p>
+
+<p>And at the same time, VSCode is known for its first-class <code class="language-plaintext highlighter-rouge">TypeScript</code> support. With intellisense, type-checking, and autocomplete out of the box.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/4033249/25200022/ea76fef4-251a-11e7-9e18-348b76b97424.png" alt="vetur plugin for vscode"></p>
+
+<p>Have a look at our <a href="https://github.com/wemake-services/wemake-vue-template/blob/master/template/.vscode/settings.json">VSCode + TS + Vue</a> setup.</p>
+
+<p>With this simple feature, your development workflow starts to feel more responsive, and the feedback loop time is significantly decreased.</p>
+
+
+    
+      <h2 id="unfixed-bugs">
+        
+        <a class="anchor" href="#unfixed-bugs">Unfixed bugs</a>
+        
+      </h2>
+
+<p>The other thing that was ruining my <code class="language-plaintext highlighter-rouge">Flow</code> experience is the number of unfixed bugs in <code class="language-plaintext highlighter-rouge">Flow</code> itself.</p>
+
+<p>For example, when you install <code class="language-plaintext highlighter-rouge">Vuex</code> all <code class="language-plaintext highlighter-rouge">Vue</code> components are extended with an extra property which can be accessed with <code class="language-plaintext highlighter-rouge">this.$store</code>. The thing is there’s no way to tell <code class="language-plaintext highlighter-rouge">Flow</code> that <code class="language-plaintext highlighter-rouge">Vuex</code> was added. And <a href="https://github.com/facebook/flow/issues/396">this bug</a> is opened since 2015, for 4 years now!</p>
+
+<p>Of course, you can still write your own types:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// @flow</span>
+
+<span class="k">import</span> <span class="nx">Vue</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vue</span><span class="dl">'</span>
+<span class="k">import</span> <span class="nx">type</span> <span class="p">{</span> <span class="nx">Store</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vuex</span><span class="dl">'</span>
+
+<span class="k">import</span> <span class="nx">type</span> <span class="p">{</span> <span class="nx">State</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">~/types/vuex</span><span class="dl">'</span>
+
+<span class="cm">/**
+* Represents our extended Vue instance.
+*
+* We just use the annotations here, since properties are already injected.
+* You will need to add new annotations in case you will extend Vue with new
+* plugins.
+*/</span>
+<span class="k">export</span> <span class="k">default</span> <span class="kd">class</span> <span class="nx">CustomVue</span> <span class="kd">extends</span> <span class="nx">Vue</span> <span class="p">{</span>
+  <span class="nl">$store</span><span class="p">:</span> <span class="nx">Store</span><span class="o">&lt;</span><span class="nx">State</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>But now you have to maintain your own types by yourself. Do you want to add <code class="language-plaintext highlighter-rouge">this.$router</code> property? Please, add it yourself. Nuxt specific types? You are on your own.</p>
+
+<p>Compare it with <a href="https://github.com/vuejs/vuex/blob/dev/types/vue.d.ts">the standard</a> <code class="language-plaintext highlighter-rouge">TypeScript</code> approach:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Vue</span><span class="p">,</span> <span class="p">{</span> <span class="nx">ComponentOptions</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">vue</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Store</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./index</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kr">declare</span> <span class="kr">module</span> <span class="dl">"</span><span class="s2">vue/types/options</span><span class="dl">"</span> <span class="p">{</span>
+  <span class="kr">interface</span> <span class="nx">ComponentOptions</span><span class="o">&lt;</span><span class="nx">V</span> <span class="kd">extends</span> <span class="nx">Vue</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="nx">store</span><span class="p">?:</span> <span class="nx">Store</span><span class="o">&lt;</span><span class="kr">any</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">declare</span> <span class="kr">module</span> <span class="dl">"</span><span class="s2">vue/types/vue</span><span class="dl">"</span> <span class="p">{</span>
+  <span class="kr">interface</span> <span class="nx">Vue</span> <span class="p">{</span>
+    <span class="nl">$store</span><span class="p">:</span> <span class="nx">Store</span><span class="o">&lt;</span><span class="kr">any</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Existing types can be extended with special declarations. And library authors do that for you. Remember what I said about types distribution? This feature makes the distribution even better.</p>
+
+<p>The <a href="https://github.com/facebook/flow/issues/452">second well-known bug</a> from 2015 is that you cannot annotate <code class="language-plaintext highlighter-rouge">this</code> even if you have to. Some libraries have strange APIs. With <code class="language-plaintext highlighter-rouge">Flow</code> you just cannot do anything, typing is lost there. But with <code class="language-plaintext highlighter-rouge">TypeScript</code> you can annotate what <code class="language-plaintext highlighter-rouge">this</code> means in every context. And it is great for a lot of use-cases.</p>
+
+<p>Why these bugs are not fixed? I don’t know. They brought a lot of attention during the years. A lot of people wanted these things, but <code class="language-plaintext highlighter-rouge">Flow</code> team does not share their vision on the project. And they release things that they want, not the community.</p>
+
+
+    
+      <h2 id="releases">
+        
+        <a class="anchor" href="#releases">Releases</a>
+        
+      </h2>
+
+<p>Talking about releases I must mention their policy: “just release things and make users fix their code”. Here’s <a href="https://github.com/wemake-services/wemake-vue-template/pulls?utf8=%E2%9C%93&amp;q=is%3Apr+flow-bin">the release history</a> and what it has done to my project. Almost every release breaks my code. Considering that it is a template with almost no code – it is really scary.</p>
+
+<p>By the way, <code class="language-plaintext highlighter-rouge">Flow</code> team does not follow SemVer, they just release incrementally. After one release <code class="language-plaintext highlighter-rouge">jsx</code> inside <code class="language-plaintext highlighter-rouge">.vue</code> files stopped working. I was not able to fix it ever again on new versions. I took the lazy path: pinned the version and just ignored the updates after this incident.</p>
+
+<p><code class="language-plaintext highlighter-rouge">TypeScript</code> has <a href="https://github.com/Microsoft/TypeScript/wiki/Roadmap">clear release policy</a>, SemVer, and wide attention to the community. It is much better to maintain in the long run.</p>
+
+
+    
+      <h2 id="conclusion">
+        
+        <a class="anchor" href="#conclusion">Conclusion</a>
+        
+      </h2>
+
+<p>We have made our choice and <a href="https://github.com/wemake-services/wemake-vue-template/releases/tag/end-of-flow">said “Good bye”</a> to <code class="language-plaintext highlighter-rouge">Flow</code>. Now all our projects and our project template supports <code class="language-plaintext highlighter-rouge">TypeScript</code>. And we regret nothing!</p>
+
+<p>By the way, our template is truly awesome. It supports:</p>
+
+<ul>
+  <li>Nuxt for server-side rendering and boilerplate isolation</li>
+  <li>TypeScript everywhere: code, tests, configuration</li>
+  <li>Jest for unit tests, TestCafe for E2E tests</li>
+  <li>Docker for development and production</li>
+  <li>
+<a href="https://wemake-services.gitbook.io/wemake-vue-template/">Awesome documentation</a> that covers every aspect of the project</li>
+</ul>
+
+<p><a href="https://github.com/wemake-services/wemake-vue-template">Try it out</a>!</p>
+
+    </div>
+
+    <hr>
+
+    <div class="post-subscribe">
+      <h2>
+        <a href="https://sobolevn.me/subscribe">
+          Subscribe to my blog if you want more
+        </a>
+      </h2>
+    </div>
+
+    
+    
+    <div class="post-republish">
+      <h4>Republished as:</h4>
+      <ul>
+      
+        <li>
+          <a class="c-article__repost" href="https://dev.to/wemake-services/from-flow-to-typescript-why-1k7m" target="_blank">
+            
+            dev.to <img class="emoji" title=":us:" alt=":us:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f1fa-1f1f8.png" height="20" width="20">
+          </a>
+        </li>
+      
+      </ul>
+    </div>
+    
+  </div>
+
+  <!-- Disqus comments view -->
+  
+  <div class="post-disqus" id="discussion">
+    <div id="disqus_thread"></div>
+
+<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+this.page.url = "http://localhost:4000/2019/03/from-flow-to-typescript";
+this.page.identifier = "/2019/03/from-flow-to-typescript";
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://sobolevn-me.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+
+  </div>
+  
+</article>
+
+  </div>
+  <footer class="c-page__footer">
+  <p>
+    <i class="far fa-copyright"></i>
+    <a href="https://sobolevn.me/about/">sobolevn</a>
+    2023,
+    content licensed
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">
+      CC BY-NC
+    </a>,
+    <a href="https://github.com/sobolevn/sobolevn.github.io" target="_blank">
+      source code
+    </a>
+  </p>
+
+  <p>
+    <a href="mailto:mail@sobolevn.me" alt="email">
+      <i class="far fa-2x fa-envelope"></i>
+    </a>
+    <a href="https://github.com/sobolevn" alt="github">
+      <i class="fab fa-2x fa-github"></i>
+    </a>
+    <a href="https://dev.to/sobolevn" alt="practicaldev">
+      <i class="fab fa-2x fa-dev"></i>
+    </a>
+    <a href="https://medium.com/@sobolevn" alt="medium">
+      <i class="fab fa-2x fa-medium"></i>
+    </a>
+    <a href="https://stackoverflow.com/users/4842742/sobolevn" alt="stackoverflow">
+      <i class="fab fa-2x fa-stack-overflow"></i>
+    </a>
+  </p>
+</footer>
+
+</div>
+
+    </main>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66588818-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66588818-1');
+</script>
+
+  </body>
+</html>
