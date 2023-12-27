@@ -1,18 +1,18 @@
 # Site settings
-title: "sobolevn's personal blog"
+title: "rishi raj's blog"
 description: >
-  On good software, mediocre software, and bad software.
+  On work, marketing and the service industry.
   Also rants about management and development processes.
 
-author: Nikita Sobolev
-email: mail@sobolevn.me
-username: sobolevn
+author: Rishi Raj
+email: r@rishi.im
+username: imrishi
 
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://sobolevn.me" # the base hostname & protocol for your site
+url: "https://rishiraj.blog" # the base hostname & protocol for your site
 
 github_edit_url: "https://github.com/sobolevn/sobolevn.github.io/blob/master"
-disqus_id: sobolevn-me
+disqus_id: 
 google_analytics_id: UA-66588818-1
 
 # Build settings
