@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/assets/images/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
+<link rel="manifest" href="/assets/images/favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/assets/images/favicons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+
+  <!-- Meta information -->
+  <title>Automating the Attendance Module at Work</title>
+  <meta name="description"
+        content="This place I work has an online portal where every employee must login with their user credentials and log their attendance for the day. The problem is, ever...">
+  <link rel="canonical"
+        href="http://localhost:4000/2014/managing-djangos-settings" />
+
+  <!-- Open search scheme -->
+  <link rel="search"
+        type="application/opensearchdescription+xml"
+        title="rishi raj's blog"
+        href="/opensearch.xml" />
+
+  <!-- Feed -->
+  <link rel="alternate" type="application/rss+xml" title="rishi raj's blog"
+        href="/feed.xml" />
+
+  <!-- Custom fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@350&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+  <!-- Custom style -->
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Global site tag (gtag.js) - Google Ads: 839642990 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-839642990"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-839642990');
+  </script>
+</head>
+
+
+  <body>
+    <main class="u-container">
+      <div class="c-page">
+  <header class="c-page__header">
+  <h1><code>rishi raj's blog</code></h1>
+
+  
+
+  <nav role="navigation">
+    <a href="/" role="menuitem">
+      Blog
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/about/" role="menuitem">
+      About
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/stuff-i-use/" role="menuitem">
+      Stuff
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/colophon/" role="menuitem">
+      Colophon
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/subscribe/" role="menuitem">
+      Subscribe
+    </a>
+  </nav>
+</header>
+
+  <div class="c-page__main">
+    <article class="c-article" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header class="c-article__header">
+    <h1 class="c-article__title" itemprop="name">Automating the Attendance Module at Work</h1>
+    <p class="c-article__time">
+      <small>
+        <time datetime="2014-09-15T00:00:00+05:30" itemprop="datePublished">
+          September 15, 2014
+        </time>
+      </small>
+      <small><span class="reading-time" title="Estimated read time">
+  
+  
+    1 min
+   read
+</span>
+</small>
+      <!--- <small><a href="#discussion">Start a discussion</a></small>
+      <small><a href="https://github.com/sobolevn/sobolevn.github.io/blob/master/_posts/2017-04-01-managing-djangos-settings.md">Edit this page</a></small> -->
+    </p>
+  </header>
+
+  <!-- Post Tags -->
+  <!-- <ul class="c-tags">
+    
+    <li class="c-tag">python</li>
+    
+    <li class="c-tag">automation</li>
+    
+  </ul> -->
+
+  <!-- Content -->
+  <div class="c-article__main">
+
+    
+
+    <div class="c-article__body" itemprop="articleBody">
+      <p>This place I work has an online portal where every employee must login with their user credentials and log their attendance for the day. The problem is, everyone forgets to do that everyday. Its super messy!</p>
+
+<p>Even I do forget to do it at times. I entered office at 9.30 today and logged my attendance at 10.20, when a reminder popped up on my phone. Technically I was half an hour early to work, but I’m gonna suffer a 20 minutes delay mark in my performance sheet.</p>
+
+<p>Anyways, to get over this, I have decided to hack and automate the attendance module. like a boss</p>
+
+<p>So the attendance module is a form, with three key input fields: 1) Username, 2) Password, and the 3) IN button. Employees have to fill up their assigned username and password, then punch the IN button to login their attendance for the day with date and time.</p>
+
+<p>Pretty easy to automate this process, at a trigger I can choose. What I can do is, simply use mechanize ( http://wwwsearch.sourceforge.net/mechanize/ ) to automate the form. That simple, yes!</p>
+
+<p>The trigger can be anything. Maybe a time frame or as soon as I turn my computer on from 9am to 12pm on week days. Or maybe when I check in into my office using the Swarm app. I never forget to check in on 4sq/Swarm!</p>
+
+<p>But I won’t be automating the Attendance Module. The attendance is a way I push myself to work early everyday, giving me some extra time to brainstorm or even prepare a list of things I need to get done that day. Cheerio.</p>
+
+    </div>
+
+    <hr>
+
+    <div class="post-subscribe">
+      
+<!-- Add following div tag where you want show soopr share buttons -->
+<div class="soopr-btn"></div>
+
+<!-- Just before body tag add this line -->
+<script async defer data-soopr-token="pt_3c7922127f46ef4aa2b340d1b94b2025" src="https://sdk.soopr.co/soopr.js"></script>
+  
+    </div>
+
+    
+    
+    <div class="post-republish">
+      <h4>Republished as:</h4>
+      <ul>
+      
+        <li>
+          <a class="c-article__repost" href="https://rishiraj.svbtle.com/automating-the-attendance-module-at-work" target="_blank">
+            
+            rishiraj.svbtle.com <img class="emoji" title=":us:" alt=":us:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f1fa-1f1f8.png" height="20" width="20">
+          </a>
+        </li>
+      
+      </ul>
+    </div>
+    
+  </div>
+
+  <!-- Disqus comments view -->
+  
+</article>
+
+  </div>
+  <footer class="c-page__footer">
+  <p>
+    <i class="far fa-copyright"></i>
+    <a href="https://rishiraj.blog/">imrishi</a>
+    2023,
+    content licensed
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">
+      CC BY-NC
+    </a>,
+    <a href="https://github.com/talkxo/rishiraj-blog-machine" target="_blank">
+      source code
+    </a>,
+    
+      made in India ❤
+    
+  </p>
+
+  <p>
+    <!-- <a href="mailto:r@rishi.im" alt="email">
+      <i class="far fa-2x fa-envelope"></i>
+    </a>
+    <a href="https://github.com/sobolevn" alt="github">
+      <i class="fab fa-2x fa-github"></i>
+    </a>
+    <a href="https://dev.to/sobolevn" alt="practicaldev">
+      <i class="fab fa-2x fa-dev"></i>
+    </a>
+    <a href="https://medium.com/@sobolevn" alt="medium">
+      <i class="fab fa-2x fa-medium"></i>
+    </a>
+    <a href="https://stackoverflow.com/users/4842742/sobolevn" alt="stackoverflow">
+      <i class="fab fa-2x fa-stack-overflow"></i>
+    </a> -->
+  </p>
+</footer>
+
+</div>
+
+    </main>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66588818-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66588818-1');
+</script>
+
+  </body>
+</html>

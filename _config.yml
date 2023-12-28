@@ -2,7 +2,7 @@
 title: "rishi raj's blog"
 description: >
   On work, marketing and the service industry.
-  Also rants about management and development processes.
+  Also, rants about management and development processes.
 
 author: Rishi Raj
 email: r@rishi.im
@@ -18,7 +18,7 @@ google_analytics_id: UA-66588818-1
 # Build settings
 include: [_pages]
 markdown: kramdown
-permalink: /:year/:month/:title
+permalink: /:year/:title
 
 collections:
   talks:
