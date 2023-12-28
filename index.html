@@ -18,12 +18,12 @@ layout: page
       <p>
         <small>{{ post.date | date: "%B %-d, %Y" }}</small>
         <small>{% include read_time.html post=post %}</small>
-        <small>
+        <!-- <small>
           <a href="{{ post.url | prepend: site.baseurl }}#discussion"
              data-disqus-identifier="{{ post.id }}">
             0 comments
           </a>
-        </small>
+        </small> -->
       </p>
       <p class="c-archives__description">{{ post.description }}</p>
     </li>
