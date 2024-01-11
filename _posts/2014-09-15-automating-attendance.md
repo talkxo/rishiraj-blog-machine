@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Automating the Attendance Module at Work"
-description: "Exploring native interaction automation on dumb office softwares, to bypass attendance system."
+description: "I have decided to hack and automate the attendance module at work."
 date: 2014-09-15
 tags: python automation
 republished:
