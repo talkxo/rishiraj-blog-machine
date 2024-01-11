@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "### Sonos and 5 GHz Wi-Fi Connections"
+title: "Sonos and 5 GHz Wi-Fi Connections"
 description: "Exploring why my new Sonos just wouldn't identify my home Wi-Fi's 5GHz network."
 date: 2023-12-30
 tags: python
