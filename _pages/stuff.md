@@ -8,14 +8,14 @@ I've always had a thing for gadgets; they just make life more interesting and fu
 
 _Last updated: 15 August 2024_
 
-## Products
+## In my bag (less than often!)
 
 -   ~~Apple Macbook Pro 13″ 2011~~ ~~Macbook Air 13″ 2015~~ **Macbook Pro 13″ 2019**
 -   ~~Samsung Galaxy S9~~ ~~Google Pixel 4A~~ **iPhone 13 Mini and a Nothing Phone 2A**
 -   ~~Nikon P510~~ **Sony Alpha A6400**
 -   ~~Sony MDR-ZX300~~ **Sony WH-1000XM3**
 
-## Services
+## On my computer (everyday)
 
 - **Shortwave** for emails on desktop and phone
 - **Cron** for calendars
