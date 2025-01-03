@@ -13,7 +13,7 @@ Hi, my name is Rishi Raj and I'm a  **multi-disciplinary marketer** from New Del
 
 ### Work
 
-I work as the CEO at [TalkXO and Kinsight](https://hello.talkxo.com), I also happen to be a founder of these company. I work with a small, smart team of young marketers & technologists, providing marketing automation and content services to B2B startups.
+I run a digital services company called [TalkXO](https://hello.talkxo.com). I work with a young team of marketers & techies on marketing automation and creative content solutions for big & small businesses.
 
 In my previous avatars, I have been ...
 
@@ -22,7 +22,3 @@ In my previous avatars, I have been ...
 - a freelancer offering SEO and content marketing services
 - an **UI + graphics designer** at a leading messaging company
 - a **web publisher** (later, sold) of a popular tech blog
-
-### Side projects
-
-I enjoy photography and design, and most of my side projects float between the two. 

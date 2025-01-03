@@ -20,12 +20,8 @@ This website is proudly powered by [`Jekyll`](https://jekyllrb.com/), an open-so
 
 It also leverages Markdown to ensure updates and posts can be made quickly, without the CMS formatting complexities.
 
-All the source code for our website is managed on [`GitHub`](https://pages.github.com/). The website is also hosted using GitHub Pages, which is **free-of-cost** and without any downtime hiccups.
+All the source code is managed on [`GitHub`](https://pages.github.com/). The website is also hosted using GitHub Pages. It's easy and simple!
 
 The website layout draws inspiration from the innovative design of **Nikita Sobolev**. This design approach helps in creating an intuitive, user-friendly, and aesthetically pleasing interface for reading.
 
-To enhance readability and visual appeal, we utilize fonts from [Google Fonts](https://fonts.google.com/); my favorites, **Nunito Sans** for title and **Source Sans 3** for body. We also use a small script from Soopr to allow easy and efficient content sharing.
-
-Stock photos on the site are usually from Unsplash, with due credit.
-
-The integration of [Google Analytics](https://analytics.google.com/) empowers us with valuable insights into visitor behavior and site performance. This data drives our continuous efforts to optimize the user experience and content relevance.
+Fonts are hosted on  [Google Fonts](https://fonts.google.com/); my favorites, **Nunito Sans** for title and **Source Sans 3** for body. We also use a small script from Soopr to allow easy and efficient content sharing.

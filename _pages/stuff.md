@@ -11,14 +11,15 @@ _Last updated: 15 August 2024_
 ## In my bag (less than often!)
 
 -   ~~Apple Macbook Pro 13″ 2011~~ ~~Macbook Air 13″ 2015~~ **Macbook Pro 13″ 2019**
--   ~~Samsung Galaxy S9~~ ~~Google Pixel 4A~~ **iPhone 13 Mini and a Nothing Phone 2A**
+-   ~~Samsung Galaxy S9~~ ~~Google Pixel 4A~~ **iPhone 13 Mini + Nothing Phone 2A**
 -   ~~Nikon P510~~ **Sony Alpha A6400**
 -   ~~Sony MDR-ZX300~~ **Sony WH-1000XM3**
 
 ## On my computer (everyday)
 
 - **Shortwave** for emails on desktop and phone
-- **Cron** for calendars
+- **Cron / Notion Calendar** right now, on a lookout for new cross-platform goodness
 - **TeuxDeux** for personal to-dos and **Basecamp** at work
 - **Bear** for note-taking (moved recently from Apple Notes)
 - ~~Arc~~ **Edge** as my default browser
+
