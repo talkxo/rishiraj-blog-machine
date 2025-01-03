@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "### Apple Notes is not enough"
+title: "Apple Notes is not enough"
 description: "I adored Apple Notes for a decade. Here's why I finally forced myself out of it."
 date: 2024-07-30
 tags: apple notes, note taking

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "### Budget phones, anyone?"
+title: "Budget phones, anyone?"
 description: "The weight of two SIMs on my iPhone 13 Mini was beyond permissible for the tiny cell to last a work day. I wanted to continue using my iPhone for my personal number and decided to shift the weightful part to a separate, new phone."
 date: 2024-10-30
 tags: smartphones
