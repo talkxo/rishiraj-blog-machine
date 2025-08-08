@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Smart Home Chronicles"
+title: "Smart Home Management"
 date: 2025-07-24 15:30:00 +0530
 categories: [technology, humor]
 tags: [smart-home, iot]
