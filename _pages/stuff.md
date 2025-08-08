@@ -11,7 +11,7 @@ _Last updated: 15 August 2024_
 ## In my bag (less than often!)
 
 -   ~~Apple Macbook Pro 13″ 2011~~ ~~Macbook Air 13″ 2015~~ **Macbook Pro 13″ 2019**
--   ~~Samsung Galaxy S9~~ ~~Google Pixel 4A~~ **iPhone 13 Mini + Nothing Phone 2A**
+-   ~~Samsung Galaxy S9~~ ~~Google Pixel 4A~~ ~~iPhone 13 Mini + Nothing Phone 2A~~ **iPhone 15 Pro**
 -   ~~Nikon P510~~ **Sony Alpha A6400**
 -   ~~Sony MDR-ZX300~~ **Sony WH-1000XM3**
 
