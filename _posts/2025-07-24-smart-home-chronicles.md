@@ -6,6 +6,8 @@ categories: [technology, humor]
 tags: [smart-home, iot]
 ---
 
+My smart home works great 90% of the time. It's that other 10% that makes for the best stories. From geyser scheduling algorithms to Google Home being the ultimate device diplomat.
+
 My smart home works great 90% of the time. It's that other 10% that makes for the best stories.
 
 The TP-Link plug controlling the geyser? Mostly reliable, but has inexplicably decided that 4:47am is the optimal pre-heating time. Not 4:45. Not 5:00. Specifically 4:47am, every single day. I've stopped questioning the algorithm.
