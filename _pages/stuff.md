@@ -21,5 +21,5 @@ _Last updated: 15 August 2024_
 - **Cron / Notion Calendar** right now, on a lookout for new cross-platform goodness
 - **TeuxDeux** for personal to-dos and **Basecamp** at work
 - **Bear** for note-taking (moved recently from Apple Notes)
-- ~~Arc~~ **Edge** as my default browser
+- ~~Arc~~ ~~Edge~~ **Firefox** as my default browser
 
