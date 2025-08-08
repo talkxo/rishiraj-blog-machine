@@ -16,7 +16,8 @@
 
 // Font families
 @mixin ff--sans-serif($font-weight: normal) {
-  font-family: 'Nunito Sans', sans-serif;;
+  // Use Source Sans 3 for all sans-serif typography
+  font-family: 'Source Sans 3', sans-serif;
   font-weight: $font-weight;
 }
 

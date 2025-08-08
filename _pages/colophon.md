@@ -24,4 +24,4 @@ All the source code is managed on [`GitHub`](https://pages.github.com/). The web
 
 The website layout draws inspiration from the innovative design of **Nikita Sobolev**. This design approach helps create an intuitive, user‑friendly and aesthetically pleasing interface for reading.
 
-Fonts are hosted on [Google Fonts](https://fonts.google.com/); my favorites are **Nunito Sans** for the title and **Source Sans 3** for the body. We also use a small script from Soopr to allow easy and efficient content sharing.
+Fonts are hosted on [Google Fonts](https://fonts.google.com/); we use **Source Sans 3** across the site. We also use a small script from Soopr to allow easy and efficient content sharing.
