@@ -1,7 +1,7 @@
 ---
 layout: content
-title: Stuff
-permalink: /stuff-i-use/
+title: Stuff I Use
+permalink: /stuff/
 ---
 
 I've always had a thing for gadgets; they just make life more interesting and fun. But it's not just about having the latest tech for me. Ever since I read Paul Graham's essay [`Stuff`](http://www.paulgraham.com/stuff.html) (which, by the way, is a great read), I've started to focus more on investing in fewer, but higher-quality tech products that really help me get things done. I also love the idea of sharing what works for me, so I've put together a list of the tech gear and software I use and recommend.
