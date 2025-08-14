@@ -30,7 +30,7 @@
   <meta name="description"
         content="">
   <link rel="canonical"
-        href="https://rishiraj.blog/talks/funbox-code-quality-2021" />
+        href="http://localhost:4000/talks/funbox-code-quality-2021" />
 
   <!-- Open search scheme -->
   <link rel="search"
@@ -43,14 +43,19 @@
         href="/feed.xml" />
 
   <!-- Custom fonts -->
-  <!-- Use Source Sans 3 for all text weights -->
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700;800&display=swap" rel="stylesheet">
+  <!-- Use Source Sans 3 for body and headings; include 600 weight -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet">
   <!-- Keep Roboto Mono for code snippets -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
   <!-- Custom style -->
   <link rel="stylesheet" href="/css/main.css" />
+  <style>
+    /* Minimal transition for theme changes */
+    html { transition: background-color .2s ease, color .2s ease; }
+    a { transition: color .2s ease; }
+  </style>
 
   <!-- Global site tag (gtag.js) - Google Ads: 839642990 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-839642990"></script>
@@ -95,8 +100,37 @@
     <a href="/subscribe/" role="menuitem">
       Subscribe
     </a>
+
+    <span class="u-separate"></span>
+    <button id="theme-toggle" aria-label="Toggle theme" class="no-hov" style="background:none;border:0;cursor:pointer;">
+      🌓
+    </button>
   </nav>
 </header>
+
+<script>
+  (function() {
+    try {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (!stored) {
+        document.documentElement.dataset.theme = prefersDark ? 'dark' : 'light';
+      } else {
+        document.documentElement.dataset.theme = stored;
+      }
+    } catch (e) {}
+  })();
+  document.addEventListener('DOMContentLoaded', function() {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      var current = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+      var next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+  });
+</script>
 
   <div class="c-page__main">
     <article class="c-article">

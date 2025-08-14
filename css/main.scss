@@ -14,6 +14,7 @@
 
 // Utilities
 @import
+    'utilities/theme',
     'utilities/layout',
     'utilities/separator';
 
@@ -22,7 +23,10 @@
     'components/page',
     'components/article',
     'components/tag',
-    'components/archives';
+    'components/archives',
+    'components/cards',
+    'components/colophon',
+    'components/about';
 
 // Vendor
 @import

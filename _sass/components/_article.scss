@@ -29,14 +29,14 @@
 
 .c-article__title {
     @include fs--heading-1;
-    color: $c-base__02;
+    color: var(--color-ink, #163541);
     display: block;
     width: 100%;
 }
 
 .c-article__time {
     @include fs--body;
-    color: $c-base__01;
+    color: var(--color-muted, #869395);
 
     small {
         margin: 0;
@@ -53,7 +53,7 @@
 
     font-size: 1.1rem;
     margin-bottom: 3rem; // 50px
-    color: $c-base__01;
+    color: var(--color-text, #404040);
 
     h2 {
         @include fs--heading-2;
@@ -74,7 +74,7 @@
     }
 
     strong {
-        color: $c-base__02;
+        color: var(--color-ink, #163541);
         font-weight: 700;
     }
 
@@ -82,7 +82,7 @@
         margin-left: 0;
         margin-right: 0;
         padding-left: 1.8rem; // 18px
-        border-left: 5px solid #ccc;
+        border-left: 5px solid var(--color-border, #d0d7de);
     }
 
     ul,
@@ -140,7 +140,7 @@
         border-collapse: collapse;
 
         tr {
-            border: 1px inset;
+            border: 1px inset var(--color-border, #d0d7de);
         }
 
         th, td {

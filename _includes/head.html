@@ -24,14 +24,19 @@
         href="{{ "/feed.xml" | prepend: site.baseurl }}" />
 
   <!-- Custom fonts -->
-  <!-- Use Source Sans 3 for all text weights -->
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700;800&display=swap" rel="stylesheet">
+  <!-- Use Source Sans 3 for body and headings; include 600 weight -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet">
   <!-- Keep Roboto Mono for code snippets -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
   <!-- Custom style -->
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}" />
+  <style>
+    /* Minimal transition for theme changes */
+    html { transition: background-color .2s ease, color .2s ease; }
+    a { transition: color .2s ease; }
+  </style>
 
   <!-- Global site tag (gtag.js) - Google Ads: 839642990 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-839642990"></script>

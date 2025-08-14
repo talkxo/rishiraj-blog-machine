@@ -5,13 +5,13 @@ pre, code {
 
 .highlight {
     border-radius: 4px;
-    background: #FDFDFD;
-    border: 1px solid #E8E8EB;
+    background: var(--color-bg, #FDFDFD);
+    border: 1px solid var(--color-border, #E8E8EB);
     color: #93a1a1;
 
     .gutter {
         padding: 1.2rem;
-        border-right: 1px solid #E8E8EB;
+        border-right: 1px solid var(--color-border, #E8E8EB);
     }
 
     .code {
@@ -25,7 +25,7 @@ pre, code {
 
 span.lineno {
     padding: 1rem;
-    border-right: 1px solid #E8E8EB;
+    border-right: 1px solid var(--color-border, #E8E8EB);
 }
 
 .highlight pre { background-color: #272822; }

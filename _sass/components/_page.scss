@@ -15,7 +15,7 @@
     h1 {
         margin-bottom: 2.5rem; // 25px
         @include fs--heading-2;
-        color: $c-base__02;
+        color: var(--color-ink, #163541);
     }
 
     nav {
@@ -24,7 +24,7 @@
 
     a {
         line-height: 1.5;
-        text-transform: lowercase;
+        text-transform: none;
     }
 }
 

@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 'Your Site Better Have "Answers"'
 date: 2025-08-14
 categories: [seo, web-development, digital-marketing]

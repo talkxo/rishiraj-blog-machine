@@ -37,7 +37,8 @@
     {% assign headerLevel = node | replace: '"', '' | slice: 0, 1 | times: 1 %}
 
     {% if headerLevel < 1 or headerLevel > 6 %}
-      {% capture edited_headings %}{{ edited_headings }}{{ node }}{% endcapture %}
+      {# Handle non-heading tags that start with <h (e.g., <hr>) #}
+      {% capture edited_headings %}{{ edited_headings }}<h{{ node }}{% endcapture %}
       {% continue %}
     {% endif %}
     {% assign _workspace = node | split: '</h' %}

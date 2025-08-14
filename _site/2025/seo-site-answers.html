@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/assets/images/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
+<link rel="manifest" href="/assets/images/favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/assets/images/favicons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+
+  <!-- Meta information -->
+  <title>Your Site Better Have "Answers"</title>
+  <meta name="description"
+        content="Search engines dont want to send users to your site anymore. They want to answer questions directly. Googles AI Overviews, Perplexitys chat responses—theyre ...">
+  <link rel="canonical"
+        href="http://localhost:4000/2025/seo-site-answers" />
+
+  <!-- Open search scheme -->
+  <link rel="search"
+        type="application/opensearchdescription+xml"
+        title="rishi raj's blog"
+        href="/opensearch.xml" />
+
+  <!-- Feed -->
+  <link rel="alternate" type="application/rss+xml" title="rishi raj's blog"
+        href="/feed.xml" />
+
+  <!-- Custom fonts -->
+  <!-- Use Source Sans 3 for body and headings; include 600 weight -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Keep Roboto Mono for code snippets -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+  <!-- Custom style -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <style>
+    /* Minimal transition for theme changes */
+    html { transition: background-color .2s ease, color .2s ease; }
+    a { transition: color .2s ease; }
+  </style>
+
+  <!-- Global site tag (gtag.js) - Google Ads: 839642990 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-839642990"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-839642990');
+  </script>
+</head>
+
+
+  <body>
+    <main class="u-container">
+      <div class="c-page">
+  <header class="c-page__header">
+  <h1><code>rishi raj's blog</code></h1>
+
+  
+
+  <nav role="navigation">
+    <a href="/" role="menuitem">
+      Blog
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/rishi-raj/" role="menuitem">
+      About
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/stuff/" role="menuitem">
+      Stuff
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/colophon/" role="menuitem">
+      Colophon
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/subscribe/" role="menuitem">
+      Subscribe
+    </a>
+
+    <span class="u-separate"></span>
+    <button id="theme-toggle" aria-label="Toggle theme" class="no-hov" style="background:none;border:0;cursor:pointer;">
+      🌓
+    </button>
+  </nav>
+</header>
+
+<script>
+  (function() {
+    try {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (!stored) {
+        document.documentElement.dataset.theme = prefersDark ? 'dark' : 'light';
+      } else {
+        document.documentElement.dataset.theme = stored;
+      }
+    } catch (e) {}
+  })();
+  document.addEventListener('DOMContentLoaded', function() {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      var current = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+      var next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+  });
+</script>
+
+  <div class="c-page__main">
+    <article class="c-article" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header class="c-article__header">
+    <h1 class="c-article__title" itemprop="name">Your Site Better Have "Answers"</h1>
+    <p class="c-article__time">
+      <small>
+        <time datetime="2025-08-14T00:00:00+05:30"
+              itemprop="datePublished">
+          August 14, 2025
+        </time>
+      </small>
+      <small><span class="reading-time" title="Estimated read time">
+  
+  
+    2 mins
+   read
+</span>
+</small>
+      <!--- <small><a href="#discussion">Start a discussion</a></small>
+      <small><a href="https://github.com/sobolevn/sobolevn.github.io/blob/master/_posts/2025-08-14-seo-site-answers.md">Edit this page</a></small> -->
+    </p>
+  </header>
+
+  <!-- Post Tags -->
+  <!-- <ul class="c-tags">
+    
+    <li class="c-tag">seo</li>
+    
+    <li class="c-tag">ai</li>
+    
+    <li class="c-tag">google</li>
+    
+    <li class="c-tag">web-vitals</li>
+    
+    <li class="c-tag">user-experience</li>
+    
+  </ul> -->
+
+  <!-- Content -->
+  <div class="c-article__main">
+
+    
+
+    <div class="c-article__body" itemprop="articleBody">
+      <h<p>Search engines dont want to send users to your site anymore. They want to answer questions directly. Googles AI Overviews, Perplexitys chat responses—theyre all cutting out the middleman. Your job now? Make sure your content feeds these answer machines.</p>
+
+<p>During a recent client project, every decision came down to: Will this help us provide better answers? Heres what actually matters now.</p>
+
+
+      <h2 id="breadcrumbs-still-useful-but-not-for-seo">
+        
+        <a class="anchor" href="#breadcrumbs-still-useful-but-not-for-seo">Breadcrumbs: Still Useful, But Not For SEO</a>
+        
+      </h2>
+
+<p>Google killed breadcrumb rich snippets on mobile in January 2025. Theyre not SEO magic anymore. But they still help users understand where they are and how your content connects. Keep them simple—theyre for humans now, not search bots.</p>
+
+
+    
+      <h2 id="alt-text-that-actually-helps">
+        
+        <a class="anchor" href="#alt-text-that-actually-helps">Alt Text That Actually Helps</a>
+        
+      </h2>
+
+<p>Stop writing product image and start writing ergonomic standing desk showing monitor at eye level. AI systems use this context to understand when your content answers workspace questions. Make it descriptive and useful.</p>
+
+
+    
+      <h2 id="urls-that-make-sense">
+        
+        <a class="anchor" href="#urls-that-make-sense">URLs That Make Sense</a>
+        
+      </h2>
+
+<p>Your URLs should tell both humans and AI what question youre answering. /how-to/improve-seo/technical-elements/ is better than /post-847/ because it shows content hierarchy. Clean redirects when you change things—broken links kill trust.</p>
+
+
+    
+      <h2 id="internal-links-as-answer-paths">
+        
+        <a class="anchor" href="#internal-links-as-answer-paths">Internal Links as Answer Paths</a>
+        
+      </h2>
+
+<p>Link related solutions together. Dont just scatter links everywhere hoping for SEO juice. Connect problem → method → solution in logical sequences. This helps AI understand your complete answer framework.</p>
+
+
+    
+      <h2 id="the-core-web-vitals-reality-check">
+        
+        <a class="anchor" href="#the-core-web-vitals-reality-check">The Core Web Vitals Reality Check</a>
+        
+      </h2>
+
+<p>Heres the funny part: Googles own Pixel 9a page fails their PageSpeed test. Even Google cant hit perfect Core Web Vitals scores. Focus on actual user experience over chasing green badges. Fast enough beats perfectly measured.</p>
+
+
+    
+      <h2 id="mobile-navigation-that-works">
+        
+        <a class="anchor" href="#mobile-navigation-that-works">Mobile Navigation That Works</a>
+        
+      </h2>
+
+<p>Hamburger menus and standard patterns exist for a reason—they work. Users need to move between related answers quickly. Dont reinvent navigation just to be different. Familiarity helps people find solutions faster.</p>
+
+
+    
+      <h2 id="stop-optimizing-start-answering">
+        
+        <a class="anchor" href="#stop-optimizing-start-answering">Stop Optimizing, Start Answering</a>
+        
+      </h2>
+
+<p>The sites winning in 2025 arent the ones with perfect technical SEO. Theyre the ones that answer questions completely and connect related solutions naturally. AI can find and surface these comprehensive answers.</p>
+
+<p>Build pages that work as standalone answers while connecting to bigger solution frameworks. Make content scannable, logical, and immediately useful.</p>
+
+<p>SEO isnt dead—it just stopped caring about your keyword density.</p>
+
+    </div>
+
+    <hr>
+
+    <div class="post-subscribe">
+      
+<!-- Add following div tag where you want show soopr share buttons -->
+<div class='soopr-btn'></div>
+
+<!-- Just before body tag add this line -->
+<script async defer data-soopr-token='pt_3c7922127f46ef4aa2b340d1b94b2025' src='https://sdk.soopr.co/soopr.js'></script>
+  
+    </div>
+
+    
+    
+    <div class="post-republish">
+      <h4>Republished as:</h4>
+      <ul>
+      
+      </ul>
+    </div>
+    
+  </div>
+
+  <!-- Disqus comments view -->
+  
+</article>
+
+  </div>
+  <footer class="c-page__footer">
+  <p>
+    <i class="far fa-copyright"></i>
+    <a href="https://rishiraj.blog/">imrishi</a>
+    2025,
+    content licensed
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">
+      CC BY-NC
+    </a>,
+    <a href="https://github.com/talkxo/rishiraj-blog-machine" target="_blank">
+      source code
+    </a>,
+    
+      made in India &#10084
+    
+  </p>
+
+  <p>
+    <!-- <a href="mailto:r@rishi.im" alt="email">
+      <i class="far fa-2x fa-envelope"></i>
+    </a>
+    <a href="https://github.com/sobolevn" alt="github">
+      <i class="fab fa-2x fa-github"></i>
+    </a>
+    <a href="https://dev.to/sobolevn" alt="practicaldev">
+      <i class="fab fa-2x fa-dev"></i>
+    </a>
+    <a href="https://medium.com/@sobolevn" alt="medium">
+      <i class="fab fa-2x fa-medium"></i>
+    </a>
+    <a href="https://stackoverflow.com/users/4842742/sobolevn" alt="stackoverflow">
+      <i class="fab fa-2x fa-stack-overflow"></i>
+    </a> -->
+  </p>
+</footer>
+
+</div>
+
+    </main>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-');
+</script>
+
+  </body>
+</html>

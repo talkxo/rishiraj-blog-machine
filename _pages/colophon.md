@@ -14,14 +14,52 @@ Powered by [**Markdown**](https://commonmark.org/help/), [**Jekyll**](https://gi
 
 [![pages-build-deployment](https://github.com/talkxo/rishiraj-blog-machine/actions/workflows/pages/pages-build-deployment/badge.svg?branch=main)](https://github.com/talkxo/rishiraj-blog-machine/actions/workflows/pages/pages-build-deployment)
 
+## Design system
+
+These are the theme tokens used across the site.
+
+<div class="c-swatches">
+  <div class="c-swatch"><div class="c-swatch__chip" style="background: var(--color-bg);"></div><p class="c-swatch__label">Background — <code>--color-bg</code></p></div>
+  <div class="c-swatch"><div class="c-swatch__chip" style="background: var(--color-text);"></div><p class="c-swatch__label">Text — <code>--color-text</code></p></div>
+  <div class="c-swatch"><div class="c-swatch__chip" style="background: var(--color-ink);"></div><p class="c-swatch__label">Headings — <code>--color-ink</code></p></div>
+  <div class="c-swatch"><div class="c-swatch__chip" style="background: var(--color-border);"></div><p class="c-swatch__label">Border — <code>--color-border</code></p></div>
+  <div class="c-swatch"><div class="c-swatch__chip" style="background: var(--color-accent);"></div><p class="c-swatch__label">Accent — <code>--color-accent</code></p></div>
+</div>
+
 ## Credits
 
-This website is proudly powered by [`Jekyll`](https://jekyllrb.com/), an open‑source static site generator. It can really simplify the process of publishing and maintaining a blog, especially if you have some basic familiarity with the command line and Git. A simple, static structure also helps toward a fast, secure and scalable website.
+<section class="c-grid" style="--card-fixed-height: 208px; --card-line-clamp: 3;">
+  <article class="c-card">
+    <div class="c-card__head">
+      <div class="c-card__icon">{% include icon.html name="gem" %}</div>
+      <h3>Jekyll + Markdown</h3>
+    </div>
+    <p>Static site generator with simple content authoring via <strong>Markdown</strong>. <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> · <a href="https://commonmark.org/help/" target="_blank" rel="noopener">Syntax</a></p>
+  </article>
 
-It also leverages Markdown to ensure updates and posts can be made quickly, without CMS formatting complexities.
+  <article class="c-card">
+    <div class="c-card__head">
+      <div class="c-card__icon">{% include icon.html name="server" %}</div>
+      <h3>GitHub + Pages</h3>
+    </div>
+    <p>Code, issues, and PRs live on <strong>GitHub</strong> with zero‑maintenance hosting on Pages. <a href="https://github.com/talkxo/rishiraj-blog-machine" target="_blank" rel="noopener">Repo</a> · <a href="https://pages.github.com/" target="_blank" rel="noopener">Docs</a></p>
+  </article>
+</section>
 
-All the source code is managed on [`GitHub`](https://pages.github.com/). The website is also hosted using GitHub Pages. It's easy and simple!
+<section class="c-grid" style="--card-fixed-height: 220px; --card-line-clamp: 4;">
+  <article class="c-card">
+    <div class="c-card__head">
+      <div class="c-card__icon">{% include icon.html name="globe" %}</div>
+      <h3>Design inspiration</h3>
+    </div>
+    <p>The layout draws inspiration from the work of <a href="https://sobolevn.me" target="_blank" rel="noopener">Nikita Sobolev</a>. The theme supports light/dark modes using CSS custom properties.</p>
+  </article>
 
-The website layout draws inspiration from the innovative design of **Nikita Sobolev**. This design approach helps create an intuitive, user‑friendly and aesthetically pleasing interface for reading.
-
-Fonts are hosted on [Google Fonts](https://fonts.google.com/); we use **Source Sans 3** across the site. We also use a small script from Soopr to allow easy and efficient content sharing.
+  <article class="c-card">
+    <div class="c-card__head">
+      <div class="c-card__icon">{% include icon.html name="share" %}</div>
+      <h3>Scripts</h3>
+    </div>
+    <p>Fonts via <a href="https://fonts.google.com/" target="_blank" rel="noopener">Google Fonts</a> — <strong>Source Sans 3</strong> and <strong>Roboto Mono</strong>. Sharing via <a href="https://www.soopr.co/" target="_blank" rel="noopener">Soopr</a>.</p>
+  </article>
+</section>

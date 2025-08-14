@@ -19,11 +19,14 @@ html {
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
     font-size: 100%; // Make it easy to calculate rems to px
-    background: #fff;
+    background: var(--color-bg, #ffffff);
+    color-scheme: light dark;
 }
 
 body {
     @include ff--serif(400);
+    color: var(--color-text, #404040);
+    background: var(--color-bg, #ffffff);
 }
 
 article,
@@ -124,7 +127,7 @@ a:not(.anchor) {
     }
 
     &:hover {
-      color: white;
+      color: var(--link-hover-text, #ffffff);
       &::after {
         height: 100%;
       }
@@ -188,7 +191,7 @@ pre {
 }
 
 :not(pre) > code {
-  background-color: rgba(27,31,35,.05);
+  background-color: var(--code-bg, rgba(27,31,35,.05));
   border-radius: 3px;
   font-size: 85%;
   margin: 0 -0.4em;
@@ -196,6 +199,6 @@ pre {
 }
 
 small {
-    color: gray;
+    color: var(--color-muted, gray);
 }
 

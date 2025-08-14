@@ -24,6 +24,7 @@
 @mixin ff--serif($font-weight: normal) {
     font-family: 'Source Sans 3', serif;
     font-weight: $font-weight;
+    color: var(--color-text, #404040);
 }
 
 @mixin ff--code {
