@@ -1,9 +1,13 @@
 ---
-title: 'SEO Died (Again): Why Your Site Better Have Answers'
+title: 'Your Site Better Have "Answers"'
 date: 2025-08-14
 categories: [seo, web-development, digital-marketing]
 tags: [seo, ai, google, web-vitals, user-experience]
-excerpt: 'Search engines dont want to send users to your site anymore. They want to answer questions directly. Heres what actually matters for SEO in 2025—spoiler: its not keyword density.'
+description: 'Search engines dont want to send users to your site anymore. They want to answer questions directly. Heres what actually matters for SEO in 2025—spoiler: its not keyword density.'
+writing_time:
+  writing: "25:00"
+  proofreading: "5:00"
+  decorating: "8:00"
 ---
 
 Search engines dont want to send users to your site anymore. They want to answer questions directly. Googles AI Overviews, Perplexitys chat responses—theyre all cutting out the middleman. Your job now? Make sure your content feeds these answer machines.
