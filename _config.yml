@@ -25,7 +25,7 @@ collections:
     permalink: /:collection/:name
   activities:
     output: true
-    permalink: /:collection:/:name
+    permalink: /:collection/:name
 
 feed:
   collections:
