@@ -6,8 +6,6 @@ tags: [seo, ai, google, web-vitals, user-experience]
 excerpt: 'Search engines dont want to send users to your site anymore. They want to answer questions directly. Heres what actually matters for SEO in 2025—spoiler: its not keyword density.'
 ---
 
-# SEO Died (Again): Why Your Site Better Have Answers
-
 Search engines dont want to send users to your site anymore. They want to answer questions directly. Googles AI Overviews, Perplexitys chat responses—theyre all cutting out the middleman. Your job now? Make sure your content feeds these answer machines.
 
 During a recent client project, every decision came down to: Will this help us provide better answers? Heres what actually matters now.
