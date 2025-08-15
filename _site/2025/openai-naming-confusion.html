@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/assets/images/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
+<link rel="manifest" href="/assets/images/favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/assets/images/favicons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+
+  <!-- Meta information -->
+  <title>OpenAI's Naming Scheme Makes No Sense</title>
+  <meta name="description"
+        content="OpenAI just dropped the o3 family today, and I’m starting to think they’re trolling us. We have o3, o3-mini, and o3-pro. But wait—there’s no o2 because of so...">
+  <link rel="canonical"
+        href="https://rishiraj.blog/2025/openai-naming-confusion" />
+
+  <!-- Open search scheme -->
+  <link rel="search"
+        type="application/opensearchdescription+xml"
+        title="rishi raj's blog"
+        href="/opensearch.xml" />
+
+  <!-- Feed -->
+  <link rel="alternate" type="application/rss+xml" title="rishi raj's blog"
+        href="/feed.xml" />
+
+  <!-- Custom fonts -->
+  <!-- Use Source Sans 3 for body and headings; include 600 weight -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Keep Roboto Mono for code snippets -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+  <!-- Custom style -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <style>
+    /* Minimal transition for theme changes */
+    html { transition: background-color .2s ease, color .2s ease; }
+    a { transition: color .2s ease; }
+  </style>
+
+  <!-- Global site tag (gtag.js) - Google Ads: 839642990 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-839642990"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-839642990');
+  </script>
+</head>
+
+
+  <body>
+    <main class="u-container">
+      <div class="c-page">
+  <header class="c-page__header">
+  <h1><code>rishi raj's blog</code></h1>
+
+  
+
+  <nav role="navigation">
+    <a href="/" role="menuitem">
+      Blog
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/rishi-raj/" role="menuitem">
+      About
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/stuff/" role="menuitem">
+      Stuff
+    </a>
+
+    <span class="u-separate"></span>
+    <a href="/colophon/" role="menuitem">
+      Colophon
+    </a>
+
+    <span class="u-separate"></span>
+    <button id="theme-toggle" aria-label="Toggle theme" class="no-hov" style="background:none;border:0;cursor:pointer;">
+      🌓
+    </button>
+  </nav>
+</header>
+
+<script>
+  (function() {
+    try {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (!stored) {
+        document.documentElement.dataset.theme = prefersDark ? 'dark' : 'light';
+      } else {
+        document.documentElement.dataset.theme = stored;
+      }
+    } catch (e) {}
+  })();
+  document.addEventListener('DOMContentLoaded', function() {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      var current = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+      var next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+  });
+</script>
+
+  <div class="c-page__main">
+    <article class="c-article" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header class="c-article__header">
+    <h1 class="c-article__title" itemprop="name">OpenAI's Naming Scheme Makes No Sense</h1>
+    <p class="c-article__time">
+      <small>
+        <time datetime="2025-04-17T00:00:00+05:30"
+              itemprop="datePublished">
+          April 17, 2025
+        </time>
+      </small>
+      <small><span class="reading-time" title="Estimated read time">
+  
+  
+    1 min
+   read
+</span>
+</small>
+      <!--- <small><a href="#discussion">Start a discussion</a></small>
+      <small><a href="https://github.com/sobolevn/sobolevn.github.io/blob/master/_posts/2025-04-17-openai-naming-confusion.md">Edit this page</a></small> -->
+    </p>
+  </header>
+
+  <!-- Post Tags -->
+  <!-- <ul class="c-tags">
+    
+    <li class="c-tag">openai</li>
+    
+    <li class="c-tag">gpt</li>
+    
+    <li class="c-tag">ai-models</li>
+    
+    <li class="c-tag">naming</li>
+    
+    <li class="c-tag">technology</li>
+    
+    <li class="c-tag">api</li>
+    
+  </ul> -->
+
+  <!-- Content -->
+  <div class="c-article__main">
+
+    
+
+    <div class="c-article__body" itemprop="articleBody">
+      <h<p>OpenAI just dropped the o3 family today, and I’m starting to think they’re trolling us. We have o3, o3-mini, and o3-pro. But wait—there’s no o2 because of some British telecom trademark. So we’re skipping numbers now?</p>
+
+<p>Here’s where it gets ridiculous: o3-mini launched in January, three months before o3 itself. That’s like releasing the iPhone mini before announcing the iPhone exists.</p>
+
+<p>I’ve been trying to keep track of their lineup: GPT-4, GPT-4o, o1-preview, o3-mini, o3, o3-pro. What does any of this mean? The “o” supposedly stands for reasoning optimization, but good luck explaining to a client why they need o3-pro instead of GPT-4o for their use case.</p>
+
+
+      <h2 id="the-developer-nightmare">
+        
+        <a class="anchor" href="#the-developer-nightmare">The Developer Nightmare</a>
+        
+      </h2>
+
+<p>Developers are stuck choosing between <code class="language-plaintext highlighter-rouge">gpt-4o</code>, <code class="language-plaintext highlighter-rouge">o1-preview</code>, and now three flavors of o3 in their API calls. Each has different pricing and capabilities, but the names tell you absolutely nothing about what you’re getting.</p>
+
+<p>Meanwhile, Apple just goes iPhone 14, iPhone 15, iPhone 16. Revolutionary concept: numbers that go up.</p>
+
+<p>The worst part? This actually matters when you’re building applications. Is o3-mini better than o1? How does o3 compare to GPT-4o? Nobody knows without diving into technical documentation that probably doesn’t exist yet.</p>
+
+
+    
+      <h2 id="from-simple-to-chaos">
+        
+        <a class="anchor" href="#from-simple-to-chaos">From Simple to Chaos</a>
+        
+      </h2>
+
+<p>OpenAI went from the beautifully simple GPT-3, GPT-4 progression to whatever fever dream this has become. At this point, I’m expecting them to release GPT-π next, followed by GPT-√2-ultra-mini-pro.</p>
+
+<p>Maybe hire someone who passed elementary math before naming your next model?</p>
+
+
+    <hr />
+
+<p><strong>Update (August 2025):</strong> Plot twist—GPT-5 is actually called GPT-5. Sometimes the universe makes sense after all.</p>
+
+    </div>
+
+    <hr>
+
+    <div class="post-share">
+      <label for="share-url">Share link</label>
+      <div class="share-input">
+        <input type="text" id="share-url" value="https://rishiraj.blog/2025/openai-naming-confusion" readonly>
+        <button class="copy-button" onclick="copyToClipboard('https://rishiraj.blog/2025/openai-naming-confusion')" title="Copy URL">Copy</button>
+      </div>
+    </div>
+
+    <hr>
+
+  </div>
+
+  <!-- Disqus comments view -->
+  
+</article>
+
+<script>
+  function copyToClipboard(url) {
+    navigator.clipboard.writeText(url).then(function() {
+      alert('URL copied to clipboard!');
+    }, function(err) {
+      alert('Failed to copy: ' + err);
+    });
+  }
+</script>
+
+  </div>
+  <footer class="c-page__footer">
+  <div class="footer-content">
+    <div class="footer-main">
+      <span class="copyright">
+        <a href="/rishi-raj/">Rishi Raj</a>
+      </span>
+      <span class="separator">•</span>
+      <span class="license">
+        Content licensed <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC</a>
+      </span>
+      <span class="separator">•</span>
+      <span class="source">
+        <a href="https://github.com/talkxo/rishiraj-blog-machine" target="_blank" rel="noopener">Source code</a>
+      </span>
+      <span class="separator">•</span>
+      <span class="location">
+        Made in India <span class="heart">❤️</span>
+      </span>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+    </main>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-');
+</script>
+
+  </body>
+</html>
