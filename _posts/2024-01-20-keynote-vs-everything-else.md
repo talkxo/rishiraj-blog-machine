@@ -1,14 +1,10 @@
 ---
 layout: post
-title: 'Keynote vs Everything Else'
+title: Keynote vs Everything Else
 date: 2024-01-20
-categories: [productivity, design, software]
-tags: [keynote, powerpoint, presentations, design, simplicity]
-description: 'Keynote doesn't try to be everything to everyone—and that's exactly why it works. While PowerPoint drowns you in ribbons and options, Keynote gives you a blank canvas and gets out of the way.'
-writing_time:
-  writing: "20:00"
-  proofreading: "5:00"
-  decorating: "3:00"
+categories: productivity design software
+tags: keynote powerpoint presentations design simplicity
+description: Keynote doesn't try to be everything to everyone—and that's exactly why it works. While PowerPoint drowns you in ribbons and options, Keynote gives you a blank canvas and gets out of the way.
 ---
 
 Keynote doesn't try to be everything to everyone—and that's exactly why it works. While PowerPoint drowns you in ribbons and options, Keynote gives you a blank canvas and gets out of the way. It's presentation software for people who don't want to wrestle with software. A default for me, for over a decade now.
