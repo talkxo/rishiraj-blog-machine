@@ -4,16 +4,6 @@ title: Colophon
 permalink: /colophon/
 ---
 
-  
-
-
-
-  
-
-Powered by [**Markdown**](https://commonmark.org/help/), [**Jekyll**](https://github.com/jekyll/jekyll) and [**GitHub**](https://github.com/talkxo/rishiraj-blog-machine)
-
-[![pages-build-deployment](https://github.com/talkxo/rishiraj-blog-machine/actions/workflows/pages/pages-build-deployment/badge.svg?branch=main)](https://github.com/talkxo/rishiraj-blog-machine/actions/workflows/pages/pages-build-deployment)
-
 ## Design system
 
 These are the theme tokens used across the site.
