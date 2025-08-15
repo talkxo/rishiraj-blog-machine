@@ -2,7 +2,7 @@
 layout: post
 title: "Forms are still a mess (and ugly)"
 description: "After years of building landing pages and lead gen campaigns, I've come to a sobering realization: forms remain the most frustrating part of web UX. Despite all our design system advances and component libraries, we're still fighting the same battles."
-date: 2025-01-15
+date: 2024-01-15
 tags: webdev ux design
 writing_time:
   writing: "25:00"

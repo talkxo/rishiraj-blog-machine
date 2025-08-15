@@ -2,7 +2,7 @@
 layout: post
 title: "Smart Home Management"
 description: "My smart home works great 90% of the time. It's that other 10% that makes for the best stories. From geyser scheduling algorithms to Google Home being the ultimate device diplomat."
-date: 2025-07-24 15:30:00 +0530
+date: 2024-07-24 15:30:00 +0530
 categories: [technology, humor]
 tags: [smart-home, iot]
 ---
