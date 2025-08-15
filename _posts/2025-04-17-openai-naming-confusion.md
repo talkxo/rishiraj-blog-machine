@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "OpenAI's Naming Scheme Makes No Sense"
+title: "GPT Family Has A Naming Problem"
 date: 2025-04-17
 categories: [ai, technology, openai]
 tags: [openai, gpt, ai-models, naming, technology, api]
