@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Your Site Better Have "Answers"'
-date: 2024-08-14
+date: 2025-08-14
 categories: [seo, web-development, digital-marketing]
 tags: [seo, ai, google, web-vitals, user-experience]
 description: 'Search engines dont want to send users to your site anymore. They want to answer questions directly. Heres what actually matters for SEO in 2025—spoiler: its not keyword density.'
