@@ -5,7 +5,7 @@ permalink: /rishi-raj/
 ---
 
 <div class="about-photo">
-  <img src="/assets/images/rishi-raj-profile.jpg" alt="Rishi Raj - Multi-disciplinary marketer from New Delhi" class="profile-photo" />
+  <img src="/assets/images/rishi-raj-profile.jpg" alt="Rishi Raj - Multi-disciplinary marketer from New Delhi" class="profile-photo" onerror="this.style.display='none'" />
 </div>
 
 ### Building things for the web since 2006
