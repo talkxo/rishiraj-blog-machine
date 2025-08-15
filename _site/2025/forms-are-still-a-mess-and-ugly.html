@@ -252,7 +252,11 @@
     <hr>
 
     <div class="post-share">
-      <p>Share this: <span class="copy-link" onclick="copyToClipboard('https://rishiraj.blog/2025/forms-are-still-a-mess-and-ugly')" title="Click to copy URL">https://rishiraj.blog/2025/forms-are-still-a-mess-and-ugly</span></p>
+      <label for="share-url">Share link</label>
+      <div class="share-input">
+        <input type="text" id="share-url" value="https://rishiraj.blog/2025/forms-are-still-a-mess-and-ugly" readonly>
+        <button class="copy-button" onclick="copyToClipboard('https://rishiraj.blog/2025/forms-are-still-a-mess-and-ugly')" title="Copy URL">Copy</button>
+      </div>
     </div>
 
   </div>

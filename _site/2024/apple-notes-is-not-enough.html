@@ -258,7 +258,11 @@
     <hr>
 
     <div class="post-share">
-      <p>Share this: <span class="copy-link" onclick="copyToClipboard('https://rishiraj.blog/2024/apple-notes-is-not-enough')" title="Click to copy URL">https://rishiraj.blog/2024/apple-notes-is-not-enough</span></p>
+      <label for="share-url">Share link</label>
+      <div class="share-input">
+        <input type="text" id="share-url" value="https://rishiraj.blog/2024/apple-notes-is-not-enough" readonly>
+        <button class="copy-button" onclick="copyToClipboard('https://rishiraj.blog/2024/apple-notes-is-not-enough')" title="Copy URL">Copy</button>
+      </div>
     </div>
 
   </div>
