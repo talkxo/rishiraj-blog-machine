@@ -55,32 +55,32 @@ layout: page
 
     <hr>
 
-    <div class="post-subscribe">
-      
-<!-- Add following div tag where you want show soopr share buttons -->
-<div class='soopr-btn'></div>
-
-<!-- Just before body tag add this line -->
-<script async defer data-soopr-token='pt_3c7922127f46ef4aa2b340d1b94b2025' src='https://sdk.soopr.co/soopr.js'></script>
-  
-    </div>
-
-    {% assign reposts = page.republished.size %}
-    {% if reposts != 0 %}
-    <div class="post-republish">
-      <h4>Republished as:</h4>
-      <ul>
-      {% for repost in page.republished %}
+    <div class="post-share">
+      <h4>Share this:</h4>
+      <ul class="share-links">
         <li>
-          <a class="c-article__repost" href="{{ repost.link }}" target="_blank">
-            {% assign domain = repost.link | replace_first: 'www.', '' | split: '/' %}
-            {{ domain[2] }} :{{ repost.language }}:
+          <a href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url }}&text={{ page.title | url_encode }}" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-twitter"></i>
           </a>
         </li>
-      {% endfor %}
+        <li>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ page.url | absolute_url }}&title={{ page.title | url_encode }}" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:?subject={{ page.title | url_encode }}&body=Check out this post: {{ page.url | absolute_url }}">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </li>
+        <li>
+          <button class="copy-link" onclick="copyToClipboard('{{ page.url | absolute_url }}')" title="Copy URL">
+            <i class="fas fa-copy"></i>
+          </button>
+        </li>
       </ul>
     </div>
-    {% endif %}
+
   </div>
 
   <!-- Disqus comments view -->
@@ -90,3 +90,13 @@ layout: page
   </div>
   {% endif %}
 </article>
+
+<script>
+  function copyToClipboard(url) {
+    navigator.clipboard.writeText(url).then(function() {
+      alert('URL copied to clipboard!');
+    }, function(err) {
+      alert('Failed to copy: ' + err);
+    });
+  }
+</script>

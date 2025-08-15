@@ -291,3 +291,44 @@
   text-align: right;
 }
 
+.post-share {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.post-share h4 {
+  font-size: 1rem;
+  color: var(--color-muted);
+  margin-bottom: 0.5rem;
+}
+
+.share-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 0;
+
+  li {
+    margin: 0;
+  }
+
+  a, button {
+    color: var(--color-accent);
+    font-size: 1.2rem;
+    transition: transform 0.2s ease, color 0.2s ease;
+    display: inline-block;
+    padding: 0.5rem;
+    border-radius: 50%;
+
+    &:hover {
+      transform: scale(1.1);
+      color: var(--color-ink);
+      background: var(--color-border);
+    }
+  }
+}
+
