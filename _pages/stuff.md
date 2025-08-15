@@ -4,7 +4,7 @@ title: Stuff I Use
 permalink: /stuff/
 ---
 
-<div class="c-summary">I've always had a thing for gadgets; they just make life more interesting and fun. But it's not just about having the latest tech for me. Ever since I read Paul Graham's essay [`Stuff`](http://www.paulgraham.com/stuff.html) (which, by the way, is a great read), I've started to focus more on investing in fewer, but higher-quality tech products that really help me get things done. I also love the idea of sharing what works for me, so I've put together a list of the tech gear and software I use and recommend.
+<div class="c-summary">I've always had a thing for gadgets; they just make life more interesting and fun. But it's not just about having the latest tech for me. Ever since I read Paul Graham's essay [Stuff](http://www.paulgraham.com/stuff.html) (which, by the way, is a great read), I've started to focus more on investing in fewer, but higher-quality tech products that really help me get things done. I also love the idea of sharing what works for me, so I've put together a list of the tech gear and software I use and recommend.
 </div>
 
 <img src="/assets/images/workspace-hero.jpg" alt="My workspace setup with MacBook Pro, desk items, and coffee" loading="lazy" style="width: 100%; height: auto; border-radius: 14px; margin-bottom: 2rem;">
@@ -126,9 +126,6 @@ permalink: /stuff/
 <hr>
 
 <h2 class="c-archives__year">Softwares</h2>
-
-<hr>
-
 <section class="c-grid" style="--card-fixed-height: 120px; --card-line-clamp: 2;">
   <article class="c-card">
     <div class="c-card__head"><div class="c-card__icon">{% include icon.html name="globe" %}</div><h3>Browser</h3></div>

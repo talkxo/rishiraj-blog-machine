@@ -30,7 +30,7 @@
   <meta name="description"
         content="My smart home works great 90% of the time. It’s that other 10% that makes for the best stories.">
   <link rel="canonical"
-        href="http://localhost:4000/2025/smart-home-chronicles" />
+        href="https://rishiraj.blog/2025/smart-home-chronicles" />
 
   <!-- Open search scheme -->
   <link rel="search"
@@ -232,30 +232,25 @@ Me: “I swear this literally never happens.”</p>
 
     <hr>
 
-    <div class="post-subscribe">
-      
-<!-- Add following div tag where you want show soopr share buttons -->
-<div class='soopr-btn'></div>
-
-<!-- Just before body tag add this line -->
-<script async defer data-soopr-token='pt_3c7922127f46ef4aa2b340d1b94b2025' src='https://sdk.soopr.co/soopr.js'></script>
-  
+    <div class="post-share">
+      <p>Share this: <span class="copy-link" onclick="copyToClipboard('https://rishiraj.blog/2025/smart-home-chronicles')" title="Click to copy URL">https://rishiraj.blog/2025/smart-home-chronicles</span></p>
     </div>
 
-    
-    
-    <div class="post-republish">
-      <h4>Republished as:</h4>
-      <ul>
-      
-      </ul>
-    </div>
-    
   </div>
 
   <!-- Disqus comments view -->
   
 </article>
+
+<script>
+  function copyToClipboard(url) {
+    navigator.clipboard.writeText(url).then(function() {
+      alert('URL copied to clipboard!');
+    }, function(err) {
+      alert('Failed to copy: ' + err);
+    });
+  }
+</script>
 
   </div>
   <footer class="c-page__footer">

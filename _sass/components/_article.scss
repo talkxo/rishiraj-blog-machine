@@ -298,10 +298,21 @@
   text-align: center;
 }
 
-.post-share h4 {
+.post-share p {
   font-size: 1rem;
   color: var(--color-muted);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
+}
+
+.copy-link {
+  cursor: pointer;
+  color: var(--color-accent);
+  text-decoration: underline;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--color-ink);
+  }
 }
 
 .share-links {

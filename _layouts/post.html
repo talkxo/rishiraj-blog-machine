@@ -56,29 +56,7 @@ layout: page
     <hr>
 
     <div class="post-share">
-      <h4>Share this:</h4>
-      <ul class="share-links">
-        <li>
-          <a href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url }}&text={{ page.title | url_encode }}" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-twitter"></i>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ page.url | absolute_url }}&title={{ page.title | url_encode }}" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-        </li>
-        <li>
-          <a href="mailto:?subject={{ page.title | url_encode }}&body=Check out this post: {{ page.url | absolute_url }}">
-            <i class="fas fa-envelope"></i>
-          </a>
-        </li>
-        <li>
-          <button class="copy-link" onclick="copyToClipboard('{{ page.url | absolute_url }}')" title="Copy URL">
-            <i class="fas fa-copy"></i>
-          </button>
-        </li>
-      </ul>
+      <p>Share this: <span class="copy-link" onclick="copyToClipboard('{{ site.url }}{{ page.url }}')" title="Click to copy URL">{{ site.url }}{{ page.url }}</span></p>
     </div>
 
   </div>
