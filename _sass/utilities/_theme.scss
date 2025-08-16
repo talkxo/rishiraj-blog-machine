@@ -8,9 +8,9 @@
   --color-muted: #374151; /* Darker for better contrast (4.5:1 ratio) */
   --color-ink: #000000; /* Pure black for maximum contrast */
   --color-border: #e5e7eb;
-  --color-accent: #059669; /* Darker green for better contrast */
+  --color-accent: #00A36C; /* New green color */
   --code-bg: rgba(27,31,35,.05);
-  --link-hover-text: #000000; /* black on accent in light mode */
+  --link-hover-text: #ffffff; /* white on accent in light mode */
   --card-fixed-height: 180px; /* default fixed card height for uniform grids */
 }
 
@@ -20,7 +20,7 @@ html[data-theme="dark"] {
   --color-muted: #d1d5db; /* Lighter for better contrast */
   --color-ink: #ffffff; /* Pure white for maximum contrast */
   --color-border: #273241;
-  --color-accent: #10b981; /* Brighter green for better contrast in dark mode */
+  --color-accent: #00A36C; /* Same green color for consistency */
   --code-bg: rgba(240,246,252,0.05);
   --link-hover-text: #ffffff; /* white on accent in dark mode */
 }
