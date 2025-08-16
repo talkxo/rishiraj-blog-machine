@@ -27,7 +27,7 @@ html[data-theme="dark"] {
 
 /* Header code color chip should adapt */
 header code {
-  color: var(--color-ink); /* Use high contrast color instead of accent */
+  color: #ffffff; /* White text on green background for better contrast */
   background: var(--color-accent);
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
