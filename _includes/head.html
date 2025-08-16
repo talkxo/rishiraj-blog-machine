@@ -64,22 +64,33 @@
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   
   <!-- Custom fonts - optimized loading with font-display=swap -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Roboto+Mono:wght@400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Roboto+Mono:wght@400&display=swap&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Roboto+Mono:wght@400&display=swap&display=swap" rel="stylesheet"></noscript>
   
   <!-- Font loading optimization -->
   <script>
-    // Optimize font loading for better performance
+    // Optimize font loading for better performance and prevent layout shift
     if ('fonts' in document) {
-      Promise.all([
+      // Preload critical fonts
+      const fontPromises = [
         document.fonts.load('400 1em "Source Sans 3"'),
         document.fonts.load('600 1em "Source Sans 3"'),
         document.fonts.load('700 1em "Source Sans 3"'),
         document.fonts.load('800 1em "Source Sans 3"'),
         document.fonts.load('400 1em "Roboto Mono"')
-      ]).then(() => {
+      ];
+      
+      Promise.all(fontPromises).then(() => {
+        document.documentElement.classList.add('fonts-loaded');
+        // Force a repaint to ensure layout is stable
+        document.body.offsetHeight;
+      }).catch(() => {
+        // Fallback if font loading fails
         document.documentElement.classList.add('fonts-loaded');
       });
+    } else {
+      // Fallback for browsers without font loading API
+      document.documentElement.classList.add('fonts-loaded');
     }
   </script>
 
@@ -147,6 +158,12 @@
       margin-bottom: 2rem;
       contain: layout style;
     }
+    .c-page_main {
+      contain: layout style;
+    }
+    .u-container {
+      contain: layout style;
+    }
     .c-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -160,6 +177,24 @@
       border-radius: 8px;
       padding: 1rem;
       min-height: var(--card-fixed-height, 180px);
+      contain: layout style;
+    }
+    /* Font loading optimization to prevent layout shift */
+    .fonts-loaded {
+      font-display: swap;
+    }
+    /* Reserve space for content to prevent layout shift */
+    .c-archives__description {
+      min-height: 3rem;
+      contain: layout style;
+    }
+    /* Prevent layout shift for main content */
+    main {
+      contain: layout style;
+    }
+    /* Reserve space for dynamic content */
+    .c-page_main {
+      min-height: 200px;
       contain: layout style;
     }
     /* Font loading optimization */

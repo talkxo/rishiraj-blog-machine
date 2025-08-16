@@ -1,4 +1,4 @@
-const CACHE_NAME = 'rishiraj-blog-v3';
+const CACHE_NAME = 'rishiraj-blog-v4';
 const urlsToCache = [
   '/',
   '/css/main.css',
