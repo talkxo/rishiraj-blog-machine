@@ -1,4 +1,4 @@
-const CACHE_NAME = 'rishiraj-blog-v2';
+const CACHE_NAME = 'rishiraj-blog-v3';
 const urlsToCache = [
   '/',
   '/css/main.css',
@@ -49,9 +49,15 @@ self.addEventListener('fetch', event => {
           // Clone the response
           const responseToCache = response.clone();
           
-          caches.open(CACHE_NAME).then(cache => {
-            cache.put(event.request, responseToCache);
-          });
+          // Cache static assets with long expiration
+          const url = new URL(event.request.url);
+          const isStaticAsset = url.pathname.match(/\.(css|js|jpg|jpeg|png|gif|webp|ico|svg|woff|woff2|ttf|eot)$/);
+          
+          if (isStaticAsset) {
+            caches.open(CACHE_NAME).then(cache => {
+              cache.put(event.request, responseToCache);
+            });
+          }
           
           return response;
         });

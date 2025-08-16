@@ -4,8 +4,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Cache-Control" content="public, max-age=31536000">
+  <meta http-equiv="Cache-Control" content="public, max-age=3600">
   <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Expires" content="3600">
   <meta name="theme-color" content="#059669">
   <meta name="msapplication-TileColor" content="#059669">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -64,8 +65,6 @@
   <!-- Resource hints for faster external resource loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://www.googletagmanager.com">
-  <link rel="dns-prefetch" href="https://www.google-analytics.com">
   
   <!-- Preload critical resources -->
   <link rel="preload" href="/css/main.css" as="style">
@@ -74,7 +73,6 @@
   <!-- DNS prefetch for external domains -->
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
-  <link rel="dns-prefetch" href="//www.googletagmanager.com">
   
   <!-- Custom fonts - optimized loading with font-display=swap -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Roboto+Mono:wght@400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -277,40 +275,7 @@
     }
   </script>
 
-  <!-- Optimized Google Analytics loading -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-839642990', { 
-      'send_page_view': false,
-      'anonymize_ip': true,
-      'allow_google_signals': false,
-      'allow_ad_personalization_signals': false
-    });
-  </script>
-  <script>
-    // Defer Google Analytics loading with performance optimization
-    window.addEventListener('load', function() {
-      // Wait for idle time to load analytics
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(function() {
-          var script = document.createElement('script');
-          script.async = true;
-          script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-839642990';
-          document.head.appendChild(script);
-        });
-      } else {
-        // Fallback for browsers without requestIdleCallback
-        setTimeout(function() {
-          var script = document.createElement('script');
-          script.async = true;
-          script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-839642990';
-          document.head.appendChild(script);
-        }, 1000);
-      }
-    });
-  </script>
+
 </head>
 
 
