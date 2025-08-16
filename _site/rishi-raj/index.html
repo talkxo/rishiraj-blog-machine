@@ -1,27 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Cache-Control" content="public, max-age=31536000">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#30bb96">
+  <meta name="msapplication-TileColor" content="#30bb96">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 
   <!-- Favicon -->
-  <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicons/apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicons/apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicons/apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicons/apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192"  href="/assets/images/favicons/android-icon-192x192.png">
+  <!-- Essential favicons only for better performance -->
+<link rel="icon" type="image/x-icon" href="/assets/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicons/favicon-96x96.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/android-icon-192x192.png">
 <link rel="manifest" href="/assets/images/favicons/manifest.json">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/assets/images/favicons/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
 
 
@@ -42,64 +40,223 @@
   <!-- Feed -->
   <link rel="alternate" type="application/rss+xml" title="rishi raj's blog"
         href="/feed.xml" />
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "rishi raj's blog",
+    "description": "On marketing, tech, and building a services co.
+",
+    "url": "https://rishiraj.blog",
+    "author": {
+      "@type": "Person",
+      "name": "Rishi Raj",
+      "email": "r@rishi.im"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "rishi raj's blog"
+    }
+  }
+  </script>
 
-  <!-- Custom fonts -->
-  <!-- Use Source Sans 3 for body and headings; include 600 weight -->
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <!-- Keep Roboto Mono for code snippets -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <!-- Resource hints for faster external resource loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="/css/main.css" as="style">
+  <link rel="preload" href="/assets/images/workspace-hero.jpg" as="image">
+  
+  <!-- Custom fonts - combined request for better performance -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
 
-  <!-- Custom style -->
-  <link rel="stylesheet" href="/css/main.css" />
+  <!-- Critical CSS for above-the-fold content -->
   <style>
-    /* Minimal transition for theme changes */
-    html { transition: background-color .2s ease, color .2s ease; }
-    a { transition: color .2s ease; }
+    /* Critical CSS for immediate rendering */
+    html { 
+      min-height: 100%;
+      box-sizing: border-box;
+      background: var(--color-bg, #ffffff);
+      color-scheme: light dark;
+      transition: background-color .2s ease, color .2s ease;
+    }
+    body {
+      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--color-text, #404040);
+      background: var(--color-bg, #ffffff);
+      margin: 0;
+      padding: 0;
+    }
+    .u-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 800;
+      color: var(--color-ink, #163541);
+    }
+    a {
+      color: var(--color-accent, #30bb96);
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 6px;
+      background: var(--color-accent, #30bb96);
+      color: white;
+      padding: 8px;
+      text-decoration: none;
+      border-radius: 4px;
+      z-index: 1000;
+    }
+    .skip-link:focus {
+      top: 6px;
+    }
   </style>
+  
+  <!-- Non-critical CSS loaded asynchronously -->
+  <link rel="preload" href="/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/main.css"></noscript>
+  
+  <!-- Fallback for CSS loading -->
+  <script>
+    // Fallback for CSS loading
+    setTimeout(function() {
+      var links = document.querySelectorAll('link[rel="preload"][as="style"]');
+      links.forEach(function(link) {
+        if (link.rel !== 'stylesheet') {
+          link.rel = 'stylesheet';
+        }
+      });
+    }, 3000);
+  </script>
+  
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js')
+          .then(function(registration) {
+            console.log('SW registered: ', registration);
+          })
+          .catch(function(registrationError) {
+            console.log('SW registration failed: ', registrationError);
+          });
+      });
+    }
+  </script>
+  
+  <!-- Core Web Vitals Monitoring -->
+  <script>
+    // Simple Core Web Vitals monitoring
+    if ('PerformanceObserver' in window) {
+      // LCP (Largest Contentful Paint)
+      new PerformanceObserver((list) => {
+        const entries = list.getEntries();
+        const lastEntry = entries[entries.length - 1];
+        console.log('LCP:', lastEntry.startTime);
+        if (lastEntry.startTime < 2500) {
+          console.log('✅ LCP is good');
+        }
+      }).observe({entryTypes: ['largest-contentful-paint']});
+      
+      // FID (First Input Delay)
+      new PerformanceObserver((list) => {
+        const entries = list.getEntries();
+        entries.forEach((entry) => {
+          console.log('FID:', entry.processingStart - entry.startTime);
+        });
+      }).observe({entryTypes: ['first-input']});
+      
+      // CLS (Cumulative Layout Shift)
+      new PerformanceObserver((list) => {
+        let cls = 0;
+        const entries = list.getEntries();
+        entries.forEach((entry) => {
+          if (!entry.hadRecentInput) {
+            cls += entry.value;
+          }
+        });
+        console.log('CLS:', cls);
+        if (cls < 0.1) {
+          console.log('✅ CLS is good');
+        }
+      }).observe({entryTypes: ['layout-shift']});
+    }
+  </script>
 
-  <!-- Global site tag (gtag.js) - Google Ads: 839642990 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-839642990"></script>
+  <!-- Optimized Google Analytics loading -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'AW-839642990');
+    gtag('config', 'AW-839642990', { 'send_page_view': false });
   </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-839642990"></script>
 </head>
 
 
   <body>
-    <main class="u-container">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <main id="main-content" class="u-container">
       <div class="c-page">
   <header class="c-page__header">
   <h1><code>rishi raj's blog</code></h1>
 
   
 
-  <nav role="navigation">
-    <a href="/" role="menuitem">
+  <nav role="navigation" aria-label="Main navigation">
+    <a href="/" role="menuitem" aria-current="">
       Blog
     </a>
 
-    <span class="u-separate"></span>
-    <a href="/rishi-raj/" role="menuitem">
+    <span class="u-separate" aria-hidden="true"></span>
+    <a href="/rishi-raj/" role="menuitem" aria-current="page">
       About
     </a>
 
-    <span class="u-separate"></span>
-    <a href="/stuff/" role="menuitem">
+    <span class="u-separate" aria-hidden="true"></span>
+    <a href="/stuff/" role="menuitem" aria-current="">
       Stuff
     </a>
 
-    <span class="u-separate"></span>
-    <a href="/colophon/" role="menuitem">
+    <span class="u-separate" aria-hidden="true"></span>
+    <a href="/colophon/" role="menuitem" aria-current="">
       Colophon
     </a>
 
-    <span class="u-separate"></span>
-    <button id="theme-toggle" aria-label="Toggle theme" class="no-hov" style="background:none;border:0;cursor:pointer;">
-      🌓
+    <span class="u-separate" aria-hidden="true"></span>
+    <button id="theme-toggle" 
+            aria-label="Toggle dark and light theme" 
+            aria-pressed="false"
+            class="no-hov" 
+            style="background:none;border:0;cursor:pointer;padding:5px;">
+      <span aria-hidden="true">🌓</span>
+      <span class="sr-only">Toggle theme</span>
     </button>
   </nav>
 </header>
@@ -119,11 +276,30 @@
   document.addEventListener('DOMContentLoaded', function() {
     var btn = document.getElementById('theme-toggle');
     if (!btn) return;
+    
+    // Update aria-pressed state
+    function updateAriaPressed() {
+      var isDark = document.documentElement.dataset.theme === 'dark';
+      btn.setAttribute('aria-pressed', isDark);
+    }
+    
+    // Initialize aria-pressed
+    updateAriaPressed();
+    
     btn.addEventListener('click', function() {
       var current = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
       var next = current === 'dark' ? 'light' : 'dark';
       document.documentElement.dataset.theme = next;
+      updateAriaPressed();
       try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+    
+    // Handle keyboard navigation
+    btn.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        btn.click();
+      }
     });
   });
 </script>

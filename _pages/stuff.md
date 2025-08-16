@@ -7,7 +7,14 @@ permalink: /stuff/
 <div class="c-summary">I've always had a thing for gadgets; they just make life more interesting and fun. But it's not just about having the latest tech for me. Ever since I read Paul Graham's essay <a href="http://www.paulgraham.com/stuff.html">Stuff</a> (which, by the way, is a great read), I've started to focus more on investing in fewer, but higher-quality tech products that really help me get things done. I also love the idea of sharing what works for me, so I've put together a list of the tech gear and software I use and recommend.
 </div>
 
-<img src="/assets/images/workspace-hero.jpg" alt="My workspace setup with MacBook Pro, desk items, and coffee" loading="lazy" style="width: 100%; height: auto; border-radius: 14px; margin-bottom: 2rem;">
+<picture>
+  <source srcset="/assets/images/workspace-hero.webp" type="image/webp">
+  <img src="/assets/images/workspace-hero.jpg" 
+       alt="My workspace setup with MacBook Pro, desk items, and coffee" 
+       loading="lazy" 
+       decoding="async"
+       style="width: 100%; height: auto; border-radius: 14px; margin-bottom: 2rem;">
+</picture>
 
 <section class="c-grid" style="--card-fixed-height: 140px; --card-line-clamp: 2;">
   <article class="c-card">

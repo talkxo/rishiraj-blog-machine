@@ -64,7 +64,6 @@ bundle exec jekyll build
 ├── _pages/              # Static pages
 ├── _posts/              # Blog posts
 ├── _sass/               # SCSS stylesheets
-├── _talks/              # Talks collection
 ├── assets/              # Images and other assets
 └── _config.yml          # Jekyll configuration
 ```

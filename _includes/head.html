@@ -2,6 +2,13 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Cache-Control" content="public, max-age=31536000">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#30bb96">
+  <meta name="msapplication-TileColor" content="#30bb96">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 
   <!-- Favicon -->
   {% include favicons.html %}
@@ -22,28 +29,180 @@
   <!-- Feed -->
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}"
         href="{{ "/feed.xml" | prepend: site.baseurl }}" />
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "{{ site.title }}",
+    "description": "{{ site.description }}",
+    "url": "{{ site.url }}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ site.author }}",
+      "email": "{{ site.email }}"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ site.title }}"
+    }
+  }
+  </script>
 
-  <!-- Custom fonts -->
-  <!-- Use Source Sans 3 for body and headings; include 600 weight -->
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <!-- Keep Roboto Mono for code snippets -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <!-- Resource hints for faster external resource loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="{{ "/css/main.css" | prepend: site.baseurl }}" as="style">
+  <link rel="preload" href="{{ "/assets/images/workspace-hero.jpg" | prepend: site.baseurl }}" as="image">
+  
+  <!-- Custom fonts - combined request for better performance -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
 
-  <!-- Custom style -->
-  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}" />
+  <!-- Critical CSS for above-the-fold content -->
   <style>
-    /* Minimal transition for theme changes */
-    html { transition: background-color .2s ease, color .2s ease; }
-    a { transition: color .2s ease; }
+    /* Critical CSS for immediate rendering */
+    html { 
+      min-height: 100%;
+      box-sizing: border-box;
+      background: var(--color-bg, #ffffff);
+      color-scheme: light dark;
+      transition: background-color .2s ease, color .2s ease;
+    }
+    body {
+      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--color-text, #404040);
+      background: var(--color-bg, #ffffff);
+      margin: 0;
+      padding: 0;
+    }
+    .u-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 800;
+      color: var(--color-ink, #163541);
+    }
+    a {
+      color: var(--color-accent, #30bb96);
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 6px;
+      background: var(--color-accent, #30bb96);
+      color: white;
+      padding: 8px;
+      text-decoration: none;
+      border-radius: 4px;
+      z-index: 1000;
+    }
+    .skip-link:focus {
+      top: 6px;
+    }
   </style>
+  
+  <!-- Non-critical CSS loaded asynchronously -->
+  <link rel="preload" href="{{ "/css/main.css" | prepend: site.baseurl }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}"></noscript>
+  
+  <!-- Fallback for CSS loading -->
+  <script>
+    // Fallback for CSS loading
+    setTimeout(function() {
+      var links = document.querySelectorAll('link[rel="preload"][as="style"]');
+      links.forEach(function(link) {
+        if (link.rel !== 'stylesheet') {
+          link.rel = 'stylesheet';
+        }
+      });
+    }, 3000);
+  </script>
+  
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js')
+          .then(function(registration) {
+            console.log('SW registered: ', registration);
+          })
+          .catch(function(registrationError) {
+            console.log('SW registration failed: ', registrationError);
+          });
+      });
+    }
+  </script>
+  
+  <!-- Core Web Vitals Monitoring -->
+  <script>
+    // Simple Core Web Vitals monitoring
+    if ('PerformanceObserver' in window) {
+      // LCP (Largest Contentful Paint)
+      new PerformanceObserver((list) => {
+        const entries = list.getEntries();
+        const lastEntry = entries[entries.length - 1];
+        console.log('LCP:', lastEntry.startTime);
+        if (lastEntry.startTime < 2500) {
+          console.log('✅ LCP is good');
+        }
+      }).observe({entryTypes: ['largest-contentful-paint']});
+      
+      // FID (First Input Delay)
+      new PerformanceObserver((list) => {
+        const entries = list.getEntries();
+        entries.forEach((entry) => {
+          console.log('FID:', entry.processingStart - entry.startTime);
+        });
+      }).observe({entryTypes: ['first-input']});
+      
+      // CLS (Cumulative Layout Shift)
+      new PerformanceObserver((list) => {
+        let cls = 0;
+        const entries = list.getEntries();
+        entries.forEach((entry) => {
+          if (!entry.hadRecentInput) {
+            cls += entry.value;
+          }
+        });
+        console.log('CLS:', cls);
+        if (cls < 0.1) {
+          console.log('✅ CLS is good');
+        }
+      }).observe({entryTypes: ['layout-shift']});
+    }
+  </script>
 
-  <!-- Global site tag (gtag.js) - Google Ads: 839642990 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-839642990"></script>
+  <!-- Optimized Google Analytics loading -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'AW-839642990');
+    gtag('config', 'AW-839642990', { 'send_page_view': false });
   </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-839642990"></script>
 </head>

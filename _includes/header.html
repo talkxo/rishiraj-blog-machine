@@ -5,29 +5,34 @@
   <h2 class="c-page__subtitle">{{ site.description }}</h2>
   {% endif %}
 
-  <nav role="navigation">
-    <a href="{{ "/" | prepend: site.baseurl }}" role="menuitem">
+  <nav role="navigation" aria-label="Main navigation">
+    <a href="{{ "/" | prepend: site.baseurl }}" role="menuitem" aria-current="{% if page.url == '/' %}page{% endif %}">
       Blog
     </a>
 
-    <span class="u-separate"></span>
-    <a href="{{ "/rishi-raj/" | prepend: site.baseurl }}" role="menuitem">
+    <span class="u-separate" aria-hidden="true"></span>
+    <a href="{{ "/rishi-raj/" | prepend: site.baseurl }}" role="menuitem" aria-current="{% if page.url == '/rishi-raj/' %}page{% endif %}">
       About
     </a>
 
-    <span class="u-separate"></span>
-    <a href="{{ "/stuff/" | prepend: site.baseurl }}" role="menuitem">
+    <span class="u-separate" aria-hidden="true"></span>
+    <a href="{{ "/stuff/" | prepend: site.baseurl }}" role="menuitem" aria-current="{% if page.url == '/stuff/' %}page{% endif %}">
       Stuff
     </a>
 
-    <span class="u-separate"></span>
-    <a href="{{ "/colophon/" | prepend: site.baseurl }}" role="menuitem">
+    <span class="u-separate" aria-hidden="true"></span>
+    <a href="{{ "/colophon/" | prepend: site.baseurl }}" role="menuitem" aria-current="{% if page.url == '/colophon/' %}page{% endif %}">
       Colophon
     </a>
 
-    <span class="u-separate"></span>
-    <button id="theme-toggle" aria-label="Toggle theme" class="no-hov" style="background:none;border:0;cursor:pointer;">
-      🌓
+    <span class="u-separate" aria-hidden="true"></span>
+    <button id="theme-toggle" 
+            aria-label="Toggle dark and light theme" 
+            aria-pressed="false"
+            class="no-hov" 
+            style="background:none;border:0;cursor:pointer;padding:5px;">
+      <span aria-hidden="true">🌓</span>
+      <span class="sr-only">Toggle theme</span>
     </button>
   </nav>
 </header>
@@ -47,11 +52,30 @@
   document.addEventListener('DOMContentLoaded', function() {
     var btn = document.getElementById('theme-toggle');
     if (!btn) return;
+    
+    // Update aria-pressed state
+    function updateAriaPressed() {
+      var isDark = document.documentElement.dataset.theme === 'dark';
+      btn.setAttribute('aria-pressed', isDark);
+    }
+    
+    // Initialize aria-pressed
+    updateAriaPressed();
+    
     btn.addEventListener('click', function() {
       var current = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
       var next = current === 'dark' ? 'light' : 'dark';
       document.documentElement.dataset.theme = next;
+      updateAriaPressed();
       try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+    
+    // Handle keyboard navigation
+    btn.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        btn.click();
+      }
     });
   });
 </script>
