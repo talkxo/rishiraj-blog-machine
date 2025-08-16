@@ -60,9 +60,30 @@
   <link rel="preload" href="{{ "/css/main.css" | prepend: site.baseurl }}" as="style">
   <link rel="preload" href="{{ "/assets/images/workspace-hero.jpg" | prepend: site.baseurl }}" as="image">
   
-  <!-- Custom fonts - optimized loading -->
+  <!-- DNS prefetch for external domains -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  
+  <!-- Custom fonts - optimized loading with font-display=swap -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Roboto+Mono:wght@400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet"></noscript>
+  
+  <!-- Font loading optimization -->
+  <script>
+    // Optimize font loading for better performance
+    if ('fonts' in document) {
+      Promise.all([
+        document.fonts.load('400 1em "Source Sans 3"'),
+        document.fonts.load('600 1em "Source Sans 3"'),
+        document.fonts.load('700 1em "Source Sans 3"'),
+        document.fonts.load('800 1em "Source Sans 3"'),
+        document.fonts.load('400 1em "Roboto Mono"')
+      ]).then(() => {
+        document.documentElement.classList.add('fonts-loaded');
+      });
+    }
+  </script>
 
   <!-- Critical CSS for above-the-fold content -->
   <style>
@@ -122,15 +143,18 @@
     /* Prevent layout shift */
     .c-page {
       min-height: 100vh;
+      contain: layout style paint;
     }
     .c-page__header {
       margin-bottom: 2rem;
+      contain: layout style;
     }
     .c-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1rem;
       margin: 2rem 0;
+      contain: layout style;
     }
     .c-card {
       background: var(--color-bg);
@@ -138,6 +162,11 @@
       border-radius: 8px;
       padding: 1rem;
       min-height: var(--card-fixed-height, 180px);
+      contain: layout style;
+    }
+    /* Font loading optimization */
+    .fonts-loaded {
+      font-display: swap;
     }
     .sr-only {
       position: absolute;
@@ -242,15 +271,33 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'AW-839642990', { 'send_page_view': false });
+    gtag('config', 'AW-839642990', { 
+      'send_page_view': false,
+      'anonymize_ip': true,
+      'allow_google_signals': false,
+      'allow_ad_personalization_signals': false
+    });
   </script>
   <script>
-    // Defer Google Analytics loading
+    // Defer Google Analytics loading with performance optimization
     window.addEventListener('load', function() {
-      var script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-839642990';
-      document.head.appendChild(script);
+      // Wait for idle time to load analytics
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(function() {
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-839642990';
+          document.head.appendChild(script);
+        });
+      } else {
+        // Fallback for browsers without requestIdleCallback
+        setTimeout(function() {
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-839642990';
+          document.head.appendChild(script);
+        }, 1000);
+      }
     });
   </script>
 </head>

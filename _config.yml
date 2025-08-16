@@ -30,6 +30,10 @@ compress_html:
   ignore:
     envs: []
 
+# Cache and compression settings
+keep_files: [assets, images, favicons]
+exclude: [vendor, node_modules, .git, .gitignore, README.md, Gemfile, Gemfile.lock]
+
 collections:
   talks:
     output: true
