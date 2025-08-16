@@ -115,6 +115,18 @@
       border-radius: 4px;
       font-weight: 600;
     }
+    /* Navigation styling */
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    nav li {
+      margin: 0;
+    }
     img {
       max-width: 100%;
       height: auto;
@@ -266,26 +278,44 @@
   
 
   <nav role="navigation" aria-label="Main navigation">
-    <a href="/" role="menuitem" aria-current="">
-      Blog
-    </a>
+    <ul role="menubar" aria-label="Main navigation menu">
+      <li role="none">
+        <a href="/" 
+           role="menuitem" 
+           aria-current=""
+           tabindex="0">
+          Blog
+        </a>
+      </li>
 
-    <span class="u-separate" aria-hidden="true"></span>
-    <a href="/rishi-raj/" role="menuitem" aria-current="page">
-      About
-    </a>
+      <li role="none">
+        <a href="/rishi-raj/" 
+           role="menuitem" 
+           aria-current="page"
+           tabindex="0">
+          About
+        </a>
+      </li>
 
-    <span class="u-separate" aria-hidden="true"></span>
-    <a href="/stuff/" role="menuitem" aria-current="">
-      Stuff
-    </a>
+      <li role="none">
+        <a href="/stuff/" 
+           role="menuitem" 
+           aria-current=""
+           tabindex="0">
+          Stuff
+        </a>
+      </li>
 
-    <span class="u-separate" aria-hidden="true"></span>
-    <a href="/colophon/" role="menuitem" aria-current="">
-      Colophon
-    </a>
+      <li role="none">
+        <a href="/colophon/" 
+           role="menuitem" 
+           aria-current=""
+           tabindex="0">
+          Colophon
+        </a>
+      </li>
+    </ul>
 
-    <span class="u-separate" aria-hidden="true"></span>
     <button id="theme-toggle" 
             aria-label="Toggle dark and light theme" 
             aria-pressed="false"

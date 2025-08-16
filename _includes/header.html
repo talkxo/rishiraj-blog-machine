@@ -6,26 +6,44 @@
   {% endif %}
 
   <nav role="navigation" aria-label="Main navigation">
-    <a href="{{ "/" | prepend: site.baseurl }}" role="menuitem" aria-current="{% if page.url == '/' %}page{% endif %}">
-      Blog
-    </a>
+    <ul role="menubar" aria-label="Main navigation menu">
+      <li role="none">
+        <a href="{{ "/" | prepend: site.baseurl }}" 
+           role="menuitem" 
+           aria-current="{% if page.url == '/' %}page{% endif %}"
+           tabindex="0">
+          Blog
+        </a>
+      </li>
 
-    <span class="u-separate" aria-hidden="true"></span>
-    <a href="{{ "/rishi-raj/" | prepend: site.baseurl }}" role="menuitem" aria-current="{% if page.url == '/rishi-raj/' %}page{% endif %}">
-      About
-    </a>
+      <li role="none">
+        <a href="{{ "/rishi-raj/" | prepend: site.baseurl }}" 
+           role="menuitem" 
+           aria-current="{% if page.url == '/rishi-raj/' %}page{% endif %}"
+           tabindex="0">
+          About
+        </a>
+      </li>
 
-    <span class="u-separate" aria-hidden="true"></span>
-    <a href="{{ "/stuff/" | prepend: site.baseurl }}" role="menuitem" aria-current="{% if page.url == '/stuff/' %}page{% endif %}">
-      Stuff
-    </a>
+      <li role="none">
+        <a href="{{ "/stuff/" | prepend: site.baseurl }}" 
+           role="menuitem" 
+           aria-current="{% if page.url == '/stuff/' %}page{% endif %}"
+           tabindex="0">
+          Stuff
+        </a>
+      </li>
 
-    <span class="u-separate" aria-hidden="true"></span>
-    <a href="{{ "/colophon/" | prepend: site.baseurl }}" role="menuitem" aria-current="{% if page.url == '/colophon/' %}page{% endif %}">
-      Colophon
-    </a>
+      <li role="none">
+        <a href="{{ "/colophon/" | prepend: site.baseurl }}" 
+           role="menuitem" 
+           aria-current="{% if page.url == '/colophon/' %}page{% endif %}"
+           tabindex="0">
+          Colophon
+        </a>
+      </li>
+    </ul>
 
-    <span class="u-separate" aria-hidden="true"></span>
     <button id="theme-toggle" 
             aria-label="Toggle dark and light theme" 
             aria-pressed="false"
