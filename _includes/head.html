@@ -4,8 +4,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Cache-Control" content="public, max-age=31536000">
   <meta name="format-detection" content="telephone=no">
-  <meta name="theme-color" content="#30bb96">
-  <meta name="msapplication-TileColor" content="#30bb96">
+  <meta name="theme-color" content="#059669">
+  <meta name="msapplication-TileColor" content="#059669">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="X-Frame-Options" content="DENY">
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
@@ -89,12 +89,19 @@
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
       font-weight: 800;
-      color: var(--color-ink, #163541);
+      color: var(--color-ink, #000000);
     }
     a {
-      color: var(--color-accent, #30bb96);
+      color: var(--color-accent, #059669);
       text-decoration: none;
       transition: color .2s ease;
+    }
+    code {
+      color: var(--color-ink, #000000);
+      background: var(--color-accent, #059669);
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 600;
     }
     img {
       max-width: 100%;
