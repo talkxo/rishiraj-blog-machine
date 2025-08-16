@@ -13,6 +13,8 @@ permalink: /stuff/
        alt="My workspace setup with MacBook Pro, desk items, and coffee" 
        loading="lazy" 
        decoding="async"
+       width="1200"
+       height="800"
        style="width: 100%; height: auto; border-radius: 14px; margin-bottom: 2rem;">
 </picture>
 

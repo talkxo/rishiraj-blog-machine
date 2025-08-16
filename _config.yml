@@ -20,6 +20,16 @@ markdown: kramdown
 permalink: /:year/:title
 future: false
 
+# Performance settings
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
+  blanklines: false
+  ignore:
+    envs: []
+
 collections:
   talks:
     output: true

@@ -71,8 +71,9 @@
   <link rel="preload" href="/css/main.css" as="style">
   <link rel="preload" href="/assets/images/workspace-hero.jpg" as="image">
   
-  <!-- Custom fonts - combined request for better performance -->
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+  <!-- Custom fonts - optimized loading -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Roboto+Mono:wght@400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet"></noscript>
 
   <!-- Critical CSS for above-the-fold content -->
   <style>
@@ -109,6 +110,26 @@
     img {
       max-width: 100%;
       height: auto;
+    }
+    /* Prevent layout shift */
+    .c-page {
+      min-height: 100vh;
+    }
+    .c-page__header {
+      margin-bottom: 2rem;
+    }
+    .c-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .c-card {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 1rem;
+      min-height: var(--card-fixed-height, 180px);
     }
     .sr-only {
       position: absolute;
@@ -215,7 +236,15 @@
     gtag('js', new Date());
     gtag('config', 'AW-839642990', { 'send_page_view': false });
   </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-839642990"></script>
+  <script>
+    // Defer Google Analytics loading
+    window.addEventListener('load', function() {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-839642990';
+      document.head.appendChild(script);
+    });
+  </script>
 </head>
 
 
@@ -419,16 +448,5 @@ Meanwhile, Apple just goes iPhone 14, iPhone 15, iPhone 16. Revolutionary concep
 </div>
 
     </main>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-');
-</script>
-
   </body>
 </html>

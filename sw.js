@@ -1,4 +1,4 @@
-const CACHE_NAME = 'rishiraj-blog-v1';
+const CACHE_NAME = 'rishiraj-blog-v2';
 const urlsToCache = [
   '/',
   '/css/main.css',
@@ -9,6 +9,12 @@ const urlsToCache = [
   '/assets/images/favicons/apple-icon-180x180.png',
   '/assets/images/favicons/android-icon-192x192.png'
 ];
+
+// Cache strategies
+const CACHE_STRATEGIES = {
+  STATIC: 'static',
+  DYNAMIC: 'dynamic'
+};
 
 // Install event - cache resources
 self.addEventListener('install', event => {
@@ -27,7 +33,28 @@ self.addEventListener('fetch', event => {
     caches.match(event.request)
       .then(response => {
         // Return cached version or fetch from network
-        return response || fetch(event.request);
+        if (response) {
+          return response;
+        }
+        
+        // Clone the request
+        const fetchRequest = event.request.clone();
+        
+        return fetch(fetchRequest).then(response => {
+          // Check if we received a valid response
+          if (!response || response.status !== 200 || response.type !== 'basic') {
+            return response;
+          }
+          
+          // Clone the response
+          const responseToCache = response.clone();
+          
+          caches.open(CACHE_NAME).then(cache => {
+            cache.put(event.request, responseToCache);
+          });
+          
+          return response;
+        });
       }
     )
   );
