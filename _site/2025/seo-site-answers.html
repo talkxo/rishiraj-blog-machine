@@ -592,8 +592,20 @@
     }
     /* Reserve space for dynamic content */
     .c-page_main {
-      min-height: 300px;
+      min-height: 200px;
       contain: layout style;
+    }
+    /* Reduce spacing for content pages */
+    .c-page_main .c-summary {
+      margin-bottom: 1rem !important;
+    }
+    /* Optimize spacing for Stuff page */
+    .c-page_main picture {
+      margin-top: 0;
+    }
+    /* Override default summary spacing */
+    .c-summary {
+      margin-bottom: 1rem !important;
     }
     /* Prevent layout shift for header */
     .c-page__header {
