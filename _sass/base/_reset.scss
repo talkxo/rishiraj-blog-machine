@@ -109,6 +109,8 @@ a:not(.anchor) {
     transition: color ease 0.3s;
     /* Prevent layout shift by reserving space */
     box-sizing: border-box;
+    /* Ensure text stays in correct position */
+    vertical-align: baseline;
 
     /* Hover animation effect for all buttons */
     &::after {
@@ -126,6 +128,8 @@ a:not(.anchor) {
       transform-origin: bottom;
       /* Fix positioning to prevent text shift */
       pointer-events: none;
+      /* Ensure background doesn't affect text position */
+      top: 0;
     }
 
     code ~ &::after {

@@ -456,6 +456,14 @@
     a:not(.anchor) {
       position: relative;
       z-index: 1;
+      vertical-align: baseline;
+      line-height: inherit;
+    }
+    /* Ensure link text doesn't move */
+    a:not(.anchor) span,
+    a:not(.anchor) {
+      display: inline;
+      position: relative;
     }
     /* Reserve space for content to prevent layout shift */
     .c-archives__description {
@@ -480,9 +488,22 @@
     .c-page_main picture {
       margin-top: 0;
     }
+    /* Specific fixes for Stuff page */
+    .c-page_main .c-summary + picture {
+      margin-top: 0 !important;
+    }
+    .c-page_main .c-summary {
+      margin-bottom: 0.5rem !important;
+    }
     /* Override default summary spacing */
     .c-summary {
       margin-bottom: 1rem !important;
+    }
+    /* Force override for Stuff page specifically */
+    .c-page_main .c-summary,
+    .c-summary {
+      margin-bottom: 1rem !important;
+      margin-top: 0 !important;
     }
     /* Prevent layout shift for header */
     .c-page__header {
