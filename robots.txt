@@ -1,4 +1,14 @@
-Sitemap: https://sobolevn.me/sitemap.xml
+Sitemap: https://rishiraj.blog/sitemap.xml
 
 User-agent: *
 Disallow: /404.html
+Disallow: /_site/
+Disallow: /_layouts/
+Disallow: /_includes/
+Disallow: /_sass/
+Disallow: /_config.yml
+Disallow: /Gemfile
+Disallow: /Gemfile.lock
+
+# Allow all other content
+Allow: /
