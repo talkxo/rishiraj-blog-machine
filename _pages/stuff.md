@@ -12,7 +12,7 @@ permalink: /stuff/
      width="800" 
      height="600" 
      loading="lazy"
-     style="width: 100%; height: auto;">
+     style="width: 100%; height: auto; margin-bottom: 2rem;">
 
 <section class="c-grid" style="--card-fixed-height: 140px; --card-line-clamp: 2;">
   <article class="c-card">

@@ -190,4 +190,16 @@
   }
 }
 
+/* Ensure proper spacing for images in content */
+.c-summary + img {
+  margin-bottom: 2rem;
+  border-radius: 14px;
+  display: block;
+}
+
+/* Additional spacing for content sections */
+img + .c-grid {
+  margin-top: 2rem;
+}
+
 
