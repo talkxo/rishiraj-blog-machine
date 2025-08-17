@@ -65,9 +65,37 @@
             color: var(--color-accent);
             text-decoration: none;
             font-weight: 500;
+            position: relative;
+            display: inline-block;
+            padding: 0px 1px;
+            transition: color ease 0.3s;
+            box-sizing: border-box;
+            vertical-align: baseline;
+            
+            /* Hover animation effect */
+            &::after {
+              content: '';
+              position: absolute;
+              z-index: -1;
+              height: 100%;
+              left: -1.5px;
+              right: -1.5px;
+              bottom: 0;
+              background-color: var(--color-accent);
+              transition: all ease 0.3s;
+              transform: scaleY(0);
+              transform-origin: bottom;
+              pointer-events: none;
+              top: 0;
+            }
             
             &:hover {
-                text-decoration: underline;
+                color: var(--link-hover-text, #ffffff);
+                text-decoration: none;
+                
+                &::after {
+                    transform: scaleY(1);
+                }
             }
         }
     }
