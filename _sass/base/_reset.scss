@@ -124,6 +124,8 @@ a:not(.anchor) {
       /* Prevent layout shift by using transform instead of height */
       transform: scaleY(0);
       transform-origin: bottom;
+      /* Fix positioning to prevent text shift */
+      pointer-events: none;
     }
 
     code ~ &::after {
@@ -132,7 +134,7 @@ a:not(.anchor) {
     }
 
     &:hover {
-      color: var(--link-hover-text, #ffffff);
+      color: #000000; /* Dark text on green background for better contrast */
       &::after {
         transform: scaleY(1);
       }

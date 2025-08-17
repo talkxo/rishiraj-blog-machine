@@ -506,6 +506,12 @@
     a:not(.anchor)::after {
       contain: layout style;
       will-change: transform;
+      pointer-events: none;
+    }
+    /* Fix link text positioning */
+    a:not(.anchor) {
+      position: relative;
+      z-index: 1;
     }
     /* Reserve space for content to prevent layout shift */
     .c-archives__description {
