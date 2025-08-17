@@ -15,7 +15,7 @@ I spent the last few days trying to get perfect Web Vitals scores for this blog.
 
 This blog seemed perfect for the experiment. Simple Jekyll setup on GitHub Pages, minimal dependencies, clean codebase. How hard could it be?
 
-Turns out, very hard. After all the optimization and one complete weekend, my scores rose—from 79 mobile and 77 desktop, to 98 on mobile and 100 on desktop. Better, but still shy of the perfection I was chasing.
+Turns out, very hard. After all the optimization and one complete weekend, my scores rose—from 79 mobile and 77 desktop, to [**98 on mobile and 100 on desktop.**](https://pagespeed.web.dev/analysis/https-rishiraj-blog/ee6mt1a4bx?form_factor=desktop) Better, but still shy of the perfection I was chasing.
 
 ## Endless Loop of LCP and CLS
 
