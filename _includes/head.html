@@ -489,7 +489,7 @@
       transition: background-color .2s ease, color .2s ease;
     }
     body {
-      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       color: var(--color-text, #404040);
       background: var(--color-bg, #ffffff);
       margin: 0;
@@ -596,9 +596,9 @@
     }
     /* Prevent layout shift for images */
     img {
-      max-width: 100%;
-      height: auto;
-      contain: layout style;
+      width: 100%;
+      height: auto; /* Natural aspect ratio */
+      max-height: 60vh; /* Prevent excessive height */
     }
     /* Prevent layout shift for code blocks */
     code {
@@ -621,14 +621,20 @@
       min-height: 3rem;
       contain: layout style;
     }
-    /* Prevent layout shift for main content */
+    /* Better layout stability */
     main {
       contain: layout style;
-      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* Keep this but with flexbox */
     }
-    /* Reserve space for dynamic content */
+    .u-container {
+      flex: 1; /* Takes available space */
+      contain: layout style;
+    }
+
+    /* Remove min-height to prevent empty spaces */
     .c-page_main {
-      min-height: 200px;
       contain: layout style;
     }
     /* Reduce spacing for content pages */
