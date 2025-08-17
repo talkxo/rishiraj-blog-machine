@@ -96,6 +96,139 @@
   }
   </script>
 
+  <!-- Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "{{ site.title }}",
+    "url": "{{ site.url }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.url }}/assets/images/favicons/favicon-96x96.png",
+      "width": 96,
+      "height": 96
+    },
+    "description": "{{ site.description }}",
+    "foundingDate": "2025",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "IN",
+      "addressLocality": "New Delhi",
+      "addressRegion": "Delhi"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "email": "{{ site.email }}"
+    },
+    "sameAs": [
+      "https://hello.talkxo.com",
+      "https://github.com/talkxo"
+    ]
+  }
+  </script>
+
+  <!-- Person Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "{{ site.author }}",
+    "email": "{{ site.email }}",
+    "url": "{{ site.url }}/rishi-raj/",
+    "image": "{{ site.url }}/assets/images/workspace-hero.jpg",
+    "description": "Multi-disciplinary marketer from New Delhi, India. Expertise in strategic planning, content and communications, and creating effective team processes.",
+    "jobTitle": "Multi-disciplinary Marketer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "TalkXO",
+      "url": "https://hello.talkxo.com"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "IN",
+      "addressLocality": "New Delhi",
+      "addressRegion": "Delhi"
+    },
+    "alumniOf": {
+      "@type": "Organization",
+      "name": "Leading Independent Agency"
+    },
+    "knowsAbout": [
+      "Marketing Strategy",
+      "Content Marketing",
+      "SEO",
+      "Digital Marketing",
+      "Team Leadership",
+      "Marketing Automation",
+      "Creative Content Solutions"
+    ],
+    "sameAs": [
+      "https://hello.talkxo.com",
+      "https://github.com/talkxo"
+    ]
+  }
+  </script>
+
+  <!-- Local Business Schema for TalkXO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "TalkXO",
+    "description": "Digital services company specializing in marketing automation and creative content solutions for businesses of all sizes.",
+    "url": "https://hello.talkxo.com",
+    "telephone": "+91-XXXXXXXXXX",
+    "email": "{{ site.email }}",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "IN",
+      "addressLocality": "New Delhi",
+      "addressRegion": "Delhi"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 28.6139,
+      "longitude": 77.2090
+    },
+    "openingHours": "Mo-Fr 09:00-18:00",
+    "priceRange": "$$",
+    "currenciesAccepted": "INR, USD",
+    "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+    "areaServed": "Worldwide",
+    "serviceType": [
+      "Marketing Automation",
+      "Creative Content Solutions",
+      "Digital Marketing",
+      "SEO Services",
+      "Content Strategy"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Digital Marketing Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Marketing Automation",
+            "description": "Automated marketing solutions for business growth"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Creative Content Solutions",
+            "description": "Strategic content creation and management"
+          }
+        }
+      ]
+    }
+  }
+  </script>
+
   {% if page.layout == 'post' %}
   <!-- Article Structured Data -->
   <script type="application/ld+json">
@@ -129,6 +262,136 @@
     "keywords": "{% if page.tags %}{{ page.tags | join: ', ' }}{% endif %}",
     "wordCount": "{{ page.content | number_of_words }}",
     "timeRequired": "PT{{ page.writing_time.writing | default: '5' }}M"
+  }
+  </script>
+  {% endif %}
+
+  <!-- FAQ Schema for Q&A Content -->
+  {% if page.layout == 'post' and page.tags contains 'seo' or page.tags contains 'how-to' or page.tags contains 'guide' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What actually matters for SEO in 2025?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Search engines want to answer questions directly. Focus on providing comprehensive answers that connect related solutions naturally, rather than optimizing for keyword density."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are breadcrumbs still useful for SEO?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Google killed breadcrumb rich snippets on mobile in January 2025. They're not SEO magic anymore, but they still help users understand where they are and how content connects."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How should you write alt text for images?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Write descriptive alt text like 'ergonomic standing desk showing monitor at eye level' instead of generic terms like 'product image'. AI systems use this context to understand when your content answers specific questions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the reality about Core Web Vitals?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Even Google's own Pixel 9a page fails their PageSpeed test. Focus on actual user experience over chasing perfect Core Web Vitals scores. Fast enough beats perfectly measured."
+        }
+      }
+    ]
+  }
+  </script>
+  {% endif %}
+
+  <!-- HowTo Schema for Tutorial Content -->
+  {% if page.layout == 'post' and page.tags contains 'how-to' or page.tags contains 'tutorial' or page.tags contains 'guide' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "{{ page.title }}",
+    "description": "{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}",
+    "image": "{% if page.image %}{{ page.image | prepend: site.url }}{% else %}{{ site.url }}/assets/images/workspace-hero.jpg{% endif %}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ site.author }}",
+      "email": "{{ site.email }}",
+      "url": "{{ site.url }}/rishi-raj/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ site.title }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ site.url }}/assets/images/favicons/favicon-96x96.png"
+      }
+    },
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+    "totalTime": "PT{{ page.writing_time.writing | default: '5' }}M",
+    "estimatedCost": {
+      "@type": "MonetaryAmount",
+      "currency": "USD",
+      "value": "0"
+    },
+    "supply": [],
+    "tool": [],
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Understand the Problem",
+        "text": "Identify what you're trying to solve and why traditional approaches might not work.",
+        "image": "{{ site.url }}/assets/images/workspace-hero.jpg"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Apply Modern Solutions",
+        "text": "Use contemporary approaches that focus on user experience and practical results.",
+        "image": "{{ site.url }}/assets/images/workspace-hero.jpg"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Measure Real Impact",
+        "text": "Focus on actual results rather than perfect metrics or theoretical optimization.",
+        "image": "{{ site.url }}/assets/images/workspace-hero.jpg"
+      }
+    ]
+  }
+  </script>
+  {% endif %}
+
+  <!-- Article Series Schema -->
+  {% if page.layout == 'post' and page.categories contains 'seo' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "SEO Strategy Series",
+    "description": "A collection of articles about modern SEO strategies and digital marketing insights",
+    "url": "{{ site.url }}/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ site.title }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ site.url }}/assets/images/favicons/favicon-96x96.png"
+      }
+    },
+    "hasPart": [
+      {
+        "@type": "Article",
+        "name": "{{ page.title }}",
+        "url": "{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}",
+        "datePublished": "{{ page.date | date_to_xmlschema }}"
+      }
+    ]
   }
   </script>
   {% endif %}
