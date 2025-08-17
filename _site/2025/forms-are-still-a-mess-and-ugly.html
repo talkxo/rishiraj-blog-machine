@@ -341,7 +341,7 @@
   <script>
     // Optimize font loading for better performance and prevent layout shift
     if ('fonts' in document) {
-      // Preload critical fonts
+      // Preload critical fonts with font-display: swap
       const fontPromises = [
         document.fonts.load('400 1em "Source Sans 3"'),
         document.fonts.load('600 1em "Source Sans 3"'),
@@ -350,17 +350,26 @@
         document.fonts.load('400 1em "Roboto Mono"')
       ];
       
+      // Set font-display: swap immediately
+      document.documentElement.classList.add('fonts-loaded');
+      
       Promise.all(fontPromises).then(() => {
-        document.documentElement.classList.add('fonts-loaded');
-        // Force a repaint to ensure layout is stable
-        document.body.offsetHeight;
+        // Fonts loaded successfully
+        document.documentElement.classList.add('fonts-complete');
+        // Prevent forced reflow by avoiding layout queries
+        requestAnimationFrame(() => {
+          // Only trigger repaint if needed
+          if (document.body.offsetHeight > 0) {
+            document.body.style.transform = 'translateZ(0)';
+          }
+        });
       }).catch(() => {
         // Fallback if font loading fails
-        document.documentElement.classList.add('fonts-loaded');
+        document.documentElement.classList.add('fonts-complete');
       });
     } else {
       // Fallback for browsers without font loading API
-      document.documentElement.classList.add('fonts-loaded');
+      document.documentElement.classList.add('fonts-loaded', 'fonts-complete');
     }
   </script>
 
@@ -453,6 +462,44 @@
     .fonts-loaded {
       font-display: swap;
     }
+    .fonts-complete {
+      font-display: swap;
+    }
+    /* Prevent layout shift during font loading */
+    body {
+      font-display: swap;
+    }
+    /* Ensure stable layout during font loading */
+    * {
+      font-display: swap;
+    }
+    /* Content size hints to prevent layout shift */
+    .c-article__title {
+      min-height: 2.5rem;
+      contain: layout style;
+    }
+    .c-article__time {
+      min-height: 1.5rem;
+      contain: layout style;
+    }
+    .reading-time {
+      min-height: 1rem;
+      contain: layout style;
+    }
+    /* Prevent layout shift for images */
+    img {
+      max-width: 100%;
+      height: auto;
+      contain: layout style;
+    }
+    /* Prevent layout shift for code blocks */
+    code {
+      contain: layout style;
+    }
+    /* Prevent layout shift for links */
+    a {
+      contain: layout style;
+    }
     /* Reserve space for content to prevent layout shift */
     .c-archives__description {
       min-height: 3rem;
@@ -461,10 +508,36 @@
     /* Prevent layout shift for main content */
     main {
       contain: layout style;
+      min-height: 100vh;
     }
     /* Reserve space for dynamic content */
     .c-page_main {
+      min-height: 300px;
+      contain: layout style;
+    }
+    /* Prevent layout shift for header */
+    .c-page__header {
+      min-height: 120px;
+      contain: layout style;
+    }
+    /* Prevent layout shift for navigation */
+    nav {
+      contain: layout style;
+      min-height: 60px;
+    }
+    /* Prevent layout shift for cards */
+    .c-card {
       min-height: 200px;
+      contain: layout style;
+    }
+    /* Prevent layout shift for article content */
+    .c-article__main {
+      min-height: 400px;
+      contain: layout style;
+    }
+    /* Prevent layout shift for article header */
+    .c-article__header {
+      min-height: 100px;
       contain: layout style;
     }
     /* Font loading optimization */
