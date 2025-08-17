@@ -17,7 +17,7 @@ This blog seemed perfect for the experiment. Simple Jekyll setup on GitHub Pages
 
 Turns out, very hard. After all the optimization and one complete weekend, my scores rose—from 79 mobile and 77 desktop, to [**98 on mobile and 100 on desktop.**](https://pagespeed.web.dev/analysis/https-rishiraj-blog/ee6mt1a4bx?form_factor=desktop) Better, but still shy of the perfection I was chasing.
 
-## Endless Loop of LCP and CLS
+## Endless Loop of LCP/CLS
 
 I started with what seemed like obvious wins. The commit history tells the story.
 
