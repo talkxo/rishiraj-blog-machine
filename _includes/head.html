@@ -609,13 +609,6 @@
       contain: layout style;
       box-sizing: border-box;
     }
-    /* Prevent layout shift for link hover effects */
-    a:not(.anchor)::after {
-      contain: layout style;
-      will-change: transform;
-      pointer-events: none;
-    }
-
     /* Reserve space for content to prevent layout shift */
     .c-archives__description {
       min-height: 3rem;
