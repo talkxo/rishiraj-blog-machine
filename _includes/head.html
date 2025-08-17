@@ -434,11 +434,9 @@
   
   <!-- DNS prefetch for external domains -->
   
-  <!-- Google Fonts - Optimized for CLS prevention -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700&family=Roboto+Mono:wght@400&display=block" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700&family=Roboto+Mono:wght@400&display=block"></noscript>
+  <!-- Local Fonts - Optimized for CLS prevention -->
+  <link rel="preload" href="{{ "/assets/fonts/SourceSans3-VariableFont_wght.ttf" | prepend: site.baseurl }}" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="{{ "/assets/fonts/SourceSans3-Italic-VariableFont_wght.ttf" | prepend: site.baseurl }}" as="font" type="font/ttf" crossorigin>
   
   <style>
     /* Critical CSS for LCP/CLS optimization */
@@ -464,9 +462,26 @@
       --link-hover-text: #ffffff;
     }
     
+    /* Local Font Declarations */
+    @font-face {
+      font-family: 'Source Sans 3';
+      src: url('{{ "/assets/fonts/SourceSans3-VariableFont_wght.ttf" | prepend: site.baseurl }}') format('truetype-variations');
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+    
+    @font-face {
+      font-family: 'Source Sans 3';
+      src: url('{{ "/assets/fonts/SourceSans3-Italic-VariableFont_wght.ttf" | prepend: site.baseurl }}') format('truetype-variations');
+      font-weight: 100 900;
+      font-style: italic;
+      font-display: swap;
+    }
+    
     /* Font definitions with CLS prevention */
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       margin: 0;
       padding: 0;
       background: var(--color-bg);
@@ -486,33 +501,17 @@
       min-height: 0;
     }
     
-    /* Critical content area - use system fonts to prevent CLS */
+    /* Critical content area */
     .c-archives__description {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       line-height: 1.6;
       color: var(--color-text);
       contain: layout style;
     }
     
-    /* Code font fallback */
+    /* Code font - system monospace */
     code, pre {
       font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
-    }
-    
-    /* Font loading optimization */
-    .fonts-loaded {
-      font-display: block;
-    }
-    
-    /* Apply custom fonts only after they're loaded to prevent CLS */
-    html.fonts-loaded body,
-    html.fonts-loaded .c-archives__description {
-      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
-    
-    html.fonts-loaded code,
-    html.fonts-loaded pre {
-      font-family: 'Roboto Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
     }
     
     /* Prevent layout shifts with font loading */
@@ -541,22 +540,20 @@
   
   <!-- Font loading detection and fallback for CSS loading -->
   <script>
-    // Aggressive font loading to prevent CLS
+    // Local font loading detection
     (function() {
-      // Load fonts immediately
       if ('fonts' in document) {
-        // Preload fonts with specific weights and sizes
+        // Load Source Sans 3 variable font
         var fontPromises = [
           document.fonts.load('400 16px "Source Sans 3"'),
-          document.fonts.load('700 16px "Source Sans 3"'),
-          document.fonts.load('400 14px "Roboto Mono"')
+          document.fonts.load('700 16px "Source Sans 3"')
         ];
         
-        // Apply fonts as soon as they're ready
+        // Mark fonts as loaded when ready
         Promise.all(fontPromises).then(function() {
           document.documentElement.classList.add('fonts-loaded');
         }).catch(function() {
-          // If fonts fail to load, still mark as loaded to prevent infinite waiting
+          // Fallback if fonts fail to load
           document.documentElement.classList.add('fonts-loaded');
         });
       } else {
