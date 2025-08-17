@@ -434,11 +434,11 @@
   
   <!-- DNS prefetch for external domains -->
   
-  <!-- Google Fonts - Optimized for LCP -->
+  <!-- Google Fonts - Optimized for CLS prevention -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700&family=Roboto+Mono:wght@400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700&family=Roboto+Mono:wght@400&display=swap"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700&family=Roboto+Mono:wght@400&display=block" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700&family=Roboto+Mono:wght@400&display=block"></noscript>
   
   <style>
     /* Critical CSS for LCP/CLS optimization */
@@ -464,9 +464,9 @@
       --link-hover-text: #ffffff;
     }
     
-    /* Font definitions with fallbacks */
+    /* Font definitions with CLS prevention */
     body {
-      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       margin: 0;
       padding: 0;
       background: var(--color-bg);
@@ -486,9 +486,9 @@
       min-height: 0;
     }
     
-    /* Critical content area */
+    /* Critical content area - use system fonts to prevent CLS */
     .c-archives__description {
-      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       line-height: 1.6;
       color: var(--color-text);
       contain: layout style;
@@ -496,21 +496,42 @@
     
     /* Code font fallback */
     code, pre {
-      font-family: 'Roboto Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
     }
     
     /* Font loading optimization */
     .fonts-loaded {
-      font-display: swap;
+      font-display: block;
     }
     
-    /* Smooth font loading transition */
-    html:not(.fonts-loaded) {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
-    
-    html.fonts-loaded {
+    /* Apply custom fonts only after they're loaded to prevent CLS */
+    html.fonts-loaded body,
+    html.fonts-loaded .c-archives__description {
       font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    
+    html.fonts-loaded code,
+    html.fonts-loaded pre {
+      font-family: 'Roboto Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    }
+    
+    /* Prevent layout shifts with font loading */
+    body, h1, h2, h3, h4, h5, h6, p, span, div {
+      font-display: optional;
+    }
+    
+    /* Ensure consistent line heights to prevent CLS */
+    body {
+      line-height: 1.6;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.2;
+    }
+    
+    /* Prevent text reflow during font loading */
+    .c-archives__description {
+      min-height: 1.6em;
     }
   </style>
 
@@ -520,16 +541,31 @@
   
   <!-- Font loading detection and fallback for CSS loading -->
   <script>
-    // Font loading detection
-    if ('fonts' in document) {
-      Promise.all([
-        document.fonts.load('400 1em "Source Sans 3"'),
-        document.fonts.load('700 1em "Source Sans 3"'),
-        document.fonts.load('400 1em "Roboto Mono"')
-      ]).then(function() {
-        document.documentElement.classList.add('fonts-loaded');
-      });
-    }
+    // Aggressive font loading to prevent CLS
+    (function() {
+      // Load fonts immediately
+      if ('fonts' in document) {
+        // Preload fonts with specific weights and sizes
+        var fontPromises = [
+          document.fonts.load('400 16px "Source Sans 3"'),
+          document.fonts.load('700 16px "Source Sans 3"'),
+          document.fonts.load('400 14px "Roboto Mono"')
+        ];
+        
+        // Apply fonts as soon as they're ready
+        Promise.all(fontPromises).then(function() {
+          document.documentElement.classList.add('fonts-loaded');
+        }).catch(function() {
+          // If fonts fail to load, still mark as loaded to prevent infinite waiting
+          document.documentElement.classList.add('fonts-loaded');
+        });
+      } else {
+        // Fallback for browsers without font loading API
+        setTimeout(function() {
+          document.documentElement.classList.add('fonts-loaded');
+        }, 100);
+      }
+    })();
     
     // Fallback for CSS loading
     setTimeout(function() {

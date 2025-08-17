@@ -14,21 +14,36 @@
     }
 }
 
-// Font families
+// Font families - optimized for CLS prevention
 @mixin ff--sans-serif($font-weight: normal) {
-  // Use Source Sans 3 for all sans-serif typography
-  font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  // Use system fonts first, then Source Sans 3 when loaded
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-weight: $font-weight;
+  
+  // Apply custom font only when loaded
+  .fonts-loaded & {
+    font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
 }
 
 @mixin ff--serif($font-weight: normal) {
-    font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-weight: $font-weight;
     color: var(--color-text, #404040);
+    
+    // Apply custom font only when loaded
+    .fonts-loaded & {
+      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
 }
 
 @mixin ff--code {
-    font-family: 'Roboto Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    
+    // Apply custom font only when loaded
+    .fonts-loaded & {
+      font-family: 'Roboto Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    }
 }
 
 // Font sizing
