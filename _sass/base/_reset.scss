@@ -107,18 +107,23 @@ a:not(.anchor) {
     display: inline-block;
     padding: 0px 1px;
     transition: color ease 0.3s;
+    /* Prevent layout shift by reserving space */
+    box-sizing: border-box;
 
     /* Hover animation effect for all buttons */
     &::after {
       content: '';
       position: absolute;
       z-index: -1;
-      height: 0%;
+      height: 100%;
       left: -1.5px;
       right: -1.5px;
       bottom: 0;
       background-color: $c-base__03;
       transition: all ease 0.3s;
+      /* Prevent layout shift by using transform instead of height */
+      transform: scaleY(0);
+      transform-origin: bottom;
     }
 
     code ~ &::after {
@@ -129,7 +134,7 @@ a:not(.anchor) {
     &:hover {
       color: var(--link-hover-text, #ffffff);
       &::after {
-        height: 100%;
+        transform: scaleY(1);
       }
     }
 

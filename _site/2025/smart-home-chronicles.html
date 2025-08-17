@@ -402,6 +402,9 @@
       color: var(--color-accent, #00A36C);
       text-decoration: none;
       transition: color .2s ease;
+      /* Prevent layout shift on hover */
+      box-sizing: border-box;
+      contain: layout style;
     }
     code {
       color: #ffffff;
@@ -497,6 +500,12 @@
     /* Prevent layout shift for links */
     a {
       contain: layout style;
+      box-sizing: border-box;
+    }
+    /* Prevent layout shift for link hover effects */
+    a:not(.anchor)::after {
+      contain: layout style;
+      will-change: transform;
     }
     /* Reserve space for content to prevent layout shift */
     .c-archives__description {
