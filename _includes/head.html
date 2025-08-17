@@ -468,7 +468,7 @@
       src: url('{{ "/assets/fonts/SourceSans3-VariableFont_wght.ttf" | prepend: site.baseurl }}') format('truetype-variations');
       font-weight: 100 900;
       font-style: normal;
-      font-display: swap;
+      font-display: block;
     }
     
     @font-face {
@@ -476,7 +476,7 @@
       src: url('{{ "/assets/fonts/SourceSans3-Italic-VariableFont_wght.ttf" | prepend: site.baseurl }}') format('truetype-variations');
       font-weight: 100 900;
       font-style: italic;
-      font-display: swap;
+      font-display: block;
     }
     
     /* Font definitions with CLS prevention */
@@ -514,6 +514,7 @@
       font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
     }
     
+    /* Critical CSS for LCP optimization */
     /* Prevent layout shifts with font loading */
     body, h1, h2, h3, h4, h5, h6, p, span, div {
       font-display: optional;
@@ -528,17 +529,113 @@
       line-height: 1.2;
     }
     
-    /* Prevent text reflow during font loading */
+    /* Critical LCP element styling */
     .c-archives__description {
       min-height: 1.6em;
+      font-size: 1rem;
+      margin: 0;
+      padding: 0;
+      display: block;
+      contain: layout style;
+    }
+    
+    /* Critical header styling */
+    .c-page__subtitle {
+      font-size: 2.7rem;
+      line-height: 1;
+      margin-bottom: 2.5rem;
+      max-width: 100%;
+      word-break: break-word;
+      font-weight: 700;
+      color: var(--color-ink);
+    }
+    
+    /* Critical navigation styling */
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    nav li {
+      margin: 0;
+    }
+    
+    /* Critical link styling */
+    a:not(.anchor) {
+      color: var(--color-accent);
+      background-color: transparent;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    a:not(.anchor):hover {
+      color: white;
+      background-color: var(--color-accent);
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+    
+    /* Critical grid styling */
+    .c-grid {
+      --cards-gap: 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--cards-gap);
+      align-items: stretch;
+      grid-auto-flow: row;
+    }
+    
+    @media screen and (min-width: 45rem) {
+      .c-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    /* Critical card styling */
+    .c-card {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      padding: 1.2rem;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+      min-height: var(--card-fixed-height);
+      height: var(--card-fixed-height);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    
+    .c-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+      border-color: rgba(0,0,0,0.08);
+    }
+    
+    .c-card h3 {
+      font-size: 1.3rem;
+      line-height: 1.2;
+      margin: 0;
+      color: var(--color-ink);
+    }
+    
+    .c-card p {
+      line-height: 30px;
+      font-size: 1rem;
+      color: var(--color-muted);
+      margin: 0;
+      margin-top: .25rem;
     }
   </style>
 
   <!-- Non-critical CSS loaded asynchronously -->
-  <link rel="preload" href="{{ "/css/main.css" | prepend: site.baseurl }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}"></noscript>
+  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
   
-  <!-- Font loading detection and fallback for CSS loading -->
+  <!-- Font loading detection -->
   <script>
     // Local font loading detection
     (function() {
@@ -563,16 +660,6 @@
         }, 100);
       }
     })();
-    
-    // Fallback for CSS loading
-    setTimeout(function() {
-      var links = document.querySelectorAll('link[rel="preload"][as="style"]');
-      links.forEach(function(link) {
-        if (link.rel !== 'stylesheet') {
-          link.rel = 'stylesheet';
-        }
-      });
-    }, 1000);
   </script>
   <!-- End of head -->
 </head>
