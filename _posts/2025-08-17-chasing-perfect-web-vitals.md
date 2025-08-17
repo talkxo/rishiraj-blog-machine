@@ -19,9 +19,9 @@ Turns out, very hard. After all the optimization and one complete weekend, my sc
 
 ## Endless Loop of LCP and CLS
 
-I started with what seemed like obvious wins. The commit history tells the story: "Fix Layout Shift & Improve Score," followed by "Performance Optimization," then "Fix Critical Issues," and eventually "Achieve 100/100/100/100" (spoiler: this was premature celebration).
+I started with what seemed like obvious wins. The commit history tells the story.
 
-The real nightmare was the loop between Largest Contentful Paint (LCP) and Cumulative Layout Shift (CLS). Fix one, break the other. Optimize font loading to improve LCP, but now fonts cause layout shifts. Presize elements to prevent CLS, but now initial paint is slower. Much credit to Claude Code for being a handy assistant and helping me understand what broke and where.
+The real nightmare was the loop between getting the Google's recommended order with Largest Contentful Paint (LCP) and Cumulative Layout Shift (CLS). Fix one, break the other. Optimize font loading to improve LCP, but now fonts cause layout shifts. Presize elements to prevent CLS, but now initial paint is slower. Much credit to Claude Code for being a handy assistant and helping me understand what broke and where.
 
 I've been thinking about this optimization process, and it revealed something fundamental: Web Vitals aren't really independent metrics. They're interconnected in ways that create optimization conflicts. Every performance improvement has trade-offs that PageSpeed Insights doesn't tell you about.
 
