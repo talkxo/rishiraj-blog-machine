@@ -12,7 +12,7 @@ writing_time:
 
 After years of building landing pages and lead gen campaigns, I've come to a sobering realization: forms remain the most frustrating part of web UX. Despite all our design system advances and component libraries, we're still fighting the same battles.
 
-The problem isn't just aesthetic—though yes, most forms are painfully ugly. The real issue is that forms exist at the intersection of user psychology, technical constraints, and business requirements. And that intersection is messy.
+The problem isn't just aesthetic - though yes, most forms are painfully ugly. The real issue is that forms exist at the intersection of user psychology, technical constraints, and business requirements. And that intersection is messy.
 
 ## The UX minefield
 
@@ -34,7 +34,7 @@ The worst part? Forms that convert well often look terrible, and beautiful forms
 
 ## What actually works
 
-After hundreds of form implementations, here's what I've learned works—not always, but often enough:
+After hundreds of form implementations, here's what I've learned works - not always, but often enough:
 
 **Keep it stupid simple.** Every field you remove improves conversion more than any design tweak ever will. That "company size" dropdown can wait until after they've signed up.
 
@@ -46,7 +46,7 @@ After hundreds of form implementations, here's what I've learned works—not alw
 
 ## The unfortunate truth
 
-The real issue with forms isn't technical—it's that they represent the exact moment when user and business interests diverge. Users want to give you as little information as possible; businesses want to collect everything they can. Users want speed; businesses want accuracy. Users want privacy; businesses want tracking.
+The real issue with forms isn't technical - it's that they represent the exact moment when user and business interests diverge. Users want to give you as little information as possible; businesses want to collect everything they can. Users want speed; businesses want accuracy. Users want privacy; businesses want tracking.
 
 Forms are the compromise nobody asked for, implemented by developers who know the technical constraints, designed by designers who understand visual hierarchy, and optimized by marketers who care about conversion rates. But rarely do all three perspectives align in a single implementation.
 

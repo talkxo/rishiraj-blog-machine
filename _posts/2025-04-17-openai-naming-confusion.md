@@ -11,7 +11,7 @@ writing_time:
   decorating: "3:00"
 ---
 
-OpenAI just dropped the o3 family today, and I'm starting to think they're trolling us. We have o3, o3-mini, and o3-pro. But wait—there's no o2 because of some British telecom trademark. So we're skipping numbers now?
+OpenAI just dropped the o3 family today, and I'm starting to think they're trolling us. We have o3, o3-mini, and o3-pro. But wait - there's no o2 because of some British telecom trademark. So we're skipping numbers now?
 
 Here's where it gets ridiculous: o3-mini launched in January, three months before o3 itself. That's like releasing the iPhone mini before announcing the iPhone exists.
 
@@ -23,4 +23,4 @@ The worst part? This actually matters when you're building applications. Is o3-m
 
 OpenAI went from the beautifully simple GPT-3, GPT-4 progression to whatever fever dream this has become. At this point, I'm expecting them to release GPT-π next, followed by GPT-√2-ultra-mini-pro.
 
-**Update (August 2025):** Plot twist—GPT-5 is actually called GPT-5. Sometimes the universe makes sense after all.
+**Update (August 2025):** Plot twist - GPT-5 is actually called GPT-5. Sometimes the universe makes sense after all.
