@@ -1,0 +1,29 @@
+---
+layout: page
+---
+
+<article class="c-article">
+  <header class="c-article__header">
+    <h1 class="c-article__title">{{ page.title }}</h1>
+  </header>
+
+  <div class="c-article__main">
+    <!-- First paragraph with photo -->
+    <div class="c-intro-section">
+      <div class="c-profile-section">
+        <img src="/assets/images/circle_400x400.jpg" alt="Rishi Raj" class="c-profile-photo">
+      </div>
+      <div class="c-intro-content">
+        <h3>Building things for the web since 2006</h3>
+        <p>Hi, my name is Rishi Raj and I'm a <strong>multi-disciplinary marketer</strong> from New Delhi, India. My expertise lies in strategic planning, content and communications, and creating effective team processes. I have been a planning leader to teams delivering award‑winning solutions for A‑list brands including Microsoft, OPPO, Jack Daniel's, Accor Hotels, MTV and Cargill Foods.</p>
+      </div>
+    </div>
+
+    <!-- Rest of content -->
+    <div class="c-remaining-content">
+      {% include anchors.html html=content %}
+    </div>
+  </div>
+
+  <footer class="c-article__footer"></footer>
+</article>

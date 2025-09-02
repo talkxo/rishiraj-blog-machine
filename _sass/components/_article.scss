@@ -385,33 +385,50 @@
 }
 
 /* ==========================================================================
-   Profile Photo Styling (About Page Specific)
+   Profile Photo Styling (About Page)
    ========================================================================== */
 
-.c-article__main .c-profile {
-  text-align: center;
-  margin: 1rem auto 2rem auto;
-  max-width: 100%;
+.c-intro-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 3rem;
   
-  .c-profile__photo {
-    width: 200px;
-    height: 200px;
+  @media screen and (max-width: 45rem) {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+.c-intro-content {
+  flex: 1;
+  
+  h3 {
+    margin-top: 0;
+  }
+}
+
+.c-profile-section {
+  flex-shrink: 0;
+  text-align: center;
+  
+  .c-profile-photo {
+    width: 135px; /* 75% of 180px */
+    height: 135px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--color-accent, #30bb96);
-    box-shadow: 0 6px 20px rgba(48, 187, 150, 0.12);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: block;
-    margin: 0 auto;
+    box-shadow: 0 4px 16px rgba(48, 187, 150, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     
     &:hover {
       transform: scale(1.02);
-      box-shadow: 0 8px 24px rgba(48, 187, 150, 0.2);
+      box-shadow: 0 6px 20px rgba(48, 187, 150, 0.25);
     }
     
     @media screen and (max-width: 45rem) {
-      width: 160px;
-      height: 160px;
+      width: 105px; /* 75% of 140px */
+      height: 105px;
       border-width: 2px;
     }
   }
