@@ -4,6 +4,10 @@ title: About
 permalink: /rishi-raj/
 ---
 
+<div class="c-profile">
+  <img src="/assets/images/circle_400x400.jpg" alt="Rishi Raj" class="c-profile__photo">
+</div>
+
 ### Building things for the web since 2006
 
 Hi, my name is Rishi Raj and I'm a **multi-disciplinary marketer** from New Delhi, India. My expertise lies in strategic planning, content and communications, and creating effective team processes. I have been a planning leader to teams delivering award‑winning solutions for A‑list brands including Microsoft, OPPO, Jack Daniel’s, Accor Hotels, MTV and Cargill Foods.
