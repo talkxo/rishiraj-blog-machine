@@ -14,71 +14,10 @@ permalink: /stuff/
      loading="lazy"
      style="width: 100%; height: auto; margin-bottom: 2rem;">
 
-<section class="c-grid" style="--card-fixed-height: 140px; --card-line-clamp: 2;">
-  <article class="c-card">
-    <div class="c-card__head">
-      <div class="c-card__icon">{% include icon.html name="monitor" %}</div>
-      <h3>Monitor</h3>
-    </div>
-    <p>LG UltraFine Display</p>
-  </article>  
-
-  <article class="c-card">
-    <div class="c-card__head">
-      <div class="c-card__icon">{% include icon.html name="laptop" %}</div>
-      <h3>Laptop</h3>
-    </div>
-    <p>Apple Macbook Pro 14" M4</p>
-  </article>
-
-  <article class="c-card">
-    <div class="c-card__head">
-      <div class="c-card__icon">{% include icon.html name="mouse" %}</div>
-      <h3>Mouse</h3>
-    </div>
-    <p>Logitech MX Master 2S</p>
-  </article>
-
-  <article class="c-card">
-    <div class="c-card__head">
-      <div class="c-card__icon">{% include icon.html name="desk" %}</div>
-      <h3>Desk</h3>
-    </div>
-    <p>Jin Office Electric Standing Desk</p>
-  </article>
-
-  <article class="c-card">
-    <div class="c-card__head">
-      <div class="c-card__icon">{% include icon.html name="gem" %}</div>
-      <h3>Chair</h3>
-    </div>
-    <p>Featherlite Liberate HB</p>
-  </article>
-
-  <article class="c-card">
-    <div class="c-card__head">
-      <div class="c-card__icon">{% include icon.html name="speaker" %}</div>
-      <h3>Speaker</h3>
-    </div>
-    <p>Sonos Era 100</p>
-  </article>
-
-  <article class="c-card">
-    <div class="c-card__head">
-      <div class="c-card__icon">{% include icon.html name="lamp" %}</div>
-      <h3>Lamp</h3>
-    </div>
-    <p>Ikea TÅGARP</p>
-  </article>
-
-  <article class="c-card">
-    <div class="c-card__head">
-      <div class="c-card__icon">{% include icon.html name="webcam" %}</div>
-      <h3>Webcam</h3>
-    </div>
-    <p>iPhone 13 Mini (Continuity Camera)</p>
-  </article>
-</section>
+<div class="c-setup-summary" style="background: rgba(0, 163, 108, 0.08); border-radius: 12px; padding: 2rem; margin-bottom: 3rem;">
+  <h3 style="margin-top: 0; color: var(--color-ink);">My current setup</h3>
+  <p style="margin-bottom: 0; line-height: 1.8;">I work on a <strong>LG UltraFine Display</strong> with my <strong>Apple Macbook Pro 14" M4</strong>, using a <strong>Logitech MX Master 2S</strong> mouse on a <strong>Jin Office Electric Standing Desk</strong>. My chair is the <strong>Featherlite Liberate HB</strong>, and I have a <strong>Sonos Era 100</strong> speaker for audio. The desk is lit by an <strong>Ikea TÅGARP</strong> lamp, and I use my <strong>iPhone 13 Mini</strong> as a webcam via Continuity Camera.</p>
+</div>
 
 <hr>
 
