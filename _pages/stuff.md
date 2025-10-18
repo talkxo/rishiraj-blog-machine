@@ -28,7 +28,7 @@ permalink: /stuff/
       <div class="c-card__icon">{% include icon.html name="laptop" %}</div>
       <h3>Laptop</h3>
     </div>
-    <p>Apple Macbook Pro 13" (2019 Intel)</p>
+    <p>Apple Macbook Pro 14" M4 Max</p>
   </article>
 
   <article class="c-card">
@@ -170,6 +170,13 @@ permalink: /stuff/
 
 <h2 class="c-archives__year">Archived</h2>
 <section class="c-sessions">
+  <article class="c-session">
+    <div class="c-session__icon">{% include icon.html name="laptop" %}</div>
+    <div class="c-session__content">
+      <h3>Apple Macbook Pro 13" (2019 Intel)</h3>
+      <p>Retired 2025</p>
+    </div>
+  </article>
   <article class="c-session">
     <div class="c-session__icon">{% include icon.html name="laptop" %}</div>
     <div class="c-session__content">
