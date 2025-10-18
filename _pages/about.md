@@ -10,7 +10,7 @@ I run a digital services company called [TalkXO](https://hello.talkxo.com). I wo
 
 In my previous avatars, I have been …
 
-- a **senior director** at a leading independent agency, where I participated in the 0‑1 journey
+- a **senior director** at a leading independent agency (0-1)
 - an app development and sales executive
 - a freelancer offering SEO and content marketing services
 - a **UI + graphics designer** at a leading messaging company
