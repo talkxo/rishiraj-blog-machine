@@ -96,19 +96,20 @@ svg {
   text-align: center;
 }
 
-/* Links */
+/* Links - Medium-style subtle underlines */
 
 a:not(.anchor) {
     color: $c-base__03;
     background-color: transparent;
-    text-decoration: none;
-    transition: all 0.3s ease;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    transition: all 0.2s ease;
 
     &:hover {
-        color: white;
-        background-color: $c-base__03;
-        padding: 2px 4px;
-        border-radius: 3px;
+        color: $c-base__03;
+        text-decoration-thickness: 2px;
+        background-color: transparent;
     }
 }
 

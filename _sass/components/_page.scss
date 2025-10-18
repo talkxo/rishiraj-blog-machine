@@ -12,12 +12,17 @@
 
 .c-page__header {
     margin-bottom: 7rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 2rem;
 
     h1 {
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
         @include fs--heading-2;
         color: var(--color-ink, #163541);
         letter-spacing: -0.01em;
+        font-family: 'Inter', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 600;
     }
 
     nav {
@@ -101,9 +106,54 @@
     50% { transform: scale(1.1); }
 }
 
+@media screen and (max-width: 768px) {
+    .c-page__subtitle {
+        font-size: 2.25rem;
+        line-height: 1.2;
+    }
+    
+    .c-page__header {
+        h1 {
+            font-size: 1.25rem;
+        }
+    }
+}
+
 @media screen and (max-width: 500px) {
     .c-page__subtitle {
-        font-size: 1.8em;
+        font-size: 2rem;
+    }
+}
+
+/* Hero Section - pstam.com inspired */
+.c-hero-section {
+    margin-bottom: 5rem;
+    padding: 2rem 0;
+    
+    @media screen and (max-width: 768px) {
+        margin-bottom: 3rem;
+        padding: 1rem 0;
+    }
+}
+
+.c-hero-content {
+    max-width: 100%;
+}
+
+.c-hero-intro {
+    font-family: 'Lora', serif;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: var(--color-text);
+    margin: 0;
+    font-weight: 400;
+    
+    @media screen and (max-width: 768px) {
+        font-size: 1.25rem;
+    }
+    
+    @media screen and (max-width: 500px) {
+        font-size: 1.15rem;
     }
 }
 
@@ -112,7 +162,7 @@
     @include fs--body;
     color: var(--color-muted);
     margin-bottom: 2rem;
-    line-height: 1.6;
+    line-height: 1.58;
     
     a {
         color: var(--color-accent);

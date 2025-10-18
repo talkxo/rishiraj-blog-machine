@@ -42,14 +42,18 @@ header code {
   letter-spacing: -0.01em;
 }
 
-/* Navigation styling */
+/* Navigation styling - pstam.com inspired */
+nav {
+  font-family: 'Inter', sans-serif;
+}
+
 nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 nav li {
@@ -57,19 +61,23 @@ nav li {
 }
 
 nav a {
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  transition: all 0.2s ease;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  transition: all 0.15s ease;
   font-weight: 500;
+  font-size: 15px;
+  color: var(--color-muted);
   
   &:hover {
-    background: var(--color-border);
+    background: transparent;
     color: var(--color-ink);
+    padding: 0.4rem 0.8rem;
   }
   
   &[aria-current="page"] {
-    background: var(--color-accent);
-    color: var(--link-hover-text);
+    background: transparent;
+    color: var(--color-ink);
+    font-weight: 600;
   }
 }
 

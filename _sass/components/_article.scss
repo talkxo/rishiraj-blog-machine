@@ -8,6 +8,10 @@
 
 .c-article__header {
     margin-bottom: 3rem;
+    
+    @media screen and (max-width: 768px) {
+        margin-bottom: 2rem;
+    }
     @media screen and (min-width: $bp__sm) {
         display: -webkit-box;
         display: -webkit-flex;
@@ -51,22 +55,34 @@
 .c-article__main {
     @include fs--body;
 
-    font-size: 1.1rem;
-    margin-bottom: 3rem; // 50px
-    color: var(--color-text, #404040);
+    font-size: 21px;
+    margin-bottom: 4rem;
+    color: #333;
+    
+    @media screen and (max-width: 768px) {
+        font-size: 19px;
+    }
+    
+    @media screen and (max-width: 500px) {
+        font-size: 18px;
+    }
 
     h2 {
         @include fs--heading-2;
-        margin: 2em 0 0.5em;
+        margin: 2em 0 0.75em;
+        font-family: 'Inter', sans-serif;
     }
 
     h3 {
         @include fs--heading-3;
-        margin: 1em 0 0.5em;
+        margin: 1.5em 0 0.75em;
+        font-family: 'Inter', sans-serif;
     }
 
     h4 {
         @include fs--heading-4;
+        margin: 1.5em 0 0.5em;
+        font-family: 'Inter', sans-serif;
     }
 
     h5 {
@@ -136,7 +152,12 @@
     table,
     code,
     div.highlighter-rouge {
-        margin-bottom: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    p {
+        margin-bottom: 1.75rem;
+        line-height: 1.58;
     }
 
     :not(pre) > code {
