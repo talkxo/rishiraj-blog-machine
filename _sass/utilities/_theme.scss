@@ -42,43 +42,18 @@ header code {
   letter-spacing: -0.01em;
 }
 
-/* Navigation styling - pstam.com inspired */
-nav {
-  font-family: 'Inter', sans-serif;
-}
-
+/* Navigation styling */
 nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 nav li {
   margin: 0;
-}
-
-nav a {
-  padding: 0.4rem 0.8rem;
-  border-radius: 6px;
-  transition: all 0.15s ease;
-  font-weight: 500;
-  font-size: 15px;
-  color: var(--color-muted);
-  
-  &:hover {
-    background: transparent;
-    color: var(--color-ink);
-    padding: 0.4rem 0.8rem;
-  }
-  
-  &[aria-current="page"] {
-    background: transparent;
-    color: var(--color-ink);
-    font-weight: 600;
-  }
 }
 
 /* Focus indicators for better accessibility */

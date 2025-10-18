@@ -3,7 +3,7 @@
    ========================================================================== */
 
 .c-archives {
-    margin-bottom: 12rem;
+    margin-bottom: 10rem;
 }
 
 .c-summary {
@@ -12,10 +12,9 @@
 }
 
 .c-archives__year {
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
     @include fs--heading-2;
     color: var(--color-ink, #163541);
-    letter-spacing: -0.01em;
 }
 
 .c-archives__list {
@@ -24,14 +23,9 @@
 }
 
 .c-archives__item {
-    padding-top: 3.5rem;
-    padding-bottom: 3.5rem;
-    border-top: 1px solid var(--color-border);
-    
-    &:first-child {
-        border-top: none;
-        padding-top: 0;
-    }
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-top: 1px solid #EFF1F3;
 
     @media screen and (min-width: $bp__sm) {
         display: -webkit-box;
@@ -54,13 +48,10 @@
     }
 
     h3 {
-        font-family: 'Inter', sans-serif;
-        font-weight: 700;
+        font-weight: 800;
         text-rendering: optimizeLegibility;
-        font-size: 1.75rem; // 28px
-        line-height: 1.25;
-        letter-spacing: -0.02em;
-        margin-bottom: 0.75rem;
+        font-size: 30px;
+        line-height: 1.1;
 
         small {
           font-weight: normal;
@@ -70,42 +61,20 @@
 
     p {
         @include fs--body;
-        color: var(--color-muted, #515862);
-        font-size: 18px;
-        line-height: 1.58;
-        font-family: 'Lora', serif;
+        color: var(--color-text, #515862);
 
         small {
             margin: 0;
             text-transform: lowercase;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            color: var(--color-muted);
 
             + small {
-                margin-left: 1.25rem;
+                margin-left: 1rem;
             }
         }
-    }
-    
-    .c-archives__description {
-        margin-top: 1rem;
-        font-family: 'Lora', serif;
-        font-size: 18px;
-        line-height: 1.58;
-        color: var(--color-text);
     }
 
     a {
         text-transform: capitalize;
-        transition: color 0.2s ease;
-        
-        &:hover {
-            h3 {
-                color: var(--color-accent);
-                transition: color 0.2s ease;
-            }
-        }
     }
 }
 

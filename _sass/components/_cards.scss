@@ -3,17 +3,15 @@
    ========================================================================== */
 
 .c-grid {
-  --cards-gap: 2rem;
+  --cards-gap: 1.5rem;
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--cards-gap);
   align-items: stretch;
   grid-auto-flow: row;
-  margin-bottom: 3rem;
 
   @media screen and (min-width: $bp__sm) {
     grid-template-columns: 1fr 1fr;
-    --cards-gap: 2.5rem;
   }
 }
 
@@ -86,10 +84,10 @@
 .c-card {
   background: var(--color-bg);
   border: 1px solid var(--color-border);
-  border-radius: 16px;
-  padding: 1.5rem;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.2s ease;
+  border-radius: 14px;
+  padding: 1.2rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
   min-height: var(--card-fixed-height);
   height: var(--card-fixed-height);
   display: flex;
@@ -97,32 +95,26 @@
   justify-content: flex-start;
 
   &:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+    border-color: rgba(0,0,0,0.08);
   }
 
   h3 {
     @include fs--heading-3;
     margin: 0;
     color: var(--color-ink);
-    font-family: 'Inter', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 600;
   }
 
   p {
     @include fs--body;
     color: var(--color-muted);
     margin: 0;
-    margin-top: .5rem;
+    margin-top: .25rem;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: var(--card-line-clamp, 3);
     -webkit-box-orient: vertical;
-    font-family: 'Lora', serif;
-    font-size: 16px;
-    line-height: 1.5;
   }
 }
 
@@ -135,16 +127,15 @@
 }
 
 .c-card__icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
   display: grid;
   place-items: center;
-  background: rgba(0,163,108,0.1);
+  background: rgba(48,187,150,0.12);
   color: var(--color-accent);
   flex: 0 0 auto;
-  transition: all 0.2s ease;
-  svg { width: 24px; height: 24px; }
+  svg { width: 22px; height: 22px; }
 }
 
 .c-card--archived {
