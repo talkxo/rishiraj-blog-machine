@@ -70,40 +70,7 @@ permalink: /stuff/
 <hr>
 
 <h2 class="c-archives__year">Softwares</h2>
-<section class="c-grid" style="--card-fixed-height: 120px; --card-line-clamp: 2;">
-  <article class="c-card">
-    <div class="c-card__head"><div class="c-card__icon">{% include icon.html name="globe" %}</div><h3>Browser</h3></div>
-    <p>Mozilla Firefox</p>
-  </article>
-  <article class="c-card">
-    <div class="c-card__head"><div class="c-card__icon">{% include icon.html name="mail" %}</div><h3>Email</h3></div>
-    <p>Shortwave / Gmail</p>
-  </article>
-  <article class="c-card">
-    <div class="c-card__head"><div class="c-card__icon">{% include icon.html name="calendar" %}</div><h3>Calendar</h3></div>
-    <p>Google Calendar</p>
-  </article>
-  <article class="c-card">
-    <div class="c-card__head"><div class="c-card__icon">{% include icon.html name="box" %}</div><h3>Projects</h3></div>
-    <p>Basecamp</p>
-  </article>
-  <article class="c-card">
-    <div class="c-card__head"><div class="c-card__icon">{% include icon.html name="gem" %}</div><h3>AI Assistant</h3></div>
-    <p>Perplexity AI, ChatGPT, Claude</p>
-  </article>
-  <article class="c-card">
-    <div class="c-card__head"><div class="c-card__icon">{% include icon.html name="type" %}</div><h3>IDE</h3></div>
-    <p>Cursor</p>
-  </article>
-  <article class="c-card">
-    <div class="c-card__head"><div class="c-card__icon">{% include icon.html name="note" %}</div><h3>Notes</h3></div>
-    <p>Bear</p>
-  </article>
-  <article class="c-card">
-    <div class="c-card__head"><div class="c-card__icon">{% include icon.html name="file" %}</div><h3>To-Dos</h3></div>
-    <p>TeuxDeux</p>
-  </article>
-</section>
+<p style="line-height: 1.8; margin-bottom: 3rem;">For browsing, I use <strong>Mozilla Firefox</strong>. My email is managed through <strong>Shortwave</strong> and <strong>Gmail</strong>, while <strong>Google Calendar</strong> keeps my schedule organized. I manage projects with <strong>Basecamp</strong> and rely on <strong>Perplexity AI</strong>, <strong>ChatGPT</strong>, and <strong>Claude</strong> as AI assistants. My code editor of choice is <strong>Cursor</strong>, I take notes in <strong>Bear</strong>, and handle my to-dos with <strong>TeuxDeux</strong>.</p>
 
 <hr>
 
