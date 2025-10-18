@@ -4,6 +4,8 @@
 
 .c-page__subtitle {
     @include fs--heading-1;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 500; /* Medium */
     margin-bottom: 2.5rem; // 25px
     max-width: 100%;
     word-break: break-word;
@@ -15,6 +17,8 @@
     h1 {
         margin-bottom: 2.5rem; // 25px
         @include fs--heading-2;
+        font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-weight: 500; /* Medium */
         color: var(--color-ink, #163541);
     }
 

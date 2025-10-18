@@ -14,14 +14,14 @@
     }
 }
 
-// Font families - local fonts
+// Font families - DM Sans
 @mixin ff--sans-serif($font-weight: normal) {
-  font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-weight: $font-weight;
 }
 
 @mixin ff--serif($font-weight: normal) {
-    font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-weight: $font-weight;
     color: var(--color-text, #404040);
 }
