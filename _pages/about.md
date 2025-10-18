@@ -12,7 +12,7 @@ In my previous avatars, I have been …
 
 - a **senior director** at a leading independent agency (0-1)
 - an app development and sales executive
-- a freelancer offering SEO and content marketing services
+- a freelancer offering SEO services
 - a **UI + graphics designer** at a leading messaging company
 - a **web publisher** of a popular tech blog (sold)
 
