@@ -34,7 +34,6 @@
   
   &__intro {
     @include fs--body;
-    font-size: 1.1rem;
     line-height: 1.6;
     color: var(--color-text);
     margin: 0;
@@ -76,7 +75,6 @@
   &__label {
     @include fs--body;
     color: var(--color-muted);
-    font-size: 0.85rem;
     font-weight: 500;
   }
 }
@@ -164,7 +162,6 @@
       @include fs--body;
       color: var(--color-muted);
       margin: 0;
-      font-size: 0.95rem;
     }
   }
 }

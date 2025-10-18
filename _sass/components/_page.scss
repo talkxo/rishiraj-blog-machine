@@ -63,7 +63,6 @@
     .location {
         @include fs--body;
         color: var(--color-muted);
-        font-size: 0.9rem;
         
         a {
             color: var(--color-accent);
