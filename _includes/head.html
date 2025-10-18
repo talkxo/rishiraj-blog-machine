@@ -434,11 +434,9 @@
   
   <!-- DNS prefetch for external domains -->
   
-  <!-- Google Fonts - DM Sans -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"></noscript>
+  <!-- Local Fonts - Optimized for CLS prevention -->
+  <link rel="preload" href="{{ "/assets/fonts/SourceSans3-VariableFont_wght.ttf" | prepend: site.baseurl }}" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="{{ "/assets/fonts/SourceSans3-Italic-VariableFont_wght.ttf" | prepend: site.baseurl }}" as="font" type="font/ttf" crossorigin>
   
   <style>
     /* Critical CSS for LCP/CLS optimization */
@@ -464,42 +462,26 @@
       --link-hover-text: #ffffff;
     }
     
-    /* DM Sans Font Declarations */
+    /* Local Font Declarations */
     @font-face {
-      font-family: 'DM Sans';
-      src: url('https://fonts.gstatic.com/s/dmsans/v14/rP2tp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-J2j0RND4.woff2') format('woff2');
-      font-weight: 400;
+      font-family: 'Source Sans 3';
+      src: url('{{ "/assets/fonts/SourceSans3-VariableFont_wght.ttf" | prepend: site.baseurl }}') format('truetype-variations');
+      font-weight: 100 900;
       font-style: normal;
-      font-display: swap;
+      font-display: block;
     }
     
     @font-face {
-      font-family: 'DM Sans';
-      src: url('https://fonts.gstatic.com/s/dmsans/v14/rP2tp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-J2j0RND4.woff2') format('woff2');
-      font-weight: 500;
-      font-style: normal;
-      font-display: swap;
-    }
-    
-    @font-face {
-      font-family: 'DM Sans';
-      src: url('https://fonts.gstatic.com/s/dmsans/v14/rP2tp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-J2j0RND4.woff2') format('woff2');
-      font-weight: 600;
-      font-style: normal;
-      font-display: swap;
-    }
-    
-    @font-face {
-      font-family: 'DM Sans';
-      src: url('https://fonts.gstatic.com/s/dmsans/v14/rP2tp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-J2j0RND4.woff2') format('woff2');
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap;
+      font-family: 'Source Sans 3';
+      src: url('{{ "/assets/fonts/SourceSans3-Italic-VariableFont_wght.ttf" | prepend: site.baseurl }}') format('truetype-variations');
+      font-weight: 100 900;
+      font-style: italic;
+      font-display: block;
     }
     
     /* Font definitions with CLS prevention */
     body {
-      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       margin: 0;
       padding: 0;
       background: var(--color-bg);
@@ -521,7 +503,7 @@
     
     /* Critical content area */
     .c-archives__description {
-      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       line-height: 1.6;
       color: var(--color-text);
       contain: layout style;
@@ -658,10 +640,10 @@
     // Local font loading detection
     (function() {
       if ('fonts' in document) {
-        // Load DM Sans font
+        // Load Source Sans 3 variable font
         var fontPromises = [
-          document.fonts.load('400 16px "DM Sans"'),
-          document.fonts.load('700 16px "DM Sans"')
+          document.fonts.load('400 16px "Source Sans 3"'),
+          document.fonts.load('700 16px "Source Sans 3"')
         ];
         
         // Mark fonts as loaded when ready
