@@ -3,35 +3,43 @@
    ========================================================================== */
 
 :root {
-  --color-bg: #ffffff;
-  --color-text: #0f0f0f; /* Even darker for better contrast (4.5:1 ratio) */
-  --color-muted: #374151; /* Darker for better contrast (4.5:1 ratio) */
-  --color-ink: #000000; /* Pure black for maximum contrast */
-  --color-border: #e5e7eb;
-  --color-accent: #00A36C; /* New green color */
-  --code-bg: rgba(27,31,35,.05);
-  --link-hover-text: #ffffff; /* white on accent in light mode */
-  --card-fixed-height: 180px; /* default fixed card height for uniform grids */
+  --color-bg: #fefefe;
+  --color-text: #1a1a1a; /* Softer black for reduced eye strain */
+  --color-muted: #4a5568; /* Better contrast while being easier on eyes */
+  --color-ink: #0a0a0a; /* Deep black for headings */
+  --color-border: #e2e8f0; /* Softer border color */
+  --color-accent: #00A36C; /* Maintained green accent */
+  --code-bg: rgba(27,31,35,.08);
+  --link-hover-text: #ffffff;
+  --card-fixed-height: 180px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
 }
 
 html[data-theme="dark"] {
-  --color-bg: #0b0f14;
-  --color-text: #f9fafb; /* Lighter for better contrast */
-  --color-muted: #d1d5db; /* Lighter for better contrast */
-  --color-ink: #ffffff; /* Pure white for maximum contrast */
-  --color-border: #273241;
-  --color-accent: #00A36C; /* Same green color for consistency */
-  --code-bg: rgba(240,246,252,0.05);
-  --link-hover-text: #ffffff; /* white on accent in dark mode */
+  --color-bg: #0f1419;
+  --color-text: #e2e8f0; /* Warmer light color */
+  --color-muted: #94a3b8; /* Softer muted text */
+  --color-ink: #f1f5f9; /* Warmer white for headings */
+  --color-border: #334155; /* Softer border */
+  --color-accent: #00A36C; /* Same green accent */
+  --code-bg: rgba(240,246,252,0.08);
+  --link-hover-text: #ffffff;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.4);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.5);
 }
 
 /* Header code color chip should adapt */
 header code {
-  color: #ffffff; /* White text on green background for better contrast */
+  color: #ffffff;
   background: var(--color-accent);
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
   font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
 }
 
 /* Navigation styling */
@@ -41,11 +49,28 @@ nav ul {
   padding: 0;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 nav li {
   margin: 0;
+}
+
+nav a {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  
+  &:hover {
+    background: var(--color-border);
+    color: var(--color-ink);
+  }
+  
+  &[aria-current="page"] {
+    background: var(--color-accent);
+    color: var(--link-hover-text);
+  }
 }
 
 /* Focus indicators for better accessibility */

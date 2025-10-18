@@ -3,7 +3,7 @@
    ========================================================================== */
 
 .c-archives {
-    margin-bottom: 10rem;
+    margin-bottom: 12rem;
 }
 
 .c-summary {
@@ -12,9 +12,10 @@
 }
 
 .c-archives__year {
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
     @include fs--heading-2;
     color: var(--color-ink, #163541);
+    letter-spacing: -0.01em;
 }
 
 .c-archives__list {
@@ -23,9 +24,9 @@
 }
 
 .c-archives__item {
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
-    border-top: 1px solid #EFF1F3;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    border-top: 1px solid var(--color-border);
 
     @media screen and (min-width: $bp__sm) {
         display: -webkit-box;

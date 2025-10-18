@@ -14,14 +14,14 @@
     }
 }
 
-// Font families - local fonts
+// Font families - DM Sans
 @mixin ff--sans-serif($font-weight: normal) {
-  font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-weight: $font-weight;
 }
 
 @mixin ff--serif($font-weight: normal) {
-    font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-weight: $font-weight;
     color: var(--color-text, #404040);
 }
@@ -30,30 +30,35 @@
     font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
 }
 
-// Font sizing
+// Font sizing - Enhanced typography scale
 @mixin fs--heading-1 {
-    line-height: 1;
-    font-size: 2.7rem;
+    line-height: 1.1;
+    font-size: 2.8rem;
+    font-weight: 700;
 }
 
 @mixin fs--heading-2 {
-    line-height: 1.2;
-    font-size: 1.7rem;
+    line-height: 1.25;
+    font-size: 1.8rem;
+    font-weight: 600;
 }
 
 @mixin fs--heading-3 {
-    line-height: 1.2;
-    font-size: 1.3rem;
+    line-height: 1.3;
+    font-size: 1.4rem;
+    font-weight: 600;
 }
 
 @mixin fs--heading-4 {
-    line-height: 1.2;
-    font-size: 1.1rem;
+    line-height: 1.35;
+    font-size: 1.15rem;
+    font-weight: 500;
 }
 
 @mixin fs--body {
-    line-height: 30px;
-    font-size: 1rem;
+    line-height: 1.65;
+    font-size: 1.15rem;
+    font-weight: 400;
 }
 
 @mixin fs--meta {
