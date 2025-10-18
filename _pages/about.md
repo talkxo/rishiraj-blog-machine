@@ -14,7 +14,7 @@ In my previous avatars, I have been …
 - an app development and sales executive
 - a freelancer offering SEO and content marketing services
 - a **UI + graphics designer** at a leading messaging company
-- a **web publisher** of a popular tech blog (later sold)
+- a **web publisher** of a popular tech blog (sold)
 
 ### Around here
 
