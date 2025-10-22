@@ -1,0 +1,99 @@
+<header class="c-page__header">
+  <h1><code>{{ site.title }}</code></h1>
+
+  {% if page.title == nil %}
+  <h2 class="c-page__subtitle">{{ site.description }}</h2>
+  {% endif %}
+
+  <nav role="navigation" aria-label="Main navigation">
+    <ul role="menubar" aria-label="Main navigation menu">
+      <li role="none">
+        <a href="{{ "/" | prepend: site.baseurl }}" 
+           role="menuitem" 
+           aria-current="{% if page.url == '/' %}page{% endif %}"
+           tabindex="0">
+          Blog
+        </a>
+      </li>
+
+      <li role="none">
+        <a href="{{ "/rishi-raj/" | prepend: site.baseurl }}" 
+           role="menuitem" 
+           aria-current="{% if page.url == '/rishi-raj/' %}page{% endif %}"
+           tabindex="0">
+          About
+        </a>
+      </li>
+
+      <li role="none">
+        <a href="{{ "/stuff/" | prepend: site.baseurl }}" 
+           role="menuitem" 
+           aria-current="{% if page.url == '/stuff/' %}page{% endif %}"
+           tabindex="0">
+          Stuff
+        </a>
+      </li>
+
+      <li role="none">
+        <a href="{{ "/colophon/" | prepend: site.baseurl }}" 
+           role="menuitem" 
+           aria-current="{% if page.url == '/colophon/' %}page{% endif %}"
+           tabindex="0">
+          Colophon
+        </a>
+      </li>
+    </ul>
+
+    <button id="theme-toggle" 
+            aria-label="Toggle dark and light theme" 
+            aria-pressed="false"
+            class="no-hov" 
+            style="background:none;border:0;cursor:pointer;padding:5px;">
+      <span aria-hidden="true">🌓</span>
+      <span class="sr-only">Toggle theme</span>
+    </button>
+  </nav>
+</header>
+
+<script>
+  (function() {
+    try {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (!stored) {
+        document.documentElement.dataset.theme = prefersDark ? 'dark' : 'light';
+      } else {
+        document.documentElement.dataset.theme = stored;
+      }
+    } catch (e) {}
+  })();
+  document.addEventListener('DOMContentLoaded', function() {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    
+    // Update aria-pressed state
+    function updateAriaPressed() {
+      var isDark = document.documentElement.dataset.theme === 'dark';
+      btn.setAttribute('aria-pressed', isDark);
+    }
+    
+    // Initialize aria-pressed
+    updateAriaPressed();
+    
+    btn.addEventListener('click', function() {
+      var current = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+      var next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      updateAriaPressed();
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+    
+    // Handle keyboard navigation
+    btn.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        btn.click();
+      }
+    });
+  });
+</script>

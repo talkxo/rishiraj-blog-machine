@@ -1,0 +1,42 @@
+/* ==========================================================================
+   Colophon Helpers
+   ========================================================================== */
+
+.c-swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0 2rem;
+}
+
+.c-swatch {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: .75rem;
+}
+
+.c-swatch__chip {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+}
+
+.c-swatch__label {
+  @include fs--body;
+  margin: 0;
+}
+
+.c-fontspecimen {
+  margin: 1.5rem 0 2rem;
+}
+.c-fontspecimen h1,
+.c-fontspecimen h2,
+.c-fontspecimen p { margin-bottom: .5rem; }
+
+.c-stack-note { color: var(--color-muted); }
+
+

@@ -16,7 +16,7 @@ permalink: /stuff/
 
 <div class="c-setup-summary" style="background: rgba(0, 163, 108, 0.08); border-radius: 12px; padding: 2rem; margin-bottom: 3rem;">
   <h3 style="margin-top: 0 !important; margin-bottom: 1.25rem !important; color: var(--color-accent) !important; font-weight: 500 !important;">My current setup</h3>
-  <p style="margin-bottom: 0; line-height: 1.8; font-weight: 200;">I work on a <strong>LG UltraFine Display</strong> with my <strong>Apple Macbook Pro 14" M4</strong>, using a <strong>Logitech MX Master 2S</strong> mouse on a <strong>Jin Office Electric Standing Desk</strong>. My chair is the <strong>Featherlite Liberate HB</strong>, and I have a <strong>Sonos Era 100</strong> speaker for audio. The desk is lit by an <strong>Ikea TÅGARP</strong> lamp, and I use my <strong>iPhone 13 Mini</strong> as a webcam via Continuity Camera.</p>
+  <p style="margin-bottom: 0; line-height: 1.8; font-weight: 200;">I work on a <strong>LG UltraFine Display</strong> with my <strong>Apple Macbook Pro 14" M4</strong>, using a <strong>Logitech MX Master 2S</strong> mouse on a <strong>Jin Office Electric Standing Desk</strong>. My chair is the <strong>Featherlite Liberate</strong> and the desk is a self-assembled electric standing desk, lit by an <strong>Ikea TÅGARP</strong> lamp.</p>
 </div>
 
 <hr>

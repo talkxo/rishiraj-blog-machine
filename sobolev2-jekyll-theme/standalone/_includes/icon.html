@@ -1,0 +1,110 @@
+{% comment %}
+Inline SVG icon include
+Usage: {% include icon.html name="monitor" %}
+Icons are stroke-based, inherit currentColor.
+{% endcomment %}
+
+{% assign n = include.name | downcase %}
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+{% case n %}
+{% when 'monitor' %}
+  <rect x="3" y="4" width="18" height="12" rx="2"/>
+  <line x1="12" y1="16" x2="12" y2="20"/>
+  <line x1="8" y1="20" x2="16" y2="20"/>
+{% when 'laptop' %}
+  <rect x="4" y="5" width="16" height="10" rx="2"/>
+  <path d="M2 19h20"/>
+{% when 'desk' %}
+  <rect x="4" y="8" width="16" height="2"/>
+  <path d="M6 10v6M18 10v6M10 10v3M14 10v3"/>
+{% when 'keyboard' %}
+  <rect x="3" y="9" width="18" height="6" rx="2"/>
+  <path d="M4 12h1M6 12h1M8 12h1M10 12h1M12 12h1M14 12h1M16 12h1M18 12h1"/>
+{% when 'device' %}
+  <rect x="7" y="4" width="10" height="16" rx="2"/>
+  <circle cx="12" cy="18" r="1"/>
+{% when 'headphones' %}
+  <path d="M4 13a8 8 0 0116 0"/>
+  <path d="M5 13v5a2 2 0 002 2h2v-7H7a2 2 0 00-2 2m12-2h2a2 2 0 012 2v5a2 2 0 01-2 2h-2v-7z"/>
+{% when 'camera' %}
+  <rect x="4" y="7" width="16" height="12" rx="2"/>
+  <circle cx="12" cy="13" r="3"/>
+  <rect x="8" y="4" width="3" height="3"/>
+{% when 'toolbox' %}
+  <rect x="3" y="8" width="18" height="10" rx="2"/>
+  <path d="M9 8V6h6v2M3 12h18"/>
+{% when 'mail' %}
+  <rect x="3" y="6" width="18" height="12" rx="2"/>
+  <path d="M3 8l9 6 9-6"/>
+{% when 'calendar' %}
+  <rect x="4" y="6" width="16" height="14" rx="2"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="4" y1="10" x2="20" y2="10"/>
+{% when 'note' %}
+  <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12V8z"/>
+  <path d="M14 2v6h6"/>
+{% when 'globe' %}
+  <circle cx="12" cy="12" r="9"/>
+  <path d="M3 12h18"/>
+  <path d="M12 3c2.5 3 2.5 15 0 18c-2.5-3-2.5-15 0-18z"/>
+{% when 'box' %}
+  <path d="M21 16V8l-9-5-9 5v8l9 5 9-5z"/>
+  <path d="M12 3v18M3 8l9 5 9-5"/>
+{% when 'type' %}
+  <path d="M4 20h4l2-6h4l2 6h4"/>
+  <path d="M9 14l3-8 3 8"/>
+{% when 'share' %}
+  <circle cx="18" cy="5" r="3"/>
+  <circle cx="6" cy="12" r="3"/>
+  <circle cx="18" cy="19" r="3"/>
+  <path d="M8.6 13.5l6.8 3M15.4 7.5L8.6 11"/>
+{% when 'gem' %}
+  <polygon points="12 2,3 9,9 22,15 22,21 9"/>
+  <polyline points="3 9 12 9 21 9"/>
+  <polyline points="12 2 9 9 12 22 15 9 12 2"/>
+{% when 'file' %}
+  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12V8z"/>
+  <path d="M14 2v6h6"/>
+  <path d="M8 13h8M8 17h5"/>
+{% when 'branch' %}
+  <circle cx="6" cy="4" r="2"/>
+  <circle cx="6" cy="20" r="2"/>
+  <circle cx="18" cy="12" r="2"/>
+  <path d="M8 5c8 0 8 6 8 6M8 19v-8"/>
+{% when 'server' %}
+  <rect x="3" y="4" width="18" height="6" rx="2"/>
+  <rect x="3" y="14" width="18" height="6" rx="2"/>
+  <path d="M7 7h.01M7 17h.01"/>
+{% when 'speaker' %}
+  <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+  <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+{% when 'watch' %}
+  <circle cx="12" cy="12" r="7"/>
+  <polyline points="12,9 12,12 13.5,13.5"/>
+  <path d="M7 2.3l2 1.4"/>
+  <path d="M17 2.3l-2 1.4"/>
+  <path d="M7 21.7l2-1.4"/>
+  <path d="M17 21.7l-2-1.4"/>
+{% when 'tablet' %}
+  <rect x="4" y="2" width="16" height="20" rx="2" ry="2"/>
+  <line x1="12" y1="18" x2="12" y2="18"/>
+{% when 'book' %}
+  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+{% when 'mouse' %}
+  <rect x="2" y="6" width="20" height="12" rx="2"/>
+  <path d="M12 12h.01"/>
+{% when 'lamp' %}
+  <path d="M9 21h6"/>
+  <path d="M10 21l4-9 4 9"/>
+  <path d="M5.5 9a7 7 0 0 1 13 0"/>
+{% when 'webcam' %}
+  <path d="M23 7a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h18a2 2 0 0 1 2 2z"/>
+  <path d="M23 7v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7"/>
+  <circle cx="12" cy="12" r="3"/>
+{% else %}
+  <circle cx="12" cy="12" r="9"/>
+{% endcase %}
+</svg>
+

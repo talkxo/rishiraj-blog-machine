@@ -1,0 +1,666 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="language" content="en">
+  <meta name="geo.region" content="IN">
+  <meta name="geo.placename" content="India">
+  <meta name="distribution" content="global">
+  <meta name="rating" content="general">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta http-equiv="Cache-Control" content="public, max-age=3600">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Expires" content="3600">
+  <meta name="theme-color" content="#00A36C">
+  <meta name="msapplication-TileColor" content="#00A36C">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+
+  <!-- Favicon -->
+  {% include favicons.html %}
+
+  <!-- Meta information -->
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description"
+        content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <link rel="canonical"
+        href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:image" content="{% if page.image %}{{ page.image | prepend: site.url }}{% else %}{{ site.url }}/assets/images/workspace-hero.jpg{% endif %}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <meta property="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="twitter:image" content="{% if page.image %}{{ page.image | prepend: site.url }}{% else %}{{ site.url }}/assets/images/workspace-hero.jpg{% endif %}">
+  <meta property="twitter:creator" content="@rishiraj">
+
+  <!-- Article specific meta tags -->
+  {% if page.layout == 'post' %}
+  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+  <meta property="article:author" content="{{ site.author }}">
+  <meta property="article:section" content="{% if page.categories %}{{ page.categories | first }}{% else %}General{% endif %}">
+  {% if page.tags %}
+  {% for tag in page.tags %}
+  <meta property="article:tag" content="{{ tag }}">
+  {% endfor %}
+  {% endif %}
+  {% endif %}
+
+  <!-- Open search scheme -->
+  <link rel="search"
+        type="application/opensearchdescription+xml"
+        title="rishi raj's blog"
+        href="{{ "/opensearch.xml" | prepend: site.baseurl }}" />
+
+  <!-- Feed -->
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}"
+        href="{{ "/feed.xml" | prepend: site.baseurl }}" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "{{ site.title }}",
+    "description": "{{ site.description }}",
+    "url": "{{ site.url }}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ site.author }}",
+      "email": "{{ site.email }}",
+      "url": "{{ site.url }}/rishi-raj/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ site.title }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ site.url }}/assets/images/favicons/favicon-96x96.png"
+      }
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "{{ site.url }}/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "{{ site.title }}",
+    "url": "{{ site.url }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.url }}/assets/images/favicons/favicon-96x96.png",
+      "width": 96,
+      "height": 96
+    },
+    "description": "{{ site.description }}",
+    "foundingDate": "2025",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "IN",
+      "addressLocality": "New Delhi",
+      "addressRegion": "Delhi"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "email": "{{ site.email }}"
+    },
+    "sameAs": [
+      "https://hello.talkxo.com",
+      "https://github.com/talkxo"
+    ]
+  }
+  </script>
+
+  <!-- Person Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "{{ site.author }}",
+    "email": "{{ site.email }}",
+    "url": "{{ site.url }}/rishi-raj/",
+    "image": "{{ site.url }}/assets/images/workspace-hero.jpg",
+    "description": "Multi-disciplinary marketer from New Delhi, India. Expertise in strategic planning, content and communications, and creating effective team processes.",
+    "jobTitle": "Multi-disciplinary Marketer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "TalkXO",
+      "url": "https://hello.talkxo.com"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "IN",
+      "addressLocality": "New Delhi",
+      "addressRegion": "Delhi"
+    },
+    "alumniOf": {
+      "@type": "Organization",
+      "name": "Leading Independent Agency"
+    },
+    "knowsAbout": [
+      "Marketing Strategy",
+      "Content Marketing",
+      "SEO",
+      "Digital Marketing",
+      "Team Leadership",
+      "Marketing Automation",
+      "Creative Content Solutions"
+    ],
+    "sameAs": [
+      "https://hello.talkxo.com",
+      "https://github.com/talkxo"
+    ]
+  }
+  </script>
+
+  <!-- Local Business Schema for TalkXO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "TalkXO",
+    "description": "Digital services company specializing in marketing automation and creative content solutions for businesses of all sizes.",
+    "url": "https://hello.talkxo.com",
+    "telephone": "+91-XXXXXXXXXX",
+    "email": "{{ site.email }}",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "IN",
+      "addressLocality": "New Delhi",
+      "addressRegion": "Delhi"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 28.6139,
+      "longitude": 77.2090
+    },
+    "openingHours": "Mo-Fr 09:00-18:00",
+    "priceRange": "$$",
+    "currenciesAccepted": "INR, USD",
+    "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+    "areaServed": "Worldwide",
+    "serviceType": [
+      "Marketing Automation",
+      "Creative Content Solutions",
+      "Digital Marketing",
+      "SEO Services",
+      "Content Strategy"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Digital Marketing Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Marketing Automation",
+            "description": "Automated marketing solutions for business growth"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Creative Content Solutions",
+            "description": "Strategic content creation and management"
+          }
+        }
+      ]
+    }
+  }
+  </script>
+
+  {% if page.layout == 'post' %}
+  <!-- Article Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{ page.title }}",
+    "description": "{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}",
+    "image": "{% if page.image %}{{ page.image | prepend: site.url }}{% else %}{{ site.url }}/assets/images/workspace-hero.jpg{% endif %}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ site.author }}",
+      "email": "{{ site.email }}",
+      "url": "{{ site.url }}/rishi-raj/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ site.title }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ site.url }}/assets/images/favicons/favicon-96x96.png"
+      }
+    },
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"
+    },
+    "articleSection": "{% if page.categories %}{{ page.categories | first }}{% else %}General{% endif %}",
+    "keywords": "{% if page.tags %}{{ page.tags | join: ', ' }}{% endif %}",
+    "wordCount": "{{ page.content | number_of_words }}",
+    "timeRequired": "PT{{ page.writing_time.writing | default: '5' }}M"
+  }
+  </script>
+  {% endif %}
+
+  <!-- FAQ Schema for Q&A Content -->
+  {% if page.layout == 'post' and page.tags contains 'seo' or page.tags contains 'how-to' or page.tags contains 'guide' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What actually matters for SEO in 2025?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Search engines want to answer questions directly. Focus on providing comprehensive answers that connect related solutions naturally, rather than optimizing for keyword density."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are breadcrumbs still useful for SEO?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Google killed breadcrumb rich snippets on mobile in January 2025. They're not SEO magic anymore, but they still help users understand where they are and how content connects."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How should you write alt text for images?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Write descriptive alt text like 'ergonomic standing desk showing monitor at eye level' instead of generic terms like 'product image'. AI systems use this context to understand when your content answers specific questions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the reality about Core Web Vitals?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Even Google's own Pixel 9a page fails their PageSpeed test. Focus on actual user experience over chasing perfect Core Web Vitals scores. Fast enough beats perfectly measured."
+        }
+      }
+    ]
+  }
+  </script>
+  {% endif %}
+
+  <!-- HowTo Schema for Tutorial Content -->
+  {% if page.layout == 'post' and page.tags contains 'how-to' or page.tags contains 'tutorial' or page.tags contains 'guide' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "{{ page.title }}",
+    "description": "{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}",
+    "image": "{% if page.image %}{{ page.image | prepend: site.url }}{% else %}{{ site.url }}/assets/images/workspace-hero.jpg{% endif %}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ site.author }}",
+      "email": "{{ site.email }}",
+      "url": "{{ site.url }}/rishi-raj/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ site.title }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ site.url }}/assets/images/favicons/favicon-96x96.png"
+      }
+    },
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+    "totalTime": "PT{{ page.writing_time.writing | default: '5' }}M",
+    "estimatedCost": {
+      "@type": "MonetaryAmount",
+      "currency": "USD",
+      "value": "0"
+    },
+    "supply": [],
+    "tool": [],
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Understand the Problem",
+        "text": "Identify what you're trying to solve and why traditional approaches might not work.",
+        "image": "{{ site.url }}/assets/images/workspace-hero.jpg"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Apply Modern Solutions",
+        "text": "Use contemporary approaches that focus on user experience and practical results.",
+        "image": "{{ site.url }}/assets/images/workspace-hero.jpg"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Measure Real Impact",
+        "text": "Focus on actual results rather than perfect metrics or theoretical optimization.",
+        "image": "{{ site.url }}/assets/images/workspace-hero.jpg"
+      }
+    ]
+  }
+  </script>
+  {% endif %}
+
+  <!-- Article Series Schema -->
+  {% if page.layout == 'post' and page.categories contains 'seo' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "SEO Strategy Series",
+    "description": "A collection of articles about modern SEO strategies and digital marketing insights",
+    "url": "{{ site.url }}/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ site.title }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ site.url }}/assets/images/favicons/favicon-96x96.png"
+      }
+    },
+    "hasPart": [
+      {
+        "@type": "Article",
+        "name": "{{ page.title }}",
+        "url": "{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}",
+        "datePublished": "{{ page.date | date_to_xmlschema }}"
+      }
+    ]
+  }
+  </script>
+  {% endif %}
+
+  <!-- Breadcrumb Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "{{ site.url }}"
+      }
+      {% if page.layout == 'post' %}
+      ,{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "{{ site.url }}/"
+      }
+      ,{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "{{ page.title }}",
+        "item": "{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"
+      }
+      {% endif %}
+    ]
+  }
+  </script>
+
+  <!-- Resource hints for faster external resource loading -->
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="{{ "/css/main.css" | prepend: site.baseurl }}" as="style">
+  <link rel="preload" href="{{ "/assets/images/workspace-hero.jpg" | prepend: site.baseurl }}" as="image">
+  
+  <!-- DNS prefetch for external domains -->
+  
+  <!-- Google Fonts - DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800;1,9..40,900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800;1,9..40,900&display=swap">
+  </noscript>
+  
+  <style>
+    /* Critical CSS for LCP/CLS optimization */
+    :root {
+      --color-bg: #ffffff;
+      --color-text: #0f0f0f;
+      --color-muted: #374151;
+      --color-ink: #000000;
+      --color-border: #e5e7eb;
+      --color-accent: #00A36C;
+      --code-bg: rgba(27,31,35,.05);
+      --link-hover-text: #ffffff;
+      --card-fixed-height: 180px;
+    }
+    html[data-theme="dark"] {
+      --color-bg: #0b0f14;
+      --color-text: #f9fafb;
+      --color-muted: #d1d5db;
+      --color-ink: #ffffff;
+      --color-border: #273241;
+      --color-accent: #00A36C;
+      --code-bg: rgba(240,246,252,0.05);
+      --link-hover-text: #ffffff;
+    }
+    
+    /* DM Sans Font Import */
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800;1,9..40,900&display=swap');
+    
+    /* Font definitions with CLS prevention */
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-weight: 300; /* Light */
+      margin: 0;
+      padding: 0;
+      background: var(--color-bg);
+      color: var(--color-text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      contain: layout style;
+    }
+    
+    /* Headings with DM Sans Medium 500 */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-weight: 500; /* Medium */
+    }
+    
+    /* Container with reserved space */
+    .u-container {
+      max-width: 38rem;
+      margin: 0 auto;
+      padding: 6rem 1rem 1rem;
+      flex: 1;
+      min-height: 0;
+    }
+    
+    /* Critical content area */
+    .c-archives__description {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-weight: 300; /* Light */
+      line-height: 1.6;
+      color: var(--color-text);
+      contain: layout style;
+    }
+    
+    /* Code font - system monospace */
+    code, pre {
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    }
+    
+    /* Critical CSS for LCP optimization */
+    /* Prevent layout shifts with font loading */
+    body, h1, h2, h3, h4, h5, h6, p, span, div {
+      /* Font display controlled by @font-face declarations */
+    }
+    
+    /* Ensure consistent line heights to prevent CLS */
+    body {
+      line-height: 1.6;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.2;
+    }
+    
+    /* Critical LCP element styling */
+    .c-archives__description {
+      min-height: 1.6em;
+      font-size: 1rem;
+      margin: 0;
+      padding: 0;
+      display: block;
+      contain: layout style;
+    }
+    
+    /* Critical header styling */
+    .c-page__subtitle {
+      font-size: 2.7rem;
+      line-height: 1;
+      margin-bottom: 2.5rem;
+      max-width: 100%;
+      word-break: break-word;
+      font-weight: 700;
+      color: var(--color-ink);
+    }
+    
+    /* Critical navigation styling */
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    nav li {
+      margin: 0;
+    }
+    
+    /* Critical link styling */
+    a:not(.anchor) {
+      color: var(--color-accent);
+      background-color: transparent;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    a:not(.anchor):hover {
+      color: white;
+      background-color: var(--color-accent);
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+    
+    /* Critical grid styling */
+    .c-grid {
+      --cards-gap: 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--cards-gap);
+      align-items: stretch;
+      grid-auto-flow: row;
+    }
+    
+    @media screen and (min-width: 45rem) {
+      .c-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    /* Critical card styling */
+    .c-card {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      padding: 1.2rem;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+      min-height: var(--card-fixed-height);
+      height: var(--card-fixed-height);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    
+    .c-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+      border-color: rgba(0,0,0,0.08);
+    }
+    
+    .c-card h3 {
+      font-size: 1.3rem;
+      line-height: 1.2;
+      margin: 0;
+      color: var(--color-ink);
+    }
+    
+    .c-card p {
+      line-height: 30px;
+      font-size: 1rem;
+      color: var(--color-muted);
+      margin: 0;
+      margin-top: .25rem;
+    }
+  </style>
+
+  <!-- Non-critical CSS loaded asynchronously -->
+  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+  
+  <!-- Font loading detection -->
+  <script>
+    // DM Sans font loading detection
+    (function() {
+      if ('fonts' in document) {
+        // Load DM Sans fonts
+        var fontPromises = [
+          document.fonts.load('300 16px "DM Sans"'),
+          document.fonts.load('500 16px "DM Sans"')
+        ];
+        
+        // Mark fonts as loaded when ready
+        Promise.all(fontPromises).then(function() {
+          document.documentElement.classList.add('fonts-loaded');
+        }).catch(function() {
+          // Fallback if fonts fail to load
+          document.documentElement.classList.add('fonts-loaded');
+        });
+      } else {
+        // Fallback for browsers without font loading API
+        setTimeout(function() {
+          document.documentElement.classList.add('fonts-loaded');
+        }, 100);
+      }
+    })();
+  </script>
+  
+  <!-- Analytics -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="68611632-aaf7-4a9a-8d24-e808927acf86"></script>
+  <!-- End of head -->
+</head>

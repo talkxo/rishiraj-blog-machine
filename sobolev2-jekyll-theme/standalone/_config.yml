@@ -1,0 +1,82 @@
+# Site settings
+title: "Your Blog Title"
+description: >
+  A brief description of your blog or website
+
+author: Your Name
+email: your.email@example.com
+username: Your Username
+
+# Site URL configuration
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://yourusername.github.io" # the base hostname & protocol for your site
+
+# Social links (optional)
+github_username: yourusername
+twitter_username: yourusername
+linkedin_username: yourusername
+
+# Comments (optional)
+disqus_id: your-disqus-shortname
+
+# Build settings
+include: [_pages]
+markdown: kramdown
+permalink: /:year/:title
+future: false
+
+# Performance settings
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
+  blanklines: false
+  ignore:
+    envs: []
+
+# Cache and compression settings
+keep_files: [assets, images, favicons]
+exclude: [vendor, node_modules, .git, .gitignore, README.md, Gemfile, Gemfile.lock]
+
+# Collections configuration
+collections:
+  talks:
+    output: true
+    permalink: /:collection/:name
+  activities:
+    output: true
+    permalink: /:collection/:name
+
+# Feed configuration
+feed:
+  collections:
+    - talks
+    - activities
+
+# Sass configuration
+sass:
+  style: compressed
+
+# Theme-specific settings
+theme:
+  # Color scheme: 'light', 'dark', or 'auto'
+  color_scheme: auto
+  
+  # Navigation menu items
+  navigation:
+    - title: "Home"
+      url: "/"
+    - title: "About"
+      url: "/about"
+    - title: "Talks"
+      url: "/talks"
+    - title: "Activities"
+      url: "/activities"
+
+# Plugins
+plugins:
+  - jemoji
+  - jekyll-sitemap
+  - jekyll-feed
+

@@ -1,0 +1,86 @@
+---
+layout: page
+---
+
+<article class="c-article" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header class="c-article__header">
+    <h1 class="c-article__title" itemprop="name">{{ page.title }}</h1>
+    <p class="c-article__time">
+      <small>
+        <time datetime="{{ page.date | date_to_xmlschema }}"
+              itemprop="datePublished">
+          {{ page.date | date: "%B %-d, %Y" }}
+        </time>
+      </small>
+      <small>{% include read_time.html post=page %}</small>
+      <!--- <small><a href="#discussion">Start a discussion</a></small>
+      <small><a href="{{ site.github_edit_url }}/{{ page.path }}">Edit this page</a></small> -->
+    </p>
+  </header>
+
+  <!-- Post Tags -->
+  <!-- <ul class="c-tags">
+    {% for tag in page.tags %}
+    <li class="c-tag">{{ tag }}</li>
+    {% endfor %}
+  </ul> -->
+
+  <!-- Content -->
+  <div class="c-article__main">
+
+    {% if page.translated %}
+      {% assign translations = page.translated.size %}
+      {% if translations != 0 %}
+      <div class="post-translate">
+        <h4>Translated to:</h4>
+        <ul>
+        {% for translated in page.translated %}
+          <li>
+            <a class="c-article__repost" href="{{ translated.link }}" target="_blank">
+              {{ translated.name }} :{{ translated.language }}:
+            </a>
+            {% unless forloop.last %}
+              •
+            {% endunless %}
+          </li>
+        {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    {% endif %}
+
+    <div class="c-article__body" itemprop="articleBody">
+      {% include anchors.html html=content %}
+    </div>
+
+    <hr>
+
+    <div class="post-share">
+      <label for="share-url">Share link</label>
+      <div class="share-input">
+        <input type="text" id="share-url" value="{{ site.url }}{{ page.url }}" readonly>
+        <button class="copy-button" onclick="copyToClipboard('{{ site.url }}{{ page.url }}')" title="Copy URL">Copy</button>
+      </div>
+    </div>
+
+    <hr>
+
+  </div>
+
+  <!-- Disqus comments view -->
+  {% if page.comments != false and site.disqus_id %}
+  <div class="post-disqus" id="discussion">
+    {% include disqus.html %}
+  </div>
+  {% endif %}
+</article>
+
+<script>
+  function copyToClipboard(url) {
+    navigator.clipboard.writeText(url).then(function() {
+      alert('URL copied to clipboard!');
+    }, function(err) {
+      alert('Failed to copy: ' + err);
+    });
+  }
+</script>

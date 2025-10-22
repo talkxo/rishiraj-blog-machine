@@ -1,0 +1,83 @@
+/* ==========================================================================
+   Archives
+   ========================================================================== */
+
+.c-archives {
+    margin-bottom: 10rem;
+}
+
+.c-summary {
+    margin-bottom: 5rem;
+    line-height: 1.7;
+}
+
+.c-archives__year {
+    margin-bottom: 2.5rem;
+    @include fs--heading-2;
+    color: var(--color-ink, #163541);
+}
+
+.c-archives__list {
+    margin-bottom: 2.5rem;
+    list-style: none;
+}
+
+.c-archives__item {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-top: 1px solid #EFF1F3;
+
+    @media screen and (min-width: $bp__sm) {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+
+        -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+                flex-direction: column;
+    }
+
+    &.c-archives__item--squashed {
+        padding-top: 1.8rem;
+        padding-bottom: 1.8rem;
+    }
+
+    .c-archives__description {
+        margin-top: 1rem;
+    }
+
+    h3 {
+        font-weight: 800;
+        text-rendering: optimizeLegibility;
+        font-size: 30px;
+        line-height: 1.1;
+
+        small {
+          font-weight: normal;
+          font-size: 15px;
+        }
+    }
+
+    p {
+        @include fs--body;
+        color: var(--color-text, #515862);
+
+        small {
+            margin: 0;
+            text-transform: lowercase;
+
+            + small {
+                margin-left: 1rem;
+            }
+        }
+    }
+
+    a {
+        text-transform: capitalize;
+    }
+}
+
+a[data-disqus-identifier] {
+  text-transform: lowercase;
+}

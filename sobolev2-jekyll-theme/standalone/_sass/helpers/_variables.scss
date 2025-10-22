@@ -1,0 +1,12 @@
+/* ==========================================================================
+   Variabeles
+   ========================================================================== */
+
+// Legacy palette (kept as fallbacks)
+$c-base__03: var(--color-accent, #30bb96);
+$c-base__02: var(--color-ink, #163541);
+$c-base__01: var(--color-text, #404040);
+$c-base__0: var(--color-muted, #869395);
+
+// Breakpoints
+$bp__sm: 45rem; // 450px
