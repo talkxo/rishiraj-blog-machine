@@ -10,8 +10,7 @@ writing_time:
   proofreading: "10:00"
   decorating: "5:00"
 ---
-
-On Borrowed Hours
+<!-- rebuild trigger -->
 
 We all operate on borrowed hours. The question is when we choose to borrow them. I've observed two distinct work patterns among people I collaborate with: early starters and night workers. Both sacrifice something. Both gain something. The difference is what they're trading.
 
