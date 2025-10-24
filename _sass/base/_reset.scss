@@ -27,6 +27,11 @@ body {
     @include ff--serif(400);
     color: var(--color-text, #404040);
     background: var(--color-bg, #ffffff);
+    
+    /* Retina display text rendering optimizations */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 article,
@@ -55,6 +60,8 @@ h5,
 h6 {
     @include ff--sans-serif(800);
     color: $c-base__02;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
     a {
       @include ff--sans-serif(800);
