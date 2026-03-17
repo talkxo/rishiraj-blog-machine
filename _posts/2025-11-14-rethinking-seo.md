@@ -14,7 +14,15 @@ Unless you were living under a rock, there has been a browsers war going on. The
 Atlas, Comet, Dia and many other browsers in their early stages are preparing to change how users interact with a traditional browser. Instead of searching for any "intent keywords", the user will now just ask their browser with a prompt like the one below and the next action they'd be doing is a review before transaction or, perhaps directly authorising the transaction.
 
 ```
-Go to Myntra and find 100% cotton solid t-shirts, 200-300 GSM, size M (40) preferably in shades of blue (avoid same shades) and in the price range of Rs. 1000-1500 + add them to cart, 4-5 options. Make sure they have a 4+ stars for ratings and delivers to PIN code 122001.
+Go to Myntra and:
+
+- Find 100% cotton solid t-shirts (200–300 GSM)
+- Size: M (40)
+- Prefer shades of blue (avoid identical shades)
+- Price range: Rs. 1000–1500
+- Add 4–5 options to cart
+- Ensure 4+ star ratings
+- Ensure delivery to PIN code 122001
 ```
 
 This one prompt was enough to build a cart ready to checkout, on Atlas and Comet.
