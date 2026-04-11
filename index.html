@@ -13,7 +13,7 @@ layout: page
     {% endif %}
     <li class="c-archives__item">
       <h3>
-        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>{% assign post_age_days = 'now' | date: '%s' | minus: post.date.to_i | divided_by: 86400 %}{% if post_age_days < 30 %}<span class="c-fresh-dot" title="Published recently" aria-label="Recent post"></span>{% endif %}
       </h3>
       <p>
         <small>{{ post.date | date: "%B %-d, %Y" }}</small>

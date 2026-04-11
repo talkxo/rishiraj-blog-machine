@@ -70,7 +70,9 @@ permalink: /stuff/
 <hr>
 
 <h2 class="c-archives__year">Softwares</h2>
-<p style="line-height: 1.8; margin-bottom: 3rem;">For browsing, I use <strong>Mozilla Firefox</strong>. My email is managed through <strong>Shortwave</strong> and <strong>Gmail</strong>, while <strong>Google Calendar</strong> keeps my schedule organized. I manage projects with <strong>Basecamp</strong> and rely on <strong>Perplexity AI</strong>, <strong>ChatGPT</strong>, and <strong>Claude</strong> as AI assistants. My code editor of choice is <strong>Cursor</strong>, I take notes in <strong>Bear</strong>, and handle my to-dos with <strong>TeuxDeux</strong>.</p>
+<p style="line-height: 1.8; margin-bottom: 0.5rem;">For browsing, I use <strong>Arc</strong> — had my trip around all the alternatives and I'm back, settling with it until it dies entirely. On a lookout for a WebKit alternative like <strong>Nook</strong>. My email on Mac is <strong>Mimestream</strong>. Everything is launched via <strong>Raycast</strong>.</p>
+<p style="line-height: 1.8; margin-bottom: 0.5rem;">I take notes in <strong>Bear</strong> and handle to-dos with <strong>Apple Reminders</strong> — <a href="/teuxdeux-to-apple-reminders/">I switched over from TeuxDeux</a> not too long ago. <strong>Notion Calendar</strong> keeps the schedule in check.</p>
+<p style="line-height: 1.8; margin-bottom: 3rem;">Currently experimenting with local LLMs through <strong>TypeWhisper</strong> (replaced Hex) and <strong>Cotypist</strong>. Model of choice is <strong>Gemma4 E4B</strong>. For AI assistants, it's <strong>Claude</strong> and <strong>Perplexity</strong> day-to-day, <strong>Gemini</strong> for Workspace and collaboration — completely out of the ChatGPT ecosystem now.</p>
 
 <hr>
 
@@ -163,15 +165,15 @@ permalink: /stuff/
   <article class="c-session">
     <div class="c-session__icon">{% include icon.html name="globe" %}</div>
     <div class="c-session__content">
-      <h3>Arc</h3>
-      <p>Retired 2024</p>
+      <h3>Edge</h3>
+      <p>Retired 2025</p>
     </div>
   </article>
   <article class="c-session">
     <div class="c-session__icon">{% include icon.html name="globe" %}</div>
     <div class="c-session__content">
-      <h3>Edge</h3>
-      <p>Retired 2025</p>
+      <h3>Mozilla Firefox</h3>
+      <p>Retired 2026</p>
     </div>
   </article>
   <article class="c-session">
@@ -179,6 +181,27 @@ permalink: /stuff/
     <div class="c-session__content">
       <h3>Cron (Notion Calendar)</h3>
       <p>Retired 2025</p>
+    </div>
+  </article>
+  <article class="c-session">
+    <div class="c-session__icon">{% include icon.html name="mail" %}</div>
+    <div class="c-session__content">
+      <h3>Shortwave</h3>
+      <p>Retired 2025</p>
+    </div>
+  </article>
+  <article class="c-session">
+    <div class="c-session__icon">{% include icon.html name="note" %}</div>
+    <div class="c-session__content">
+      <h3>TeuxDeux</h3>
+      <p>Retired 2025</p>
+    </div>
+  </article>
+  <article class="c-session">
+    <div class="c-session__icon">{% include icon.html name="type" %}</div>
+    <div class="c-session__content">
+      <h3>Hex (local LLM)</h3>
+      <p>Retired 2026</p>
     </div>
   </article>
 </section>

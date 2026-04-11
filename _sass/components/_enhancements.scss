@@ -1,0 +1,252 @@
+/* ==========================================================================
+   Design Enhancements
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Reading Progress Bar
+   -------------------------------------------------------------------------- */
+
+.c-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--color-accent);
+  z-index: 9999;
+  transition: width 0.1s linear;
+  transform-origin: left;
+
+  /* Glow effect on the bar */
+  box-shadow: 0 0 6px var(--color-accent), 0 0 2px var(--color-accent);
+}
+
+
+/* --------------------------------------------------------------------------
+   2. Scroll-triggered Fade-in
+   -------------------------------------------------------------------------- */
+
+.js-fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-fade-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   3. "Fresh" indicator on recent posts
+   -------------------------------------------------------------------------- */
+
+.c-fresh-dot {
+  display: inline-block;
+  position: relative;
+  width: 7px;
+  height: 7px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+  top: -1px;
+  flex-shrink: 0;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: var(--color-accent);
+  }
+
+  &::after {
+    animation: fresh-pulse 2s ease-out infinite;
+    opacity: 0;
+  }
+}
+
+@keyframes fresh-pulse {
+  0%   { transform: scale(1);   opacity: 0.7; }
+  70%  { transform: scale(2.8); opacity: 0; }
+  100% { transform: scale(1);   opacity: 0; }
+}
+
+
+/* --------------------------------------------------------------------------
+   4. Animated HR (dots separator)
+   -------------------------------------------------------------------------- */
+
+.c-article__main hr {
+  border: none;
+  text-align: center;
+  overflow: visible;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 2.5rem 0;
+
+  &::before {
+    content: '';
+    display: none;
+  }
+}
+
+/* Use a wrapper class injected via JS */
+.c-hr-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 2.5rem 0;
+  height: 2rem;
+}
+
+.c-hr-dots span {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-border);
+  animation: dot-bounce 1.4s ease-in-out infinite;
+
+  &:nth-child(1) { animation-delay: 0s; }
+  &:nth-child(2) { animation-delay: 0.2s; }
+  &:nth-child(3) { animation-delay: 0.4s; }
+}
+
+@keyframes dot-bounce {
+  0%, 80%, 100% {
+    transform: translateY(0);
+    background: var(--color-border);
+  }
+  40% {
+    transform: translateY(-6px);
+    background: var(--color-accent);
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   5. Active Reading Position Indicator
+   -------------------------------------------------------------------------- */
+
+.c-reading-track {
+  position: fixed;
+  left: max(1rem, calc(50% - 20rem - 2rem)); /* left of the content column */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 80px;
+  background: var(--color-border);
+  border-radius: 2px;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+
+  @media screen and (max-width: 56rem) {
+    display: none;
+  }
+}
+
+.c-reading-track.is-active {
+  opacity: 1;
+}
+
+.c-reading-track__thumb {
+  position: absolute;
+  left: -1px;
+  width: 4px;
+  height: 24px;
+  border-radius: 2px;
+  background: var(--color-accent);
+  top: 0%;
+  transition: top 0.15s ease;
+  box-shadow: 0 0 6px var(--color-accent);
+}
+
+
+/* --------------------------------------------------------------------------
+   6. Typing cursor on site title
+   -------------------------------------------------------------------------- */
+
+.c-site-title-cursor::after {
+  content: '▋';
+  display: inline-block;
+  color: var(--color-accent);
+  animation: blink-cursor 1.1s step-end infinite;
+  margin-left: 1px;
+  font-size: 0.9em;
+  vertical-align: baseline;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+
+/* --------------------------------------------------------------------------
+   7. Magnetic nav links (JS does the transform, CSS provides the transition)
+   -------------------------------------------------------------------------- */
+
+.c-page__header nav a {
+  transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1), 
+              color 0.3s ease, 
+              background-color 0.3s ease,
+              padding 0.3s ease;
+  display: inline-block;
+  will-change: transform;
+}
+
+
+/* --------------------------------------------------------------------------
+   8. Ink-blot page transition
+   -------------------------------------------------------------------------- */
+
+.c-ink-blot {
+  position: fixed;
+  border-radius: 50%;
+  background: var(--color-accent);
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0.8;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.55s ease;
+}
+
+.c-ink-blot.is-expanding {
+  transform: translate(-50%, -50%) scale(250);
+  opacity: 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   9. Text highlight on scroll (reading spotlight)
+   -------------------------------------------------------------------------- */
+
+.c-article__body p {
+  transition: opacity 0.3s ease;
+}
+
+.c-article__body.has-spotlight p {
+  opacity: 0.35;
+}
+
+.c-article__body.has-spotlight p.is-reading {
+  opacity: 1;
+}
