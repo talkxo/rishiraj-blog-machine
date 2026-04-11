@@ -27,8 +27,8 @@
       window.addEventListener('load', function() {
         if ('fonts' in document) {
           Promise.all([
-            document.fonts.load('400 1em "Google Sans"'),
-            document.fonts.load('700 1em "Google Sans"')
+            document.fonts.load('400 1em "Work Sans"'),
+            document.fonts.load('700 1em "Work Sans"')
           ]).then(function() {
             document.documentElement.classList.add('fonts-loaded');
             console.log('Critical fonts loaded');

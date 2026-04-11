@@ -50,6 +50,6 @@ These are the theme tokens used across the site.
       <div class="c-card__icon">{% include icon.html name="share" %}</div>
       <h3>Scripts</h3>
     </div>
-    <p>Fonts via <a href="https://fonts.google.com/" target="_blank" rel="noopener">Google Fonts</a> — <strong>Google Sans</strong> for body and titles. Analytics via <a href="https://umami.is/" target="_blank" rel="noopener">Umami</a>.</p>
+    <p>Fonts via <a href="https://fonts.google.com/" target="_blank" rel="noopener">Google Fonts</a> — <strong>Work Sans</strong> for body and titles. Analytics via <a href="https://umami.is/" target="_blank" rel="noopener">Umami</a>.</p>
   </article>
 </section>
