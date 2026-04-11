@@ -21,7 +21,7 @@
 }
 
 @mixin ff--serif($font-weight: normal) {
-    font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Source Serif 4', 'Source Serif Pro', Georgia, serif;
     font-weight: $font-weight;
     color: var(--color-text, #404040);
 }
@@ -52,7 +52,7 @@
 }
 
 @mixin fs--body {
-    line-height: 1.6;
+    line-height: 1.7;
     font-size: 1.125rem;
 }
 
