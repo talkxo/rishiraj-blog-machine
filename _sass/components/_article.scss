@@ -50,8 +50,8 @@
 
 .c-article__main {
     @include fs--body;
-    font-family: 'Source Serif 4', 'Source Serif Pro', Georgia, serif;
-    font-weight: 400; /* Regular */
+    font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 300; /* Light */
 
     margin-bottom: 3rem; // 50px
     color: var(--color-text, #404040);
