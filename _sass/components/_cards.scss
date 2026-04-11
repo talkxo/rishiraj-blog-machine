@@ -27,6 +27,18 @@
   gap: 0;
 }
 
+/* 2-column desktop variant */
+.c-sessions--columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+
+  @media screen and (min-width: $bp__sm) {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+  }
+}
+
 .c-session {
   display: flex;
   align-items: flex-start;

@@ -70,47 +70,33 @@ permalink: /stuff/
 <hr>
 
 <h2 class="c-archives__year">Softwares</h2>
-<p style="line-height: 1.8; margin-bottom: 0.5rem;">For browsing, I use <strong>Arc</strong> — had my trip around all the alternatives and I'm back, settling with it until it dies entirely. On a lookout for a WebKit alternative like <strong>Nook</strong>. My email on Mac is <strong>Mimestream</strong>. Everything is launched via <strong>Raycast</strong>.</p>
-<p style="line-height: 1.8; margin-bottom: 0.5rem;">I take notes in <strong>Bear</strong> and handle to-dos with <strong>Apple Reminders</strong> — <a href="/teuxdeux-to-apple-reminders/">I switched over from TeuxDeux</a> not too long ago. <strong>Notion Calendar</strong> keeps the schedule in check.</p>
-<p style="line-height: 1.8; margin-bottom: 3rem;">Currently experimenting with local LLMs through <strong>TypeWhisper</strong> (replaced Hex) and <strong>Cotypist</strong>. Model of choice is <strong>Gemma4 E4B</strong>. For AI assistants, it's <strong>Claude</strong> and <strong>Perplexity</strong> day-to-day, <strong>Gemini</strong> for Workspace and collaboration — completely out of the ChatGPT ecosystem now.</p>
+<p style="font-size: 1.125rem; line-height: 1.8; margin-bottom: 0.5rem;">For browsing, I use <strong>Arc</strong> — had my trip around all the alternatives and I'm back, settling with it until it dies entirely. On a lookout for a WebKit alternative like <strong>Nook</strong>. My email on Mac is <strong>Mimestream</strong>. Everything is launched via <strong>Raycast</strong>.</p>
+<p style="font-size: 1.125rem; line-height: 1.8; margin-bottom: 0.5rem;">I take notes in <strong>Bear</strong> and handle to-dos with <strong>Apple Reminders</strong> — <a href="/teuxdeux-to-apple-reminders/">I switched over from TeuxDeux</a> not too long ago. <strong>Notion Calendar</strong> keeps the schedule in check.</p>
+<p style="font-size: 1.125rem; line-height: 1.8; margin-bottom: 3rem;">Currently experimenting with local LLMs through <strong>TypeWhisper</strong> (replaced Hex) and <strong>Cotypist</strong>. Model of choice is <strong>Gemma4 E4B</strong>. For AI assistants, it's <strong>Claude</strong> and <strong>Perplexity</strong> day-to-day, <strong>Gemini</strong> for Workspace and collaboration — completely out of the ChatGPT ecosystem now.</p>
 
 <hr>
 
 <h2 class="c-archives__year">Archived</h2>
-<section class="c-sessions">
+<section class="c-sessions c-sessions--columns">
+  <article class="c-session">
+    <div class="c-session__icon">{% include icon.html name="globe" %}</div>
+    <div class="c-session__content">
+      <h3>Mozilla Firefox</h3>
+      <p>Retired 2026</p>
+    </div>
+  </article>
+  <article class="c-session">
+    <div class="c-session__icon">{% include icon.html name="type" %}</div>
+    <div class="c-session__content">
+      <h3>Hex (local LLM)</h3>
+      <p>Retired 2026</p>
+    </div>
+  </article>
   <article class="c-session">
     <div class="c-session__icon">{% include icon.html name="laptop" %}</div>
     <div class="c-session__content">
       <h3>Apple Macbook Pro 13" (2019 Intel)</h3>
       <p>Retired 2025</p>
-    </div>
-  </article>
-  <article class="c-session">
-    <div class="c-session__icon">{% include icon.html name="laptop" %}</div>
-    <div class="c-session__content">
-      <h3>Apple Macbook Air 13" 2015</h3>
-      <p>Retired 2019</p>
-    </div>
-  </article>
-  <article class="c-session">
-    <div class="c-session__icon">{% include icon.html name="laptop" %}</div>
-    <div class="c-session__content">
-      <h3>Apple Macbook Pro 13" 2011</h3>
-      <p>Retired 2015</p>
-    </div>
-  </article>
-  <article class="c-session">
-    <div class="c-session__icon">{% include icon.html name="headphones" %}</div>
-    <div class="c-session__content">
-      <h3>Sony MDR-ZX300</h3>
-      <p>Retired 2016</p>
-    </div>
-  </article>
-  <article class="c-session">
-    <div class="c-session__icon">{% include icon.html name="camera" %}</div>
-    <div class="c-session__content">
-      <h3>Nikon P510</h3>
-      <p>Retired 2015</p>
     </div>
   </article>
   <article class="c-session">
@@ -121,59 +107,10 @@ permalink: /stuff/
     </div>
   </article>
   <article class="c-session">
-    <div class="c-session__icon">{% include icon.html name="device" %}</div>
-    <div class="c-session__content">
-      <h3>iPhone 13 Mini</h3>
-      <p>Retired 2024</p>
-    </div>
-  </article>
-  <article class="c-session">
-    <div class="c-session__icon">{% include icon.html name="device" %}</div>
-    <div class="c-session__content">
-      <h3>Google Pixel 4A</h3>
-      <p>Retired 2021</p>
-    </div>
-  </article>
-  <article class="c-session">
-    <div class="c-session__icon">{% include icon.html name="device" %}</div>
-    <div class="c-session__content">
-      <h3>Samsung Galaxy S9</h3>
-      <p>Retired 2020</p>
-    </div>
-  </article>
-  <article class="c-session">
-    <div class="c-session__icon">{% include icon.html name="speaker" %}</div>
-    <div class="c-session__content">
-      <h3>Bose Soundlink II Mini</h3>
-      <p>Retired 2022</p>
-    </div>
-  </article>
-  <article class="c-session">
-    <div class="c-session__icon">{% include icon.html name="device" %}</div>
-    <div class="c-session__content">
-      <h3>AirPods 2</h3>
-      <p>Retired 2020</p>
-    </div>
-  </article>
-  <article class="c-session">
-    <div class="c-session__icon">{% include icon.html name="device" %}</div>
-    <div class="c-session__content">
-      <h3>Nothing Ear (1)</h3>
-      <p>Retired 2024</p>
-    </div>
-  </article>
-  <article class="c-session">
     <div class="c-session__icon">{% include icon.html name="globe" %}</div>
     <div class="c-session__content">
       <h3>Edge</h3>
       <p>Retired 2025</p>
-    </div>
-  </article>
-  <article class="c-session">
-    <div class="c-session__icon">{% include icon.html name="globe" %}</div>
-    <div class="c-session__content">
-      <h3>Mozilla Firefox</h3>
-      <p>Retired 2026</p>
     </div>
   </article>
   <article class="c-session">
@@ -198,11 +135,73 @@ permalink: /stuff/
     </div>
   </article>
   <article class="c-session">
-    <div class="c-session__icon">{% include icon.html name="type" %}</div>
+    <div class="c-session__icon">{% include icon.html name="device" %}</div>
     <div class="c-session__content">
-      <h3>Hex (local LLM)</h3>
-      <p>Retired 2026</p>
+      <h3>iPhone 13 Mini</h3>
+      <p>Retired 2024</p>
+    </div>
+  </article>
+  <article class="c-session">
+    <div class="c-session__icon">{% include icon.html name="device" %}</div>
+    <div class="c-session__content">
+      <h3>Nothing Ear (1)</h3>
+      <p>Retired 2024</p>
+    </div>
+  </article>
+  <article class="c-session">
+    <div class="c-session__icon">{% include icon.html name="speaker" %}</div>
+    <div class="c-session__content">
+      <h3>Bose Soundlink II Mini</h3>
+      <p>Retired 2022</p>
+    </div>
+  </article>
+  <article class="c-session">
+    <div class="c-session__icon">{% include icon.html name="device" %}</div>
+    <div class="c-session__content">
+      <h3>Google Pixel 4A</h3>
+      <p>Retired 2021</p>
+    </div>
+  </article>
+  <article class="c-session">
+    <div class="c-session__icon">{% include icon.html name="device" %}</div>
+    <div class="c-session__content">
+      <h3>Samsung Galaxy S9</h3>
+      <p>Retired 2020</p>
+    </div>
+  </article>
+  <article class="c-session">
+    <div class="c-session__icon">{% include icon.html name="device" %}</div>
+    <div class="c-session__content">
+      <h3>AirPods 2</h3>
+      <p>Retired 2020</p>
+    </div>
+  </article>
+  <article class="c-session">
+    <div class="c-session__icon">{% include icon.html name="laptop" %}</div>
+    <div class="c-session__content">
+      <h3>Apple Macbook Air 13" 2015</h3>
+      <p>Retired 2019</p>
+    </div>
+  </article>
+  <article class="c-session">
+    <div class="c-session__icon">{% include icon.html name="headphones" %}</div>
+    <div class="c-session__content">
+      <h3>Sony MDR-ZX300</h3>
+      <p>Retired 2016</p>
+    </div>
+  </article>
+  <article class="c-session">
+    <div class="c-session__icon">{% include icon.html name="camera" %}</div>
+    <div class="c-session__content">
+      <h3>Nikon P510</h3>
+      <p>Retired 2015</p>
+    </div>
+  </article>
+  <article class="c-session">
+    <div class="c-session__icon">{% include icon.html name="laptop" %}</div>
+    <div class="c-session__content">
+      <h3>Apple Macbook Pro 13" 2011</h3>
+      <p>Retired 2015</p>
     </div>
   </article>
 </section>
-
