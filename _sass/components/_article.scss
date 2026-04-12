@@ -422,7 +422,7 @@
   .c-profile-photo {
     width: 200px; /* Wider for better proportions */
     height: 200px; /* Square to show full image height */
-    border-radius: 12px;
+    border-radius: 50%;
     object-fit: cover;
     border: none;
     box-shadow: 0 10px 30px -10px rgba(0, 163, 108, 0.45), 
