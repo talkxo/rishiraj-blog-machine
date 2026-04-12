@@ -27,6 +27,7 @@
 
 .c-swatch__label {
   @include fs--body;
+  font-size: 0.88889rem; /* 16px */
   margin: 0;
 }
 

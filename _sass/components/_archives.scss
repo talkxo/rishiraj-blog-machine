@@ -8,7 +8,7 @@
 
 .c-summary {
     margin-bottom: 5rem;
-    line-height: 1.7;
+    @include fs--body;
 }
 
 .c-archives__year {
@@ -48,20 +48,20 @@
     }
 
     h3 {
-        font-weight: 800;
+        font-weight: 700;
         text-rendering: optimizeLegibility;
-        font-size: 30px;
-        line-height: 1.1;
+        @include fs--heading-2;
+        margin: 0;
 
         small {
-          font-weight: normal;
-          font-size: 15px;
+          font-weight: 300;
+          @include fs--meta;
         }
     }
 
     p {
         @include fs--body;
-        color: var(--color-text, #515862);
+        color: var(--color-text);
 
         small {
             margin: 0;
