@@ -24,11 +24,11 @@ html {
 }
 
 body {
-    @include ff--serif(400);
-    color: var(--color-text, #404040);
-    background: var(--color-bg, #ffffff);
-    font-size: 1.125rem; /* 18px */
-    line-height: 2rem; /* 32px */
+    @include ff--serif(300);
+    color: var(--color-text);
+    background: var(--color-bg);
+    font-size: 1rem; /* Exactly 18px due to root reset */
+    line-height: 1.66667; /* Exactly 30px */
     
     /* Retina display text rendering optimizations */
     -webkit-font-smoothing: antialiased;
