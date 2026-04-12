@@ -203,6 +203,14 @@
   }
 }
 
+.c-setup-summary {
+  p {
+    @include fs--body;
+    font-weight: 300 !important;
+    color: var(--color-text);
+  }
+}
+
 /* Ensure proper spacing for images in content */
 .c-summary + img {
   margin-bottom: 2rem;
