@@ -16,7 +16,7 @@ permalink: /stuff/
 
 <div class="c-setup-summary" style="background: rgba(0, 163, 108, 0.08); border-radius: 12px; padding: 2rem; margin-bottom: 3rem;">
   <h3 style="margin-top: 0 !important; margin-bottom: 1.25rem !important; color: var(--color-accent) !important; font-weight: 500 !important;">My current setup</h3>
-  <p style="margin-bottom: 0; line-height: 1.8; font-weight: 200;">I work on a <strong>LG UltraFine Display</strong> with my <strong>Apple Macbook Pro 14" M4 Max</strong>, using a <strong>Logitech MX Master 2S</strong> mouse on a <strong>Jin Office Electric Standing Desk</strong>. My chair is the <strong>Featherlite Liberate</strong> and the desk is a self-assembled electric standing desk, lit by an <strong>Ikea TÅGARP</strong> lamp.</p>
+  <p style="margin-bottom: 0;">I work on a <strong>LG UltraFine Display</strong> with my <strong>Apple Macbook Pro 14" M4 Max</strong>, using a <strong>Logitech MX Master 2S</strong> mouse on a <strong>Jin Office Electric Standing Desk</strong>. My chair is the <strong>Featherlite Liberate</strong> and the desk is a self-assembled electric standing desk, lit by an <strong>Ikea TÅGARP</strong> lamp.</p>
 </div>
 
 <hr>
@@ -70,9 +70,9 @@ permalink: /stuff/
 <hr>
 
 <h2 class="c-archives__year">Softwares</h2>
-<p style="font-size: 1.125rem; line-height: 1.8; margin-bottom: 0.5rem;">For browsing, I use <strong>Arc</strong> — had my trip around all the alternatives and I'm back, settling with it until it dies entirely. On a lookout for a WebKit alternative like <strong>Nook</strong>. My email on Mac is <strong>Mimestream</strong>. Everything is launched via <strong>Raycast</strong>.</p>
-<p style="font-size: 1.125rem; line-height: 1.8; margin-bottom: 0.5rem;">I take notes in <strong>Bear</strong> and handle to-dos with <strong>Apple Reminders</strong> — <a href="/teuxdeux-to-apple-reminders/">I switched over from TeuxDeux</a> not too long ago. <strong>Notion Calendar</strong> keeps the schedule in check.</p>
-<p style="font-size: 1.125rem; line-height: 1.8; margin-bottom: 3rem;">Currently experimenting with local LLMs through <strong>TypeWhisper</strong> (replaced Hex) and <strong>Cotypist</strong>. Model of choice is <strong>Gemma4 E4B</strong>. For AI assistants, it's <strong>Claude</strong> and <strong>Perplexity</strong> day-to-day, <strong>Gemini</strong> for Workspace and collaboration — completely out of the ChatGPT ecosystem now.</p>
+<p style="margin-bottom: 0.5rem;">For browsing, I use <strong>Arc</strong> — had my trip around all the alternatives and I'm back, settling with it until it dies entirely. On a lookout for a WebKit alternative like <strong>Nook</strong>. My email on Mac is <strong>Mimestream</strong>. Everything is launched via <strong>Raycast</strong>.</p>
+<p style="margin-bottom: 0.5rem;">I take notes in <strong>Bear</strong> and handle to-dos with <strong>Apple Reminders</strong> — <a href="/teuxdeux-to-apple-reminders/">I switched over from TeuxDeux</a> not too long ago. <strong>Notion Calendar</strong> keeps the schedule in check.</p>
+<p style="margin-bottom: 3rem;">Currently experimenting with local LLMs through <strong>TypeWhisper</strong> (replaced Hex) and <strong>Cotypist</strong>. Model of choice is <strong>Gemma4 E4B</strong>. For AI assistants, it's <strong>Claude</strong> and <strong>Perplexity</strong> day-to-day, <strong>Gemini</strong> for Workspace and collaboration — completely out of the ChatGPT ecosystem now.</p>
 
 <hr>
 

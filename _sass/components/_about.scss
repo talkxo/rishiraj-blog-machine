@@ -34,7 +34,6 @@
   
   &__intro {
     @include fs--body;
-    line-height: 1.6;
     color: var(--color-text);
     margin: 0;
   }
@@ -103,7 +102,6 @@
   p {
     @include fs--body;
     color: var(--color-text);
-    line-height: 1.6;
     margin-bottom: 1rem;
   }
 }
