@@ -33,16 +33,7 @@ compress_html:
 keep_files: [assets, images, favicons]
 exclude: [vendor, node_modules, .git, .gitignore, README.md, Gemfile, Gemfile.lock]
 
-# Performance optimization
-compress_html:
-  clippings: all
-  comments: all
-  endings: all
-  profile: false
-  blanklines: false
-  ignore:
-    envs: []
-
+# Collections:
 collections:
   talks:
     output: true
@@ -58,8 +49,6 @@ feed:
 
 sass:
   style: compressed
-
-exclude: [vendor]
 
 # Plugins:
 plugins:
