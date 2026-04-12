@@ -27,6 +27,8 @@ body {
     @include ff--serif(400);
     color: var(--color-text, #404040);
     background: var(--color-bg, #ffffff);
+    font-size: 1.125rem; /* 18px */
+    line-height: 2rem; /* 32px */
     
     /* Retina display text rendering optimizations */
     -webkit-font-smoothing: antialiased;
