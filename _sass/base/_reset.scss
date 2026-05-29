@@ -28,7 +28,7 @@ body {
     color: var(--color-text);
     background: var(--color-bg);
     font-size: 1rem; /* Exactly 18px due to root reset */
-    line-height: 1.66667; /* Exactly 30px */
+    line-height: 1.77778; /* Exactly 32px */
     
     /* Retina display text rendering optimizations */
     -webkit-font-smoothing: antialiased;
@@ -166,7 +166,7 @@ hr {
     width: 100%;
     height: 1px;
     border: 0;
-    background: #EFF1F3;
+    background: var(--color-border);
 }
 
 /* Code Blocks */

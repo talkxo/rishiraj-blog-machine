@@ -110,19 +110,7 @@
         targets.forEach(el => observer.observe(el));
       })();
 
-      // ── 3. Animated HR dots ─────────────────────────────────────────────
-      (function() {
-        const article = document.querySelector('.c-article__main');
-        if (!article) return;
 
-        article.querySelectorAll('hr').forEach(hr => {
-          const dots = document.createElement('div');
-          dots.className = 'c-hr-dots';
-          dots.innerHTML = '<span></span><span></span><span></span>';
-          dots.setAttribute('aria-hidden', 'true');
-          hr.replaceWith(dots);
-        });
-      })();
 
       // ── 4. Active Reading Position Indicator ────────────────────────────
       (function() {

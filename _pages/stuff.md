@@ -22,48 +22,48 @@ permalink: /stuff/
 <hr>
 
 <h2 class="c-archives__year">EDC</h2>
-<section class="c-grid" style="--card-fixed-height: 120px; --card-line-clamp: 2;">
-  <article class="c-card">
-    <div class="c-card__head">
-      <div class="c-card__icon">{% include icon.html name="headphones" %}</div>
+<section class="c-edc-grid">
+  <article class="c-edc-card">
+    <div class="c-edc-card__icon">{% include icon.html name="headphones" %}</div>
+    <div class="c-edc-card__content">
       <h3>Headphones</h3>
+      <p>Sony WH-1000XM3</p>
     </div>
-    <p>Sony WH-1000XM3</p>
   </article>
-  <article class="c-card">
-    <div class="c-card__head">
-      <div class="c-card__icon">{% include icon.html name="device" %}</div>
+  <article class="c-edc-card">
+    <div class="c-edc-card__icon">{% include icon.html name="device" %}</div>
+    <div class="c-edc-card__content">
       <h3>Earphones</h3>
+      <p>AirPods 3, CMF Buds 2 Pro</p>
     </div>
-    <p>CMF Buds 2 Pro, AirPods 3</p>
   </article>
-  <article class="c-card">
-    <div class="c-card__head">
-      <div class="c-card__icon">{% include icon.html name="speaker" %}</div>
+  <article class="c-edc-card">
+    <div class="c-edc-card__icon">{% include icon.html name="speaker" %}</div>
+    <div class="c-edc-card__content">
       <h3>Speaker</h3>
+      <p>Marshall Willen II</p>
     </div>
-    <p>Marshall Willen II</p>
   </article>
-  <article class="c-card">
-    <div class="c-card__head">
-      <div class="c-card__icon">{% include icon.html name="camera" %}</div>
+  <article class="c-edc-card">
+    <div class="c-edc-card__icon">{% include icon.html name="camera" %}</div>
+    <div class="c-edc-card__content">
       <h3>Camera</h3>
+      <p>Sony A6400</p>
     </div>
-    <p>Sony Alpha A6400</p>
   </article>
-  <article class="c-card">
-    <div class="c-card__head">
-      <div class="c-card__icon">{% include icon.html name="camera" %}</div>
+  <article class="c-edc-card">
+    <div class="c-edc-card__icon">{% include icon.html name="camera" %}</div>
+    <div class="c-edc-card__content">
       <h3>Primary Lens</h3>
+      <p>Sigma 30mm f/1.4</p>
     </div>
-    <p>Sigma 30mm 1.4 DC DN Contemporary</p>
   </article>
-  <article class="c-card">
-    <div class="c-card__head">
-      <div class="c-card__icon">{% include icon.html name="tablet" %}</div>
+  <article class="c-edc-card">
+    <div class="c-edc-card__icon">{% include icon.html name="tablet" %}</div>
+    <div class="c-edc-card__content">
       <h3>Others</h3>
+      <p>iPad, Kindle, Apple Watch</p>
     </div>
-    <p>iPad, Kindle, Apple Watch 45mm Steel (cellular)</p>
   </article>
 </section>
 
@@ -77,131 +77,132 @@ permalink: /stuff/
 <hr>
 
 <h2 class="c-archives__year">Archived</h2>
-<section class="c-sessions c-sessions--columns">
-  <article class="c-session">
-    <div class="c-session__icon">{% include icon.html name="globe" %}</div>
-    <div class="c-session__content">
-      <h3>Mozilla Firefox</h3>
-      <p>Retired 2026</p>
+<section class="c-archive-list">
+  <article class="c-archive-row">
+    <div class="c-archive-row__left">
+      <div class="c-archive-row__icon">{% include icon.html name="globe" %}</div>
+      <h3 class="c-archive-row__title">Mozilla Firefox</h3>
     </div>
+    <span class="c-archive-row__badge">2026</span>
   </article>
-  <article class="c-session">
-    <div class="c-session__icon">{% include icon.html name="type" %}</div>
-    <div class="c-session__content">
-      <h3>Hex (local LLM)</h3>
-      <p>Retired 2026</p>
+  <article class="c-archive-row">
+    <div class="c-archive-row__left">
+      <div class="c-archive-row__icon">{% include icon.html name="type" %}</div>
+      <h3 class="c-archive-row__title">Hex (local LLM)</h3>
     </div>
+    <span class="c-archive-row__badge">2026</span>
   </article>
-  <article class="c-session">
-    <div class="c-session__icon">{% include icon.html name="laptop" %}</div>
-    <div class="c-session__content">
-      <h3>Apple Macbook Pro 13" (2019 Intel)</h3>
-      <p>Retired 2025</p>
+  <article class="c-archive-row">
+    <div class="c-archive-row__left">
+      <div class="c-archive-row__icon">{% include icon.html name="laptop" %}</div>
+      <h3 class="c-archive-row__title">Macbook Pro 13" (Intel)</h3>
     </div>
+    <span class="c-archive-row__badge">2025</span>
   </article>
-  <article class="c-session">
-    <div class="c-session__icon">{% include icon.html name="device" %}</div>
-    <div class="c-session__content">
-      <h3>Nothing Phone 2A</h3>
-      <p>Retired 2025</p>
+  <article class="c-archive-row">
+    <div class="c-archive-row__left">
+      <div class="c-archive-row__icon">{% include icon.html name="device" %}</div>
+      <h3 class="c-archive-row__title">Nothing Phone 2A</h3>
     </div>
+    <span class="c-archive-row__badge">2025</span>
   </article>
-  <article class="c-session">
-    <div class="c-session__icon">{% include icon.html name="globe" %}</div>
-    <div class="c-session__content">
-      <h3>Edge</h3>
-      <p>Retired 2025</p>
+  <article class="c-archive-row">
+    <div class="c-archive-row__left">
+      <div class="c-archive-row__icon">{% include icon.html name="globe" %}</div>
+      <h3 class="c-archive-row__title">Microsoft Edge</h3>
     </div>
+    <span class="c-archive-row__badge">2025</span>
   </article>
-  <article class="c-session">
-    <div class="c-session__icon">{% include icon.html name="calendar" %}</div>
-    <div class="c-session__content">
-      <h3>Cron (Notion Calendar)</h3>
-      <p>Retired 2025</p>
+  <article class="c-archive-row">
+    <div class="c-archive-row__left">
+      <div class="c-archive-row__icon">{% include icon.html name="calendar" %}</div>
+      <h3 class="c-archive-row__title">Cron Calendar</h3>
     </div>
+    <span class="c-archive-row__badge">2025</span>
   </article>
-  <article class="c-session">
-    <div class="c-session__icon">{% include icon.html name="mail" %}</div>
-    <div class="c-session__content">
-      <h3>Shortwave</h3>
-      <p>Retired 2025</p>
+  <article class="c-archive-row">
+    <div class="c-archive-row__left">
+      <div class="c-archive-row__icon">{% include icon.html name="mail" %}</div>
+      <h3 class="c-archive-row__title">Shortwave</h3>
     </div>
+    <span class="c-archive-row__badge">2025</span>
   </article>
-  <article class="c-session">
-    <div class="c-session__icon">{% include icon.html name="note" %}</div>
-    <div class="c-session__content">
-      <h3>TeuxDeux</h3>
-      <p>Retired 2025</p>
+  <article class="c-archive-row">
+    <div class="c-archive-row__left">
+      <div class="c-archive-row__icon">{% include icon.html name="note" %}</div>
+      <h3 class="c-archive-row__title">TeuxDeux</h3>
     </div>
+    <span class="c-archive-row__badge">2025</span>
   </article>
-  <article class="c-session">
-    <div class="c-session__icon">{% include icon.html name="device" %}</div>
-    <div class="c-session__content">
-      <h3>iPhone 13 Mini</h3>
-      <p>Retired 2024</p>
+  <article class="c-archive-row">
+    <div class="c-archive-row__left">
+      <div class="c-archive-row__icon">{% include icon.html name="device" %}</div>
+      <h3 class="c-archive-row__title">iPhone 13 Mini</h3>
     </div>
+    <span class="c-archive-row__badge">2024</span>
   </article>
-  <article class="c-session">
-    <div class="c-session__icon">{% include icon.html name="device" %}</div>
-    <div class="c-session__content">
-      <h3>Nothing Ear (1)</h3>
-      <p>Retired 2024</p>
+  <article class="c-archive-row">
+    <div class="c-archive-row__left">
+      <div class="c-archive-row__icon">{% include icon.html name="device" %}</div>
+      <h3 class="c-archive-row__title">Nothing Ear (1)</h3>
     </div>
+    <span class="c-archive-row__badge">2024</span>
   </article>
-  <article class="c-session">
-    <div class="c-session__icon">{% include icon.html name="speaker" %}</div>
-    <div class="c-session__content">
-      <h3>Bose Soundlink II Mini</h3>
-      <p>Retired 2022</p>
+  <article class="c-archive-row">
+    <div class="c-archive-row__left">
+      <div class="c-archive-row__icon">{% include icon.html name="speaker" %}</div>
+      <h3 class="c-archive-row__title">Bose Soundlink Mini II</h3>
     </div>
+    <span class="c-archive-row__badge">2022</span>
   </article>
-  <article class="c-session">
-    <div class="c-session__icon">{% include icon.html name="device" %}</div>
-    <div class="c-session__content">
-      <h3>Google Pixel 4A</h3>
-      <p>Retired 2021</p>
+  <article class="c-archive-row">
+    <div class="c-archive-row__left">
+      <div class="c-archive-row__icon">{% include icon.html name="device" %}</div>
+      <h3 class="c-archive-row__title">Google Pixel 4A</h3>
     </div>
+    <span class="c-archive-row__badge">2021</span>
   </article>
-  <article class="c-session">
-    <div class="c-session__icon">{% include icon.html name="device" %}</div>
-    <div class="c-session__content">
-      <h3>Samsung Galaxy S9</h3>
-      <p>Retired 2020</p>
+  <article class="c-archive-row">
+    <div class="c-archive-row__left">
+      <div class="c-archive-row__icon">{% include icon.html name="device" %}</div>
+      <h3 class="c-archive-row__title">Samsung Galaxy S9</h3>
     </div>
+    <span class="c-archive-row__badge">2020</span>
   </article>
-  <article class="c-session">
-    <div class="c-session__icon">{% include icon.html name="device" %}</div>
-    <div class="c-session__content">
-      <h3>AirPods 2</h3>
-      <p>Retired 2020</p>
+  <article class="c-archive-row">
+    <div class="c-archive-row__left">
+      <div class="c-archive-row__icon">{% include icon.html name="device" %}</div>
+      <h3 class="c-archive-row__title">AirPods 2</h3>
     </div>
+    <span class="c-archive-row__badge">2020</span>
   </article>
-  <article class="c-session">
-    <div class="c-session__icon">{% include icon.html name="laptop" %}</div>
-    <div class="c-session__content">
-      <h3>Apple Macbook Air 13" 2015</h3>
-      <p>Retired 2019</p>
+  <article class="c-archive-row">
+    <div class="c-archive-row__left">
+      <div class="c-archive-row__icon">{% include icon.html name="laptop" %}</div>
+      <h3 class="c-archive-row__title">Macbook Air 13" (2015)</h3>
     </div>
+    <span class="c-archive-row__badge">2019</span>
   </article>
-  <article class="c-session">
-    <div class="c-session__icon">{% include icon.html name="headphones" %}</div>
-    <div class="c-session__content">
-      <h3>Sony MDR-ZX300</h3>
-      <p>Retired 2016</p>
+  <article class="c-archive-row">
+    <div class="c-archive-row__left">
+      <div class="c-archive-row__icon">{% include icon.html name="headphones" %}</div>
+      <h3 class="c-archive-row__title">Sony MDR-ZX300</h3>
     </div>
+    <span class="c-archive-row__badge">2016</span>
   </article>
-  <article class="c-session">
-    <div class="c-session__icon">{% include icon.html name="camera" %}</div>
-    <div class="c-session__content">
-      <h3>Nikon P510</h3>
-      <p>Retired 2015</p>
+  <article class="c-archive-row">
+    <div class="c-archive-row__left">
+      <div class="c-archive-row__icon">{% include icon.html name="camera" %}</div>
+      <h3 class="c-archive-row__title">Nikon P510</h3>
     </div>
+    <span class="c-archive-row__badge">2015</span>
   </article>
-  <article class="c-session">
-    <div class="c-session__icon">{% include icon.html name="laptop" %}</div>
-    <div class="c-session__content">
-      <h3>Apple Macbook Pro 13" 2011</h3>
-      <p>Retired 2015</p>
+  <article class="c-archive-row">
+    <div class="c-archive-row__left">
+      <div class="c-archive-row__icon">{% include icon.html name="laptop" %}</div>
+      <h3 class="c-archive-row__title">Macbook Pro 13" (2011)</h3>
     </div>
+    <span class="c-archive-row__badge">2015</span>
   </article>
 </section>
+
