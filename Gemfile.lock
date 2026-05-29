@@ -63,6 +63,8 @@ GEM
     nokogiri (1.11.4)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
+    nokogiri (1.11.4-arm64-darwin)
+      racc (~> 1.4)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (4.0.6)
@@ -84,6 +86,7 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
+  arm64-darwin
   ruby
 
 DEPENDENCIES
@@ -95,4 +98,4 @@ DEPENDENCIES
   kramdown-parser-gfm
 
 BUNDLED WITH
-   1.16.1
+   1.17.2

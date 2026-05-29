@@ -175,37 +175,7 @@
         });
       })();
 
-      // ── 7. Ink-blot Page Transition ─────────────────────────────────────
-      (function() {
-        const blot = document.createElement('div');
-        blot.className = 'c-ink-blot';
-        document.body.appendChild(blot);
 
-        document.querySelectorAll('a[href]').forEach(link => {
-          const href = link.getAttribute('href');
-          // Only intercept internal same-site navigation
-          if (!href || href.startsWith('#') || href.startsWith('mailto:') ||
-              href.startsWith('http') || href.startsWith('//')) return;
-
-          link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = href;
-            const rect = link.getBoundingClientRect();
-            blot.style.left = (rect.left + rect.width / 2) + 'px';
-            blot.style.top  = (rect.top  + rect.height / 2 + window.scrollY) + 'px';
-            blot.style.position = 'fixed'; // follow viewport during transition
-
-            // Trigger expansion
-            requestAnimationFrame(() => {
-              blot.classList.add('is-expanding');
-            });
-
-            setTimeout(() => {
-              window.location.href = target;
-            }, 420);
-          });
-        });
-      })();
 
       // ── 8. Text Spotlight (reading highlight on scroll) ─────────────────
       (function() {
