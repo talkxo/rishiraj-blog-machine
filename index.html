@@ -3,43 +3,47 @@ layout: page
 ---
 <section class="c-archives">
   <link rel="shortcut icon" href="">
-  {% for post in site.posts limit: 4 %}
-    {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
-    {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
-
-    {% if forloop.first %}
-      <h2 class="c-archives__year" id="{{ this_year }}-ref">{{ this_year }}</h2>
-      <ul class="c-archives__list">
-    {% endif %}
-    <li class="c-archives__item">
-      <h3>
-        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>{% assign post_age_days = 'now' | date: '%s' | minus: post.date.to_i | divided_by: 86400 %}{% if post_age_days < 30 %}<span class="c-fresh-dot" title="Published recently" aria-label="Recent post"></span>{% endif %}
-      </h3>
-      <p>
-        <small>{{ post.date | date: "%B %-d, %Y" }}</small>
-        <small>{% include read_time.html post=post %}</small>
-      </p>
-      <p class="c-archives__description">{{ post.description }}</p>
-    </li>
-    {% if forloop.last %}
-      </ul>
-    {% else %}
-      {% if this_year != next_year %}
-        </ul>
-
-        <h2 class="c-archives__year" id="{{ next_year }}-ref">
-          {{ next_year }}
-        </h2>
-        <ul class="c-archives__list">
-      {% endif %}
-    {% endif %}
-  {% endfor %}
+  <ul class="c-archives__list">
+    {% for post in site.posts limit: 3 %}
+      <li class="c-archives__item">
+        <h3>
+          <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>{% assign post_age_days = 'now' | date: '%s' | minus: post.date.to_i | divided_by: 86400 %}{% if post_age_days < 30 %}<span class="c-fresh-dot" title="Published recently" aria-label="Recent post"></span>{% endif %}
+        </h3>
+        <p>
+          <small>{{ post.date | date: "%B %-d, %Y" }}</small>
+          <small>{% include read_time.html post=post %}</small>
+        </p>
+        <p class="c-archives__description">{{ post.description }}</p>
+      </li>
+    {% endfor %}
+  </ul>
 </section>
 
-<section class="c-archives-more" style="margin-top: 6rem; margin-bottom: 8rem;">
-  <h2 class="c-archives__year">Other Posts</h2>
+<div class="c-homepage-guide">
+  <h3>Hey, I’m Rishi Raj 👋</h3>
+  <p>
+    I’m a multi-disciplinary marketer and builder from New Delhi, India. Here, I write about marketing automation, SEO in the era of AI, and tools.
+  </p>
+  <div class="c-guide-grid">
+    <a href="/rishi-raj/" class="c-guide-card">
+      <h4>About Me &rarr;</h4>
+      <p>More about my background, work, and team processes.</p>
+    </a>
+    <a href="/stuff/" class="c-guide-card">
+      <h4>Stuff I Use &rarr;</h4>
+      <p>My physical workspace setup, daily carry gear, and software stack.</p>
+    </a>
+    <a href="/colophon/" class="c-guide-card">
+      <h4>Colophon &rarr;</h4>
+      <p>The underlying tech stack, layout grids, and performance details of this blog.</p>
+    </a>
+  </div>
+</div>
+
+<section class="c-archives-more" style="margin-top: 4.5rem; margin-bottom: 8rem;">
+  <h3 style="margin-top: 0; margin-bottom: 2rem; color: var(--color-ink); font-weight: 600; font-size: 1.25rem;">Other Posts</h3>
   <ul class="c-archives__list-compact">
-    {% for post in site.posts offset: 4 %}
+    {% for post in site.posts offset: 3 %}
       <li class="c-archives__item-compact">
         <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         <span class="c-archives__item-date">{{ post.date | date: "%b %Y" }}</span>
@@ -47,4 +51,3 @@ layout: page
     {% endfor %}
   </ul>
 </section>
-

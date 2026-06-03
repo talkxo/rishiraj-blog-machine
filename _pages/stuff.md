@@ -70,14 +70,28 @@ permalink: /stuff/
 <hr>
 
 <h2 class="c-archives__year">Softwares</h2>
-<p style="margin-bottom: 0.5rem;">For browsing, I use <strong>Arc</strong> — <a href="/2026/im-looking-for-a-new-browser/">had my trip around all the alternatives</a> and I'm back, settling with it until it dies entirely. On a lookout for a WebKit alternative like <strong>Nook</strong>. My email on Mac is <strong>Mimestream</strong>. Everything is launched via <strong>Raycast</strong>.</p>
-<p style="margin-bottom: 0.5rem;">I take notes in <strong>Bear</strong> and handle to-dos with <strong>Apple Reminders</strong> — <a href="/2025/teuxdeux-to-apple-reminders/">I switched over from TeuxDeux</a> not too long ago. <strong>Notion Calendar</strong> keeps the schedule in check.</p>
-<p style="margin-bottom: 3rem;">Currently experimenting with local LLMs through <strong>TypeWhisper</strong> (replaced Hex) and <strong>Cotypist</strong>. Model of choice is <strong>Gemma4 E4B</strong>. For AI assistants, it's <strong>Claude</strong> and <strong>Perplexity</strong> day-to-day, <strong>Gemini</strong> for Workspace and collaboration — completely out of the ChatGPT ecosystem now.</p>
+<p style="margin-bottom: 0.5rem;">For browsing, I use <strong>Arc</strong> — <a href="/2026/im-looking-for-a-new-browser">had my trip around all the alternatives</a> and I'm back, settling with it until it dies entirely. On a lookout for a WebKit alternative like <strong>Nook</strong>. My email on Mac is <strong>Apple Mail</strong>. Everything is launched via <strong>Raycast</strong>.</p>
+<p style="margin-bottom: 0.5rem;">I take notes in <strong>Bear</strong> and handle to-dos with <strong>Apple Reminders</strong> — <a href="/2025/teuxdeux-to-apple-reminders">I switched over from TeuxDeux</a> not too long ago. <strong>Notion Calendar</strong> keeps the schedule in check.</p>
+<p style="margin-bottom: 3rem;">Currently experimenting with local LLMs through <strong>TypeWhisper</strong> (replaced Hex) and <strong>Cotabby</strong>. Model of choice is <strong>Gemma4 E4B</strong>. For AI assistants, it's <strong>Claude</strong> and <strong>Perplexity</strong> day-to-day, <strong>Gemini</strong> for Workspace and collaboration — completely out of the ChatGPT ecosystem now.</p>
 
 <hr>
 
 <h2 class="c-archives__year">Archived</h2>
 <section class="c-archive-list">
+  <article class="c-archive-row">
+    <div class="c-archive-row__left">
+      <div class="c-archive-row__icon">{% include icon.html name="mail" %}</div>
+      <h3 class="c-archive-row__title">Mimestream</h3>
+    </div>
+    <span class="c-archive-row__badge">2026</span>
+  </article>
+  <article class="c-archive-row">
+    <div class="c-archive-row__left">
+      <div class="c-archive-row__icon">{% include icon.html name="type" %}</div>
+      <h3 class="c-archive-row__title">Cotypist (local LLM)</h3>
+    </div>
+    <span class="c-archive-row__badge">2026</span>
+  </article>
   <article class="c-archive-row">
     <div class="c-archive-row__left">
       <div class="c-archive-row__icon">{% include icon.html name="globe" %}</div>

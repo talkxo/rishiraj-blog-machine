@@ -6,7 +6,7 @@ permalink: /rishi-raj/
 
 ### Work
 
-I run a digital services company called [TalkXO](https://hello.talkxo.com). I work with a young team of marketers and techies on marketing automation and creative content solutions for big and small businesses. I like building things — ideas, systems and the occasional product that makes work smoother. My work tends to sit at the intersection of creativity, technology and business growth.
+I run a digital services company called [TalkXO](https://hello.talkxo.com). I work with a young team of marketers and techies on marketing automation and creative content solutions for big and small businesses. I like building things — ideas, systems and the occasional product that makes work smoother. My work tends to sit at the intersection of design, technology and open-source.
 
 In my previous avatars, I have been …
 

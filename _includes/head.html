@@ -23,7 +23,7 @@
   <!-- Meta information -->
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description"
-        content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+        content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
   <link rel="canonical"
         href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
 
@@ -31,7 +31,7 @@
   <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
   <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-  <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
   <meta property="og:image" content="{% if page.image %}{{ page.image | prepend: site.url }}{% else %}{{ site.url }}/assets/images/workspace-hero.jpg{% endif %}">
   <meta property="og:site_name" content="{{ site.title }}">
   <meta property="og:locale" content="en_US">
@@ -40,7 +40,7 @@
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <meta property="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-  <meta property="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="twitter:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
   <meta property="twitter:image" content="{% if page.image %}{{ page.image | prepend: site.url }}{% else %}{{ site.url }}/assets/images/workspace-hero.jpg{% endif %}">
   <meta property="twitter:creator" content="@rishiraj">
 
@@ -236,7 +236,7 @@
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": "{{ page.title }}",
-    "description": "{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}",
+    "description": "{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}",
     "image": "{% if page.image %}{{ page.image | prepend: site.url }}{% else %}{{ site.url }}/assets/images/workspace-hero.jpg{% endif %}",
     "author": {
       "@type": "Person",
@@ -261,7 +261,8 @@
     "articleSection": "{% if page.categories %}{{ page.categories | first }}{% else %}General{% endif %}",
     "keywords": "{% if page.tags %}{{ page.tags | join: ', ' }}{% endif %}",
     "wordCount": "{{ page.content | number_of_words }}",
-    "timeRequired": "PT{{ page.writing_time.writing | default: '5' }}M"
+    "timeRequired": "PT{{ page.writing_time.writing | default: '5' }}M",
+    "articleBody": {{ page.content | strip_html | jsonify }}
   }
   </script>
   {% endif %}
@@ -317,7 +318,7 @@
     "@context": "https://schema.org",
     "@type": "HowTo",
     "name": "{{ page.title }}",
-    "description": "{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}",
+    "description": "{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}",
     "image": "{% if page.image %}{{ page.image | prepend: site.url }}{% else %}{{ site.url }}/assets/images/workspace-hero.jpg{% endif %}",
     "author": {
       "@type": "Person",
