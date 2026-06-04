@@ -45,9 +45,9 @@ The whole thing was written with Claude Opus 4.7. I'd describe what I wanted, it
 
 That's the thing about personal software. The specificity is the point.
 
-## Instinct of Fit
+## Fit to fit
 
-Earlier this year I wrote about [switching from TeuxDeux to Apple Reminders](/2025/teuxdeux-to-apple-reminders). The move was less about one app being better and more about fit — offline-first, baked into the OS, one less subscription. That's a small version of the same instinct. You start asking whether the tool was made for you, or whether you've been made to fit the tool.
+Last year I wrote about [switching from TeuxDeux to Apple Reminders](/2025/teuxdeux-to-apple-reminders). The move was less about one app being better and more about fit — offline-first, baked into the OS, one less subscription. That's a small version of the same instinct. You start asking whether the tool was made for you, or whether you've been made to fit the tool.
 
 The answer, most of the time, is the second one.
 
