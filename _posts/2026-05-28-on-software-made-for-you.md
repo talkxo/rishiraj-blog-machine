@@ -70,3 +70,5 @@ We are building things. Small things, personal things, specific things. Things t
 That used to require a skill set. Now it requires clarity about what you actually want.
 
 Turns out that's the harder part anyway.
+
+For what it's worth — I have nothing against vibe coding. In the hands of someone technical, someone who owns the architecture, the stack decisions, the structure of the thing — it's a genuine superpower. The AI handles the tedium, you handle the thinking. For non-technical people, it may not always produce production-grade software, but that almost misses the point. It creates an entirely new category: personal software developers. People who will never ship a SaaS product but can build exactly what they need for themselves. That matters. The caveat is honest though — AI still gets lost. Models are genuinely bad at debugging, and anything with real complexity will eventually land back in your lap. The home server I built hit several walls that no amount of prompting could get through cleanly. You work through it. But that's a limitation of today, not a verdict on the idea.
