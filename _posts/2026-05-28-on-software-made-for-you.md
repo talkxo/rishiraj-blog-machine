@@ -31,7 +31,7 @@ When you can build your own version, the calculus changes. You stop tolerating.
 
 ## Building for a "market of one"
 
-*(Added May 30)* A friend of mine is preparing for the GRE. Instead of picking from the usual prep apps — all built for the average test-taker, all with the same flashcard loops and practice test formats — he built his own inside Lovable. An app that matches exactly how he studies: interactive, session-based, structured around his weak areas. The polish on it is surprisingly good. Better than most tools in that category, honestly, because it isn't trying to serve a thousand different learners. It's serving one. No tool on the market right now can replicate that — not because they lack the technology, but because they were never trying to solve his specific problem.
+**(Added May 30)** A friend of mine is preparing for the GRE. Instead of picking from the usual prep apps — all built for the average test-taker, all with the same flashcard loops and practice test formats — she built her own inside Lovable. An app that matches exactly how she studies: interactive, session-based, structured around her weak areas. The polish on it is surprisingly good. Better than most tools in that category, honestly, because it isn't trying to serve a thousand different learners. It's serving one. No tool on the market right now can replicate that — not because they lack the technology, but because they were never trying to solve her specific problem.
 
 ## Giving old hardware new purpose
 
