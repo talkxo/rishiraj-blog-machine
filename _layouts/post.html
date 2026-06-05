@@ -60,7 +60,7 @@ layout: page
       <p>Select your preferred AI to discuss this article. The AI will read the content directly from the raw source file, including all links.</p>
       
       {% capture raw_url %}https://raw.githubusercontent.com/talkxo/rishiraj-blog-machine/main/{{ page.path }}{% endcapture %}
-      {% capture discuss_prompt %}Please read and discuss this article: {{ raw_url }} (originally published at {{ site.url }}{{ page.url }}){% endcapture %}
+      {% capture discuss_prompt %}Please read and discuss this article: {{ raw_url }} (Source: {{ site.url }}{{ page.url }}){% endcapture %}
       {% assign discuss_prompt_encoded = discuss_prompt | url_encode %}
       <div class="c-ai-buttons">
         <a class="c-ai-button c-ai-button--chatgpt" 
