@@ -149,6 +149,23 @@ layout: page
     }
   }
 
+  function copyTextSync(text) {
+    const el = document.createElement('textarea');
+    el.value = text;
+    el.style.position = 'absolute';
+    el.style.left = '-9999px';
+    document.body.appendChild(el);
+    el.select();
+    let success = false;
+    try {
+      success = document.execCommand('copy');
+    } catch (err) {
+      console.error('Copy failed: ', err);
+    }
+    document.body.removeChild(el);
+    return success;
+  }
+
   // Attach safe click event listeners to AI buttons
   document.querySelectorAll('.c-ai-button').forEach(function(button) {
     button.addEventListener('click', function(event) {
@@ -157,27 +174,12 @@ layout: page
       const prompt = 'Please read and discuss this article: ' + jinaUrl;
       
       if (isGemini) {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(prompt).then(function() {
-            showToast("Prompt copied! Paste it in Gemini chat.");
-          }).catch(function(err) {
-            console.error('Failed to copy prompt to clipboard:', err);
-          });
+        // Copy synchronously to prevent focus-loss issues when the new tab opens
+        const success = copyTextSync(prompt);
+        if (success) {
+          showToast("Prompt copied! Paste it in Gemini chat.");
         } else {
-          // Fallback for older browsers
-          const el = document.createElement('textarea');
-          el.value = prompt;
-          el.style.position = 'absolute';
-          el.style.left = '-9999px';
-          document.body.appendChild(el);
-          el.select();
-          try {
-            document.execCommand('copy');
-            showToast("Prompt copied! Paste it in Gemini chat.");
-          } catch (err) {
-            console.error('Fallback copy failed: ', err);
-          }
-          document.body.removeChild(el);
+          showToast("Failed to copy prompt.");
         }
       } else {
         showToast("Opening AI chat...");
