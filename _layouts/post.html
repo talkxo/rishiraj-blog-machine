@@ -59,7 +59,8 @@ layout: page
       <h3>Discuss this article with AI</h3>
       <p>Select your preferred AI to discuss this article. The AI will read the content directly from this page, including all source links.</p>
       
-      {% capture jina_url %}https://r.jina.ai/{{ site.url }}{{ page.url }}{% endcapture %}
+      {% assign jina_target = site.url | append: page.url | url_encode %}
+      {% capture jina_url %}https://r.jina.ai/{{ jina_target }}{% endcapture %}
       {% capture discuss_prompt %}Please read and discuss this article: {{ jina_url }}{% endcapture %}
       {% assign discuss_prompt_encoded = discuss_prompt | url_encode %}
       <div class="c-ai-buttons">
