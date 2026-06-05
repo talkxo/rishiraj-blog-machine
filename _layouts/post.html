@@ -155,10 +155,31 @@ layout: page
   function copyTextSync(text) {
     const el = document.createElement('textarea');
     el.value = text;
-    el.style.position = 'absolute';
-    el.style.left = '-9999px';
+    el.style.top = '0';
+    el.style.left = '0';
+    el.style.position = 'fixed';
+    el.style.width = '2em';
+    el.style.height = '2em';
+    el.style.padding = '0';
+    el.style.border = 'none';
+    el.style.outline = 'none';
+    el.style.boxShadow = 'none';
+    el.style.background = 'transparent';
     document.body.appendChild(el);
-    el.select();
+    
+    // iOS selection support
+    const isIOS = navigator.userAgent.match(/ipad|iphone/i);
+    if (isIOS) {
+      const range = document.createRange();
+      range.selectNodeContents(el);
+      const selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      el.setSelectionRange(0, 999999);
+    } else {
+      el.select();
+    }
+    
     let success = false;
     try {
       success = document.execCommand('copy');
@@ -175,15 +196,26 @@ layout: page
       const isGemini = this.classList.contains('c-ai-button--gemini');
       const rawUrl = this.getAttribute('data-url');
       const originUrl = this.getAttribute('data-origin');
-      const prompt = 'Please read and discuss this article: ' + rawUrl + ' (originally published at ' + originUrl + ')';
       
       if (isGemini) {
-        // Copy synchronously to prevent focus-loss issues when the new tab opens
-        const success = copyTextSync(prompt);
+        // Since Gemini cannot pre-fill via URL and is blocked from crawling raw/mirror URLs due to search engine policies,
+        // we copy the entire article content + source links synchronously so the user can paste it directly.
+        const articleBody = document.querySelector('.c-article__body');
+        const articleText = articleBody ? articleBody.innerText.trim() : '';
+        const title = this.getAttribute('title').replace('Discuss with ', '');
+        
+        const fullPrompt = 'Please read and discuss this article: "' + title + '" (originally published at ' + originUrl + ').\n\n' +
+                           'Here is the full text of the article:\n' +
+                           '---\n' +
+                           articleText + '\n' +
+                           '---\n\n' +
+                           'I\'d like to discuss the main points and ask some questions about it.';
+                           
+        const success = copyTextSync(fullPrompt);
         if (success) {
-          showToast("Prompt copied! Paste it in Gemini chat.");
+          showToast("Article text copied! Paste it in Gemini chat.");
         } else {
-          showToast("Failed to copy prompt.");
+          showToast("Failed to copy article text.");
         }
       } else {
         showToast("Opening AI chat...");
