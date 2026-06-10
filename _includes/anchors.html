@@ -34,6 +34,13 @@
     {% if node == "" %}
       {% continue %}
     {% endif %}
+    {% if forloop.first %}
+      {% assign firstChar = include.html | slice: 0, 2 %}
+      {% if firstChar != "<h" %}
+        {% capture edited_headings %}{{ edited_headings }}{{ node }}{% endcapture %}
+        {% continue %}
+      {% endif %}
+    {% endif %}
     {% assign headerLevel = node | replace: '"', '' | slice: 0, 1 | times: 1 %}
 
     {% if headerLevel < 1 or headerLevel > 6 %}
