@@ -51,7 +51,7 @@
 .c-article__main {
     @include fs--body;
     font-family: inherit;
-    font-weight: 300 !important; /* Force Light */
+    font-weight: 400;
 
     margin-bottom: 3rem; // 50px
     color: var(--color-text, #404040);
