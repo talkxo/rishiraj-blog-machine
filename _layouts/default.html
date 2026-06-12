@@ -7,70 +7,6 @@
     <main id="main-content" class="u-container">
       {{ content }}
     </main>
-    <!-- Deferred scripts -->
-    <script defer>
-      // Service Worker Registration
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-          navigator.serviceWorker.register('/sw.js')
-            .then(function(registration) {
-              console.log('SW registered: ', registration);
-            })
-            .catch(function(registrationError) {
-              console.log('SW registration failed: ', registrationError);
-            });
-        });
-      }
-    </script>
-    <script defer>
-      // Font Loading Observer for LCP optimization
-      window.addEventListener('load', function() {
-        if ('fonts' in document) {
-          Promise.all([
-            document.fonts.load('400 1em "Work Sans"'),
-            document.fonts.load('700 1em "Work Sans"')
-          ]).then(function() {
-            document.documentElement.classList.add('fonts-loaded');
-            console.log('Critical fonts loaded');
-          }).catch(function() {
-            console.log('Font loading failed, using fallbacks');
-          });
-        }
-      });
-    </script>
-    <script defer>
-      // Core Web Vitals Monitoring
-      window.addEventListener('load', function() {
-        if ('PerformanceObserver' in window) {
-          // LCP
-          new PerformanceObserver((list) => {
-            const entries = list.getEntries();
-            const lastEntry = entries[entries.length - 1];
-            console.log('LCP:', lastEntry.startTime);
-          }).observe({entryTypes: ['largest-contentful-paint']});
-          
-          // FID
-          new PerformanceObserver((list) => {
-            const entries = list.getEntries();
-            entries.forEach((entry) => {
-              console.log('FID:', entry.processingStart - entry.startTime);
-            });
-          }).observe({entryTypes: ['first-input']});
-          
-          // CLS
-          new PerformanceObserver((list) => {
-            let cls = 0;
-            const entries = list.getEntries();
-            entries.forEach((entry) => {
-              if (!entry.hadRecentInput) {
-                cls += entry.value;
-              }
-            });
-            console.log('CLS:', cls);
-          }).observe({entryTypes: ['layout-shift']});
-        }
-      });
-    </script>
     <script defer>
       // ── 1. Reading Progress Bar ─────────────────────────────────────────
       (function() {
@@ -99,7 +35,6 @@
         const observer = new IntersectionObserver((entries) => {
           entries.forEach((entry, i) => {
             if (entry.isIntersecting) {
-              // Stagger delay based on position in list
               entry.target.style.transitionDelay = (i * 0.04) + 's';
               entry.target.classList.add('is-visible');
               observer.unobserve(entry.target);
@@ -110,9 +45,7 @@
         targets.forEach(el => observer.observe(el));
       })();
 
-
-
-      // ── 4. Active Reading Position Indicator ────────────────────────────
+      // ── 3. Active Reading Position Indicator ────────────────────────────
       (function() {
         const track = document.getElementById('reading-track');
         const thumb = document.getElementById('reading-thumb');
@@ -126,12 +59,10 @@
           const scrolled = window.scrollY + window.innerHeight / 2;
           const progress = Math.max(0, Math.min(1, (scrolled - articleTop) / articleHeight));
 
-          // Show track only while inside the article
           const inView = window.scrollY > articleTop - 200 &&
                          window.scrollY < articleTop + articleHeight;
           track.classList.toggle('is-active', inView);
 
-          // Move thumb (stays within the 80px track height, minus thumb 24px)
           thumb.style.top = (progress * (80 - 24)) + 'px';
         }
 
@@ -139,13 +70,10 @@
         updateTrack();
       })();
 
-      // ── 5. Typing cursor — handled purely in CSS via ::after ─────────────
-      // (No JS needed — the .c-site-title-cursor class drives it via CSS animation)
-
-      // ── 6. Magnetic Nav Links ───────────────────────────────────────────
+      // ── 4. Magnetic Nav Links ───────────────────────────────────────────
       (function() {
         const navLinks = document.querySelectorAll('.c-page__header nav a');
-        const STRENGTH = 0.35; // how strongly links follow the mouse
+        const STRENGTH = 0.35;
 
         navLinks.forEach(link => {
           link.addEventListener('mousemove', function(e) {
@@ -163,15 +91,13 @@
         });
       })();
 
-
-
-      // ── 8. Text Spotlight (reading highlight on scroll) ─────────────────
+      // ── 5. Text Spotlight (reading highlight on scroll) ─────────────────
       (function() {
         const body = document.querySelector('.c-article__body');
         if (!body || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
         const paragraphs = Array.from(body.querySelectorAll('p'));
-        if (paragraphs.length < 4) return; // not worth it for short posts
+        if (paragraphs.length < 4) return;
 
         let spotlightEnabled = false;
         let ticking = false;
@@ -194,7 +120,6 @@
         }
 
         function updateSpotlight() {
-          // Enable spotlight only after scrolling a bit into the article
           const articleRect = body.getBoundingClientRect();
           const scrolledIn = articleRect.top < window.innerHeight * 0.4;
           const scrolledOut = articleRect.bottom < window.innerHeight * 0.5;

@@ -10,9 +10,6 @@ username: Rishi Raj
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://rishiraj.blog" # the base hostname & protocol for your site
 
-github_edit_url: "https://github.com/sobolevn/sobolevn.github.io/blob/master"
-disqus_id: 
-
 # Build settings
 include: [_pages]
 markdown: kramdown
@@ -33,25 +30,10 @@ compress_html:
 keep_files: [assets, images, favicons]
 exclude: [vendor, node_modules, .git, .gitignore, README.md, Gemfile, Gemfile.lock]
 
-# Collections:
-collections:
-  talks:
-    output: true
-    permalink: /:collection/:name
-  activities:
-    output: true
-    permalink: /:collection/:name
-
-feed:
-  collections:
-    - talks
-    - activities
-
 sass:
   style: compressed
 
 # Plugins:
 plugins:
-  - jemoji
   - jekyll-sitemap
   - jekyll-feed

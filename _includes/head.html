@@ -32,7 +32,7 @@
   <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
   <meta property="og:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-  <meta property="og:image" content="{% if page.image %}{{ page.image | prepend: site.url }}{% else %}{{ site.url }}/assets/images/workspace-hero.jpg{% endif %}">
+  <meta property="og:image" content="{% if page.image %}{{ page.image | prepend: site.url }}{% else %}{{ site.url }}/assets/images/workspace-hero.webp{% endif %}">
   <meta property="og:site_name" content="{{ site.title }}">
   <meta property="og:locale" content="en_US">
 
@@ -41,7 +41,7 @@
   <meta property="twitter:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <meta property="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
   <meta property="twitter:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-  <meta property="twitter:image" content="{% if page.image %}{{ page.image | prepend: site.url }}{% else %}{{ site.url }}/assets/images/workspace-hero.jpg{% endif %}">
+  <meta property="twitter:image" content="{% if page.image %}{{ page.image | prepend: site.url }}{% else %}{{ site.url }}/assets/images/workspace-hero.webp{% endif %}">
   <meta property="twitter:creator" content="@rishiraj">
 
   <!-- Article specific meta tags -->
@@ -66,7 +66,7 @@
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}"
         href="{{ "/feed.xml" | prepend: site.baseurl }}" />
 
-  <!-- Structured Data -->
+  <!-- Structured Data: WebSite -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -77,171 +77,23 @@
     "author": {
       "@type": "Person",
       "name": "{{ site.author }}",
-      "email": "{{ site.email }}",
       "url": "{{ site.url }}/rishi-raj/"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "{{ site.title }}",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "{{ site.url }}/assets/images/favicons/favicon-96x96.png"
-      }
-    },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "{{ site.url }}/search?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
-
-  <!-- Organization Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "{{ site.title }}",
-    "url": "{{ site.url }}",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "{{ site.url }}/assets/images/favicons/favicon-96x96.png",
-      "width": 96,
-      "height": 96
-    },
-    "description": "{{ site.description }}",
-    "foundingDate": "2025",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "IN",
-      "addressLocality": "New Delhi",
-      "addressRegion": "Delhi"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "customer service",
-      "email": "{{ site.email }}"
-    },
-    "sameAs": [
-      "https://hello.talkxo.com",
-      "https://github.com/talkxo"
-    ]
-  }
-  </script>
-
-  <!-- Person Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "{{ site.author }}",
-    "email": "{{ site.email }}",
-    "url": "{{ site.url }}/rishi-raj/",
-    "image": "{{ site.url }}/assets/images/workspace-hero.jpg",
-    "description": "Multi-disciplinary marketer from New Delhi, India. Expertise in strategic planning, content and communications, and creating effective team processes.",
-    "jobTitle": "Multi-disciplinary Marketer",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "TalkXO",
-      "url": "https://hello.talkxo.com"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "IN",
-      "addressLocality": "New Delhi",
-      "addressRegion": "Delhi"
-    },
-    "alumniOf": {
-      "@type": "Organization",
-      "name": "Leading Independent Agency"
-    },
-    "knowsAbout": [
-      "Marketing Strategy",
-      "Content Marketing",
-      "SEO",
-      "Digital Marketing",
-      "Team Leadership",
-      "Marketing Automation",
-      "Creative Content Solutions"
-    ],
-    "sameAs": [
-      "https://hello.talkxo.com",
-      "https://github.com/talkxo"
-    ]
-  }
-  </script>
-
-  <!-- Local Business Schema for TalkXO -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "TalkXO",
-    "description": "Digital services company specializing in marketing automation and creative content solutions for businesses of all sizes.",
-    "url": "https://hello.talkxo.com",
-    "telephone": "+91-XXXXXXXXXX",
-    "email": "{{ site.email }}",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "IN",
-      "addressLocality": "New Delhi",
-      "addressRegion": "Delhi"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 28.6139,
-      "longitude": 77.2090
-    },
-    "openingHours": "Mo-Fr 09:00-18:00",
-    "priceRange": "$$",
-    "currenciesAccepted": "INR, USD",
-    "paymentAccepted": "Cash, Credit Card, Bank Transfer",
-    "areaServed": "Worldwide",
-    "serviceType": [
-      "Marketing Automation",
-      "Creative Content Solutions",
-      "Digital Marketing",
-      "SEO Services",
-      "Content Strategy"
-    ],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Digital Marketing Services",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Marketing Automation",
-            "description": "Automated marketing solutions for business growth"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Creative Content Solutions",
-            "description": "Strategic content creation and management"
-          }
-        }
-      ]
     }
   }
   </script>
 
   {% if page.layout == 'post' %}
-  <!-- Article Structured Data -->
+  <!-- Structured Data: BlogPosting -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": "{{ page.title }}",
     "description": "{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}",
-    "image": "{% if page.image %}{{ page.image | prepend: site.url }}{% else %}{{ site.url }}/assets/images/workspace-hero.jpg{% endif %}",
+    "image": "{% if page.image %}{{ page.image | prepend: site.url }}{% else %}{{ site.url }}/assets/images/workspace-hero.webp{% endif %}",
     "author": {
       "@type": "Person",
       "name": "{{ site.author }}",
-      "email": "{{ site.email }}",
       "url": "{{ site.url }}/rishi-raj/"
     },
     "publisher": {
@@ -258,146 +110,11 @@
       "@type": "WebPage",
       "@id": "{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"
     },
-    "articleSection": "{% if page.categories %}{{ page.categories | first }}{% else %}General{% endif %}",
-    "keywords": "{% if page.tags %}{{ page.tags | join: ', ' }}{% endif %}",
-    "wordCount": "{{ page.content | number_of_words }}",
-    "timeRequired": "PT{{ page.writing_time.writing | default: '5' }}M",
-    "articleBody": {{ page.content | strip_html | jsonify }}
+    "wordCount": "{{ page.content | number_of_words }}"
   }
   </script>
-  {% endif %}
 
-  <!-- FAQ Schema for Q&A Content -->
-  {% if page.layout == 'post' and page.tags contains 'seo' or page.tags contains 'how-to' or page.tags contains 'guide' %}
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What actually matters for SEO in 2025?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Search engines want to answer questions directly. Focus on providing comprehensive answers that connect related solutions naturally, rather than optimizing for keyword density."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Are breadcrumbs still useful for SEO?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Google killed breadcrumb rich snippets on mobile in January 2025. They're not SEO magic anymore, but they still help users understand where they are and how content connects."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How should you write alt text for images?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Write descriptive alt text like 'ergonomic standing desk showing monitor at eye level' instead of generic terms like 'product image'. AI systems use this context to understand when your content answers specific questions."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What's the reality about Core Web Vitals?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Even Google's own Pixel 9a page fails their PageSpeed test. Focus on actual user experience over chasing perfect Core Web Vitals scores. Fast enough beats perfectly measured."
-        }
-      }
-    ]
-  }
-  </script>
-  {% endif %}
-
-  <!-- HowTo Schema for Tutorial Content -->
-  {% if page.layout == 'post' and page.tags contains 'how-to' or page.tags contains 'tutorial' or page.tags contains 'guide' %}
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    "name": "{{ page.title }}",
-    "description": "{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}",
-    "image": "{% if page.image %}{{ page.image | prepend: site.url }}{% else %}{{ site.url }}/assets/images/workspace-hero.jpg{% endif %}",
-    "author": {
-      "@type": "Person",
-      "name": "{{ site.author }}",
-      "email": "{{ site.email }}",
-      "url": "{{ site.url }}/rishi-raj/"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "{{ site.title }}",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "{{ site.url }}/assets/images/favicons/favicon-96x96.png"
-      }
-    },
-    "datePublished": "{{ page.date | date_to_xmlschema }}",
-    "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
-    "totalTime": "PT{{ page.writing_time.writing | default: '5' }}M",
-    "estimatedCost": {
-      "@type": "MonetaryAmount",
-      "currency": "USD",
-      "value": "0"
-    },
-    "supply": [],
-    "tool": [],
-    "step": [
-      {
-        "@type": "HowToStep",
-        "name": "Understand the Problem",
-        "text": "Identify what you're trying to solve and why traditional approaches might not work.",
-        "image": "{{ site.url }}/assets/images/workspace-hero.jpg"
-      },
-      {
-        "@type": "HowToStep",
-        "name": "Apply Modern Solutions",
-        "text": "Use contemporary approaches that focus on user experience and practical results.",
-        "image": "{{ site.url }}/assets/images/workspace-hero.jpg"
-      },
-      {
-        "@type": "HowToStep",
-        "name": "Measure Real Impact",
-        "text": "Focus on actual results rather than perfect metrics or theoretical optimization.",
-        "image": "{{ site.url }}/assets/images/workspace-hero.jpg"
-      }
-    ]
-  }
-  </script>
-  {% endif %}
-
-  <!-- Article Series Schema -->
-  {% if page.layout == 'post' and page.categories contains 'seo' %}
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "SEO Strategy Series",
-    "description": "A collection of articles about modern SEO strategies and digital marketing insights",
-    "url": "{{ site.url }}/",
-    "publisher": {
-      "@type": "Organization",
-      "name": "{{ site.title }}",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "{{ site.url }}/assets/images/favicons/favicon-96x96.png"
-      }
-    },
-    "hasPart": [
-      {
-        "@type": "Article",
-        "name": "{{ page.title }}",
-        "url": "{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}",
-        "datePublished": "{{ page.date | date_to_xmlschema }}"
-      }
-    ]
-  }
-  </script>
-  {% endif %}
-
-  <!-- Breadcrumb Structured Data -->
+  <!-- Structured Data: BreadcrumbList -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -408,48 +125,32 @@
         "position": 1,
         "name": "Home",
         "item": "{{ site.url }}"
-      }
-      {% if page.layout == 'post' %}
-      ,{
+      },
+      {
         "@type": "ListItem",
         "position": 2,
-        "name": "Blog",
-        "item": "{{ site.url }}/"
-      }
-      ,{
-        "@type": "ListItem",
-        "position": 3,
         "name": "{{ page.title }}",
         "item": "{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"
       }
-      {% endif %}
     ]
   }
   </script>
+  {% endif %}
 
-  <!-- Resource hints for faster external resource loading -->
-  
   <!-- Preload critical resources -->
   <link rel="preload" href="{{ "/css/main.css" | prepend: site.baseurl }}" as="style">
-  <link rel="preload" href="{{ "/assets/images/workspace-hero.jpg" | prepend: site.baseurl }}" as="image">
-  
-  <!-- DNS prefetch for external domains -->
-  
-  <!-- Google Fonts - Work Sans -->
+
+  <!-- Google Fonts - Work Sans (single load path) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&display=swap">
   </noscript>
-  
-  <style>
-    /* Work Sans Font Import */
-    @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&display=swap');
 
-    /* Critical CSS for LCP/CLS optimization */
+  <style>
     :root {
-      font-size: 112.5%; /* Sets 1rem = 18px globally */
+      font-size: 112.5%;
       --color-bg: #ffffff;
       --color-text: #222222;
       --color-muted: #222222;
@@ -470,13 +171,11 @@
       --code-bg: rgba(240,246,252,0.05);
       --link-hover-text: #ffffff;
     }
-    
-    /* Font definitions with CLS prevention */
     body {
       font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      font-weight: 300 !important; /* Light */
-      font-size: 1rem !important; /* Exactly 18px due to root reset */
-      line-height: 1.77778; /* 1.77778 * 18px = 32px */
+      font-weight: 300;
+      font-size: 1rem;
+      line-height: 1.77778;
       margin: 0;
       padding: 0;
       background: var(--color-bg);
@@ -484,19 +183,17 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      contain: layout style;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       text-rendering: optimizeLegibility;
     }
-    
-    /* Headings with Work Sans */
     h1, h2, h3, h4, h5, h6 {
-      font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      font-weight: 500; /* Medium */
+      font-weight: 500;
+      line-height: 1.2;
     }
-    
-    /* Container with reserved space */
+    code, pre {
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    }
     .u-container {
       max-width: 38rem;
       margin: 0 auto;
@@ -504,47 +201,6 @@
       flex: 1;
       min-height: 0;
     }
-    
-    /* Critical content area */
-    .c-archives__description {
-      font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      font-weight: 300; /* Light */
-      line-height: 1.77778; /* 32px */
-      color: var(--color-text);
-      contain: layout style;
-    }
-    
-    /* Code font - system monospace */
-    code, pre {
-      font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
-    }
-    
-    /* Critical CSS for LCP optimization */
-    /* Prevent layout shifts with font loading */
-    body, h1, h2, h3, h4, h5, h6, p, span, div {
-      /* Font display controlled by @font-face declarations */
-    }
-    
-    /* Ensure consistent line heights to prevent CLS */
-    body {
-      line-height: 1.77778;
-    }
-    
-    h1, h2, h3, h4, h5, h6 {
-      line-height: 1.2;
-    }
-    
-    /* Critical LCP element styling */
-    .c-archives__description {
-      min-height: 1.77778em;
-      font-size: 1rem; /* Now 18px */
-      margin: 0;
-      padding: 0;
-      display: block;
-      contain: layout style;
-    }
-    
-    /* Critical header styling */
     .c-page__subtitle {
       font-size: 2.7rem;
       line-height: 1;
@@ -554,123 +210,10 @@
       font-weight: 700;
       color: var(--color-ink);
     }
-    
-    /* Critical navigation styling */
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    
-    nav li {
-      margin: 0;
-    }
-    
-    /* Critical link styling */
-    a:not(.anchor) {
-      color: var(--color-accent);
-      background-color: transparent;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-    
-    a:not(.anchor):hover {
-      color: white;
-      background-color: var(--color-accent);
-      padding: 2px 4px;
-      border-radius: 3px;
-    }
-    
-    /* Critical grid styling */
-    .c-grid {
-      --cards-gap: 1.5rem;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--cards-gap);
-      align-items: stretch;
-      grid-auto-flow: row;
-    }
-    
-    @media screen and (min-width: 45rem) {
-      .c-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-    
-    /* Critical card styling */
-    .c-card {
-      background: var(--color-bg);
-      border: 1px solid var(--color-border);
-      border-radius: 14px;
-      padding: 1.2rem;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
-      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
-      min-height: var(--card-fixed-height);
-      height: var(--card-fixed-height);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-    }
-    
-    .c-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(0,0,0,0.06);
-      border-color: rgba(0,0,0,0.08);
-    }
-    
-    .c-card h3 {
-      font-size: 1.3rem;
-      line-height: 1.2;
-      margin: 0;
-      color: var(--color-ink);
-    }
-    
-    .c-card p {
-      line-height: 32px;
-      font-size: 1rem;
-      color: var(--color-muted);
-      margin: 0;
-      margin-top: .25rem;
-    }
   </style>
 
-  <!-- Non-critical CSS loaded asynchronously -->
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
-  
-  <!-- Font loading detection -->
-  <script>
-    // Font loading detection
-    (function() {
-      if ('fonts' in document) {
-        // Load fonts
-        var fontPromises = [
-          document.fonts.load('400 16px "Work Sans"'),
-          document.fonts.load('700 16px "Work Sans"')
-        ];
-        
-        // Mark fonts as loaded when ready
-        Promise.all(fontPromises).then(function() {
-          document.documentElement.classList.add('fonts-loaded');
-        }).catch(function() {
-          // Fallback if fonts fail to load
-          document.documentElement.classList.add('fonts-loaded');
-        });
-      } else {
-        // Fallback for browsers without font loading API
-        setTimeout(function() {
-          document.documentElement.classList.add('fonts-loaded');
-        }, 100);
-      }
-    })();
-  </script>
-  
-  <!-- Expect above-the-fold content for View Transitions -->
-  <link rel="expect" href="#main-content" blocking="render">
 
   <!-- Analytics -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="68611632-aaf7-4a9a-8d24-e808927acf86"></script>
-  <!-- End of head -->
 </head>
