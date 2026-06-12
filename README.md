@@ -1,93 +1,65 @@
-# Rishi Raj's Blog
+# rishiraj.blog
 
-A modern, minimalist personal blog built with Jekyll. Features a clean design with light/dark theme support, card-based layouts, and optimized for performance.
+Source for [rishiraj.blog](https://rishiraj.blog) — a personal blog on marketing, tech, and building a services company.
 
-[See it live!](https://rishiraj.blog)
+Built with Jekyll, hosted on GitHub Pages.
+
+## What's here
+
+- **Blog** — posts on marketing strategy, SEO, tech opinions, and work culture (2014–present)
+- **Stuff I Use** — gear and software recommendations with a categorized card layout
+- **About** — profile page with intro section and photo
+- **Colophon** — design system documentation (theme tokens, typography)
+- **Subscribe** — RSS and WhatsApp group links
 
 ## Features
 
-- **Modern Design**: Clean, minimalist aesthetic with 2025-inspired design elements
-- **Theme System**: Light and dark mode with smooth transitions
-- **Card Layouts**: Beautiful card-based designs for content organization
-- **Responsive**: Optimized for all device sizes
-- **Performance**: Optimized images, fonts, and assets
-- **Collections**: Organized content with talks and activities collections
-- **SEO Optimized**: Sitemap, feeds, and meta tags included
+- Light/dark theme toggle with `localStorage` persistence
+- Card-based gear/stuff page layout
+- Reading progress bar and scroll-triggered fade-in animations
+- Text spotlight effect on article paragraphs
+- Magnetic nav link hover effect
+- "Discuss with AI" buttons on posts (ChatGPT, Claude, Gemini, Perplexity)
+- Compressed HTML output via `compress_html` layout
+- Structured data (WebSite, BlogPosting, BreadcrumbList)
+- RSS feed via `jekyll-feed`
+- Sitemap via `jekyll-sitemap`
+- Analytics via Umami
 
-## Tech Stack
+## Tech stack
 
-- **Jekyll**: Static site generator
-- **SCSS**: Modular CSS with custom properties for theming
-- **Liquid**: Templating language
-- **SVG Icons**: Custom icon system
-- **Google Fonts**: Source Sans 3 and Roboto Mono
+- **Jekyll** (3.9) with Kramdown and GFM
+- **SCSS** with CSS custom properties for theming
+- **Google Fonts** — Work Sans (300/400/500/700)
+- **Umami** for privacy-friendly analytics
 
 ## Development
 
-### Prerequisites
-
-- Ruby (3.0+ recommended)
-- Bundler
-
-### Setup
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/rishiraj/rishiraj-blog-machine-2025.git
-   cd rishiraj-blog-machine-2025
-   ```
-
-2. Install dependencies:
-   ```bash
-   bundle install
-   ```
-
-3. Start the development server:
-   ```bash
-   bundle exec jekyll serve --livereload --port 4000 --host 127.0.0.1
-   ```
-
-4. Open [http://127.0.0.1:4000](http://127.0.0.1:4000) in your browser
-
-### Build for Production
-
 ```bash
-bundle exec jekyll build
+bundle install
+bundle exec jekyll serve --livereload
 ```
 
-## Project Structure
+Open [http://127.0.0.1:4000](http://127.0.0.1:4000).
+
+## Project structure
 
 ```
-├── _activities/          # Activities collection
-├── _includes/           # Reusable HTML components
-├── _layouts/            # Page layout templates
-├── _pages/              # Static pages
-├── _posts/              # Blog posts
-├── _sass/               # SCSS stylesheets
-├── assets/              # Images and other assets
-└── _config.yml          # Jekyll configuration
+_posts/           Blog posts (Markdown + YAML front matter)
+_pages/           Static pages (About, Stuff, Colophon, Subscribe)
+_includes/        Reusable HTML partials (head, header, footer, favicons)
+_layouts/         Page templates (default, page, post, about, content)
+_sass/            SCSS modules (base, components, helpers, utilities, vendor)
+assets/           Images, fonts, and favicons
+css/              Main SCSS entry point
+_config.yml       Jekyll configuration
 ```
 
-## Customization
+## Credits
 
-### Adding Content
-
-- **Blog Posts**: Add markdown files to `_posts/` with YAML front matter
-- **Pages**: Add markdown files to `_pages/` with appropriate front matter
-- **Activities**: Add markdown files to `_activities/` collection
-- **Talks**: Add markdown files to `_talks/` collection
-
-### Styling
-
-- **Theme Colors**: Modify CSS variables in `_sass/utilities/_theme.scss`
-- **Components**: Edit component styles in `_sass/components/`
-- **Layout**: Adjust layout utilities in `_sass/utilities/_layout.scss`
-
-## Deployment
-
-This site is configured for GitHub Pages deployment. Simply push to the `main` branch to deploy automatically.
+Forked from [sobolevn.github.io](https://github.com/sobolevn/sobolevn.github.io) by [Nikita Sobolev](https://github.com/sobolevn). The original theme provided the foundation — layout structure, SCSS architecture, and build pipeline. Significantly modified since: custom card layouts, gear/stuff page, dark mode, reading enhancements, AI discussion buttons, structured data, and design system overhaul.
 
 ## License
 
-The source code is licensed under [MIT](LICENSE).
-The content is licensed under [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/).
+Source code is licensed under [MIT](LICENSE) (original copyright Nikita Sobolev, 2015).
+Blog content is licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
