@@ -16,12 +16,12 @@
 
 // Font families
 @mixin ff--sans-serif($font-weight: 300) {
-  font-family: inherit;
+  font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-weight: $font-weight;
 }
 
 @mixin ff--serif($font-weight: normal) {
-    font-family: inherit;
+    font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-weight: 300;
     color: var(--color-text);
 }
