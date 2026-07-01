@@ -399,4 +399,11 @@ img + .c-grid {
   }
 }
 
+/* Beats .c-article__main h3's heading styles, which otherwise win on specificity */
+.c-archive-list .c-archive-row__title {
+  font-size: 0.88rem;
+  font-weight: 400;
+  margin: 0;
+}
+
 
