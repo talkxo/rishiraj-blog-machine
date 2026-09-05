@@ -72,9 +72,44 @@ permalink: /stuff/
 <h2 class="c-archives__year">Softwares</h2>
 <p style="margin-bottom: 0.5rem;">For browsing, I use <strong>Arc</strong> — after <a href="/2026/im-looking-for-a-new-browser">a long detour through every alternative worth trying</a>, I'm back, sticking with it until it's discontinued for good, though still on the lookout for a WebKit-based alternative like <strong>Nook</strong>. My email default is <strong>Apple Mail</strong>, though I've been trying <strong>Extra</strong> — the mail app from the folks behind Pinterest — and loving it so far. <strong>Raycast</strong> has been my preferred launcher since 2020, and I love it. It's a staple, with over 50 custom settings tuned in over the years. Not upgrading to v2 until they force it.</p>
 <p style="margin-bottom: 0.5rem;">I take notes in <strong>Bear</strong> and handle to-dos with <strong>Apple Reminders</strong> — <a href="/2025/teuxdeux-to-apple-reminders">I switched over from TeuxDeux</a> not too long ago. <strong>Notion Calendar</strong> keeps my schedule for now. Notion has already shut down Mail, though, and will likely sunset Calendar too — so I may end up back on Apple Calendar soon. For AI assistants, it's <strong>Claude</strong> day-to-day — I'm out of both the ChatGPT and Perplexity ecosystems now — with <strong>Gemini</strong> for Workspace and collaboration.</p>
-<p style="margin-bottom: 0.5rem;">Typing runs through <a href="https://github.com/FuJacob/cotabby"><strong>CoTabby</strong></a> — the open-source alternative to Cotypist — on <strong>Tabby-2-mini</strong> (a compact Qwen3.5-2B build) day-to-day. For more headroom, I switch to local inference via <a href="https://github.com/drumih/turbo-fieldfare"><strong>Turbo Fieldfare</strong></a> running <strong>Gemma 4 26B-A4B</strong> — the whole stack is basically an experiment in sustainable, fully local model inference.</p>
-<p style="margin-bottom: 0.5rem;">Dictation runs through <a href="https://github.com/typewhisper/"><strong>TypeWhisper</strong></a>, built on <strong>Parakeet V3</strong> for transcription with <a href="https://superwhisper.com/blog/s1"><strong>s1-mini</strong></a> doing post-processing (via a small extension I built myself). It's basically always on now — I've gotten lazy and would rather dictate than type, so that pair runs constantly, with CoTabby taking over whenever I do type. For Hindi, Hinglish, and transliterated Hindi messaging on iPhone, I use Sarvam's <a href="https://www.sarvam.ai/blogs/asr"><strong>Saaras v3</strong></a> and I'm loving it too.</p>
-<p style="margin-bottom: 3rem;">I've tried a stack of dictation apps at this point. I keep coming back to TypeWhisper not just because it's open-source, but for its workflow capabilities, extensions, and an active open-source scene that ships updates and fixes more often than the rest of the OSS dictation crowd — plus features most of them don't have. I still have a soft spot for how simple <strong>Hex</strong> was (retired now), and <a href="https://github.com/cjpais/Handy"><strong>Handy</strong></a> is solid too. What I won't do is pay a subscription for dictation apps like Superwhisper or Whispr Flow — they're not local, the privacy trade-off isn't worth it, and cloud dictation eats far too much of your machine's resources for what it does. If you need online inference, run Whisper on <strong>Groq</strong> instead. That said, credit where it's due — Superwhisper putting out <strong>s1-mini</strong> as an open-source model has been a big help for post-processing.</p>
+I'm always dictating over typing these days, so here's the model stack behind both:
+
+<div class="c-stack-list">
+  <div class="c-stack-row">
+    <div class="c-stack-row__icon">{% include icon.html name="type" %}</div>
+    <div class="c-stack-row__content">
+      <span class="c-stack-row__use">Typing — day-to-day</span>
+      <span class="c-stack-row__app"><a href="https://github.com/FuJacob/cotabby">CoTabby</a></span>
+    </div>
+    <span class="c-stack-row__badge">Tabby-2-mini (Qwen3.5-2B)</span>
+  </div>
+  <div class="c-stack-row">
+    <div class="c-stack-row__icon">{% include icon.html name="server" %}</div>
+    <div class="c-stack-row__content">
+      <span class="c-stack-row__use">General-purpose local backend</span>
+      <span class="c-stack-row__app"><a href="https://github.com/drumih/turbo-fieldfare">Turbo Fieldfare</a></span>
+    </div>
+    <span class="c-stack-row__badge">Gemma 4 26B-A4B</span>
+  </div>
+  <div class="c-stack-row">
+    <div class="c-stack-row__icon">{% include icon.html name="mic" %}</div>
+    <div class="c-stack-row__content">
+      <span class="c-stack-row__use">Dictation</span>
+      <span class="c-stack-row__app"><a href="https://github.com/typewhisper/">TypeWhisper</a> — transcription, plus post-processing via a small extension I built</span>
+    </div>
+    <span class="c-stack-row__badge">Parakeet V3 + <a href="https://superwhisper.com/blog/s1">s1-mini</a></span>
+  </div>
+  <div class="c-stack-row">
+    <div class="c-stack-row__icon">{% include icon.html name="device" %}</div>
+    <div class="c-stack-row__content">
+      <span class="c-stack-row__use">Hindi / Hinglish dictation (iPhone)</span>
+      <span class="c-stack-row__app">Sarvam</span>
+    </div>
+    <span class="c-stack-row__badge"><a href="https://www.sarvam.ai/blogs/asr">Saaras v3</a></span>
+  </div>
+</div>
+
+<p style="margin-top: 1rem; margin-bottom: 3rem;">CoTabby's the open-source alternative to Cotypist; Turbo Fieldfare runs alongside it as a general-purpose local backend, ready to power other local apps when they need it — basically an experiment in sustainable, fully local model inference. On the dictation side, I keep coming back to TypeWhisper not just because it's open-source, but for its workflow capabilities, extensions, and an active open-source scene that ships updates and fixes more often than the rest of the OSS dictation crowd. I still have a soft spot for how simple <strong>Hex</strong> was (retired now), and <a href="https://github.com/cjpais/Handy"><strong>Handy</strong></a> is solid too. What I won't do is pay a subscription for dictation apps like Superwhisper or Whispr Flow — they're not local, the privacy trade-off isn't worth it, and cloud dictation eats far too much of your machine's resources for what it does. If you need online inference, run Whisper on <strong>Groq</strong> instead. That said, credit where it's due — Superwhisper putting out s1-mini as an open-source model has been a big help.</p>
 
 <hr>
 

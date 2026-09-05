@@ -406,4 +406,104 @@ img + .c-grid {
   margin: 0;
 }
 
+/* ==========================================================================
+   Model Stack List (EDC icon/label pattern + Archived badge pattern)
+   ========================================================================== */
+
+.c-stack-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin: 1.5rem 0 3rem;
+}
+
+.c-stack-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateX(4px);
+
+    .c-stack-row__icon {
+      background: rgba(0, 163, 108, 0.12);
+      color: var(--color-accent);
+    }
+
+    .c-stack-row__badge {
+      background-color: rgba(0, 163, 108, 0.1);
+      color: var(--color-accent);
+      border-color: rgba(0, 163, 108, 0.15);
+    }
+  }
+
+  &__icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: rgba(0, 163, 108, 0.05);
+    color: var(--color-muted);
+    flex: 0 0 auto;
+    transition: background 0.2s ease, color 0.2s ease;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    min-width: 0;
+  }
+
+  &__use {
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-muted);
+    line-height: 1.2;
+  }
+
+  &__app {
+    font-size: 0.92rem;
+    font-weight: 400;
+    color: var(--color-ink);
+    line-height: 1.3;
+  }
+
+  &__badge {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--color-muted);
+    background-color: rgba(0, 0, 0, 0.03);
+    border: 1px solid transparent;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex: 0 0 auto;
+    transition: all 0.2s ease;
+
+    html[data-theme="dark"] & {
+      background-color: rgba(255, 255, 255, 0.04);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
 
