@@ -16,7 +16,7 @@ permalink: /stuff/
 
 <div class="c-setup-summary" style="background: rgba(0, 163, 108, 0.08); border-radius: 12px; padding: 2rem; margin-bottom: 3rem;">
   <h3 style="margin-top: 0 !important; margin-bottom: 1.25rem !important; color: var(--color-accent) !important; font-weight: 500 !important;">My current setup</h3>
-  <p style="margin-bottom: 0;">I work on a <strong>LG UltraFine Display</strong> with my <strong>Apple Macbook Pro 14" M4 Max</strong>, using a <strong>Logitech MX Master 2S</strong> mouse on a <strong>Jin Office Electric Standing Desk</strong>. My chair is the <strong>Featherlite Liberate</strong> and the desk is a self-assembled electric standing desk, lit by an <strong>Ikea TÅGARP</strong> lamp.</p>
+  <p style="margin-bottom: 0;">I work on an <strong>LG UltraFine Display</strong> with my <strong>Apple MacBook Pro 14" M4 Max</strong>, using a <strong>Logitech MX Master 2S</strong> mouse on a self-assembled <strong>Jin Office Electric Standing Desk</strong>. My chair is the <strong>Featherlite Liberate</strong>, lit by an <strong>Ikea TÅGARP</strong> lamp.</p>
 </div>
 
 <hr>
@@ -70,9 +70,15 @@ permalink: /stuff/
 <hr>
 
 <h2 class="c-archives__year">Softwares</h2>
-<p style="margin-bottom: 0.5rem;">For browsing, I use <strong>Arc</strong> — <a href="/2026/im-looking-for-a-new-browser">had my trip around all the alternatives</a> and I'm back, settling with it until it dies entirely. On a lookout for a WebKit alternative like <strong>Nook</strong>. My email on Mac is <strong>Apple Mail</strong>. Everything is launched via <strong>Raycast</strong>.</p>
-<p style="margin-bottom: 0.5rem;">I take notes in <strong>Bear</strong> and handle to-dos with <strong>Apple Reminders</strong> — <a href="/2025/teuxdeux-to-apple-reminders">I switched over from TeuxDeux</a> not too long ago. <strong>Notion Calendar</strong> keeps the schedule in check.</p>
-<p style="margin-bottom: 3rem;">Currently experimenting with local LLMs through <strong>TypeWhisper</strong> (replaced Hex) and <strong>Cotabby</strong>. Model of choice is <strong>Gemma4 E4B</strong>. For AI assistants, it's <strong>Claude</strong> and <strong>Perplexity</strong> day-to-day, <strong>Gemini</strong> for Workspace and collaboration — completely out of the ChatGPT ecosystem now.</p>
+<p style="margin-bottom: 0.5rem;">For browsing, I use <strong>Arc</strong> — after <a href="/2026/im-looking-for-a-new-browser">a long detour through every alternative worth trying</a>, I'm back, settling for it until it dies entirely, though still on the lookout for a WebKit-based alternative like <strong>Nook</strong>. My email default is <strong>Apple Mail</strong>, though I've been trying <strong>Extra</strong> — the mail app from the folks behind Pinterest — and loving it so far. Everything gets launched through <strong>Raycast</strong>.</p>
+<p style="margin-bottom: 3rem;">I take notes in <strong>Bear</strong> and handle to-dos with <strong>Apple Reminders</strong> — <a href="/2025/teuxdeux-to-apple-reminders">I switched over from TeuxDeux</a> not too long ago. <strong>Notion Calendar</strong> keeps my schedule for now, though Notion has shut down Mail and will likely sunset Calendar too, so I may end up back on Apple Calendar soon. For AI assistants, it's <strong>Claude</strong> day-to-day — I'm out of both the ChatGPT and Perplexity ecosystems now — with <strong>Gemini</strong> for Workspace and collaboration.</p>
+
+<hr>
+
+<h2 class="c-archives__year">Local LLM Stack</h2>
+<p style="margin-bottom: 0.5rem;">Typing runs through <a href="https://github.com/FuJacob/cotabby"><strong>CoTabby</strong></a> — the open-source alternative to Cotypist — on <strong>Tabby-2-mini</strong> (a compact Qwen3.5-2B build) day-to-day, or local inference via <a href="https://github.com/drumih/turbo-fieldfare"><strong>Turbo Fieldfare</strong></a> running <strong>Gemma 4 26B-A4B</strong> when I want more headroom, an experiment in sustainable, fully local LLM inference.</p>
+<p style="margin-bottom: 0.5rem;">Dictation runs through <a href="https://github.com/typewhisper/"><strong>TypeWhisper</strong></a>, built on <strong>Parakeet V3</strong> for transcription with <a href="https://superwhisper.com/blog/s1"><strong>s1-mini</strong></a> doing post-processing (via a small extension I built myself). It's basically always on now — I've gotten lazy and would rather dictate than type, so that pair runs constantly, with CoTabby taking over whenever I do type. For Hindi, Hinglish, and transliterated Hindi messaging on iPhone, I use Sarvam's <a href="https://www.sarvam.ai/blogs/asr"><strong>Saaras v3</strong></a> and I'm loving it too.</p>
+<p style="margin-bottom: 3rem;">I've tried a stack of dictation apps at this point. I keep coming back to TypeWhisper for being open-source, and I still have a soft spot for how simple <strong>Hex</strong> was (retired now). <a href="https://github.com/cjpais/Handy"><strong>Handy</strong></a> is solid too. What I won't do is pay a subscription for dictation apps like <strong>Superwhisper</strong> or <strong>Whispr Flow</strong> — they're not local, the privacy trade-off isn't worth it, and cloud dictation eats far too much of your machine's resources for what it does. If you need online inference, run Whisper on <strong>Groq</strong> instead.</p>
 
 <hr>
 
@@ -109,7 +115,7 @@ permalink: /stuff/
   <article class="c-archive-row">
     <div class="c-archive-row__left">
       <div class="c-archive-row__icon">{% include icon.html name="laptop" %}</div>
-      <h3 class="c-archive-row__title">Macbook Pro 13" (Intel)</h3>
+      <h3 class="c-archive-row__title">MacBook Pro 13" (Intel)</h3>
     </div>
     <span class="c-archive-row__badge">2025</span>
   </article>
@@ -193,7 +199,7 @@ permalink: /stuff/
   <article class="c-archive-row">
     <div class="c-archive-row__left">
       <div class="c-archive-row__icon">{% include icon.html name="laptop" %}</div>
-      <h3 class="c-archive-row__title">Macbook Air 13" (2015)</h3>
+      <h3 class="c-archive-row__title">MacBook Air 13" (2015)</h3>
     </div>
     <span class="c-archive-row__badge">2019</span>
   </article>
@@ -214,7 +220,7 @@ permalink: /stuff/
   <article class="c-archive-row">
     <div class="c-archive-row__left">
       <div class="c-archive-row__icon">{% include icon.html name="laptop" %}</div>
-      <h3 class="c-archive-row__title">Macbook Pro 13" (2011)</h3>
+      <h3 class="c-archive-row__title">MacBook Pro 13" (2011)</h3>
     </div>
     <span class="c-archive-row__badge">2015</span>
   </article>
