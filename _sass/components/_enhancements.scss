@@ -95,6 +95,13 @@
   background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: 999px;
+
+  @media screen and (max-width: 30rem) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    border-radius: 12px;
+  }
 }
 
 .c-ai-intent {
@@ -117,6 +124,13 @@
   &.is-active {
     color: #ffffff;
     background: var(--color-accent);
+  }
+
+  @media screen and (max-width: 30rem) {
+    padding: 0.45rem 0.25rem;
+    font-size: 0.78rem;
+    text-align: center;
+    white-space: normal;
   }
 }
 
